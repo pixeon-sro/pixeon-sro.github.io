@@ -15,6 +15,9 @@
       grist.onRecord(function(record) {
         document.getElementById('dielo').src = record.Dielo;
       });
+      grist.onRecord(function(record) {
+        document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+      });
     </script>
     <a href="javascript:window.print()">Print</a>
   </body>
