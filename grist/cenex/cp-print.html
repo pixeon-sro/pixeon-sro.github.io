@@ -8,11 +8,15 @@
   <body>
     <h1>Cenová ponuka</h1>
     <pre id="readout">Waiting for data...</pre>
+    <div>
+      <strong>Dielo:</strong><span id="dielo"></span>
+    </div>
     <script>
-      grist.ready();
+      grist.ready( requiredAccess: 'read table' );
       grist.onRecord(function(record) {
-        document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
+        document.getElementById('dielo').src = record.Dielo;
       });
     </script>
+    <a href="javascript:window.print()">Print</a>
   </body>
 </html>
