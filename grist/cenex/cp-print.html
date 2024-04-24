@@ -11,7 +11,7 @@
       <strong>Dielo:</strong><span id="dielo"></span>
     </div>
     <script>
-      grist.ready({requiredAccess: 'read table'});
+      grist.ready();
       grist.onRecord(function(record) {
         document.getElementById('dielo').src = record.Dielo;
       });
