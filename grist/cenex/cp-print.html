@@ -8,18 +8,19 @@
   <body>
     <h1>Cenová ponuka</h1>
     <hr/>
-    <h2><strong>Dielo: </strong><pre id="dielo"></pre></h2>
-    <h2><strong>Investor</strong><pre id="zakaznik"></pre></h2>
+    <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
+    <h2><strong>Investor</strong><span id="zakaznik"></span></h2>
     <h2>Kontaktné údaje</h2>
     <div>
-      <strong>telefón: </strong><pre id="telefon"></pre><br/>
-      <strong>e-mail:</strong><pre id="mail"></pre>
+      <strong>telefón: </strong><span id="telefon"></span><br/>
+      <strong>e-mail:</strong><span id="mail"></span>
     </div>
     <hr/>
     <div>
-      <strong>Dátum vyhotovenia CP</strong><pre id="datum-vyhotovenia"></pre>
-      <strong>Dátum platnosti CP</strong><pre id="datum-platnosti"></pre>
+      <strong>Dátum vyhotovenia CP</strong><span id="datum-vyhotovenia"></span><br/>
+      <strong>Dátum platnosti CP</strong><span id="datum-platnosti"></span>
     </div>
+    <hr/>
     <pre id="readout">Waiting for data...</pre>
     <script>
       // grist pozaduje pristu na čítanie tabulky
@@ -36,22 +37,19 @@
       grist.onRecord(function(record) {
         document.getElementById("telefon").innerText=record.Telefon;
       });
-      // meno zakaznika
+      // mail na zakaznika
       grist.onRecord(function(record) {
         document.getElementById("mail").innerText=record.Mail;
       });
-      // meno zakaznika
+      // datum vyhotovenia CP
       grist.onRecord(function(record) {
-        document.getElementById("datum-vyhotovenia").innerText=record.Datum-vyhotovenia-ponuky;
+        document.getElementById("datum-vyhotovenia").innerText=record.Datum_vyhotovenia_ponuky;
       });
-      // meno zakaznika
+      // datum platnosti CP
       grist.onRecord(function(record) {
-        document.getElementById("datum-platnosti").innerText=record.Datum-platnosti-ponuky;
+        document.getElementById("datum-platnosti").innerText=record.Datum_platnosti_ponuky;
       });
-      // meno zakaznika
-      grist.onRecord(function(record) {
-        document.getElementById("zakaznik").innerText=record.Zakaznik;
-      });
+      // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
       grist.onRecord(function(record) {
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
       });
