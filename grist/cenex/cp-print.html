@@ -9,16 +9,16 @@
     <h1>Cenová ponuka</h1>
     <hr/>
     <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
-    <h2><strong>Investor</strong><span id="zakaznik"></span></h2>
-    <h2>Kontaktné údaje</h2>
+    <h2><strong>Investor: </strong><span id="zakaznik"></span></h2>
+    <h3>Kontaktné údaje</h3>
     <div>
       <strong>telefón: </strong><span id="telefon"></span><br/>
-      <strong>e-mail:</strong><span id="mail"></span>
+      <strong>e-mail: </strong><span id="mail"></span>
     </div>
     <hr/>
     <div>
-      <strong>Dátum vyhotovenia CP</strong><span id="datum-vyhotovenia"></span><br/>
-      <strong>Dátum platnosti CP</strong><span id="datum-platnosti"></span>
+      <strong>Dátum vyhotovenia CP: </strong><span id="datum-vyhotovenia"></span><br/>
+      <strong>Dátum platnosti CP: </strong><span id="datum-platnosti"></span>
     </div>
     
     <!-- vynutene zalomenie strany pri tlaci  -->
@@ -46,14 +46,14 @@
       });
       // datum vyhotovenia CP
       grist.onRecord(function(record) {
-        document.getElementById("datum-vyhotovenia").innerText=record.Datum_vyhotovenia_ponuky;
+        document.getElementById("datum-vyhotovenia").innerText=record.Datum_vytvorenia_ponuky;
       });
       // datum platnosti CP
       grist.onRecord(function(record) {
         document.getElementById("datum-platnosti").innerText=record.Datum_platnosti_ponuky;
       });
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
-      grist.onRecord(function(record) {
+      grist.onRecords(function(record) {
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
       });
     </script>
