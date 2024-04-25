@@ -9,7 +9,12 @@
     <h1>Cenová ponuka</h1>
     <pre id="readout">Waiting for data...</pre>
     <script>
+      // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
+      // 
+      grist.onOptions(function(options, interaction) {
+        console.log(interaction.access_level);
+      });
       //grist.onRecord(function(record) {
         //document.getElementById('dielo').src = record.Dielo;
       //});
