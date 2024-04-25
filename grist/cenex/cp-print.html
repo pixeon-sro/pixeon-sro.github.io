@@ -8,13 +8,13 @@
   <body>
     <h1>Cenová ponuka v.01</h1>
     <pre id="readout">Waiting for data...</pre>
-    <strong>Dielo: </strong><span id="dielo">názov stavby</span>
+    <strong>Dielo: </strong><span id="dielo">názo</span>
     <script>
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       //
       grist.onRecord(function(record) {
-        document.getElementById('dielo').src = record.Dielo;
+        document.getElementById("dielo").innerText=record.Dielo;
       });
       grist.onRecord(function(record) {
         document.getElementById('readout').innerHTML = JSON.stringify(record, null, 2);
