@@ -54,8 +54,7 @@
       });
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
       grist.onRecord(function(record) {
-        document.getElementById('readout').innerHTML=record
-        //JSON.stringify(record, null, 2);
+        document.getElementById('readout').innerHTML=record.JSON.stringify(record, null, 2);
       });
       console.log("***", JSON.stringify(record.Vykaz_vymer_Material), "***");
     </script>
