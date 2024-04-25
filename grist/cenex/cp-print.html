@@ -54,10 +54,10 @@
       });
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
       grist.onRecord(function(record) {
-        document.getElementById('readout').innerHTML=record.Vykaz_vymer_Material.etapa
+        document.getElementById('readout').innerHTML=record
         //JSON.stringify(record, null, 2);
       });
-      console.log("******ahaho******")
+      console.log("***", JSON.stringify(record.Vykaz_vymer_Material), "***");
     </script>
     <a href="javascript:window.print()">Print</a>
   </body>
