@@ -24,6 +24,8 @@
     <!-- vynutene zalomenie strany pri tlaci  -->
     <div style="break-after:page"></div>
     
+    <pre id="dev">Waiting for data...</pre>
+    
     <pre id="readout">Waiting for data...</pre>
     <script>
       // grist pozaduje pristu na čítanie tabulky
@@ -52,11 +54,17 @@
       grist.onRecord(function(record) {
         document.getElementById("datum-platnosti").innerText=record.Datum_platnosti_ponuky;
       });
+      // vytvorenie sád pre material, pracu, pridruzene naklady, celkovu cenu
+      grist.onRecord(function(record) {
+        set KonecnaCena = record.References.Konecna_cena;
+        document.getElementById('dev')innerHTML=KonecnaCena;
+      });
+      
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
       grist.onRecord(function(record) {
         document.getElementById('readout').innerHTML=JSON.stringify(record, null, 2);
       });
-      console.log("***", row.References, "***");
+      
     </script>
     <a href="javascript:window.print()">Print</a>
   </body>
