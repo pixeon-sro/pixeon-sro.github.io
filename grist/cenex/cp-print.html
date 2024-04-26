@@ -56,8 +56,8 @@
       });
       // vytvorenie sád pre material, pracu, pridruzene naklady, celkovu cenu
       grist.onRecord(function(record) {
-        set KonecnaCena = record.References.Konecna_cena;
-        document.getElementById('dev')innerHTML=KonecnaCena;
+        //set KonecnaCena = record.References.Konecna_cena;
+        document.getElementById('dev')innerHTML=record.References.Konecna_Cena;
       });
       
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
