@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>onRecord</title>
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="cp.js"></script>
   </head>
   <body>
     <h1>Cenová ponuka</h1>
@@ -57,10 +58,10 @@
       // vytvorenie sád pre material, pracu, pridruzene naklady, celkovu cenu
       grist.onRecord(function(record) {
         //prevedenie json na jsObject
-        let cenexObj = JSON.parse(record);
+        //let cenexObj = JSON.parse(record;
         //set KonecnaCena = record.References.Konecna_cena;
         //document.getElementById('dev').innerText=cenexOBJ;
-        console.log(cenexObj);
+        console.log(record);
       });
       
       // NUTNE ZAKOMENTOVAT - JSON DATA VIEW
