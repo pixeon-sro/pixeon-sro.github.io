@@ -1,3 +1,8 @@
+body {
+    background: white;
+    color: black;
+    font-size: 1em;
+}
 h1 {
     background: #009B68;
     color: white;
@@ -5,7 +10,8 @@ h1 {
 }
 
 table {
-    border: solid black 1px;
+    border: solid black 2px;
+    margin: auto 1em;
 }
 th {
     border: solid black 2px;
@@ -14,6 +20,6 @@ th {
     padding: 0.5em;
 }
 td {
-    border: solid black 1px;
+    border: solid black 2px;
     padding: 0.5em;
 }
