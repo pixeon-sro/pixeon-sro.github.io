@@ -3,13 +3,13 @@
     body {
         background: white;
         color: black;
-        font-size: 10pt !important;
+        font-size: 20pt !important;
     }
     h1 {
         background: #009B68;
         color: white;
         padding: 0.7em;
-        font-size: 15pt !important;
+        font-size: 24pt !important;
     }
 
     table {

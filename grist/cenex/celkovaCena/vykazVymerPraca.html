@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <title>Výkaz výmer materiál</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link href="./stylePrinter.css" rel="stylesheet" media="print" />
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="./vykazVymerMaterial.js"></script>
+  </head>
+  <body>
+    <h1>Výkaz výmer materiál</h1>
+    <table id="dataTable">
+      <tr>
+        <th>Etapa</th>
+        <th>Materiál</th>
+        <th>Jednotka</th>
+        <th>Jednotková cena</th>
+        <th>Množstvo</th>
+        <th>Celková cena</th>
+      </tr>
+    </table>
+    <!-- vynutene zalomenie strany pri tlaci  -->
+    <div style="break-after:page"></div>
+    
+    <script>
+      
+      function dataToTable(data) {
+        
+        table = document.getElementById("dataTable");
+        
+        data.forEach(function(row) {
+          tr = table.insertRow(-1);
+          
+          td1 = tr.insertCell(0);
+          td1.innerHTML = row.etapa;
+          td2 = tr.insertCell(1);
+          td2.innerHTML = row.material;
+          td3 = tr.insertCell(2);
+          td3.innerHTML = row.jednotka;
+          td4 = tr.insertCell(3);
+          td4.innerHTML = row.jednotkova_cena;
+          td5 = tr.insertCell(4);
+          td5.innerHTML = row.mnozstvo;
+          td6 = tr.insertCell(5);
+          td6.innerHTML = row.celkova_cena;
+        });
+      };
+      
+      // grist pozaduje pristu na čítanie tabulky
+      grist.ready({ requiredAccess: 'read table' });
+      // nacitanie tabulky grist
+      grist.onRecords(function(records) {
+        dataToTable(records);
+      });
+    </script>
+    <button onclick="window.print()">Tlačiť</button>
+  </body>
+</html>
