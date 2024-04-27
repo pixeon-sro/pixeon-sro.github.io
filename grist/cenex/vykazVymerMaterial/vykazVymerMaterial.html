@@ -21,7 +21,7 @@
       
       // develop
       grist.onRecords(function(records) {
-        document.getElementById('dev').innerText=records;
+        document.getElementById('dev').innerText=JSON.stringify(records);
         console.log(records);
       });
     </script>
