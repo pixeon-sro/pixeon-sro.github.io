@@ -23,13 +23,12 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 009")
+      console.log("*** ver: 010")
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
-      grist.onRecords(function(records){
-      });
+      grist.onRecords(dataToTable);
       
       function dataToTable(data) {
         if (data === null) {
@@ -57,8 +56,6 @@
           });
         }
       };
-
-      dataToTable(records);
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
