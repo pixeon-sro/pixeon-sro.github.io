@@ -10,7 +10,6 @@
   </head>
   <body>
     <h1>Výkaz výmer materiál</h1>
-    <hr/>
     <table id="dataTable">
       <tr>
         <th>Etapa</th>
@@ -54,7 +53,7 @@
       grist.onRecords(function(records) {
         dataToTable(records);
       });
-      window.print()
     </script>
+    <button onclick="window.print()">Tlačiť</button>
   </body>
 </html>

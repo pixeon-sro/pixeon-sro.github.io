@@ -23,3 +23,16 @@ td {
     border: solid black 2px;
     padding: 0.5em;
 }
+
+button {
+    background: #009B68;
+    color: white;
+    padding: 0.3em;
+    margin: 1em;
+}
+
+@media print {
+  button {
+    display: none;
+  }
+}
