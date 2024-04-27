@@ -28,7 +28,8 @@
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
-      grist.onRecords(function(data));
+      grist.onRecords(function(data){
+      });
       
       function dataToTable(data) {
         if (data === null) {
