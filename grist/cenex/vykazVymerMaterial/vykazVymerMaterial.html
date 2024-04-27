@@ -23,43 +23,47 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 012")
+      console.log("*** ver: 013")
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
       grist.onRecords(function(records){
-        var dataRec = records;
-      })(dataRec);
+        dataToTable(records);
+      });
       
       function dataToTable(data) {
         if (data === null) {
           throw new Error("No data");
         }
         else {
-          table = document.getElementById("dataTable");
+          var table = document.getElementById("dataTable");
           
           data.forEach(function(row) {
             
-            tr = table.insertRow(-1);
+            var tr = table.insertRow(-1);
             
-            td1 = tr.insertCell(0);
+            var td1 = tr.insertCell(0);
             td1.innerHTML = row.etapa;
-            td2 = tr.insertCell(1);
+            
+            var td2 = tr.insertCell(1);
             td2.innerHTML = row.material;
-            td3 = tr.insertCell(2);
+            
+            var td3 = tr.insertCell(2);
             td3.innerHTML = row.jednotka;
-            td4 = tr.insertCell(3);
+            
+            var td4 = tr.insertCell(3);
             td4.innerHTML = row.jednotkova_cena;
-            td5 = tr.insertCell(4);
+            
+            var td5 = tr.insertCell(4);
             td5.innerHTML = row.mnozstvo;
-            td6 = tr.insertCell(5);
+            
+            var td6 = tr.insertCell(5);
             td6.innerHTML = row.celkova_cena;
           });
         }
       };
 
-      dataToTable(dataRec);
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
