@@ -20,9 +20,9 @@
       grist.ready({ requiredAccess: 'read table' });
       
       // develop
-      grist.onRecord(function(record) {
-        document.getElementById('dev').innerText=record;
-        console.log(record);
+      grist.onRecords(function(records) {
+        document.getElementById('dev').innerText=records;
+        console.log(records);
       });
     </script>
     <a href="javascript:window.print()">Print</a>
