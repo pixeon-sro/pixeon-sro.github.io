@@ -28,7 +28,7 @@
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
-      grist.onRecords(function(data){
+      grist.onRecords(function(records){
       });
       
       function dataToTable(data) {
@@ -58,7 +58,7 @@
         }
       };
 
-      dataToTable();
+      dataToTable(records);
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
