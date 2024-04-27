@@ -1,0 +1,19 @@
+h1 {
+    background: #009B68;
+    color: white;
+    padding: 0.7em;
+}
+
+table {
+    border: solid black 1px;
+}
+th {
+    border: solid black 2px;
+    background: #4A4A5D;
+    color: white;
+    padding: 0.5em;
+}
+td {
+    border: solid black 1px;
+    padding: 0.5em;
+}
