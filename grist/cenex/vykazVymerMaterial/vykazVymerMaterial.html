@@ -23,7 +23,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 013")
+      console.log("*** ver: 014")
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
@@ -39,7 +39,9 @@
         else {
           var table = document.getElementById("dataTable");
           
+            console.log(data);
           data.forEach(function(row) {
+            console.log(row);
             console.log("**** zapis");  
             var tr = table.insertRow(-1);
             
