@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>onRecord</title>
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="cp.js"></script>
+  </head>
+  <body>
+    <h1>Výkaz výmer materiál</h1>
+    
+    
+    <pre id="dev">Waiting for data...</pre>
+    
+    <!-- vynutene zalomenie strany pri tlaci  -->
+    <div style="break-after:page"></div>
+    
+    <script>
+      // grist pozaduje pristu na čítanie tabulky
+      grist.ready({ requiredAccess: 'read table' });
+      
+      // develop
+      grist.onRecord(function(record) {
+        document.getElementById('dev').innerText=record;
+        console.log(record);
+      });
+    </script>
+    <a href="javascript:window.print()">Print</a>
+  </body>
+</html>
