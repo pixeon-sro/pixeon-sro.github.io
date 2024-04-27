@@ -51,6 +51,7 @@
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
       grist.onRecords(function(records) {
+        console.log(records);
         dataToTable(records);
       });
     </script>
