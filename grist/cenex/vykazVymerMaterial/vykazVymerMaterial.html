@@ -23,14 +23,14 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 011")
+      console.log("*** ver: 012")
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
       grist.onRecords(function(records){
         var dataRec = records;
-      });
+      })(dataRec);
       
       function dataToTable(data) {
         if (data === null) {
