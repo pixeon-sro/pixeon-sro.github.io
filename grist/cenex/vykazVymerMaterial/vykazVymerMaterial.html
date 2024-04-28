@@ -27,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 033");
+      console.log("*** ver: 035");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -74,17 +74,13 @@
         }
       };
 
-      let loadData;
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
-      grist.onRecords((records) => {
+      var loadData = grist.onRecords(function(records) {
         console.log(typeof(records));
-        if (loadData) { loadData(record); }
-        myDisplay(loadData);
       });
-      
       
     </script>
     
