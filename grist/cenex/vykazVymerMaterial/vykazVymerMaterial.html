@@ -80,6 +80,7 @@
       
       // nacitanie tabulky grist
       grist.onRecords((records) => {
+        console.log(typeof(records));
         if (loadData) { loadData(record); }
         myDisplay(loadData);
       });
