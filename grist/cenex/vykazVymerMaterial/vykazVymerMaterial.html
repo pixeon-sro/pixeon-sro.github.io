@@ -23,12 +23,12 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 018")
+      console.log("*** ver: 019")
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
       // nacitanie tabulky grist
-      grist.docApi.fetchTable(VykazVymerMaterial).then(
+      grist.docApi.fetchTable("VykazVymerMaterial").then(
         function(value){dataToTable(value)};
         function(error){console.log(error)}; 
       );
