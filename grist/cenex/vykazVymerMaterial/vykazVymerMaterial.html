@@ -10,7 +10,9 @@
   </head>
   <body>
     <h1>Výkaz výmer materiál</h1>
+    
     <pre id="myDisplay"></pre>
+    
     <table id="dataTable">
       <tr>
         <th>Etapa</th>
@@ -25,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 021");
+      console.log("*** ver: 022");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -69,8 +71,7 @@
             td5.innerHTML = row.mnozstvo;
             
             var td6 = tr.insertCell(5);
-            td6 = td6.toFixed(2);
-            td6.innerHTML = row.celkova_cena;
+            td6.innerHTML = row.celkova_cena.toFixed(2);
           });
         }
       };
