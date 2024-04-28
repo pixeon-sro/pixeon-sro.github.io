@@ -27,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 022");
+      console.log("*** ver: 023");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -38,7 +38,7 @@
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
-      grist.onRecord(function(records) {
+      grist.onRecords(function(records) {
         document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2);
       });
 
