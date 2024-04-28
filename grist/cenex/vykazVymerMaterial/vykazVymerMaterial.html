@@ -6,6 +6,7 @@
     <link href="./style.css" rel="stylesheet" />
     <link href="./stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="./vzorka.js"></script>
   </head>
   <body>
     <h1>Výkaz výmer materiál</h1>
@@ -24,20 +25,24 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 020")
+      console.log("*** ver: 020");
 
+      // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
         document.getElementById("demo").innerText = zobraz;
       }
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
+      
       // nacitanie tabulky grist
-      grist.docApi.fetchTable("VykazVymerMaterial").then(
-        function(value){myDisplay(value)};
-        function(error){console.log(error)}; 
-      );
+      //grist.docApi.fetchTable("VykazVymerMaterial").then(
+        //function(value){myDisplay(value)};
+        //function(error){console.log(error)}; 
+      //);
       //console.log(dataFromTable);
+
+      myDisplay(vzorka);
       
       function dataToTable(data) {
         if (data === null) {
