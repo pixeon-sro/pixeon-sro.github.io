@@ -28,10 +28,13 @@
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
-      let dataFromTable = grist.docApi.fetchTable("VykazVymerMaterial");
-      console.log(dataFromTable);
+      grist.docApi.fetchTable(
+        function(value){dataToTable(value)};
+        function(error){console.log(error)}; 
+      );
+      //console.log(dataFromTable);
       
-      function ddataToTable(data) {
+      function dataToTable(data) {
         if (data === null) {
           throw new Error("No data");
         }
