@@ -36,8 +36,8 @@
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
-      grist.onRecord(function(record) {
-        document.getElementById('myDisplay').innerHTML = JSON.stringify(record, null, 2);
+      grist.onRecord(function(records) {
+        document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2);
       });
 
       //myDisplay(vzorka);
