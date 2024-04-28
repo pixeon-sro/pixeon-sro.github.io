@@ -11,7 +11,7 @@
   <body>
     <h1>Výkaz výmer materiál</h1>
     
-    <pre id="myDisplay"></pre>
+    <pre id="myDisplay" style="background:red"></pre>
     
     <table id="dataTable">
       <tr>
@@ -27,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 032");
+      console.log("*** ver: 033");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -81,9 +81,9 @@
       // nacitanie tabulky grist
       grist.onRecords((records) => {
         if (loadData) { loadData(record); }
+        myDisplay(loadData);
       });
       
-      myDisplay(loadData);
       
     </script>
     
