@@ -26,9 +26,9 @@
       console.log("*** ver: 018")
       
       // grist pozaduje pristu na čítanie tabulky
-      grist.ready({ requiredAccess: 'read table' });
+      grist.ready({ requiredAccess: 'full' });
       // nacitanie tabulky grist
-      grist.docApi.fetchTable(
+      grist.docApi.fetchTable(VykazVymerMaterial).then(
         function(value){dataToTable(value)};
         function(error){console.log(error)}; 
       );
