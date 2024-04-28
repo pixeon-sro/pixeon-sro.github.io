@@ -27,21 +27,12 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 024");
+      console.log("*** ver: 025");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
-      
-      // grist pozaduje pristu na čítanie tabulky
-      grist.ready({ requiredAccess: 'full' });
-      
-      // nacitanie tabulky grist
-      grist.onRecords(function(records) {
-        //document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2);
-        showTable(records);
-      });
 
       //myDisplay(vzorka);
       
@@ -76,6 +67,15 @@
           });
         }
       };
+      
+      // grist pozaduje pristu na čítanie tabulky
+      grist.ready({ requiredAccess: 'full' });
+      
+      // nacitanie tabulky grist
+      grist.onRecords(function(records) {
+        //document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2);
+        showTable(records);
+      });
 
     </script>
     
