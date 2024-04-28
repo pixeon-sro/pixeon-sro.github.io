@@ -27,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 037");
+      console.log("*** ver: 038");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -78,11 +78,11 @@
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
-      var loadData = grist.onRecords(function(records) {
+      grist.onRecords(function(records) {
         console.log(typeof(records));
+        console.log(records);
       });
       
-        console.log(typeof(loadData));
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
