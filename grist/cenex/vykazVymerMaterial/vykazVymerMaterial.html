@@ -9,6 +9,7 @@
   </head>
   <body>
     <h1>Výkaz výmer materiál</h1>
+    <pre id="myDisplay"></pre>
     <table id="dataTable">
       <tr>
         <th>Etapa</th>
@@ -23,13 +24,17 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 019")
+      console.log("*** ver: 020")
+
+      function myDisplay(zobraz) {
+        document.getElementById("demo").innerText = zobraz;
+      }
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
       // nacitanie tabulky grist
       grist.docApi.fetchTable("VykazVymerMaterial").then(
-        function(value){dataToTable(value)};
+        function(value){myDisplay(value)};
         function(error){console.log(error)}; 
       );
       //console.log(dataFromTable);
