@@ -28,10 +28,8 @@
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nacitanie tabulky grist
-      grist.onRecords(function(records){
-        rec = JSON.stringify(record, null, 2);
-        dataToTable(rec);
-      });
+      let dataFromTablee = grist.fetchTable("vykazVymerMaterial");
+      console.log(dataFromTable);
       
       function dataToTable(data) {
         if (data === null) {
