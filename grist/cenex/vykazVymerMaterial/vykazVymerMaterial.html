@@ -29,32 +29,28 @@
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
-        document.getElementById("demo").innerText = zobraz;
+        document.getElementById("myDisplay").innerText = zobraz;
       }
       
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
-      //grist.docApi.fetchTable("VykazVymerMaterial").then(
-        //function(value){myDisplay(value)};
-        //function(error){console.log(error)}; 
-      //);
-      //console.log(dataFromTable);
+      grist.onRecord(function(record) {
+        document.getElementById('myDisplay').innerHTML = JSON.stringify(record, null, 2);
+      });
 
-      myDisplay(vzorka);
+      //myDisplay(vzorka);
       
-      function dataToTable(data) {
+      function showTable(data) {
         if (data === null) {
           throw new Error("No data");
         }
         else {
           var table = document.getElementById("dataTable");
           
-            console.log(data);
           data.forEach(function(row) {
-            console.log(row);
-            console.log("**** zapis");  
+           
             var tr = table.insertRow(-1);
             
             var td1 = tr.insertCell(0);
@@ -77,6 +73,8 @@
           });
         }
       };
+
+      showTable(vzorka);
 
     </script>
     
