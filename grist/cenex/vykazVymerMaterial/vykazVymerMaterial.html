@@ -79,8 +79,9 @@
       
       // nacitanie tabulky grist
       grist.onRecords(function(records) {
+        var dat = JSON.stringify(record, null, 2);
         //console.log(typeof(records));
-        console.log(records);
+        console.log(dat);
       });
       
     </script>
