@@ -27,7 +27,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 026");
+      console.log("*** ver: 027");
 
       // pomocna funkcia na zobrazenie premennych
       function myDisplay(zobraz) {
@@ -67,16 +67,19 @@
           });
         }
       };
-      
+
+      var dataToTable = "";
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' });
       
       // nacitanie tabulky grist
       grist.onRecords(function(records) {
         //document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2);
-        showTable(JSON.stringify(records, null, 2));
+        dataToTable = records;
       });
 
+      myDisplay(dataToTable);
+      
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
