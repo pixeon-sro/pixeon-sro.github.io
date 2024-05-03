@@ -74,16 +74,16 @@
         }
       };
 
+      let dataFromTable = function(data) {
+        console.log( typeof(data) )
+        console.log(data)
+        return data
+      }
       // grist pozaduje pristu na čítanie tabulky
-      grist.ready({ requiredAccess: 'full' });
+      grist.ready({ requiredAccess: 'full' })
       
       // nacitanie tabulky grist
-      grist.onRecords(function(records) {
-        var dat = JSON.stringify(records, null, 2);
-        //console.log(typeof(records));
-        console.log(dat);
-      });
-      
+      grist.onRecords(dataFromTable)
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
