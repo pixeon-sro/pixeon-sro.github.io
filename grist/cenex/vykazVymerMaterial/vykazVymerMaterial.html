@@ -26,18 +26,19 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 042");
+      console.log("*** ver: 043");
 
       // pomocna funkcia na zobrazenie premennych
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
 
-      // nacitanie dat z tabulky
-      //function loadData (records) {
-        //let dataFromTable = [records] ;
-        //return dataFromTable;
-      //};
+      //nacitanie dat z tabulky
+      /*function loadData (data) {
+        let $dataFromTable = {}
+        Object.assign($dataFromTable)
+        return dataFromTable;
+      };/*
 
       //myDisplay(vzorka);
       /*
@@ -83,9 +84,8 @@
       
       // nacitanie tabulky grist
       //grist.onRecords(dataFromTable)
-      grist.onRecords(function(records) {
-        const data = records
-        console.log(data)
+      grist.onRecords( function(records) {
+        console.log(records)
       });
     </script>
     
