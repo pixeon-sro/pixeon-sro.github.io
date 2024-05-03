@@ -26,7 +26,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 046");
+      console.log("*** ver: 047");
 
       // pomocna funkcia na zobrazenie premennych
       let myDisplay = function(zobraz) {
@@ -85,7 +85,7 @@
       // nacitanie tabulky grist
       //grist.onRecords(dataFromTable)
       async function loadData(tableID) {
-        return await grist.docApi.fetchSelectedTable(tableID);
+        return await grist.docApi.fetchSelectedTable(tableID, format="rows");
       }
 
       console.log(loadData("VykazVymerMaterial"))
