@@ -6,7 +6,6 @@
     <link href="./style.css" rel="stylesheet" />
     <link href="./stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-    <script src="./vzorka.js"></script>
   </head>
   <body>
     <h1>Výkaz výmer materiál</h1>
@@ -27,10 +26,10 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 040");
+      console.log("*** ver: 041");
 
       // pomocna funkcia na zobrazenie premennych
-      function myDisplay(zobraz) {
+      let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
 
@@ -41,7 +40,7 @@
       //};
 
       //myDisplay(vzorka);
-      
+      /*
       function showTable(data) {
         if (data === null) {
           throw new Error("No data");
@@ -73,7 +72,7 @@
           });
         }
       };
-
+*/
       let dataFromTable = function(data) {
         console.log( typeof(data) )
         console.log(data)
@@ -83,7 +82,10 @@
       grist.ready({ requiredAccess: 'full' })
       
       // nacitanie tabulky grist
-      grist.onRecords(dataFromTable)
+      //grist.onRecords(dataFromTable)
+      grist.onRecords(function(record) {
+        document.getElementById('myDisplay').innerHTML = JSON.stringify(record, null, 2);
+      });
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
