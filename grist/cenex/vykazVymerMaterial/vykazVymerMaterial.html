@@ -83,9 +83,9 @@
       
       // nacitanie tabulky grist
       //grist.onRecords(dataFromTable)
-      grist.onRecords(function(record) {
-        document.getElementById('myDisplay').innerHTML = JSON.stringify(record, null, 2)
-        dataFromTable(record)
+      grist.onRecords(function(records) {
+        document.getElementById('myDisplay').innerHTML = JSON.stringify(records, null, 2)
+        console.log(records, null, 2)
       });
     </script>
     
