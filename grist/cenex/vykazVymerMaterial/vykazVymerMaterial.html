@@ -26,7 +26,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 053");
+      console.log("*** ver: 054");
 
       // pomocna funkcia na zobrazenie premennych
       let myDisplay = function(zobraz) {
@@ -79,7 +79,11 @@
       // nacitanie tabulky grist
       async function dataFromCenex() {
         let $dataFromPrint = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
-        console.log($dataFromPrint.then())
+        console.log(
+          $dataFromPrint.then(function(value){
+            return value
+          })
+        )
       }
       /*
       let $dataToPrint = dataFromCenex.then(
