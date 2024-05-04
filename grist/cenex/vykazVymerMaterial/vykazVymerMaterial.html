@@ -77,12 +77,12 @@
       grist.ready({ requiredAccess: 'read' })
       
       // nacitanie tabulky grist
-      async function dataFromCenex() {
+      let $dataToPrint = async function dataFromCenex() {
         let $dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
         return $dataFromCenex
       }
       
-      let $dataToPrint = dataFromCenex()
+      // FV> let $dataToPrint = dataFromCenex()
       $dataToPrint.then(
         function(value) { console.log(value) },
         function(error) { console.log(error) }
