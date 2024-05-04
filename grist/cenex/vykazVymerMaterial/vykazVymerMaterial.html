@@ -26,7 +26,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 058");
+      console.log("*** ver: 059");
 
       // pomocna funkcia na zobrazenie premennych
       let myDisplay = function(zobraz) {
@@ -83,11 +83,14 @@
       }
       
       let $dataToPrint = dataFromCenex()
-      //$dataToPrint
+      $dataToPrint.then(
+        function(value) { console.log(value) },
+        function(error) { console.log(error) }
+      )
       
       // pomocne zobrazenia
-      myDisplay($dataToPrint.value)
-      console.log(dataFromCenex())
+      //myDisplay($dataToPrint.)
+      //console.log(dataFromCenex())
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
