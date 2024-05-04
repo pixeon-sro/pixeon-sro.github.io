@@ -3,7 +3,7 @@
     body {
         background: white;
         color: black;
-        font-size: 8pt !important;
+        font-size: 7pt !important;
     }
     h1 {
         background: #009B68;
@@ -20,11 +20,11 @@
         border: solid black 2px;
         background: #4A4A5D;
         color: white;
-        padding: 0.5em;
+        padding: 0.4em;
     }
     td {
         border: solid black 2px;
-        padding: 0.5em;
+        padding: 0.4em;
     }
 
     button {
