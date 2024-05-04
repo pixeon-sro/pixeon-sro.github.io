@@ -78,13 +78,13 @@
       grist.ready({ requiredAccess: 'full' })
       
       // nacitanie tabulky grist
-      $loadData = async function (tableID) {
+      loadData = async function (tableID) {
         return await grist.docApi.fetchSelectedTable(options = {format:"rows"});
       }
 
       // pomocne zobrazenia
-      myDisplay(loadData($loadData))
-      console.log(loadData($loadData))
+      myDisplay(loadData())
+      console.log(loadData())
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
