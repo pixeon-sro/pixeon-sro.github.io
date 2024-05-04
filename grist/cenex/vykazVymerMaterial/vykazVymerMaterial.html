@@ -74,21 +74,17 @@
         }
       };
 */
-      let dataFromTable = function(data) {
-        console.log( typeof(data) )
-        console.log(data)
-        return data
-      }
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' })
       
       // nacitanie tabulky grist
-      //grist.onRecords(dataFromTable)
-      async function loadData(tableID) {
-        return await grist.docApi.fetchTable("VykazVymerMaterial", options = {format:"rows"});
+      $loadData = async function (tableID) {
+        return await grist.docApi.fetchSelectedTable(options = {format:"rows"});
       }
-      myDisplay(loadData("VykazVymerMaterial"))
-      console.log(loadData("VykazVymerMaterial"))
+
+      // pomocne zobrazenia
+      myDisplay(loadData($loadData))
+      console.log(loadData($loadData))
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
