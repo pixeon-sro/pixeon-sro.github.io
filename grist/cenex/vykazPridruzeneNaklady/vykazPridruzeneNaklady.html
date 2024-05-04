@@ -8,7 +8,7 @@
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
   </head>
   <body>
-    <h1>Výkaz Pridružené náklady</h1>
+    <h1>Cenová ponuka</h1>
     
     <pre id="myDisplay" style="background:red"></pre>
     
@@ -29,11 +29,11 @@
       console.log("*** ver: 001")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
-      /*
+      
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
-      */
+      
       
       function printTable(data) {
         if (data === null) {
@@ -84,9 +84,9 @@
       )
       
       // pomocne zobrazenia
-      /*
-      myDisplay()
-      */
+      
+      myDisplay($dataToPrint)
+      
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
