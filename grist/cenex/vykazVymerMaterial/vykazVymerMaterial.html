@@ -85,7 +85,7 @@
       // nacitanie tabulky grist
       //grist.onRecords(dataFromTable)
       async function loadData(tableID) {
-        return await grist.docApi.fetchSelectedTable(options = {format:"rows"});
+        return await grist.docApi.fetchTable("VykazVymerMaterial", options = {format:"rows"});
       }
       myDisplay(loadData("VykazVymerMaterial"))
       console.log(loadData("VykazVymerMaterial"))
