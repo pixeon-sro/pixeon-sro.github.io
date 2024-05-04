@@ -26,7 +26,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 059");
+      console.log("*** ver: 060");
 
       // pomocna funkcia na zobrazenie premennych
       let myDisplay = function(zobraz) {
@@ -40,7 +40,7 @@
         return dataFromTable;
       };*/
       
-      /*function showTable(data) {
+      function printTable(data) {
         if (data === null) {
           throw new Error("No data");
         }
@@ -71,20 +71,20 @@
             td6.innerHTML = row.celkova_cena.toFixed(2);
           });
         }
-      };*/
+      };
 
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read' })
       
       // nacitanie tabulky grist
-      let $dataToPrint = async function dataFromCenex() {
+      async function dataFromCenex() {
         let $dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
         return $dataFromCenex
       }
       
-      // FV> let $dataToPrint = dataFromCenex()
+      let $dataToPrint = dataFromCenex()
       $dataToPrint.then(
-        function(value) { console.log(value) },
+        function(value) { printTable(value) },
         function(error) { console.log(error) }
       )
       
