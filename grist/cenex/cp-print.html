@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>onRecord</title>
+    <title>Tlač cenovej ponuky</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link href="./stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
     <script src="cp.js"></script>
   </head>
   <body>
+    <pre id="myDisplay" style="background:red"></pre>
     <h1>Cenová ponuka</h1>
     <hr/>
     <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
@@ -29,6 +32,11 @@
     
     <pre id="readout">Waiting for data...</pre>
     <script>
+      // pomocna funkcia na zobrazenie premennych
+      let myDisplay = function(zobraz) {
+        document.getElementById("myDisplay").innerText = zobraz;
+      }
+      /*
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'read table' });
       // nazov stavby
@@ -68,7 +76,7 @@
       grist.onRecord(function(record) {
         document.getElementById('readout').innerText=JSON.stringify(record, null, 2);
       });
-      
+      */
     </script>
     <a href="javascript:window.print()">Print</a>
   </body>

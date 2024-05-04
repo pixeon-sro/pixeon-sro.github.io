@@ -1,0 +1,34 @@
+body {
+    background: white;
+    color: black;
+    font-size: 0.7em;
+}
+h1 {
+    background: #009B68;
+    color: white;
+    padding: 0.7em;
+    font-size: 1.2em;
+}
+
+table {
+    border: solid black 2px;
+    margin: auto 1em;
+}
+th {
+    border: solid black 2px;
+    background: #4A4A5D;
+    color: white;
+    padding: 0.5em;
+}
+td {
+    border: solid black 2px;
+    padding: 0.5em;
+}
+
+button {
+    background: #009B68;
+    color: white;
+    border: none;
+    padding: 0.4em 1em;
+    margin: 1em;
+}
