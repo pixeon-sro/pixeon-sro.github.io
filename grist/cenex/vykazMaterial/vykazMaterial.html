@@ -26,7 +26,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 061")
+      console.log("*** ver: 062")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       /*
@@ -69,7 +69,7 @@
       }
 
       // grist požaduje prístu na čítanie tabuľky
-      grist.ready({ requiredAccess: 'read table' })
+      grist.ready({ requiredAccess: 'full' })
       
       // načítanie tabuľky grist
       async function dataFromCenex() {
