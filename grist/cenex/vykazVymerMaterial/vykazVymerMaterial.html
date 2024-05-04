@@ -40,7 +40,7 @@
         return dataFromTable;
       };*/
       
-      function showTable(data) {
+      /*function showTable(data) {
         if (data === null) {
           throw new Error("No data");
         }
@@ -71,19 +71,22 @@
             td6.innerHTML = row.celkova_cena.toFixed(2);
           });
         }
-      };
-*/
+      };*/
+
       // grist pozaduje pristu na čítanie tabulky
       grist.ready({ requiredAccess: 'full' })
       
       // nacitanie tabulky grist
-      loadData = async function (tableID) {
+      async function dataFromCenex() {
         return await grist.docApi.fetchSelectedTable(options = {format:"rows"});
       }
-
+      let $dataToPrint = dataFroCenex.then() {
+        
+      }
+      
       // pomocne zobrazenia
-      myDisplay(loadData())
-      console.log(loadData())
+      myDisplay(dataFromCenex())
+      console.log(dataFromCenex())
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
