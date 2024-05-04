@@ -1,7 +1,7 @@
 @media print {
 
     body {
-        background: white;
+        background: yellow;
         color: black;
         font-size: 7pt !important;
     }
