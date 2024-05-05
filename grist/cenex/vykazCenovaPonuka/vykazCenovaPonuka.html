@@ -100,22 +100,9 @@
         let datumVytvorenia = ref.Datum_vytvorenia_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
         let datumPlatnosti = ref.Datum_platnosti_ponuky.toLocaleDateString('sk-SK')
-        document.getElementById("datumPlatnosti").innerText=datumPlatnosti 
-      }
+        document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
-      function createRows(data, table) {
-        let countRows = data.id.length
-        let rows = []
-        for (key in data.id) {
-          let row = {
-            id:key,
-            
-          }
-          rows[key] = row
-        }
-        
-        console.log(data)
-        console.log(rows)
+        console.log(ref:references)
       }
 
       // grist požaduje prístu na čítanie tabuľky
@@ -131,11 +118,6 @@
       dataToPrint.then(
         function(value) { cp(value) },
         function(error) { console.log(error) }
-      )
-
-      let dataFromMaterial = grist.docApi.fetchTable("VykazVymerMaterial")
-      dataFromMaterial.then(
-        function(value) { createRows(value,"VykazVymerMaterial") }
       )
       
     </script>
