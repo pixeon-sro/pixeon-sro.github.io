@@ -40,7 +40,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 020")
+      console.log("*** ver: 021")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -49,43 +49,44 @@
       }
 
       function printTable(tableID, data) {
-        let table
+        let table = ""
         
         if (tableID === null) {
           console.log("Nie je určená cieľová tebulka")
-        } else {
+        }
+        else {
           table = document.getElementById("tableID")
         }
 
         data.forEach(function(row) {
-            
-            let tr = table.insertRow(-1)
+          
+          let tr = table.insertRow(-1)
 
-            if (row.etapa) {
-              let td1 = tr.insertCell(0)
-              td1.innerHTML = row.etapa
-            }
-            if (row.material) {
-              let td2 = tr.insertCell(1)
-              td2.innerHTML = row.material
-            }
-            if (row.jednotka) {
-              let td3 = tr.insertCell(2)
-              td3.innerHTML = row.jednotka
-            }
-            if (row.jednotkova_cena) {
-              let td4 = tr.insertCell(3)
-              td4.innerHTML = row.jednotkova_cena
-            }
-            if (row.mnozstvo) {
-              let td5 = tr.insertCell(4)
-              td5.innerHTML = row.mnozstvo
-            }
-            if (row.celkova_cena) {
-              let td6 = tr.insertCell(5)
-              td6.innerHTML = row.celkova_cena.toFixed(2)
-            }
-          })
+          if (row.etapa) {
+            let td1 = tr.insertCell(0)
+            td1.innerHTML = row.etapa
+          }
+          if (row.material) {
+            let td2 = tr.insertCell(1)
+            td2.innerHTML = row.material
+          }
+          if (row.jednotka) {
+            let td3 = tr.insertCell(2)
+            td3.innerHTML = row.jednotka
+          }
+          if (row.jednotkova_cena) {
+            let td4 = tr.insertCell(3)
+            td4.innerHTML = row.jednotkova_cena
+          }
+          if (row.mnozstvo) {
+            let td5 = tr.insertCell(4)
+            td5.innerHTML = row.mnozstvo
+          }
+          if (row.celkova_cena) {
+            let td6 = tr.insertCell(5)
+            td6.innerHTML = row.celkova_cena.toFixed(2)
+          }
+        }
       }
       
       function cp(data) {
@@ -107,7 +108,7 @@
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         //tabulka materialu
-        printTable("Vykaz_Vymer_Material", ref.Vykaz_Vymer_Material) {}
+        printTable("Vykaz_Vymer_Material", ref.Vykaz_Vymer_Material) 
 
         
         /*
