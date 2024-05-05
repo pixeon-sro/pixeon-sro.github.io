@@ -124,7 +124,7 @@
         function(error) { console.log(error) }
       )
 
-      let matros = grist.docApi.fetchTable("VykazVymerMaterial")
+      let matros = grist.docApi.fetchTable("VykazVymerMaterial",options = {format:"rows"})
       matros.then(
         function(value) {console.log(value)}
       )
