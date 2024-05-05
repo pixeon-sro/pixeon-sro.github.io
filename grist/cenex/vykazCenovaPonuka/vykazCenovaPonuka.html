@@ -103,7 +103,7 @@
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti 
       }
 
-      function createRow(data, table) {
+      function createRows(data, table) {
         let countRows = data.id.length
         let rows = []
         for (key in data.id) {
@@ -114,8 +114,8 @@
           rows[key] = row
         }
         
-        console.log("data: " + data)
-        console.log("riadky: " + rows)
+        console.log(data)
+        console.log(rows)
       }
 
       // grist požaduje prístu na čítanie tabuľky
@@ -135,7 +135,7 @@
 
       let dataFromMaterial = grist.docApi.fetchTable("VykazVymerMaterial")
       dataFromMaterial.then(
-        function(value) { createRow(value,"VykazVymerMaterial") }
+        function(value) { createRows(value,"VykazVymerMaterial") }
       )
       
     </script>
