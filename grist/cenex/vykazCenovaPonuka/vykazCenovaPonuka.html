@@ -100,16 +100,13 @@
         let datumVytvorenia = ref.Datum_vytvorenia_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
         let datumPlatnosti = ref.Datum_platnosti_ponuky.toLocaleDateString('sk-SK')
-        document.getElementById("datumPlatnosti").innerText=datumPlatnosti
-
-        //tabulka materialu
-        console.log(ref.References.Vykaz_Vymer_Material)
-        //printTable("Vykaz_Vymer_Material", ref.References.Vykaz_Vymer_Material) 
+        document.getElementById("datumPlatnosti").innerText=datumPlatnosti 
       }
 
       function createRow(data, table) {
-        countRows = data.id.lenght
-        console.log(countRows)
+        let countRows = data.id.lenght
+        
+        console.log(data)
       }
 
       // grist požaduje prístu na čítanie tabuľky
