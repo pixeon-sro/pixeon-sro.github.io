@@ -37,19 +37,12 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 017")
+      console.log("*** ver: 018")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
-      }
-
-      // funkcia na vytvorenie datumu
-      function datum(d) {
-        let date = d.getDate() + " " + d.getMonth() + " " + d.getFullYear()
-        console.log(date)
-        return date
       }
       
       function printTable(data) {
@@ -66,7 +59,7 @@
         let datumVytvorenia = client.Datum_vytvorenia_ponuky.toLocaleDateString('sk-SK')
         console.log(datumVytvorenia)
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
-        let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
+        let datumPlatnosti = client.Datum_platnosti_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         if (data === null) {
