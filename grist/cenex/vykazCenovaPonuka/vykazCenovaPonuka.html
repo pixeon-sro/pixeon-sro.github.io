@@ -86,7 +86,7 @@
             let td6 = tr.insertCell(5)
             td6.innerHTML = row.celkova_cena.toFixed(2)
           }
-        }
+        })
       }
       
       function cp(data) {
@@ -95,12 +95,11 @@
         // pomocne zobrazenia
         myDisplay(JSON.stringify(ref.References))
         console.log(ref.References)
-        
+        // uvodne zobrazenie informacii o zakaznikovi
         document.getElementById("dielo").innerText=ref.Dielo
         document.getElementById("zakaznik").innerText=ref.Zakaznik
         document.getElementById("telefon").innerText=ref.Telefon
         document.getElementById("mail").innerText=ref.Mail
-
         //datum vytvorenia ponuky
         let datumVytvorenia = ref.Datum_vytvorenia_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
@@ -109,41 +108,6 @@
 
         //tabulka materialu
         printTable("Vykaz_Vymer_Material", ref.Vykaz_Vymer_Material) 
-
-        
-        /*
-        let tableMaterial = ref.Vykaz_Vymer_Material
-        if (data === null) {
-          throw new Error("No data")
-        }
-        else {
-          // urcenie cielovej tabulky
-          let table = document.getElementById("dataTable")
-          
-          data.forEach(function(row) {
-            
-            let tr = table.insertRow(-1)
-            
-            let td1 = tr.insertCell(0)
-            td1.innerHTML = row.etapa
-            
-            let td2 = tr.insertCell(1)
-            td2.innerHTML = row.material
-            
-            let td3 = tr.insertCell(2)
-            td3.innerHTML = row.jednotka
-            
-            let td4 = tr.insertCell(3)
-            td4.innerHTML = row.jednotkova_cena
-            
-            let td5 = tr.insertCell(4)
-            td5.innerHTML = row.mnozstvo
-            
-            let td6 = tr.insertCell(5)
-            td6.innerHTML = row.celkova_cena.toFixed(2)
-          })
-        }
-        */
       }
 
       // grist požaduje prístu na čítanie tabuľky
