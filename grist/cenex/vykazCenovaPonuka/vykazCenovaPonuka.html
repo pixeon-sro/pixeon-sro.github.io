@@ -40,7 +40,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 021")
+      console.log("*** ver: 022")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -107,7 +107,8 @@
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         //tabulka materialu
-        printTable("Vykaz_Vymer_Material", ref.Vykaz_Vymer_Material) 
+        console.log(ref.References.Vykaz_Vymer_Material)
+        printTable("Vykaz_Vymer_Material", ref.References.Vykaz_Vymer_Material) 
       }
 
       // grist požaduje prístu na čítanie tabuľky
