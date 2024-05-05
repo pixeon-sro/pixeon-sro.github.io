@@ -26,7 +26,7 @@
     
     <h1>Výkaz Materiálu</h1>
     
-    <table id="Vykaz_Vymer_Material">
+    <table id="VykazVymerMaterial">
       <tr>
         <th>Etapa</th>
         <th>Materiál</th>
@@ -109,6 +109,11 @@
         //printTable("Vykaz_Vymer_Material", ref.References.Vykaz_Vymer_Material) 
       }
 
+      function createRow(data, table) {
+        countRows = data.id.lenght
+        console.log(countRows)
+      }
+
       // grist požaduje prístu na čítanie tabuľky
       grist.ready({ requiredAccess: 'full' })
 
@@ -124,9 +129,9 @@
         function(error) { console.log(error) }
       )
 
-      let matros = grist.docApi.fetchTable("VykazVymerMaterial",options = {format:"rows"})
-      matros.then(
-        function(value) {console.log(value)}
+      let dataFromMaterial = grist.docApi.fetchTable("VykazVymerMaterial")
+      dataFromMaterial.then(
+        function(value) { createRow(value,"VykazVymerMaterial") }
       )
       
     </script>
