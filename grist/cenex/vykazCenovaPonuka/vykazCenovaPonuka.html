@@ -14,14 +14,14 @@
     <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
     <h2><strong>Investor: </strong><span id="zakaznik"></span></h2>
     <h3>Kontaktné údaje</h3>
-    <div>
+    <p>
       <strong>telefón: </strong><span id="telefon"></span><br/>
       <strong>e-mail: </strong><span id="mail"></span>
-    </div>
-    <div>
+    </p>
+    <p>
       <strong>Dátum vyhotovenia CP: </strong><span id="datumVytvorenia"></span><br/>
       <strong>Dátum platnosti CP: </strong><span id="datumPlatnosti"></span>
-    </div>
+    </p
     
     <table id="dataTable">
       <tr>
@@ -37,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 018")
+      console.log("*** ver: 019")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -48,7 +48,10 @@
       function printTable(data) {
 
         let client = data[0]
-        console.log(client.References)
+      
+      // pomocne zobrazenia
+      myDisplay(JSON.stringify(client.References))
+      console.log(client.References)
         
         document.getElementById("dielo").innerText=client.Dielo
         document.getElementById("zakaznik").innerText=client.Zakaznik
@@ -108,10 +111,7 @@
         function(value) { printTable(value) },
         function(error) { console.log(error) }
       )
-      /*
-      // pomocne zobrazenia
-      myDisplay(client)
-      */
+      
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
