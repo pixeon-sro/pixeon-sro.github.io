@@ -37,14 +37,19 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 011")
+      console.log("*** ver: 012")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
-      
+
+      // funkcia na vytvorenie datumu
+      function datum(d) {
+        let date = d.getDay() + " " + d.getMonth() + " " + d.getFullYear()
+        return date
+      }
       
       function printTable(data) {
 
@@ -56,8 +61,12 @@
         document.getElementById("zakaznik").innerText=client.Zakaznik
         document.getElementById("telefon").innerText=client.Telefon
         document.getElementById("mail").innerText=client.Mail
-        document.getElementById("datum_vyhotovenia").innerText=client.Datum_vytvorenia_ponuky
-        document.getElementById("datum_platnosti").innerText=client.Datum_platnosti_ponuky
+
+        //datum vytvorenia ponuky
+        let datumVytvorenia = datum(client.Datum_vytvorenia_ponuky)
+        document.getElementById("datum_vyhotovenia").innerText=datumVytvorenia
+        let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
+        document.getElementById("datum_platnosti").innerText=datumPlatnosti
 
         if (data === null) {
           throw new Error("No data")
