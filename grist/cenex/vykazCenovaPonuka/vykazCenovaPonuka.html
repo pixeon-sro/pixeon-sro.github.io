@@ -37,16 +37,20 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 001")
+      console.log("*** ver: 002")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
-      /*
+      
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
       }
-      */
+      
       
       function printTable(data) {
+      
+      // pomocne zobrazenia
+      myDisplay(data)
+
         if (data === null) {
           throw new Error("No data")
         }
@@ -88,16 +92,12 @@
         return $dataFromCenex
       }
       
-      let $dataToPrint = dataFromCenex()
-      $dataToPrint.then(
+      let dataToPrint = dataFromCenex()
+      dataToPrint.then(
         function(value) { printTable(value) },
         function(error) { console.log(error) }
       )
       
-      // pomocne zobrazenia
-      /*
-      myDisplay()
-      */
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
