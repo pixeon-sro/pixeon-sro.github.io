@@ -37,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 015")
+      console.log("*** ver: 016")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -55,7 +55,6 @@
       function printTable(data) {
 
         let client = data[0]
-        console.log(client.Datum_vytvorenia_ponuky)
         console.log(client.References)
         
         document.getElementById("dielo").innerText=client.Dielo
@@ -65,8 +64,9 @@
 
         //datum vytvorenia ponuky
         let datumVytvorenia = client.Datum_vytvorenia_ponuky.toLocaleDateString(sk-SK)
+        console.log(datumVytvorenia)
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
-        let datumPlatnosti = client.Datum_platnosti_ponuky.toLocaleDateString(sk-SK)
+        let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         if (data === null) {
