@@ -125,7 +125,10 @@
       )
 
       let matros = grist.docApi.fetchTable("VykazVymerMaterial")
-      console.log(matros)
+      matros.then(
+        function(value) {console.log(value)}
+      )
+      
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
