@@ -11,7 +11,6 @@
     <pre id="myDisplay" style="background:red"></pre>
     
     <h1>Cenová ponuka</h1>
-    <hr/>
     <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
     <h2><strong>Investor: </strong><span id="zakaznik"></span></h2>
     <h3>Kontaktné údaje</h3>
@@ -91,10 +90,10 @@
       
       function cp(data) {
         let ref = data[0]
-      
-        // pomocne zobrazenia
+        
         myDisplay(JSON.stringify(ref.References))
         console.log(ref.References)
+        
         // uvodne zobrazenie informacii o zakaznikovi
         document.getElementById("dielo").innerText=ref.Dielo
         document.getElementById("zakaznik").innerText=ref.Zakaznik
