@@ -37,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 002")
+      console.log("*** ver: 003")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -88,8 +88,8 @@
       
       // načítanie tabuľky grist
       async function dataFromCenex() {
-        let $dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
-        return $dataFromCenex
+        let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
+        return dataFromCenex
       }
       
       let dataToPrint = dataFromCenex()
