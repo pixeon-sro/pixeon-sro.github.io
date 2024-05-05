@@ -37,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 016")
+      console.log("*** ver: 017")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -63,7 +63,7 @@
         document.getElementById("mail").innerText=client.Mail
 
         //datum vytvorenia ponuky
-        let datumVytvorenia = client.Datum_vytvorenia_ponuky.toLocaleDateString(sk-SK)
+        let datumVytvorenia = client.Datum_vytvorenia_ponuky.toLocaleDateString('sk-SK')
         console.log(datumVytvorenia)
         document.getElementById("datumVytvorenia").innerText=datumVytvorenia
         let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
