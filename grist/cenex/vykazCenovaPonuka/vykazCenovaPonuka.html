@@ -6,6 +6,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="cp-example.js"></script>
   </head>
   <body>  
     <pre id="myDisplay" style="background:red"></pre>
@@ -56,9 +57,8 @@
         else {
           table = document.getElementById(tableID)
         }
-
         data.forEach(function(row) {
-          
+
           let tr = table.insertRow(-1)
 
           if (row.etapa) {
@@ -89,10 +89,9 @@
       }
       
       function cp(data) {
-        let ref = data[0]
-        
-        myDisplay(JSON.stringify(ref))
-        console.log(ref.References)
+        //let ref = data[0]
+        let ref = data
+        console.log(ref)
         
         // uvodne zobrazenie informacii o zakaznikovi
         document.getElementById("dielo").innerText=ref.Dielo
@@ -112,7 +111,7 @@
 
       // grist požaduje prístu na čítanie tabuľky
       grist.ready({ requiredAccess: 'full' })
-      
+
       // načítanie tabuľky grist
       async function dataFromCenex() {
         let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
@@ -124,7 +123,9 @@
         function(value) { cp(value) },
         function(error) { console.log(error) }
       )
-      
+
+      let matros = grist.docApi.fetchTable("Vykaz_Vymer_Material")
+      console.log(matros)
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
