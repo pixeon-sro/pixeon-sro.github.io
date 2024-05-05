@@ -19,8 +19,8 @@
       <strong>e-mail: </strong><span id="mail"></span>
     </div>
     <div>
-      <strong>Dátum vyhotovenia CP: </strong><span id="datum-vyhotovenia"></span><br/>
-      <strong>Dátum platnosti CP: </strong><span id="datum-platnosti"></span>
+      <strong>Dátum vyhotovenia CP: </strong><span id="datumVyhotovenia"></span><br/>
+      <strong>Dátum platnosti CP: </strong><span id="datumPlatnosti"></span>
     </div>
     
     <table id="dataTable">
@@ -65,9 +65,9 @@
 
         //datum vytvorenia ponuky
         let datumVytvorenia = datum(client.Datum_vytvorenia_ponuky)
-        document.getElementById("datum_vyhotovenia").innerText=datumVytvorenia
+        document.getElementById("datumVyhotovenia").innerText=datumVytvorenia
         let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
-        document.getElementById("datum_platnosti").innerText=datumPlatnosti
+        document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         if (data === null) {
           throw new Error("No data")
