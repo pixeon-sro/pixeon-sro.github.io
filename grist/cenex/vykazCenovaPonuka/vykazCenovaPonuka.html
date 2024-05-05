@@ -40,7 +40,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 024")
+      console.log("*** ver: 025")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -102,11 +102,22 @@
         let datumPlatnosti = ref.Datum_platnosti_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
+        //vytvorenie referencii na ostatne tabulky
+        let tabMaterial = ref.References.Vykaz_Vymer_Material
+        let tabPraca = ref.References.Vykaz_Vymer_Praca
+        let tabNaklady = ref.References.Pridruzene_naklady
+        let tabCena = ref.References.Konecna_Cena
+        let tabEtapa = ref.References.Etapa
+        
         console.log(ref)
         console.log("******")
         console.log(ref.References)
         console.log("******")
-        console.log(ref.References.Vykaz_Vymer_Material)
+        console.log(ref.References.tabMaterial)
+        console.log(ref.References.tabPraca)
+        console.log(ref.References.tabNaklady)
+        console.log(ref.References.tabCena)
+        console.log(ref.References.tabEtapa)
       }
 
       // grist požaduje prístu na čítanie tabuľky
