@@ -19,7 +19,7 @@
       <strong>e-mail: </strong><span id="mail"></span>
     </div>
     <div>
-      <strong>Dátum vyhotovenia CP: </strong><span id="datumVyhotovenia"></span><br/>
+      <strong>Dátum vyhotovenia CP: </strong><span id="datumVytvorenia"></span><br/>
       <strong>Dátum platnosti CP: </strong><span id="datumPlatnosti"></span>
     </div>
     
@@ -37,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 013")
+      console.log("*** ver: 015")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -47,7 +47,7 @@
 
       // funkcia na vytvorenie datumu
       function datum(d) {
-        let date = d.getDay() + " " + d.getMonth() + " " + d.getFullYear()
+        let date = d.getDate() + " " + d.getMonth() + " " + d.getFullYear()
         console.log(date)
         return date
       }
@@ -64,9 +64,9 @@
         document.getElementById("mail").innerText=client.Mail
 
         //datum vytvorenia ponuky
-        let datumVytvorenia = datum(client.Datum_vytvorenia_ponuky)
-        document.getElementById("datumVyhotovenia").innerText=datumVytvorenia
-        let datumPlatnosti = datum(client.Datum_platnosti_ponuky)
+        let datumVytvorenia = client.Datum_vytvorenia_ponuky.toLocaleDateString(sk-SK)
+        document.getElementById("datumVytvorenia").innerText=datumVytvorenia
+        let datumPlatnosti = client.Datum_platnosti_ponuky.toLocaleDateString(sk-SK)
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
         if (data === null) {
