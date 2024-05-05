@@ -38,7 +38,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 006")
+      console.log("*** ver: 007")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -50,10 +50,14 @@
       function printTable(data) {
 
         let client = data[0]
-      
-      // pomocne zobrazenia
-      myDisplay(client)
-      console.log(client)
+        document.getElementById("dielo").innerText=client.Dielo;
+        document.getElementById("investor").innerText=client.Zakaznik;
+        document.getElementById("telefon").innerText=client.Telefon;
+        document.getElementById("mail").innerText=client.Mail;
+        document.getElementById("datum_vyhotovenia").innerText=client.Datum_vhotovenia;
+        document.getElementById("datum_platnosti").innerText=client.Datum_platnosti;
+        
+        console.log(client)
 
         if (data === null) {
           throw new Error("No data")
@@ -101,7 +105,10 @@
         function(value) { printTable(value) },
         function(error) { console.log(error) }
       )
-      
+      /*
+      // pomocne zobrazenia
+      myDisplay(client)
+      */
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
