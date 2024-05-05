@@ -18,7 +18,6 @@
       <strong>telefón: </strong><span id="telefon"></span><br/>
       <strong>e-mail: </strong><span id="mail"></span>
     </div>
-    <hr/>
     <div>
       <strong>Dátum vyhotovenia CP: </strong><span id="datum-vyhotovenia"></span><br/>
       <strong>Dátum platnosti CP: </strong><span id="datum-platnosti"></span>
@@ -38,7 +37,7 @@
     <div style="break-after:page"></div>
     
     <script>
-      console.log("*** ver: 010")
+      console.log("*** ver: 011")
 
       // pomocná funkcia na zobrazenie premenných pri vývoji
       
@@ -51,12 +50,13 @@
 
         let client = data[0]
         console.log(client)
+        console.log(client.References)
         
         document.getElementById("dielo").innerText=client.Dielo
         document.getElementById("zakaznik").innerText=client.Zakaznik
         document.getElementById("telefon").innerText=client.Telefon
         document.getElementById("mail").innerText=client.Mail
-        document.getElementById("datum_vyhotovenia").innerText=client.Datum_vvytvorenia_ponuky
+        document.getElementById("datum_vyhotovenia").innerText=client.Datum_vytvorenia_ponuky
         document.getElementById("datum_platnosti").innerText=client.Datum_platnosti_ponuky
 
         if (data === null) {
