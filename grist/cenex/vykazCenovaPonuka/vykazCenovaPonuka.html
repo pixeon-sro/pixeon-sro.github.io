@@ -132,7 +132,7 @@ function tabData(value) {
     function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
-            console.log("riadokz vytvarania materialu:\n" + row)
+            console.log("riadokz vytvarania materialu:\n" + JSON.stringify(row))
             let item = {
                 id:row.id,
                 material:row.material,
