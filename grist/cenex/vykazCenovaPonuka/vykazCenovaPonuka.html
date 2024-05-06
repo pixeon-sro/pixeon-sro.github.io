@@ -85,9 +85,9 @@ async function dbTableMaterial() {
     return dataFromMaterial
 }
 let dbMaterial =  dbTableMaterial()
-//dbMaterial.then(
-//    function(value) { console.log(value) }
-//)
+dbMaterial.then(
+    function(value) { console.log(value) }
+)
 
 // načítanie tabuľky Práca
 async function dbTablePraca() {
@@ -136,7 +136,6 @@ function tabData(value) {
             console.log(row)
             let item = {
                 id:row.id,
-                material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
                 mnozstvo:row.mnozstvo,
