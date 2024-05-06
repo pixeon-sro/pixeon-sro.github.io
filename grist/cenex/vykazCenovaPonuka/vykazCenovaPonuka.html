@@ -52,7 +52,7 @@
 
 
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 038")
+console.log("*** cp.js - ver: 039")
 
 //mapovanie z fetchTable na standardny Record
 function mapToRecord(columnData) {
@@ -93,11 +93,11 @@ helperEtapa.then(
 let dataEtapa = ""
 function writer(value){
     dataEtapa = mapToRecord(value)
+    console.log(dataEtapa)
 }
 
 
 
-console.log(dataEtapa)
 
 
 
