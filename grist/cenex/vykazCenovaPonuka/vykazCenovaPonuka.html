@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 044")
+console.log("*** cp.js - ver: 045")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -70,13 +70,20 @@ dataCP.then(
 )
 
 // načítanie tabuľky Etapa
-let dataFromEtapa = ""
+let dataFromEtapa = "pokus"
+eWrite(value) {
+    dataFromEtapa = value
+    console.log(dataFromEtapa + "vVv")
+}
+    console.log(dataFromEtapa + "vVv")
+
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa().then(
-    function(value) { if (value){dataFromEtapa = value} }
+    function(value) { eWrite(value) },
+    function(error) { console.log(error) }
 )
 console.log(dataFromEtapa + "<<<<<<<<<<<<<<<<<<<<<<")
 /*
