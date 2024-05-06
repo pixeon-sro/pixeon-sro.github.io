@@ -74,7 +74,7 @@ async function dataFromCP() {
 // vytvorenie objektu z CP
 let dataCP = dataFromCP()
 dataCP.then(
-    function(value) { tabCP(value) },
+    function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
 console.log(dataCP)
