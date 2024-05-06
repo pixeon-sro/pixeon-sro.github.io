@@ -13,25 +13,24 @@ async function dataFromCenex() {
 // vytvorenie objektu z načítaných dát
 let data = dataFromCenex()
 data.then(
-    function(value) { separeTabData(value) },
+    function(value) { tabData(value) },
     function(error) { console.log(error) }
 )
 
-//vytvorenie premenných pre tlačové tabulky
-let tabMaterial = ""
-let tabPraca = ""
-let tabNaklady = ""
-let tabCena = ""
-let tabEtapa = ""
-
 //vytvorenie oddelených objektov pre tlačové tabulky
-function separeTabData(value) {
-    let ref = value[0]
-    tabMaterial = ref.References.Vykaz_Vymer_Material
-    tabPraca = ref.References.Vykaz_Vymer_Praca
-    tabNaklady = ref.References.Pridruzene_naklady
-    tabCena = ref.References.Konecna_Cena
-    tabEtapa = ref.References.Etapa
+function tabData(value) {
+    const ref = value[0]
+    const tabMaterial = ref.References.Vykaz_Vymer_Material
+    const tabPraca = ref.References.Vykaz_Vymer_Praca
+    const tabNaklady = ref.References.Pridruzene_naklady
+    const tabCena = ref.References.Konecna_Cena
+    const etapa = ref.References.Etapa
+
+    function vykazVymerMaterial(){return tabMaterial}
+    function vykazVymerPraca(){return tabPraca}
+    function vykazPridruzeneNaklady(){return tabNaklady}
+    function vykazKonecnaCena(){return tabCena}
+    function etapa(){return etapa}
 
     console.log("******")
     console.log(ref)
@@ -42,6 +41,6 @@ function separeTabData(value) {
     console.log(tabPraca)
     console.log(tabNaklady)
     console.log(tabCena)
-    console.log(tabEtapa)
+    console.log(etapa)
     console.log("******")
 }
