@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 046")
+console.log("*** cp.js - ver: 047")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -70,26 +70,34 @@ dataCP.then(
 )
 
 // načítanie tabuľky Etapa
-let dbEtapa = async function dbTableEtapa() {
+async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
+let dbEtapa = dbTableEtapa()
 dbEtapa.then(
     function(value) { console.log(value) }
 )
 
 // načítanie tabuľky Materiál
-let dbMaterial = async function dbTableMaterial() {
+async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
-
+let dbMaterial =  dbTableMaterial()
+dbMaterial.then(
+    function(value) { console.log(value) }
+)
 
 // načítanie tabuľky Práca
-let dbPraca = async function dbTablePraca() {
+async function dbTablePraca() {
     let dataFromPraca = await grist.docApi.fetchTable("Praca")
     return dataFromPraca
 }
+let dbPraca =  dbTablePraca()
+dbPraca.then(
+    function(value) { console.log(value) }
+)
 /* vytvorenie objektu z Práca
 let dataPraca = dataFromPraca()
 dataPraca.then(
