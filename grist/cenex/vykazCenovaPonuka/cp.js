@@ -32,7 +32,7 @@ function tabData(value) {
             console.log("/////////")
             console.log(row)
             mapEtapa = rEtapa.forEach(function(r)
-                            if r.id == row.etapa.rowID {
+                            if (r.id == row.etapa.rowID) {
                                 console.log(r.Etapa)
                                 return r.Etapa
                             }
