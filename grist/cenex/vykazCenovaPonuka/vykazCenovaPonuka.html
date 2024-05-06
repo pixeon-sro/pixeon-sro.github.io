@@ -141,11 +141,11 @@ function tabData(value) {
                 mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
-            function insertEtapa(value, id) {
-                let etapa = value.Etapa.id
+            function insertEtapa(value) {
+                let etapa = value.Etapa
                 item.etapa = etapa
             }
-            dbEtapa.then(function(value) { function insertEtapa(value, row.id-1) }
+            dbEtapa.then(function(value) { function insertEtapa(value) }
             material.push(item)
         })
         console.log("hotovy material:\n" + material)
