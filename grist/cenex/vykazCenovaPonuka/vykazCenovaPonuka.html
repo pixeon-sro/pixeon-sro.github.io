@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 051")
+console.log("*** cp.js - ver: 052")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -142,10 +142,16 @@ function tabData(value) {
                 mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
+            // insert etapa z tabulky Etapa
             function insertEtapa(value) {
-                console.log(row.etapa.rowId)
                 let etapa = value.Etapa[row.etapa.rowId-1]
                 item.etapa = etapa
+            }
+            dbEtapa.then(function(value) { insertEtapa(value) })
+            // insert material z tabulky Material
+            function insertMaterial(value) {
+                let material = value.Material[row.material.rowId-1]
+                item.material = material
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
             material.push(item)
