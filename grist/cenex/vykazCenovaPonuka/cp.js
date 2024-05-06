@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 035")
+console.log("*** cp.js - ver: 040")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
