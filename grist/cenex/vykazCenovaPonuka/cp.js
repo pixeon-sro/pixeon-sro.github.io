@@ -31,10 +31,10 @@ function tabData(value) {
         material.forEach(function(row) {
             let item = {
                 etapa:row.etapa,
-                material:row.material
-                jednotka:row.jednotka
-                jednotkova_cena:row.jednotkova_cena
-                mnozstvo:row.mnozstvo
+                material:row.material,
+                jednotka:row.jednotka,
+                jednotkova_cena:row.jednotkova_cena,
+                mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
             vykazVymerMaterial.push(item)
