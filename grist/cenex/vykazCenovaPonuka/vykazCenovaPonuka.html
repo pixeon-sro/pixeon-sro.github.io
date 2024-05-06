@@ -129,16 +129,16 @@ data.then(
 )
 
 function toRecordMap(columnData) {
-  const fieldNames = Object.keys(columnData);
+  const fieldNames = Object.keys(columnData)
   return new Map(columnData.id.map((id, index) => {
-    const values = fieldNames.map(col => [col, columnData[col][index]]);
-    return [id, Object.fromEntries(values)];
-  }));
+    const values = fieldNames.map(col => [col, columnData[col][index]])
+    return [id, Object.fromEntries(values)]
+  }))
 }
 
 const m = toRecordMap(await grist.docApi.fetchTable(Etapa));
 console.log(m)
-console.log(m.get(1))
+//console.log(m.get(1))
 /*
 //vytvorenie oddelených objektov pre tlačové tabulky
 function tabData(value) {
