@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 048")
+console.log("*** cp.js - ver: 049")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -118,9 +118,6 @@ dataPridruzene_naklady.then(
     function(error) { console.log(error) }
 )
 
-function insert(table, value){
-    
-}
 
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
@@ -135,23 +132,23 @@ function tabData(value) {
     function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
-            console.log("/////////")
-            console.log(row)
+            console.log("riadokz vytvarania materialu:\n" + row)
             let item = {
                 id:row.id,
-                etapa:dbEtapa.then(function(value){
-                    return value.Etapa[row.id-1]
-                }),
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
                 mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
+            function insertEtapa(value, id) {
+                let etapa = value.Etapa.id
+                item.etapa = etapa
+            }
+            dbEtapa.then(function(value) { function insertEtapa(value, row.id-1) }
             material.push(item)
         })
-        console.log("///////// hotovo")
-        console.log(material)
+        console.log("hotovy material:\n" + material)
     }
     
     // vytvorenie tabuliek pre tlac
