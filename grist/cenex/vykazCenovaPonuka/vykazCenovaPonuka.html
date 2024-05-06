@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 041")
+console.log("*** cp.js - ver: 042")
 
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
@@ -65,20 +65,13 @@ function tabData(value) {
     let refEtapa = ref.References.Etapa
     
     function vykazVymerMaterial(){
-        let vykazVymerMaterial = []
+        let material = []
         refMaterial.forEach(function(row) {
             console.log("/////////")
-            console.log(row)/*
-            mapEtapa = rEtapa.forEach(function(r) {
-                            if (r.id == row.etapa.rowID) {
-                                console.log(r.Etapa)
-                                return r.Etapa
-                            }
-                            else { return "chybka" }
-                        })
-            
+            console.log(row)
             let item = {
-                etapa:mapEtapa,
+                id:row.id
+                etapa:row.etapa,
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
@@ -86,14 +79,13 @@ function tabData(value) {
                 celkova_cena:row.celkova_cena
             }
             vykazVymerMaterial.push(item)
-            console.log("/////////")
-            console.log(vykazVymerMaterial)
-          //vykazVymerMaterial  */
+            console.log("///////// hotovo")
+            console.log(material)
         })
     }
     
     // vytvorenie tabuliek pre tlac
-    let material = vykazVymerMaterial()
+    let vykazVymerMaterial = vykazVymerMaterial()
 
     
     function vykazVymerPraca(){return praca}
