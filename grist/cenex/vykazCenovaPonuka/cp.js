@@ -13,7 +13,7 @@ async function dataFromCenex() {
 // vytvorenie objektu z načítaných dát
 let data = dataFromCenex()
 data.then(
-    function(value) { separeTab(value) },
+    function(value) { separeTabData(value) },
     function(error) { console.log(error) }
 )
 
@@ -25,7 +25,7 @@ let tabCena = ""
 let tabEtapa = ""
 
 //vytvorenie oddelených objektov pre tlačové tabulky
-function separeTab(value) {
+function separeTabData(value) {
     let ref = value[0]
     tabMaterial = ref.References.Vykaz_Vymer_Material
     tabPraca = ref.References.Vykaz_Vymer_Praca
