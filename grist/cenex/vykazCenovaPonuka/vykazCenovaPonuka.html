@@ -49,6 +49,11 @@
         document.getElementById("myDisplay").innerText = zobraz;
       }
 
+
+
+//verzia scriptu
+console.log("*** cp.js - ver: 041")
+
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
     // referaencie z cenovej ponuky na ostatne tabulky
@@ -57,7 +62,7 @@ function tabData(value) {
     let refPraca = ref.References.Vykaz_Vymer_Praca
     let refNaklady = ref.References.Pridruzene_naklady
     let refCena = ref.References.Konecna_Cena
-    let refEetapa = ref.References.Etapa
+    let refEtapa = ref.References.Etapa
 
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
@@ -103,9 +108,6 @@ function tabData(value) {
     console.log(refEtapa)
     console.log("******")
 }
-
-//verzia scriptu do konzoly
-console.log("*** cp.js - ver: 041")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -169,13 +171,6 @@ dataPridruzene_naklady.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
-
-
-
-
-
-
-
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
