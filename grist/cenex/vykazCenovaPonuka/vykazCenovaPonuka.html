@@ -52,16 +52,7 @@
 
 
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 039")
-
-//mapovanie z fetchTable na standardny Record
-function mapToRecord(columnData) {
-  const fieldNames = Object.keys(columnData)
-  return new Map(columnData.id.map((id, index) => {
-    const values = fieldNames.map(col => [col, columnData[col][index]])
-    return [id, Object.fromEntries(values)]
-  }))
-}
+console.log("*** cp.js - ver: 040")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -77,7 +68,6 @@ dataCP.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
-console.log(dataCP)
 
 // načítanie tabuľky Etapa
 async function dataFromEtapa() {
@@ -85,16 +75,47 @@ async function dataFromEtapa() {
     return dataFromEtapa
 }
 // vytvorenie objektu z Etapa
-let helperEtapa = dataFromEtapa()
-helperEtapa.then(
+let dataEtapa = dataFromEtapa()
+dataEtapa.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
-let dataEtapa = ""
-function writer(value){
-    dataEtapa = mapToRecord(value)
-    console.log(dataEtapa)
+
+// načítanie tabuľky Materiál
+async function dataFromMaterial() {
+    let dataFromMaterial = await grist.docApi.fetchTable("Material")
+    return dataFromMaterial
 }
+// vytvorenie objektu z Materiál
+let dataMaterial = dataFromMaterial()
+dataMaterial.then(
+    function(value) { console.log(value) },
+    function(error) { console.log(error) }
+)
+
+// načítanie tabuľky Práca
+async function dataFromPraca() {
+    let dataFromPraca = await grist.docApi.fetchTable("Praca")
+    return dataFromPraca
+}
+// vytvorenie objektu z Práca
+let dataPraca = dataFromPraca()
+dataPraca.then(
+    function(value) { console.log(value) },
+    function(error) { console.log(error) }
+)
+
+// načítanie tabuľky Pridružené Náklady
+async function dataFromPridruzene_naklady() {
+    let dataFromPridruzene_naklady = await grist.docApi.fetchTable("Pridruzene_naklady")
+    return dataFromPridruzene_naklady
+}
+// vytvorenie objektu z Pridružené Náklady
+let dataPridruzene_naklady = dataFromPridruzene_naklady()
+dataPridruzene_naklady.then(
+    function(value) { console.log(value) },
+    function(error) { console.log(error) }
+)
 
 
 
