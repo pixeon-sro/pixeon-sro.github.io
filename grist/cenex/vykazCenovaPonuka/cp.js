@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 034")
+console.log("*** cp.js - ver: 035")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -31,13 +31,13 @@ function tabData(value) {
         rMaterial.forEach(function(row) {
             console.log("/////////")
             console.log(row)
-            mapEtapa = rEtapa.forEach(function(r)
+            mapEtapa = rEtapa.forEach(function(r) {
                             if (r.id == row.etapa.rowID) {
                                 console.log(r.Etapa)
                                 return r.Etapa
                             }
                             else { return "chybka" }
-                        )
+                        })
             
             let item = {
                 etapa:mapEtapa,
