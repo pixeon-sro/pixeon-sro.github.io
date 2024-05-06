@@ -151,7 +151,7 @@ function tabData(value) {
             
             // insert material z tabulky Material
             function insertMaterial(value) {
-                let insMaterial = value.Material[row.material.rowId-1]
+                let insMaterial = value.nazov[row.material.rowId-1]
                 item.material = insMaterial
             }
             dbMaterial.then(function(value) { insertMaterial(value) })
