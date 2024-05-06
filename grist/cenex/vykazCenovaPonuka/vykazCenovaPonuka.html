@@ -143,7 +143,8 @@ function tabData(value) {
                 celkova_cena:row.celkova_cena
             }
             function insertEtapa(value) {
-                let etapa = value.etapa
+                console.log(row.etapa.rowId)
+                let etapa = value.Etapa[row.etapa.rowId]
                 item.etapa = etapa
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
@@ -171,7 +172,7 @@ function tabData(value) {
     //console.log(refPraca)
     //console.log(refNaklady)
     //console.log(refCena)
-    console.log(refEtapa)
+    //console.log(refEtapa)
     //console.log("******")
 }
     </script>
