@@ -6,7 +6,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-    <script src="-cp.js"></script>
+    <!--<script src="-cp.js"></script>-->
     <script src="cp-example.js"></script>
   </head>
   <body>  
@@ -139,7 +139,7 @@ function toRecordMap(columnData) {
 const m = toRecordMap(await grist.docApi.fetchTable(Etapa));
 console.log(m)
 console.log(m.get(1))
-
+/*
 //vytvorenie oddelených objektov pre tlačové tabulky
 function tabData(value) {
     let ref = value[0]
@@ -200,7 +200,7 @@ function tabData(value) {
     console.log(rEtapa)
     console.log("******")
 }
-
+*/
       
       
     </script>
