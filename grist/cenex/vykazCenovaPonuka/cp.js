@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** ver: 025")
+console.log("*** cp.js - ver: 026")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -32,13 +32,15 @@ function separeTab(value) {
     tabNaklady = ref.References.Pridruzene_naklady
     tabCena = ref.References.Konecna_Cena
     tabEtapa = ref.References.Etapa
+
+    console.log("******")
+    console.log(ref)
+    console.log("******")
+    console.log(ref.References)
 }
 
 
-console.log("******")
-console.log(ref)
-console.log("******")
-console.log(ref.References)
+
 console.log("******")
 console.log(tabMaterial)
 console.log(tabPraca)
