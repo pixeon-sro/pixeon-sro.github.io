@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 031")
+console.log("*** cp.js - ver: 032")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -20,17 +20,24 @@ data.then(
 //vytvorenie oddelených objektov pre tlačové tabulky
 function tabData(value) {
     let ref = value[0]
-    let material = ref.References.Vykaz_Vymer_Material
-    let praca = ref.References.Vykaz_Vymer_Praca
-    let naklady = ref.References.Pridruzene_naklady
-    let cena = ref.References.Konecna_Cena
-    let etapa = ref.References.Etapa
+    let rMaterial = ref.References.Vykaz_Vymer_Material
+    let rPraca = ref.References.Vykaz_Vymer_Praca
+    let rNaklady = ref.References.Pridruzene_naklady
+    let rCena = ref.References.Konecna_Cena
+    let rEetapa = ref.References.Etapa
 
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
-        material.forEach(function(row) {
+        rMaterial.forEach(function(row) {
+            console.log("/////////")
+            console.log(row)
+            
             let item = {
-                etapa:row.etapa,
+                etapa:rEtapa.forEach(function(r)
+                    if r.id == row.etapa.rowID {
+                        console.log(r.Etapa)
+                    }
+                ),
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
