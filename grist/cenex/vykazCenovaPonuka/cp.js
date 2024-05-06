@@ -1,3 +1,6 @@
+//verzia scriptu do konzoly
+console.log("*** ver: 025")
+      
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
