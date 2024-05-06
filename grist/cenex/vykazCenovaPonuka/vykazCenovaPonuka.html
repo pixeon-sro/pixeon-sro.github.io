@@ -54,6 +54,10 @@
 //verzia scriptu
 console.log("*** cp.js - ver: 042")
 
+function insert(table, value){
+
+}
+
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
     // referaencie z cenovej ponuky na ostatne tabulky
@@ -70,7 +74,7 @@ function tabData(value) {
             console.log("/////////")
             console.log(row)
             let item = {
-                id:row.id
+                id:row.id,
                 etapa:row.etapa,
                 material:row.material,
                 jednotka:row.jednotka,
@@ -132,6 +136,8 @@ dataEtapa.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
+console.log("!!!!!!!!!!!!!!!!!!!!")
+console.log(dataEtapa)
 
 // načítanie tabuľky Materiál
 async function dataFromMaterial() {
