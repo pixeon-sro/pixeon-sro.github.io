@@ -70,14 +70,15 @@ dataCP.then(
 )
 
 // načítanie tabuľky Etapa
+let dataFromEtapa = ""
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa().then(
-    function(value) { if (value){return value} }
+    function(value) { if (value){dataFromEtapa = value} }
 )
-console.log(dbEtapa + "<<<<<<<<<<<<<<<<<<<<<<")
+console.log(dataFromEtapa + "<<<<<<<<<<<<<<<<<<<<<<")
 /*
 dbEtapa.then(
     function(value) { if(value){}  },
