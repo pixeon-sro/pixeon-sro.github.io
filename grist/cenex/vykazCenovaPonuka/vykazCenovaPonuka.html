@@ -52,7 +52,7 @@
 
 
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 037")
+console.log("*** cp.js - ver: 038")
 
 //mapovanie z fetchTable na standardny Record
 function mapToRecord(columnData) {
@@ -90,13 +90,7 @@ helperEtapa.then(
     function(value) { tabEtapa(value) },
     function(error) { console.log(error) }
 )
-let dataEtapa = function mapToRecord(columnData) {
-  const fieldNames = Object.keys(columnData)
-  return new Map(columnData.id.map((id, index) => {
-    const values = fieldNames.map(col => [col, columnData[col][index]])
-    return [id, Object.fromEntries(values)]
-  }))
-}
+let dataEtapa = mapToRecord(helperEtapa)
 
 
 console.log(dataEtapa)
