@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 045")
+console.log("*** cp.js - ver: 046")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -70,55 +70,33 @@ dataCP.then(
 )
 
 // načítanie tabuľky Etapa
-let dataFromEtapa = "pokus"
-function eWrite(value) {
-    dataFromEtapa = value
-    console.log(dataFromEtapa + "vVv")
-}
-    console.log(dataFromEtapa + "vVv")
-
-async function dbTableEtapa() {
+let dbEtapa = async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-let dbEtapa = dbTableEtapa().then(
-    function(value) { eWrite(value) },
-    function(error) { console.log(error) }
-)
-console.log(dataFromEtapa + "<<<<<<<<<<<<<<<<<<<<<<")
-/*
 dbEtapa.then(
-    function(value) { if(value){}  },
-    function(error) { console.log(error) }
+    function(value) { console.log(value) }
 )
-*/
+
 // načítanie tabuľky Materiál
-async function dbTableMaterial() {
+let dbMaterial = async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
-// vytvorenie objektu z Materiál
-let dbMaterial = dbTableMaterial()
 
-dbMaterial.then(
-    function(value) { console.log(value) },
-    function(error) { console.log(error) }
-)
-console.log(dbMaterial + "<<<<<<<<<<<<<<<<<<<<<<")
-/*
-console.log(dataMaterial + "-----------------")
 
 // načítanie tabuľky Práca
-async function dataFromPraca() {
+let dbPraca = async function dbTablePraca() {
     let dataFromPraca = await grist.docApi.fetchTable("Praca")
     return dataFromPraca
 }
-// vytvorenie objektu z Práca
+/* vytvorenie objektu z Práca
 let dataPraca = dataFromPraca()
 dataPraca.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
+*/
 
 // načítanie tabuľky Pridružené Náklady
 async function dataFromPridruzene_naklady() {
@@ -131,7 +109,7 @@ dataPridruzene_naklady.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
-*/
+
 function insert(table, value){
     
 }
@@ -153,7 +131,7 @@ function tabData(value) {
             console.log(row)
             let item = {
                 id:row.id,
-                //etapa:insert("Etapa", row.etapa.rowId),
+                //etapa:dbEtapa.then(function(value){})
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
