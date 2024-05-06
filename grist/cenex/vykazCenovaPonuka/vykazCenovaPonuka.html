@@ -84,7 +84,7 @@ async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
-let dbMaterial =  dbTableMaterial()
+let dbMaterial = dbTableMaterial()
 dbMaterial.then(
     function(value) { console.log(value) }
 )
@@ -141,12 +141,14 @@ function tabData(value) {
                 mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
+            
             // insert etapa z tabulky Etapa
             function insertEtapa(value) {
                 let etapa = value.Etapa[row.etapa.rowId-1]
                 item.etapa = etapa
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
+            
             // insert material z tabulky Material
             function insertMaterial(value) {
                 let material = value.Material[row.material.rowId-1]
