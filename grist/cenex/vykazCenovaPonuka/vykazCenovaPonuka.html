@@ -52,72 +52,10 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 042")
-
-function insert(table, value){
-
-}
-
-//vytvorenie poľa objektov pre tlačové tabuľky
-function tabData(value) {
-    // referaencie z cenovej ponuky na ostatne tabulky
-    let ref = value[0]
-    let refMaterial = ref.References.Vykaz_Vymer_Material
-    let refPraca = ref.References.Vykaz_Vymer_Praca
-    let refNaklady = ref.References.Pridruzene_naklady
-    let refCena = ref.References.Konecna_Cena
-    let refEtapa = ref.References.Etapa
-    
-    function createMaterial(){
-        let material = []
-        refMaterial.forEach(function(row) {
-            console.log("/////////")
-            console.log(row)
-            let item = {
-                id:row.id,
-                etapa:row.etapa,
-                material:row.material,
-                jednotka:row.jednotka,
-                jednotkova_cena:row.jednotkova_cena,
-                mnozstvo:row.mnozstvo,
-                celkova_cena:row.celkova_cena
-            }
-            material.push(item)
-            console.log("///////// hotovo")
-            console.log(material)
-        })
-    }
-    
-    // vytvorenie tabuliek pre tlac
-    let vykazVymerMaterial = createMaterial()
-
-    
-    function vykazVymerPraca(){return praca}
-    function vykazPridruzeneNaklady(){return naklady}
-    function vykazKonecnaCena(){return cena}
-    function vykazEtapa(){return etapa}
-
-    //console.log("******")
-    //console.log(ref)
-    //console.log("******")
-    //console.log(ref.References)
-    console.log("******")
-    console.log(refMaterial)
-    console.log(refPraca)
-    console.log(refNaklady)
-    console.log(refCena)
-    console.log(refEtapa)
-    console.log("******")
-}
+console.log("*** cp.js - ver: 043")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
-
-
-// zapisovac premennych z tabuliek
-function writeVariable(value, variable) {
-    variable = value
-}
 
 // načítanie tabuľky CP
 async function dataFromCP() {
@@ -132,28 +70,30 @@ dataCP.then(
 )
 
 // načítanie tabuľky Etapa
-async function dataFromEtapa() {
+async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-// vytvorenie objektu z Etapa
-let dataEtapa = dataFromEtapa()
-
-dataEtapa.then(
-    function(value) { console.log(value) },
+let dbEtapa = dbTableEtapa().then(
+    function(value) { if (value){return value} }
+)
+console.log(dbEtapa + "<<<<<<<<<<<<<<<<<<<<<<")
+/*
+dbEtapa.then(
+    function(value) { if(value){}  },
     function(error) { console.log(error) }
 )
-
+/*
 // načítanie tabuľky Materiál
-async function dataFromMaterial() {
+async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
 // vytvorenie objektu z Materiál
-let dMaterial = dataFromMaterial()
-let dataMaterial = ""
-dMaterial.then(
-    function(value) { writeVariable(value, dataMaterial) },
+let dbMaterial = dbTableMaterial()
+let dataFromMaterial = ""
+dbMaterial.then(
+    function(value) { writeVariable(value, dataFromMaterial) },
     function(error) { console.log(error) }
 )
 console.log(dataMaterial + "-----------------")
@@ -181,6 +121,62 @@ dataPridruzene_naklady.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
+*/
+function insert(table, value){
+    
+}
+
+//vytvorenie poľa objektov pre tlačové tabuľky
+function tabData(value) {
+    // referaencie z cenovej ponuky na ostatne tabulky
+    let ref = value[0]
+    let refMaterial = ref.References.Vykaz_Vymer_Material
+    let refPraca = ref.References.Vykaz_Vymer_Praca
+    let refNaklady = ref.References.Pridruzene_naklady
+    let refCena = ref.References.Konecna_Cena
+    let refEtapa = ref.References.Etapa
+    
+    function createMaterial(){
+        let material = []
+        refMaterial.forEach(function(row) {
+            console.log("/////////")
+            console.log(row)
+            let item = {
+                id:row.id,
+                //etapa:insert("Etapa", row.etapa.rowId),
+                material:row.material,
+                jednotka:row.jednotka,
+                jednotkova_cena:row.jednotkova_cena,
+                mnozstvo:row.mnozstvo,
+                celkova_cena:row.celkova_cena
+            }
+            material.push(item)
+        })
+        console.log("///////// hotovo")
+        console.log(material)
+    }
+    
+    // vytvorenie tabuliek pre tlac
+    let vykazVymerMaterial = createMaterial()
+
+    
+    function vykazVymerPraca(){return praca}
+    function vykazPridruzeneNaklady(){return naklady}
+    function vykazKonecnaCena(){return cena}
+    function vykazEtapa(){return etapa}
+
+    //console.log("******")
+    //console.log(ref)
+    //console.log("******")
+    //console.log(ref.References)
+    console.log("******")
+    console.log(refMaterial)
+    console.log(refPraca)
+    console.log(refNaklady)
+    console.log(refCena)
+    console.log(refEtapa)
+    console.log("******")
+}
     </script>
     
     <button onclick="window.print()">Tlačiť</button>
