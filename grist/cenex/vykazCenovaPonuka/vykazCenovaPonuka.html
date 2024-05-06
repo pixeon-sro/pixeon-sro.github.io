@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 043")
+console.log("*** cp.js - ver: 044")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -83,7 +83,7 @@ dbEtapa.then(
     function(value) { if(value){}  },
     function(error) { console.log(error) }
 )
-/*
+*/
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
@@ -91,11 +91,13 @@ async function dbTableMaterial() {
 }
 // vytvorenie objektu z Materiál
 let dbMaterial = dbTableMaterial()
-let dataFromMaterial = ""
+
 dbMaterial.then(
-    function(value) { writeVariable(value, dataFromMaterial) },
+    function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
+console.log(dbMaterial + "<<<<<<<<<<<<<<<<<<<<<<")
+/*
 console.log(dataMaterial + "-----------------")
 
 // načítanie tabuľky Práca
