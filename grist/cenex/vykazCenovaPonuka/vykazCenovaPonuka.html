@@ -63,12 +63,12 @@ function tabData(value) {
     let refNaklady = ref.References.Pridruzene_naklady
     let refCena = ref.References.Konecna_Cena
     let refEtapa = ref.References.Etapa
-
+    
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
         refMaterial.forEach(function(row) {
             console.log("/////////")
-            console.log(JSON.stringify(row))/*
+            console.log(row)/*
             mapEtapa = rEtapa.forEach(function(r) {
                             if (r.id == row.etapa.rowID) {
                                 console.log(r.Etapa)
@@ -91,6 +91,11 @@ function tabData(value) {
           //vykazVymerMaterial  */
         })
     }
+    
+    // vytvorenie tabuliek pre tlac
+    let material = vykazVymerMaterial()
+
+    
     function vykazVymerPraca(){return praca}
     function vykazPridruzeneNaklady(){return naklady}
     function vykazKonecnaCena(){return cena}
