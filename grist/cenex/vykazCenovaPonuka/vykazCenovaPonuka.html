@@ -57,18 +57,31 @@ console.log("*** cp.js - ver: 036")
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
-// načítanie tabuľky grist
-async function dataFromCenex() {
+// načítanie tabuľky CP
+async function dataFromCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
-
-// vytvorenie objektu z načítaných dát
-let data = dataFromCenex()
-data.then(
-    function(value) { tabData(value) },
+// vytvorenie objektu z CP
+let dataCP = dataFromCP()
+dataCP.then(
+    function(value) { tabCP(value) },
     function(error) { console.log(error) }
 )
+console.log(dataCP)
+// načítanie tabuľky Etapa
+async function dataFromEtapa() {
+    let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
+    return dataFromEtapa
+}
+// vytvorenie objektu z Etapa
+let dataEtapa = dataFromEtapa()
+dataEtapa.then(
+    function(value) { tabEtapa(value) },
+    function(error) { console.log(error) }
+)
+console.log(dataEtapa)
+
 
 function toRecordMap(columnData) {
   const fieldNames = Object.keys(columnData)
@@ -77,9 +90,6 @@ function toRecordMap(columnData) {
     return [id, Object.fromEntries(values)]
   }))
 }
-
-const m = await grist.docApi.fetchTable("Etapa")
-console.log(m)
 
     </script>
     
