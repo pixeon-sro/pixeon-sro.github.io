@@ -113,6 +113,12 @@ function tabData(value) {
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
+
+// zapisovac premennych z tabuliek
+function writeVariable(value, variable) {
+    variable = value
+}
+
 // načítanie tabuľky CP
 async function dataFromCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
@@ -132,12 +138,11 @@ async function dataFromEtapa() {
 }
 // vytvorenie objektu z Etapa
 let dataEtapa = dataFromEtapa()
+
 dataEtapa.then(
     function(value) { console.log(value) },
     function(error) { console.log(error) }
 )
-console.log("!!!!!!!!!!!!!!!!!!!!")
-console.log(dataEtapa)
 
 // načítanie tabuľky Materiál
 async function dataFromMaterial() {
@@ -145,11 +150,13 @@ async function dataFromMaterial() {
     return dataFromMaterial
 }
 // vytvorenie objektu z Materiál
-let dataMaterial = dataFromMaterial()
-dataMaterial.then(
-    function(value) { console.log(value) },
+let dMaterial = dataFromMaterial()
+let dataMaterial = ""
+dMaterial.then(
+    function(value) { writeVariable(value, dataMaterial) },
     function(error) { console.log(error) }
 )
+console.log(dataMaterial + "-----------------")
 
 // načítanie tabuľky Práca
 async function dataFromPraca() {
