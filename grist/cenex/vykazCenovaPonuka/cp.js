@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 030")
+console.log("*** cp.js - ver: 031")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -29,9 +29,17 @@ function tabData(value) {
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
         material.forEach(function(row) {
-            let item = {}
+            let item = {
+                etapa:row.etapa,
+                material:row.material
+                jednotka:row.jednotka
+                jednotkova_cena:row.jednotkova_cena
+                mnozstvo:row.mnozstvo
+                celkova_cena:row.celkova_cena
+            }
+            vykazVymerMaterial.push(item)
             console.log("/////////")
-            console.log(row.etapa)
+            console.log(vykazVymerMaterial)
           //vykazVymerMaterial  
         })
         
