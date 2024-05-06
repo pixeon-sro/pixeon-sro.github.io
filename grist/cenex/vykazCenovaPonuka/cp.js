@@ -1,5 +1,5 @@
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 033")
+console.log("*** cp.js - ver: 034")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -37,10 +37,10 @@ function tabData(value) {
                                 return r.Etapa
                             }
                             else { return "chybka" }
-                        ),
+                        )
             
             let item = {
-                etapa:mapEtapa
+                etapa:mapEtapa,
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
