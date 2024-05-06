@@ -42,8 +42,6 @@ function tabData(value) {
             console.log(vykazVymerMaterial)
           //vykazVymerMaterial  
         })
-        
-        return vykazVymerMaterial
     }
     function vykazVymerPraca(){return praca}
     function vykazPridruzeneNaklady(){return naklady}
