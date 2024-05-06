@@ -6,6 +6,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="cp.js"></script>
     <script src="cp-example.js"></script>
   </head>
   <body>  
@@ -89,7 +90,7 @@
       }
       
       function cp(data) {
-        let ref = data[0]
+        
         
         // uvodne zobrazenie informacii o zakaznikovi
         document.getElementById("dielo").innerText=ref.Dielo
@@ -102,38 +103,10 @@
         let datumPlatnosti = ref.Datum_platnosti_ponuky.toLocaleDateString('sk-SK')
         document.getElementById("datumPlatnosti").innerText=datumPlatnosti
 
-        //vytvorenie referencii na ostatne tabulky
-        let tabMaterial = ref.References.Vykaz_Vymer_Material
-        let tabPraca = ref.References.Vykaz_Vymer_Praca
-        let tabNaklady = ref.References.Pridruzene_naklady
-        let tabCena = ref.References.Konecna_Cena
-        let tabEtapa = ref.References.Etapa
-        
-        console.log(ref)
-        console.log("******")
-        console.log(ref.References)
-        console.log("******")
-        console.log(tabMaterial)
-        console.log(tabPraca)
-        console.log(tabNaklady)
-        console.log(tabCena)
-        console.log(tabEtapa)
-      }
+       }
 
-      // grist požaduje prístu na čítanie tabuľky
-      grist.ready({ requiredAccess: 'full' })
 
-      // načítanie tabuľky grist
-      async function dataFromCenex() {
-        let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
-        return dataFromCenex
-      }
       
-      let dataToPrint = dataFromCenex()
-      dataToPrint.then(
-        function(value) { cp(value) },
-        function(error) { console.log(error) }
-      )
       
     </script>
     
