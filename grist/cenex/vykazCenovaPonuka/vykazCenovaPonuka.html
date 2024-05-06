@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 050")
+console.log("*** cp.js - ver: 051")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -136,7 +136,6 @@ function tabData(value) {
             console.log(row)
             let item = {
                 id:row.id,
-                pokus:row.etapa[rowId]
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
@@ -145,7 +144,7 @@ function tabData(value) {
             }
             function insertEtapa(value) {
                 console.log(row.etapa.rowId)
-                let etapa = value.Etapa[row.etapa.rowId]
+                let etapa = value.Etapa[row.etapa.rowId-1]
                 item.etapa = etapa
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
