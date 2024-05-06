@@ -87,10 +87,14 @@ async function dataFromEtapa() {
 // vytvorenie objektu z Etapa
 let helperEtapa = dataFromEtapa()
 helperEtapa.then(
-    function(value) { tabEtapa(value) },
+    function(value) { writer(value) },
     function(error) { console.log(error) }
 )
-let dataEtapa = mapToRecord(helperEtapa)
+let dataEtapa = ""
+function writer(value){
+    dataEtapa = mapToRecord(value)
+}
+
 
 
 console.log(dataEtapa)
