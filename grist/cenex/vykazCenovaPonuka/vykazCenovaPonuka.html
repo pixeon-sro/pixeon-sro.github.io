@@ -141,7 +141,7 @@ function tabData(value) {
                 id:row.id,
                 etapa:dbEtapa.then(function(value){
                     return value.Etapa[row.id-1]
-                })
+                }),
                 material:row.material,
                 jednotka:row.jednotka,
                 jednotkova_cena:row.jednotkova_cena,
