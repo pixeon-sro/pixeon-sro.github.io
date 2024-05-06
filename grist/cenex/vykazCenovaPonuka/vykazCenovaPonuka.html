@@ -78,7 +78,7 @@ function toRecordMap(columnData) {
   }))
 }
 
-const m = toRecordMap(await grist.docApi.fetchTable(Etapa));
+const m = toRecordMap(await grist.docApi.fetchTable("Etapa"))
 console.log(m)
 
     </script>
