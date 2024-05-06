@@ -128,6 +128,18 @@ data.then(
     function(error) { console.log(error) }
 )
 
+function toRecordMap(columnData) {
+  const fieldNames = Object.keys(columnData);
+  return new Map(columnData.id.map((id, index) => {
+    const values = fieldNames.map(col => [col, columnData[col][index]]);
+    return [id, Object.fromEntries(values)];
+  }));
+}
+
+const m = toRecordMap(await grist.docApi.fetchTable(Etapa));
+console.log(m)
+console.log(m.get(1))
+
 //vytvorenie oddelených objektov pre tlačové tabulky
 function tabData(value) {
     let ref = value[0]
@@ -135,7 +147,7 @@ function tabData(value) {
     let rPraca = ref.References.Vykaz_Vymer_Praca
     let rNaklady = ref.References.Pridruzene_naklady
     let rCena = ref.References.Konecna_Cena
-    let rEetapa = ref.References.Etapa
+    let rEtapa = ref.References.Etapa
 
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
@@ -143,6 +155,13 @@ function tabData(value) {
             console.log("/////////")
             console.log(row)
             mapEtapa = rEtapa.forEach(function(r) {
+                            if (r.id == row.etapa.rowID) {
+                                console.log(r.Etapa)
+                                return r.Etapa
+                            }
+                            else { return "chybka" }
+                        })
+            mapMaterial = rEtapa.forEach(function(r) {
                             if (r.id == row.etapa.rowID) {
                                 console.log(r.Etapa)
                                 return r.Etapa
@@ -181,6 +200,7 @@ function tabData(value) {
     console.log(rEtapa)
     console.log("******")
 }
+
       
       
     </script>
