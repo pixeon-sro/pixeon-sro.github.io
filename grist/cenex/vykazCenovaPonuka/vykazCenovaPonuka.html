@@ -52,7 +52,16 @@
 
 
 //verzia scriptu do konzoly
-console.log("*** cp.js - ver: 036")
+console.log("*** cp.js - ver: 037")
+
+//mapovanie z fetchTable na standardny Record
+function mapToRecord(columnData) {
+  const fieldNames = Object.keys(columnData)
+  return new Map(columnData.id.map((id, index) => {
+    const values = fieldNames.map(col => [col, columnData[col][index]])
+    return [id, Object.fromEntries(values)]
+  }))
+}
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -69,27 +78,31 @@ dataCP.then(
     function(error) { console.log(error) }
 )
 console.log(dataCP)
+
 // načítanie tabuľky Etapa
 async function dataFromEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 // vytvorenie objektu z Etapa
-let dataEtapa = dataFromEtapa()
-dataEtapa.then(
+let helperEtapa = dataFromEtapa()
+helperEtapa.then(
     function(value) { tabEtapa(value) },
     function(error) { console.log(error) }
 )
-console.log(dataEtapa)
-
-
-function toRecordMap(columnData) {
+let dataEtapa = function mapToRecord(columnData) {
   const fieldNames = Object.keys(columnData)
   return new Map(columnData.id.map((id, index) => {
     const values = fieldNames.map(col => [col, columnData[col][index]])
     return [id, Object.fromEntries(values)]
   }))
 }
+
+
+console.log(dataEtapa)
+
+
+
 
     </script>
     
