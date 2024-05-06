@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 049")
+console.log("*** cp.js - ver: 050")
       
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -132,7 +132,8 @@ function tabData(value) {
     function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
-            console.log("riadokz vytvarania materialu:\n" + JSON.stringify(row))
+            console.log("riadokz vytvarania materialu:")
+            console.log(row)
             let item = {
                 id:row.id,
                 material:row.material,
@@ -148,7 +149,8 @@ function tabData(value) {
             dbEtapa.then(function(value) { insertEtapa(value) })
             material.push(item)
         })
-        console.log("hotovy material:\n" + material)
+        console.log("hotovy material:" + material)
+        console.log(material)
     }
     
     // vytvorenie tabuliek pre tlac
