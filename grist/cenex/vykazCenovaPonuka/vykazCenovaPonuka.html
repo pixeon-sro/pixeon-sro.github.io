@@ -68,7 +68,7 @@ function tabData(value) {
     let refCena = ref.References.Konecna_Cena
     let refEtapa = ref.References.Etapa
     
-    function vykazVymerMaterial(){
+    function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
             console.log("/////////")
@@ -89,7 +89,7 @@ function tabData(value) {
     }
     
     // vytvorenie tabuliek pre tlac
-    let vykazVymerMaterial = vykazVymerMaterial()
+    let vykazVymerMaterial = createMaterial()
 
     
     function vykazVymerPraca(){return praca}
