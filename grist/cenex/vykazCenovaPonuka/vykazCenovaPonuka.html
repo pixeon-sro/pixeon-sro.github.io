@@ -113,10 +113,10 @@ async function dataFromPridruzene_naklady() {
 }
 // vytvorenie objektu z Pridružené Náklady
 let dataPridruzene_naklady = dataFromPridruzene_naklady()
-dataPridruzene_naklady.then(
-    function(value) { console.log(value) },
-    function(error) { console.log(error) }
-)
+//dataPridruzene_naklady.then(
+//    function(value) { console.log(value) },
+//    function(error) { console.log(error) }
+//)
 
 
 //vytvorenie poľa objektov pre tlačové tabuľky
@@ -143,13 +143,13 @@ function tabData(value) {
                 celkova_cena:row.celkova_cena
             }
             function insertEtapa(value) {
-                let etapa = value.Etapa
+                let etapa = value.etapa
                 item.etapa = etapa
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
             material.push(item)
         })
-        console.log("hotovy material:" + material)
+        console.log("hotovy material:")
         console.log(material)
     }
     
@@ -171,7 +171,7 @@ function tabData(value) {
     //console.log(refPraca)
     //console.log(refNaklady)
     //console.log(refCena)
-    //console.log(refEtapa)
+    console.log(refEtapa)
     //console.log("******")
 }
     </script>
