@@ -29,6 +29,8 @@ function tabData(value) {
     function vykazVymerMaterial(){
         let vykazVymerMaterial = []
         material.forEach(function(row) {
+            let item = {}
+            console.log("/////////")
             console.log(row.etapa)
           //vykazVymerMaterial  
         })
@@ -40,10 +42,10 @@ function tabData(value) {
     function vykazKonecnaCena(){return cena}
     function vykazEtapa(){return etapa}
 
-    console.log("******")
-    console.log(ref)
-    console.log("******")
-    console.log(ref.References)
+    //console.log("******")
+    //console.log(ref)
+    //console.log("******")
+    //console.log(ref.References)
     console.log("******")
     console.log(material)
     console.log(praca)
