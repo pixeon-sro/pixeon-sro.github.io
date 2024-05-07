@@ -79,7 +79,9 @@ let dbEtapa = dbTableEtapa()
 //    function(value) { console.log(value) }
 //)
 
-let tabEtapa = function tabFromDB() {
+let tabEtapa = tabFromDB()
+
+function tabFromDB() {
   dbEtapa.then(function(value){
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>")
     console.log(value)
@@ -140,8 +142,8 @@ function tabData(value) {
     function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
-            console.log("riadokz vytvarania materialu:")
-            console.log(row)
+            //console.log("riadokz vytvarania materialu:")
+            //console.log(row)
             let item = {
                 id:row.id,
                 jednotka:row.jednotka,
@@ -165,8 +167,8 @@ function tabData(value) {
             dbMaterial.then(function(value) { insertMaterial(value) })
             material.push(item)
         })
-        console.log("hotovy material:")
-        console.log(material)
+        //console.log("hotovy material:")
+        //console.log(material)
     }
 
     // vytvorenie tabuliek pre tlac
