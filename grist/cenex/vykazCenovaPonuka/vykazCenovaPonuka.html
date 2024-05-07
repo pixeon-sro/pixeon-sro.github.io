@@ -78,7 +78,7 @@ let dbEtapa = dbTableEtapa()
 //dbEtapa.then(
 //    function(value) { console.log(value) }
 //)
-let tabEtapa = dbEtapa.the(function(value) { rebuildRow(value) })
+let tabEtapa = dbEtapa.then(function(value) { rebuildRow(value) })
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>")
 console.log(tabEtapa)
 
