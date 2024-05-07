@@ -84,9 +84,9 @@ async function dbTablePridruzeneNaklady() {
     return dataFromPridruzeneNaklady
 }
 
-function tabFromPriduzeneNaklady() {
-  let tabPriduzeneNaklady = []
-  dbPriduzeneNaklady.then(function(value){
+function tabFromPridruzeneNaklady() {
+  let tabPridruzeneNaklady = []
+  dbPridruzeneNaklady.then(function(value){
     console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
@@ -95,10 +95,10 @@ function tabFromPriduzeneNaklady() {
       item.nazov = value.nazov[i]
       item.jednotka = value.jednotka[i]
       item.jednotkova_cena = value.jednotkova_cena[i]
-      tabPriduzeneNaklady.push(item)
+      tabPridruzeneNaklady.push(item)
     }
   })
-  return tabPriduzeneNaklady
+  return tabPridruzeneNaklady
 }
 
 // načítanie údajov z Etapa
