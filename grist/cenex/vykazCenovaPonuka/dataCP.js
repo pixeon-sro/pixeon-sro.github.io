@@ -117,7 +117,7 @@ function tabFromEtapa() {
                 popis:value.popis[i]
             }
             tabEtapa.push(item)
-        }*/
+        }
     })
     return tabEtapa
 }
