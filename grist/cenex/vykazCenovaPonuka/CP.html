@@ -83,7 +83,13 @@
             celkova_cena:row.celkova_cena
           }
           //doplnenie etapy
-          console.log(tableEtapa)
+          console.log(tableEtapa[1])
+          for (let item in tableEtapa) {
+            console.log(item)
+            if (item.id == row.etapa.rowId) {
+              element.etapa = item.etapa
+            }
+          }
           tableEtapa.forEach((item) => {
             console.log("**************************************************")
             console.log(item)
