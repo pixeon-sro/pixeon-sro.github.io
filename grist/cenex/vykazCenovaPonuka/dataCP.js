@@ -99,7 +99,7 @@ async function getValue() {
     let tableEtapa = await tabFromEtapa()
     console.log(tableEtapa)
 }
-
+let pek = getValue()
 
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
