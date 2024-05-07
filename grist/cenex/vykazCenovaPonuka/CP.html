@@ -43,8 +43,11 @@
     //verzia scriptu do konzoly
     console.log("*** vykazCenovaPonuka.html - ver: 027")
 
-    // vytvorenie objektu z CP
-    // volanie dataFromCP dataCP.js
+    /*
+    /  vytvorenie CP
+    /  promise object dataCP je vytvorený
+    /  volaním funkcie dataFromCP z dataCP.js
+    */
     let dataCP = dataFromCP()
     dataCP.then(
       function(value) { cp(value) },
@@ -53,8 +56,13 @@
 
     //vytvorenie poľa objektov pre tlačové tabuľky
     function cp(value) {
-      // referaencie z cenovej ponuky na ostatne tabulky
       let ref = value[0]
+      /*
+      // dataCP obsahuje object References
+      // ten zahŕňa všetky referancie na potrebné tabuľky
+      // najskôr sa References rozobere na jedntlive tabuľky
+      // a potom sa doplnia údajmi
+      */
       console.log(ref)
       let refVMaterial = ref.References.Vykaz_Vymer_Material
       let refVPraca = ref.References.Vykaz_Vymer_Praca
@@ -62,6 +70,7 @@
       let refVCena = ref.References.Konecna_Cena
       let refVEtapa = ref.References.Etapa
 
+      // doplnenie údajov z materiálov
       function createVMaterial(){
         let vMaterial = []
         refVMaterial.forEach(function(row) {
@@ -78,16 +87,16 @@
         })
       //console.log("hotovy material:")
       //console.log(material)
-    }
+      }
 
-    // vytvorenie tabuliek pre tlac
-    let vykazVymerMaterial = createMaterial()
+      // vytvorenie tabuliek pre tlac
+      let vykazVymerMaterial = createVMaterial()
 
 
-    function vykazVymerPraca(){return praca}
-    function vykazPridruzeneNaklady(){return naklady}
-    function vykazKonecnaCena(){return cena}
-    function vykazEtapa(){return etapa}
+      function vykazVymerPraca(){return praca}
+      function vykazPridruzeneNaklady(){return naklady}
+      function vykazKonecnaCena(){return cena}
+      function vykazEtapa(){return etapa}
     }
     </script>
 
