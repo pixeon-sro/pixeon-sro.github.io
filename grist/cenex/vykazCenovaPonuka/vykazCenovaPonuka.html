@@ -52,7 +52,7 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 054")
+console.log("*** cp.js - ver: 055")
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -126,9 +126,17 @@ function tabFromDB (db) {
     console.log("<<<<<<<<<<<<<<<<<<<<<<<")
     console.log(dbArray)
     console.log("<<<<<<<<<<<<<<<<<<<<<<<")
-    let outValue = []
-    dbArray.forEach(function(row) {
-      console.log("row")
+
+
+    //let outValue = []
+
+    dbArray.forEach(function(entries) {
+      console.log("11111111111111111111")
+      console.log(entries)
+      entries.forEach(entri) {
+      console.log("22222222222222222222")
+      console.log(entri)
+      }
     })
   })
 }
