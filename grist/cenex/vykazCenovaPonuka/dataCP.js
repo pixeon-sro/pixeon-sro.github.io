@@ -114,8 +114,7 @@ function tabFromEtapa() {
             tabEtapa.push(item)
         }
     })
-    return protabEtapa
-    console.log(tabEtapa)
+    return tabEtapa
 }
 
 let tableEtapa = Promise.all(tabFromEtapa())
