@@ -70,20 +70,25 @@
       let refVCena = ref.References.Konecna_Cena
       let refVEtapa = ref.References.Etapa
 
-      // doplnenie údajov z materiálov
+      // funkcia doplňujúca údajov z tabuľky materiálov
       function createVMaterial(){
         let vMaterial = []
         refVMaterial.forEach(function(row) {
           console.log(row)
           console.log(tableEtapa)
-          let item = {
+          let element = {
             id:row.id,
-            //etapa:tableEtapa
             jednotka:row.jednotka,
             jednotkova_cena:row.jednotkova_cena,
             mnozstvo:row.mnozstvo,
             celkova_cena:row.celkova_cena
           }
+          tableEtapa.forEach(function(item) {
+            if (item.id == row.etapa.rovId) {
+              element:etapa = item.etapa
+            }
+          })
+          vMaterial.push(element)
         })
       //console.log("hotovy material:")
       //console.log(material)
