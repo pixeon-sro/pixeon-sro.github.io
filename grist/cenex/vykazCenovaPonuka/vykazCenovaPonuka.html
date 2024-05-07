@@ -79,7 +79,7 @@ let dbEtapa = dbTableEtapa()
 //    function(value) { console.log(value) }
 //)
 
-let m = toRecordMap(await grist.docApi.fetchTable("Etapa"));
+let m = rebuildRow(await grist.docApi.fetchTable("Etapa"));
 
 
 let tabEtapa = dbEtapa.then(function(value) { rebuildRow(value) })
