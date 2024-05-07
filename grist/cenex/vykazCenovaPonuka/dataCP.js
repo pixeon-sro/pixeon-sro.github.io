@@ -111,7 +111,6 @@ function tabFromEtapa() {
     })
     .then(function (objects) {
         console.log(objects[0], objects[1]);
-    })
     console.log(value)
         sumObj = value.id.length
         for (let i = 0; i < sumObj; i++) {
