@@ -113,6 +113,7 @@ function tabFromEtapa() {
         etapa:value.etapa[i],
         popis:value.popis[i]
       }
+      console.log(item)
       tabEtapa.push(item)
     }
   })
