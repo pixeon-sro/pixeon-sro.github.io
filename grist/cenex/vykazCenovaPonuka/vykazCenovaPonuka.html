@@ -79,12 +79,13 @@ let dbEtapa = dbTableEtapa()
 //    function(value) { console.log(value) }
 //)
 
-let m = rebuildRow(await grist.docApi.fetchTable("Etapa"));
+let tabEtapa = function tabFromDB() {
+  dbEtapa.then(function(value){
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>")
+    console.log(value)
 
-
-let tabEtapa = dbEtapa.then(function(value) { rebuildRow(value) })
-console.log(">>>>>>>>>>>>>>>>>>>>>>>>")
-console.log(tabEtapa)
+  })
+}
 
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
@@ -124,14 +125,6 @@ let dataPridruzene_naklady = dataFromPridruzene_naklady()
 //    function(value) { console.log(value) },
 //    function(error) { console.log(error) }
 //)
-
-function rebuildRow(columns) {
-  const fieldNames = Object.keys(columns);
-  return new Map(columns.id.map((id, index) => {
-    const values = fieldNames.map(col => [col, columns[col][index]]);
-    return [id, Object.fromEntries(values)];
-  }));
-}
 
 
 //vytvorenie poľa objektov pre tlačové tabuľky
