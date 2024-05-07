@@ -3,7 +3,7 @@
 / Načítanie údajov z tabuliek CENEXU
 /
 / autor: Roman Holinec
-/ verzia:
+/ verzia: 056
 /
 */
 console.log("*** cp.js - ver: 056")
@@ -80,7 +80,6 @@ async function dbTablePridruzeneNaklady() {
 function tabFromPridruzeneNaklady() {
   let tabPridruzeneNaklady = []
   dbPridruzeneNaklady.then(function(value){
-    console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
       let item = {}
@@ -117,6 +116,3 @@ function tabFromEtapa() {
   })
   return tabEtapa
 }
-
-console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-console.log(tablePridruzeneNaklady)

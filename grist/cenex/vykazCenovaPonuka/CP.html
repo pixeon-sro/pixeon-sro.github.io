@@ -26,7 +26,7 @@
 
     <h1>Výkaz Materiálu</h1>
 
-    <table id="VykazVymerMaterial">
+    <table id="material">
       <tr>
         <th>Etapa</th>
         <th>Materiál</th>
@@ -41,54 +41,43 @@
 
     <script>
     //verzia scriptu do konzoly
-    console.log("*** vykazCenovaPonuka.html - ver: 026")
+    console.log("*** vykazCenovaPonuka.html - ver: 027")
 
-// vytvorenie objektu z CP
-let dataCP = dataFromCP()
-dataCP.then(
-    function(value) { tabData(value) },
-    function(error) { console.log(error) }
-)
-//vytvorenie poľa objektov pre tlačové tabuľky
-function cp(value) {
-    // referaencie z cenovej ponuky na ostatne tabulky
-    let ref = value[0]
-    let refMaterial = ref.References.Vykaz_Vymer_Material
-    let refPraca = ref.References.Vykaz_Vymer_Praca
-    let refNaklady = ref.References.Pridruzene_naklady
-    let refCena = ref.References.Konecna_Cena
-    let refEtapa = ref.References.Etapa
+    // vytvorenie objektu z CP
+    // volanie dataFromCP dataCP.js
+    let dataCP = dataFromCP()
+    dataCP.then(
+      function(value) { cp(value) },
+      function(error) { console.log(error) }
+    )
 
-    function createMaterial(){
-        let material = []
-        refMaterial.forEach(function(row) {
-            //console.log("riadokz vytvarania materialu:")
-            //console.log(row)
-            let item = {
-                id:row.id,
-                jednotka:row.jednotka,
-                jednotkova_cena:row.jednotkova_cena,
-                mnozstvo:row.mnozstvo,
-                celkova_cena:row.celkova_cena
-            }
+    //vytvorenie poľa objektov pre tlačové tabuľky
+    function cp(value) {
+      // referaencie z cenovej ponuky na ostatne tabulky
+      let ref = value[0]
+      console.log(ref)
+      let refVMaterial = ref.References.Vykaz_Vymer_Material
+      let refVPraca = ref.References.Vykaz_Vymer_Praca
+      let refVNaklady = ref.References.Pridruzene_naklady
+      let refVCena = ref.References.Konecna_Cena
+      let refVEtapa = ref.References.Etapa
 
-            // insert etapa z tabulky Etapa
-            function insertEtapa(value) {
-                let insEtapa = value.Etapa[row.etapa.rowId-1]
-                item.etapa = insEtapa
-            }
-            dbEtapa.then(function(value) { insertEtapa(value) })
-
-            // insert material z tabulky Material
-            function insertMaterial(value) {
-                let insMaterial = value.nazov[row.material.rowId-1]
-                item.material = insMaterial
-            }
-            dbMaterial.then(function(value) { insertMaterial(value) })
-            material.push(item)
+      function createVMaterial(){
+        let vMaterial = []
+        refVMaterial.forEach(function(row) {
+          console.log(row)
+          console.log(tableEtapa)
+          let item = {
+            id:row.id,
+            //etapa:tableEtapa
+            jednotka:row.jednotka,
+            jednotkova_cena:row.jednotkova_cena,
+            mnozstvo:row.mnozstvo,
+            celkova_cena:row.celkova_cena
+          }
         })
-        //console.log("hotovy material:")
-        //console.log(material)
+      //console.log("hotovy material:")
+      //console.log(material)
     }
 
     // vytvorenie tabuliek pre tlac
@@ -99,19 +88,7 @@ function cp(value) {
     function vykazPridruzeneNaklady(){return naklady}
     function vykazKonecnaCena(){return cena}
     function vykazEtapa(){return etapa}
-
-    //console.log("******")
-    //console.log(ref)
-    //console.log("******")
-    //console.log(ref.References)
-    //console.log("******")
-    //console.log(refMaterial)
-    //console.log(refPraca)
-    //console.log(refNaklady)
-    //console.log(refCena)
-    //console.log(refEtapa)
-    //console.log("******")
-}
+    }
     </script>
 
     <button onclick="window.print()">Tlačiť</button>
