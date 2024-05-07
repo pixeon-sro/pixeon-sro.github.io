@@ -75,6 +75,32 @@ function tabFromPraca() {
   return tabPraca
 }
 
+//načítanie údajov z Výkazu výmer - Pridruzene_naklady
+let dbPridruzeneNaklady = dbTablePridruzeneNaklady()
+let tablePridruzeneNaklady = tabFromPridruzeneNaklady()
+
+async function dbTablePridruzeneNaklady() {
+    let dataFromPridruzeneNaklady = await grist.docApi.fetchTable("Pridruzene_Naklady")
+    return dataFromPridruzeneNaklady
+}
+
+function tabFromPriduzeneNaklady() {
+  let tabPriduzeneNaklady = []
+  dbPriduzeneNaklady.then(function(value){
+    console.log(value)
+    sumObj = value.id.length
+    for (let i = 0; i < sumObj; i++) {
+      let item = {}
+      item.id = value.id[i]
+      item.nazov = value.nazov[i]
+      item.jednotka = value.jednotka[i]
+      item.jednotkova_cena = value.jednotkova_cena[i]
+      tabPriduzeneNaklady.push(item)
+    }
+  })
+  return tabPriduzeneNaklady
+}
+
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
 let tableEtapa = tabFromEtapa()
@@ -100,4 +126,4 @@ function tabFromEtapa() {
 }
 
 console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-console.log(tablePraca)
+console.log(tablePridruzeneNaklady)
