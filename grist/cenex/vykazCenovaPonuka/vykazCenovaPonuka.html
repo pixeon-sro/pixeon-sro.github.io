@@ -122,9 +122,14 @@ let dataPridruzene_naklady = dataFromPridruzene_naklady()
 
 function tabFromDB (db) {
   db.then(function(value){
+    let dbArray = Object.entries(value)
     console.log("<<<<<<<<<<<<<<<<<<<<<<<")
-    console.log(value)
+    console.log(dbArray)
     console.log("<<<<<<<<<<<<<<<<<<<<<<<")
+    let outValue = []
+    dbArray.forEach(function(row) {
+      console.log("row")
+    })
   })
 }
 
