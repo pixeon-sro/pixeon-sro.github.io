@@ -95,7 +95,6 @@ function tabFromPridruzeneNaklady() {
 
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
-console.log(dbEtapa)
 let tableEtapa = tabFromEtapa()
 
 async function dbTableEtapa() {
@@ -103,14 +102,18 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 
+
+
 function tabFromEtapa() {
     let tabEtapa = []
     dbEtapa.then( function(value) {
-        return JSON.parse(value)
+        const v = JSON.stringify(value)
+        console.log(v)
+        return v
     })
-    .then(function (obj) {
-        console.log(obj)
-
+    .then(function (string) {
+        console.log(string)
+/*
     console.log(obj)
         sumObj = value.id.length
         for (let i = 0; i < sumObj; i++) {
@@ -120,9 +123,9 @@ function tabFromEtapa() {
                 popis:value.popis[i]
             }
             tabEtapa.push(item)
-        }
+        }*/
     })
-    return tabEtapa
+    //return tabEtapa
 }
 
-console.log(tableEtapa)
+//console.log(tableEtapa)
