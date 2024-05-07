@@ -94,7 +94,14 @@ function tabFromPridruzeneNaklady() {
 }
 
 // načítanie údajov z Etapa
-let dbEtapa = dbTableEtapa()
+const dbEtapa = dbTableEtapa()
+console.log(dbEtapa)
+const helperStr = JSON.stringify(dbEtapa)
+console.log(helperStr)
+const helperEtapa = JSON.parse(helperStr)
+console.log(helperEtapa)
+
+
 let tableEtapa = tabFromEtapa()
 
 async function dbTableEtapa() {
