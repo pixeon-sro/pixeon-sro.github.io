@@ -6,7 +6,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-    <!--<script src="-cp.js"></script>-->
+    <script src="-cp.js"></script>
     <script src="cp-example.js"></script>
   </head>
   <body>
@@ -50,54 +50,6 @@
       }
 
 
-
-//verzia scriptu
-console.log("*** cp.js - ver: 055")
-
-// grist požaduje plný prístup
-grist.ready({ requiredAccess: 'full' })
-
-// načítanie tabuľky CP
-async function dataFromCP() {
-    let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
-    return dataFromCenex
-}
-// vytvorenie objektu z CP
-let dataCP = dataFromCP()
-dataCP.then(
-    function(value) { tabData(value) },
-    function(error) { console.log(error) }
-)
-
-// načítanie tabuľky Etapa
-async function dbTableEtapa() {
-    let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
-    return dataFromEtapa
-}
-let dbEtapa = dbTableEtapa()
-let tableEtapa = tabFromEtapa()
-console.log("objektov pole objektov:")
-console.log(tableEtapa)
-
-function tabFromEtapa() {
-  let tabEtapa = []
-  dbEtapa.then(function(value){
-console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-console.log(value)
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
-      let item = {}
-      item.id = value.id[i]
-      item.etapa = value.Etapa[i]
-      item.popis = value.Popis[i]
-      tabEtapa.push(item)
-    }
-console.log("pocet objektov: ")
-console.log(sumObj)
-console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-  })
-  return tabEtapa
-}
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")

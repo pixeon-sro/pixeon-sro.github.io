@@ -1,21 +1,79 @@
-//verzia scriptu do konzoly
-console.log("*** cp.js - ver: 040")
-      
+/*
+/
+/ Tlačová šablóna pre Cenex - Cenová ponuka
+/
+/ autor: Roman Holinec
+/ verzia:
+/
+*/
+console.log("*** cp.js - ver: 056")
+
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
-// načítanie tabuľky grist
-async function dataFromCenex() {
+// načítanie údajov z CP
+async function dataFromCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
-
-// vytvorenie objektu z načítaných dát
-let data = dataFromCenex()
-data.then(
+// vytvorenie objektu z CP
+let dataCP = dataFromCP()
+dataCP.then(
     function(value) { tabData(value) },
     function(error) { console.log(error) }
 )
+
+//načítanie údajov z Výkazu výmer - Materiál
+let dbMaterial = dbTableMaterial()
+let tableMaterial = tabFromMaterial()
+
+async function dbTableMaterial() {
+    let dataFromMaterial = await grist.docApi.fetchTable("VykazVymerMaterial")
+    return dataFromMaterial
+}
+
+function tabFromMaterial() {
+  let tabMaterial = []
+  dbMaterial.then(function(value){
+    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+    console.log(value)
+    sumObj = value.id.length
+    for (let i = 0; i < sumObj; i++) {
+      let item = {}
+      item.id = value.id[i]
+      //item.etapa = value.etapa[i]
+      //item.popis = value.popis[i]
+      tabMaterial.push(item)
+    }
+  })
+  return tabMaterial
+}
+
+// načítanie údajov z Etapa
+let dbEtapa = dbTableEtapa()
+let tableEtapa = tabFromEtapa()
+
+async function dbTableEtapa() {
+    let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
+    return dataFromEtapa
+}
+
+function tabFromEtapa() {
+  let tabEtapa = []
+  dbEtapa.then(function(value){
+    sumObj = value.id.length
+    for (let i = 0; i < sumObj; i++) {
+      let item = {}
+      item.id = value.id[i]
+      item.etapa = value.etapa[i]
+      item.popis = value.popis[i]
+      tabEtapa.push(item)
+    }
+  })
+  return tabEtapa
+}
+
+
 
 //vytvorenie oddelených objektov pre tlačové tabulky
 function tabData(value) {
@@ -38,7 +96,7 @@ function tabData(value) {
                             }
                             else { return "chybka" }
                         })
-            
+
             let item = {
                 etapa:mapEtapa,
                 material:row.material,
@@ -50,7 +108,7 @@ function tabData(value) {
             vykazVymerMaterial.push(item)
             console.log("/////////")
             console.log(vykazVymerMaterial)
-          //vykazVymerMaterial  
+          //vykazVymerMaterial
         })
     }
     function vykazVymerPraca(){return praca}
@@ -80,7 +138,7 @@ function tabData(value) {
 
       function printTable(tableID, data) {
         let table = ""
-        
+
         if (tableID === null) {
           console.log("Nie je určená cieľová tebulka")
         }
@@ -119,8 +177,8 @@ function tabData(value) {
       }
       /*
       function cp(data) {
-        
-        
+
+
         // uvodne zobrazenie informacii o zakaznikovi
         document.getElementById("dielo").innerText=ref.Dielo
         document.getElementById("zakaznik").innerText=ref.Zakaznik
@@ -175,7 +233,7 @@ function tabData(value) {
                             }
                             else { return "chybka" }
                         })
-            
+
             let item = {
                 etapa:mapEtapa,
                 material:row.material,
@@ -187,7 +245,7 @@ function tabData(value) {
             vykazVymerMaterial.push(item)
             console.log("/////////")
             console.log(vykazVymerMaterial)
-          //vykazVymerMaterial  
+          //vykazVymerMaterial
         })
     }
     function vykazVymerPraca(){return praca}
@@ -208,4 +266,3 @@ function tabData(value) {
     console.log("******")
 }
 */
-      
