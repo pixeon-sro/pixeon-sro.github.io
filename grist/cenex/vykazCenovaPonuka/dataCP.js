@@ -118,5 +118,5 @@ function tabFromEtapa() {
     console.log(tabEtapa)
 }
 
-let tableEtapa = Promis.all(tabFromEtapa())
+let tableEtapa = Promise.all(tabFromEtapa())
 console.log(tableEtapa)
