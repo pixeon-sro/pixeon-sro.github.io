@@ -107,10 +107,11 @@ function tabFromEtapa() {
   dbEtapa.then(function(value){
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
-      let item = {}
-      item.id = value.id[i]
-      item.etapa = value.etapa[i]
-      item.popis = value.popis[i]
+      let item = {
+        id:value.id[i],
+        etapa:value.etapa[i],
+        popis:value.popis[i]
+      }
       tabEtapa.push(item)
     }
   })
