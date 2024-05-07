@@ -9,9 +9,9 @@
     <!--<script src="-cp.js"></script>-->
     <script src="cp-example.js"></script>
   </head>
-  <body>  
+  <body>
     <pre id="myDisplay" style="background:red"></pre>
-    
+
     <h1>Cenová ponuka</h1>
     <h2><strong>Dielo: </strong><span id="dielo"></span></h2>
     <h2><strong>Investor: </strong><span id="zakaznik"></span></h2>
@@ -24,9 +24,9 @@
       <strong>Dátum vyhotovenia CP: </strong><span id="datumVytvorenia"></span><br/>
       <strong>Dátum platnosti CP: </strong><span id="datumPlatnosti"></span>
     </p>
-    
+
     <h1>Výkaz Materiálu</h1>
-    
+
     <table id="VykazVymerMaterial">
       <tr>
         <th>Etapa</th>
@@ -39,11 +39,11 @@
     </table>
     <!-- vynutene zalomenie strany pri tlaci  -->
     <div style="break-after:page"></div>
-    
+
     <script>
     //verzia scriptu do konzoly
     console.log("*** vykazCenovaPonuka.html - ver: 026")
-    
+
       // pomocná funkcia na zobrazenie premenných pri vývoji
       let myDisplay = function(zobraz) {
         document.getElementById("myDisplay").innerText = zobraz;
@@ -52,8 +52,8 @@
 
 
 //verzia scriptu
-console.log("*** cp.js - ver: 053")
-      
+console.log("*** cp.js - ver: 054")
+
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
@@ -75,9 +75,10 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-dbEtapa.then(
-    function(value) { console.log(value) }
-)
+//dbEtapa.then(
+//    function(value) { console.log(value) }
+//)
+let tabEtapa = tabFromDB(dbEtapa)
 
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
@@ -119,6 +120,14 @@ let dataPridruzene_naklady = dataFromPridruzene_naklady()
 //)
 
 
+function tabFromDB (db) {
+  db.then(function(value){
+    console.log("<<<<<<<<<<<<<<<<<<<<<<<")
+    console.log(value)
+    console.log("<<<<<<<<<<<<<<<<<<<<<<<")
+  })
+}
+
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
     // referaencie z cenovej ponuky na ostatne tabulky
@@ -128,7 +137,7 @@ function tabData(value) {
     let refNaklady = ref.References.Pridruzene_naklady
     let refCena = ref.References.Konecna_Cena
     let refEtapa = ref.References.Etapa
-    
+
     function createMaterial(){
         let material = []
         refMaterial.forEach(function(row) {
@@ -141,14 +150,14 @@ function tabData(value) {
                 mnozstvo:row.mnozstvo,
                 celkova_cena:row.celkova_cena
             }
-            
+
             // insert etapa z tabulky Etapa
             function insertEtapa(value) {
                 let insEtapa = value.Etapa[row.etapa.rowId-1]
                 item.etapa = insEtapa
             }
             dbEtapa.then(function(value) { insertEtapa(value) })
-            
+
             // insert material z tabulky Material
             function insertMaterial(value) {
                 let insMaterial = value.nazov[row.material.rowId-1]
@@ -160,11 +169,11 @@ function tabData(value) {
         console.log("hotovy material:")
         console.log(material)
     }
-    
+
     // vytvorenie tabuliek pre tlac
     let vykazVymerMaterial = createMaterial()
 
-    
+
     function vykazVymerPraca(){return praca}
     function vykazPridruzeneNaklady(){return naklady}
     function vykazKonecnaCena(){return cena}
@@ -183,7 +192,7 @@ function tabData(value) {
     //console.log("******")
 }
     </script>
-    
+
     <button onclick="window.print()">Tlačiť</button>
   </body>
 </html>
