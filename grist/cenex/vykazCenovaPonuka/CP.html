@@ -6,7 +6,7 @@
     <link href="../css/style.css" rel="stylesheet" />
     <link href="../css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
-    <script src="cp.js"></script>
+    <script src="dataCP.js"></script>
   </head>
   <body>
     <pre id="myDisplay" style="background:red"></pre>
@@ -43,44 +43,14 @@
     //verzia scriptu do konzoly
     console.log("*** vykazCenovaPonuka.html - ver: 026")
 
-      // pomocná funkcia na zobrazenie premenných pri vývoji
-      let myDisplay = function(zobraz) {
-        document.getElementById("myDisplay").innerText = zobraz;
-      }
-
-/*
-// načítanie tabuľky Práca
-async function dbTablePraca() {
-    let dataFromPraca = await grist.docApi.fetchTable("Praca")
-    return dataFromPraca
-}
-let dbPraca =  dbTablePraca()
-//dbPraca.then(
-//    function(value) { console.log(value) }
-//)
-/* vytvorenie objektu z Práca
-let dataPraca = dataFromPraca()
-dataPraca.then(
-    function(value) { console.log(value) },
+// vytvorenie objektu z CP
+let dataCP = dataFromCP()
+dataCP.then(
+    function(value) { tabData(value) },
     function(error) { console.log(error) }
 )
-
-
-// načítanie tabuľky Pridružené Náklady
-async function dataFromPridruzene_naklady() {
-    let dataFromPridruzene_naklady = await grist.docApi.fetchTable("Pridruzene_naklady")
-    return dataFromPridruzene_naklady
-}
-// vytvorenie objektu z Pridružené Náklady
-let dataPridruzene_naklady = dataFromPridruzene_naklady()
-//dataPridruzene_naklady.then(
-//    function(value) { console.log(value) },
-//    function(error) { console.log(error) }
-//)
-*/
-
 //vytvorenie poľa objektov pre tlačové tabuľky
-function tabData(value) {
+function cp(value) {
     // referaencie z cenovej ponuky na ostatne tabulky
     let ref = value[0]
     let refMaterial = ref.References.Vykaz_Vymer_Material
