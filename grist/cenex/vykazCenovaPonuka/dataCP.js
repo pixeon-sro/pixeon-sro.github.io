@@ -96,6 +96,7 @@ function tabFromPridruzeneNaklady() {
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
 let tableEtapa = tabFromEtapa()
+console.log(dbEtapa)
 console.log(tableEtapa)
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
