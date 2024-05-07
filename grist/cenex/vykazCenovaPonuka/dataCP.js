@@ -105,7 +105,7 @@ async function dbTableEtapa() {
 
 function tabFromEtapa() {
   let tabEtapa = []
-  dbEtapa.then(fulfilled(value){
+  dbEtapa.then(function(value){
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
       let item = {
