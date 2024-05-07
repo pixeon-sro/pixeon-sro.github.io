@@ -28,26 +28,30 @@ let dbMaterial = dbTableMaterial()
 let tableMaterial = tabFromMaterial()
 
 async function dbTableMaterial() {
-    let dataFromMaterial = await grist.docApi.fetchTable("VykazVymerMaterial")
+    let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
 
 function tabFromMaterial() {
   let tabMaterial = []
   dbMaterial.then(function(value){
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
       let item = {}
       item.id = value.id[i]
-      //item.etapa = value.etapa[i]
-      //item.popis = value.popis[i]
+      item.nazov = value.nazov[i]
+      item.jednotka = value.jednotka[i]
+      item.jednotkova_cena = value.jednotkova_cena[i]
       tabMaterial.push(item)
     }
   })
   return tabMaterial
 }
+
+    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+    console.log(tableMaterial)
+
 
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
