@@ -41,7 +41,7 @@
 
     <script>
     //verzia scriptu do konzoly
-    console.log("*** vykazCenovaPonuka.html - ver: 027")
+    console.log("*** vykazCenovaPonuka.html - ver: 028")
 
     /*
     /  vytvorenie CP
@@ -75,7 +75,6 @@
         let vMaterial = []
         refVMaterial.forEach(function(row) {
           console.log(row)
-          console.log(tableEtapa)
           let element = {
             id:row.id,
             jednotka:row.jednotka,
@@ -84,7 +83,8 @@
             celkova_cena:row.celkova_cena
           }
           //doplnenie etapy
-          tableEtapa.forEach(function(item) {
+          console.log(tableEtapa)
+          tableEtapa.forEach((item) => {
             console.log(item)
             if (item.id == row.etapa.rovId) {
               element:etapa = item.etapa
