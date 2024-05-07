@@ -78,7 +78,9 @@ let dbEtapa = dbTableEtapa()
 //dbEtapa.then(
 //    function(value) { console.log(value) }
 //)
-let tabEtapa = tabFromDB(dbEtapa)
+let tabEtapa = rebuildRow(dbEtapa)
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>")
+console.log(tabEtapa)
 
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
@@ -119,34 +121,14 @@ let dataPridruzene_naklady = dataFromPridruzene_naklady()
 //    function(error) { console.log(error) }
 //)
 
-
-function tabFromDB (db) {
-  db.then(function(value){
-    let dbArray = Object.entries(value)
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<")
-    console.log(dbArray)
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<")
-
-
-    //let outValue = []
-
-    dbArray.forEach(function(entries) {
-      console.log("11111111111111111111")
-      console.log(entries)
-
-      entries.forEach(function(entri) {
-        let key = ""
-        console.log(key)
-        if (Array.isArray(entri)) {
-          key = entri
-        }
-
-        console.log("22222222222222222222")
-        console.log(entri)
-      })
-    })
-  })
+function rebuidRow(columns) {
+  const fieldNames = Object.keys(columns);
+  return new Map(columns.id.map((id, index) => {
+    const values = fieldNames.map(col => [col, columns[col][index]]);
+    return [id, Object.fromEntries(values)];
+  }));
 }
+
 
 //vytvorenie poľa objektov pre tlačové tabuľky
 function tabData(value) {
