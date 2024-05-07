@@ -35,7 +35,6 @@ async function dbTableMaterial() {
 function tabFromMaterial() {
   let tabMaterial = []
   dbMaterial.then(function(value){
-    console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
       let item = {}
@@ -61,7 +60,6 @@ async function dbTablePraca() {
 function tabFromPraca() {
   let tabPraca = []
   dbPraca.then(function(value){
-    console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
       let item = {}
@@ -80,7 +78,7 @@ let dbPridruzeneNaklady = dbTablePridruzeneNaklady()
 let tablePridruzeneNaklady = tabFromPridruzeneNaklady()
 
 async function dbTablePridruzeneNaklady() {
-    let dataFromPridruzeneNaklady = await grist.docApi.fetchTable("Pridruzene_Naklady")
+    let dataFromPridruzeneNaklady = await grist.docApi.fetchTable("Pridruzene_naklady")
     return dataFromPridruzeneNaklady
 }
 
