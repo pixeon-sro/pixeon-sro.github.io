@@ -121,7 +121,7 @@ let dataPridruzene_naklady = dataFromPridruzene_naklady()
 //    function(error) { console.log(error) }
 //)
 
-function rebuidRow(columns) {
+function rebuildRow(columns) {
   const fieldNames = Object.keys(columns);
   return new Map(columns.id.map((id, index) => {
     const values = fieldNames.map(col => [col, columns[col][index]]);
