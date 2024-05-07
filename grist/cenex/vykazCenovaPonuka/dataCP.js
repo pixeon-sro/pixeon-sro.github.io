@@ -98,7 +98,7 @@ let dbEtapa = dbTableEtapa()
 //let tableEtapa = tabFromEtapa()
 
 console.log(dbEtapa)
-console.log(tableEtapa)
+//console.log(tableEtapa)
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
