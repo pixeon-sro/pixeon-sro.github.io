@@ -101,8 +101,8 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 
-    let tabEtapa = []
 function tabFromEtapa() {
+    let tabEtapa = []
     dbEtapa.then(function(value){
         sumObj = value.id.length
         for (let i = 0; i < sumObj; i++) {
@@ -114,9 +114,9 @@ function tabFromEtapa() {
             tabEtapa.push(item)
         }
     })
-    return tabEtapa
+    return protabEtapa
     console.log(tabEtapa)
 }
 
-let tableEtapa = tabFromEtapa()
+let tableEtapa = Promis.all(tabFromEtapa())
 console.log(tableEtapa)
