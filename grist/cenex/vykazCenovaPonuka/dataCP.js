@@ -12,16 +12,11 @@ console.log("*** cp.js - ver: 056")
 grist.ready({ requiredAccess: 'full' })
 
 // načítanie údajov z CP
+//sparcovanie prebieha v cp.html
 async function dataFromCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
-// vytvorenie objektu z CP
-let dataCP = dataFromCP()
-dataCP.then(
-    function(value) { tabData(value) },
-    function(error) { console.log(error) }
-)
 
 //načítanie údajov z Výkazu výmer - Materiál
 let dbMaterial = dbTableMaterial()
