@@ -105,14 +105,11 @@ async function dbTableEtapa() {
 
 
 function tabFromEtapa() {
-    let tabEtapa = []
-    dbEtapa.then( function(value) {
-        const v = JSON.stringify(value)
-        console.log(v)
-        return v
+    const source = dbEtapa.then( function(value) {
+        return JSON.stringify(value)
     })
     .then(function (string) {
-        console.log(string)
+        return JSON.parse(string)
 /*
     console.log(obj)
         sumObj = value.id.length
@@ -125,6 +122,8 @@ function tabFromEtapa() {
             tabEtapa.push(item)
         }*/
     })
+    console.log(source)
+    let tabEtapa = []
     //return tabEtapa
 }
 
