@@ -95,31 +95,30 @@ function tabFromPridruzeneNaklady() {
 
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
-//let tableEtapa = tabFromEtapa()
+let tableEtapa = tabFromEtapa()
 
 console.log(dbEtapa)
-//console.log(tableEtapa)
+console.log(tableEtapa)
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 
-let tabEtapa = []
 function tabFromEtapa() {
-  dbEtapa.then(function(value){
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
-      let item = {
-        id:value.id[i],
-        etapa:value.etapa[i],
-        popis:value.popis[i]
-      }
-      console.log(item)
-      tabEtapa.push(item)
-    }
-  })
-  //return tabEtapa
+    let tabEtapa = [{helper:1}]
+    console.log(tabEtapa)
+    dbEtapa.then(function(value){
+        sumObj = value.id.length
+        for (let i = 0; i < sumObj; i++) {
+        let item = {
+            id:value.id[i],
+            etapa:value.etapa[i],
+            popis:value.popis[i]
+        }
+        console.log(item)
+        tabEtapa.push(item)
+        console.log(tabEtapa)
+        }
+    })
+    return tabEtapa
 }
-
-tabFromEtapa()
-console.log(tabEtapa)
