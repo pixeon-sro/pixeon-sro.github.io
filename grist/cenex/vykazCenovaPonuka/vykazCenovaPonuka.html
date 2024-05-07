@@ -75,21 +75,17 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-//dbEtapa.then(
-//    function(value) { console.log(value) }
-//)
-
-let tabEtapa = tabFromDB()
-
+let tabEtapa = tabFromEtapa()
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-function tabFromDB() {
+function tabFromEtapa() {
+  let tableEtapa = []
   dbEtapa.then(function(value){
     console.log(value)
-    console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-
+    sumObj = value.id.length
+    lonsole.log(sumObj)
   })
 }
-
+console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
