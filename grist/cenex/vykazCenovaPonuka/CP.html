@@ -83,7 +83,9 @@
             mnozstvo:row.mnozstvo,
             celkova_cena:row.celkova_cena
           }
+          //doplnenie etapy
           tableEtapa.forEach(function(item) {
+            console.log(item)
             if (item.id == row.etapa.rovId) {
               element:etapa = item.etapa
             }
