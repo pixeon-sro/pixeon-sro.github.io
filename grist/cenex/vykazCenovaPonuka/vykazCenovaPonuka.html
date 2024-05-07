@@ -75,10 +75,12 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-let tabEtapa = tabFromEtapa()
+let tableEtapa = tabFromEtapa()
+console.log("objektov pole objektov:")
+console.log(tableEtapa)
 
 function tabFromEtapa() {
-  let tableEtapa = []
+  let tabEtapa = []
   dbEtapa.then(function(value){
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 console.log(value)
@@ -88,14 +90,13 @@ console.log(value)
       item.id = value.id[i]
       item.etapa = value.Etapa[i]
       item.popis = value.Popis[i]
-      tableEtapa.push(item)
+      tabEtapa.push(item)
     }
 console.log("pocet objektov: ")
 console.log(sumObj)
-console.log("objektov pole objektov:")
-console.log(tableEtapa)
 console.log("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
   })
+  return tabEtapa
 }
 // načítanie tabuľky Materiál
 async function dbTableMaterial() {
