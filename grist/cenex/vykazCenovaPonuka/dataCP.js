@@ -27,7 +27,7 @@ let tabStack = {
         return this.tabEtapa
       }
       else {
-        setTimeout( return this.tabEtapa, 3000);
+        setTimeout( function() { return this.tabEtapa }, 3000);
       }
     }
   }
