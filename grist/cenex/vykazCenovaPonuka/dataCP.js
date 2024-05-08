@@ -106,17 +106,15 @@ async function dbTableEtapa() {
 dbTableEtapa().then(function(response){setEtapa(response)})
 
 function setEtapa(data) {
-    console.log(data)/*
-    data.then( function(value) {
-        sumObj = value.id.length
-        for (let i = 0; i < sumObj; i++) {
-            let item = {
-                id:value.id[i],
-                etapa:value.etapa[i],
-                popis:value.popis[i]
-            }
-            tabEtapa.push(item)
+    console.log(data)
+    sumObj = value.id.length
+    for (let i = 0; i < sumObj; i++) {
+        let item = {
+            id:value.id[i],
+            etapa:value.etapa[i],
+            popis:value.popis[i]
         }
-    })
-  console.log(tabEtapa)*/
+        tabEtapa.push(item)
+    }
+  console.log(tabEtapa)
 }
