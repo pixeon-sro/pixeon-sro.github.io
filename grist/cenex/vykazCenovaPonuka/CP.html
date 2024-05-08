@@ -54,7 +54,13 @@
     ]
 
     Promise.allSettled(allPromises).then(function(data){
-      console.log(data)
+    console.log(data)
+
+    const tCP = data[0]
+    console.log(tCP)
+
+
+
     })
 
 
