@@ -117,8 +117,8 @@ function convertor(value) {
   let sumObj = value.id.length
 
   if(value.etapa.length > 0) { const $etapa = true }
-  if(value.popis) { const $popis = true }
-  if(value.nazov) { const $nazov = true }
+  //if(value.popis) { const $popis = true }
+  //if(value.nazov) { const $nazov = true }
   //if(value.jednotka.length > 0) { const $jednotka = true }
   //if(value.jednotkova_cena.length > 0) { const $jednotkova_cena = true }
   //if(value.mnozstvo.length > 0) { const $mnozstvo = true }
@@ -127,7 +127,7 @@ function convertor(value) {
     let item = {}
     item.id = value.id[i]
     if($etapa) { item.etapa = value.etapa[i] }
-    if($popis) { item.popis = value.popis[i] }
+    if(typeof value.popis !== 'undefined') { item.popis = value.popis[i] }
     //if($nazov) { item.nazov = value.nazov[i] }
     //if($jednotka) { item.jednotka = value.jednotka[i] }
     //if($jednotkova_cena) { item.jednotkova_cena = value.jednotkova_cena[i] }
