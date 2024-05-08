@@ -135,7 +135,7 @@ Promise.allSettled(allPromises).then(function(data){
   }
 
   let tableMaterial = document.getElementById("material");
-  vVmaterial.forEach(function(row) {
+  vVmaterial.forEach(function(item) {
     let tRow = tableMaterial.insertRow(-1)
     let cellEtapa = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
@@ -144,12 +144,12 @@ Promise.allSettled(allPromises).then(function(data){
     let cellMnozstvo = tRow.insertCell(4)
     let cellCelkovaCena = tRow.insertCell(5)
 
-    cellEtapa.innerText = "Etapa"
-    cellMaterial.innerText = "Material"
-    cellJednotka.innerText = "Jednotka"
-    cellJadnotkovCena.innerText = "JadnotkovCena"
-    cellMnozstvo.innerText = "Mnozstvo"
-    cellCelkovaCena.innerText = "CelkovaCena"
+    cellEtapa.innerText = item.etapa
+    cellMaterial.innerText = itam.material
+    cellJednotka.innerText = item.jednotka
+    cellJadnotkovCena.innerText = item.jednotkova_cena
+    cellMnozstvo.innerText = item.mnozstvo
+    cellCelkovaCena.innerText = item.celkova_cena
 
   })
 
