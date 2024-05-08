@@ -98,15 +98,18 @@ function setter(variable) {
 }
 
 // načítanie údajov z Etapa
-let tabEtapa = new Array()
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 dbTableEtapa().then(function(response){setEtapa(response)})
+              .then(function(data){
+                console.log(data)
+                return data
+              })
 
 function setEtapa(value) {
-    console.log(value)
+    let tabEtapa = new Array()
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
         let item = {
@@ -118,5 +121,3 @@ function setEtapa(value) {
     }
   console.log(tabEtapa)
 }
-
-console.log(tabEtapa)
