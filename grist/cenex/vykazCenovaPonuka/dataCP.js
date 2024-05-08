@@ -115,13 +115,15 @@ function convertor(value) {
   console.log(value)
   let convertData = []
   let sumObj = value.id.length
+
+  if(value.etapa.length > 0) { const $etapa = true }
+  if(value.popis.length > 0) { const $popis = true }
+
   for (let i = 0; i < sumObj; i++) {
     let item = {
-      //if(value.id != "undefined") { id:value.id[i]}
-      //if (value.id) { id:value.id}
-        id:value.id[i],
-        //etapa:value.etapa[i],
-       // popis:value.popis[i]
+      id:value.id[i],
+      if($etap) {etapa:value.etapa[i]},
+      if($popis) {popis:value.popis[i]}
     }
     convertData.push(item)
   }
