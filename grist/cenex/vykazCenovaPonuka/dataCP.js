@@ -109,17 +109,17 @@ Promise.allSettled(allPromises).then(function(data){
         element.mnozstvo=row.mnozstvo
         element.celkova_cena=row.celkova_cena
       //doplnenie etapy
-      for (let item in tEtapa) {
+      /*for (let item in tEtapa) {
         console.log(item)
         console.log(row.etapa.rowId)
         if (item.id == row.etapa.rowId) {
           element.etapa = item.etapa
         }
-      }
-      /*tableEtapa.forEach((item) => {
+      }*/
+      tEtapa.forEach((item) => {
         console.log("**************************************************")
         console.log(item)
-      })*/
+      })
       vMaterial.push(element)
     })
   console.log("hotovy material:")
