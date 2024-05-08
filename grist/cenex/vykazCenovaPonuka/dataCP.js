@@ -100,7 +100,7 @@ async function dbTableEtapa() {
 }
 let dbEtapa = dbTableEtapa()
                 .then(function(response){return response})
-                .then(functon(data){return data})
+                .then(function(data){return data})
 /*
 function itemFromEtapa() {
     let tabEtapa = []
