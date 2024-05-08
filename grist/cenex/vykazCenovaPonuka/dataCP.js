@@ -98,7 +98,8 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(vCelkovaCena)
 
   //tlač hlavičky CP
-  document.getElementById("dielo").innerText = data[0].Dielo;
+  document.getElementById("dielo").innerText = tCP[0].Dielo;
+  document.getElementById("zakaznik").innerText = tCP[0].Zakaznik;
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
   function createVMaterial(value) {
