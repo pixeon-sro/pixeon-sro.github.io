@@ -8,7 +8,7 @@
 */
 console.log("*** cp.js - ver: 057")
 
-function tabStack() {
+let tabStack {
   const tabEtapa = new Array()
   //const tabMaterial = new Array()
 
@@ -124,7 +124,7 @@ const etapa = dbTableEtapa()
     return settingEtapa(response)
   })
   .then(function(data){
-    tabStack.writer("tabEtapa", data)
+    tabStack:writer("tabEtapa", data)
   })
 
 function settingEtapa(value) {
@@ -141,4 +141,4 @@ function settingEtapa(value) {
   return etapa
 }
 
-tabStack.reader("tabEtapa")
+tabStack:reader("tabEtapa")
