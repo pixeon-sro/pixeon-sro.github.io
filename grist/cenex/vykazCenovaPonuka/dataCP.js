@@ -8,37 +8,6 @@
 */
 console.log("*** cp.js - ver: 057")
 
-let tabStack = {
-  tabEtapa: new Array(),
-
-  // zapisovač tabuľky
-  writer: function(name, data) {
-    if (name == "tabEtapa") {
-      this.tabEtapa = data
-      console.log("writer")
-      console.log(this.tabEtapa)
-    }
-  },
-//timeout = setTimeout(alertFunc, 3000);
-  // čítač tabuľky
-  reader: function(name) {
-    if (name == "tabEtapa") {
-      if (this.tabEtapa.length > 0) {
-        console.log("reader1")
-        console.log(this.tabEtapa)
-        return this.tabEtapa
-      }
-      else {
-        setTimeout(function(){
-          console.log("reader timeout")
-          console.log(this.tabEtapa)
-        }, 5000);
-      }
-    }
-  }
-}
-
-
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
@@ -48,16 +17,13 @@ async function dataFromCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
-
 //načítanie údajov z Výkazu výmer - Materiál
 let dbMaterial = dbTableMaterial()
 let tableMaterial = tabFromMaterial()
-
 async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
-
 function tabFromMaterial() {
   let tabMaterial = []
   dbMaterial.then(function(value){
@@ -77,12 +43,10 @@ function tabFromMaterial() {
 //načítanie údajov z Výkazu výmer - Práca
 let dbPraca = dbTablePraca()
 let tablePraca = tabFromPraca()
-
 async function dbTablePraca() {
     let dataFromPraca = await grist.docApi.fetchTable("Praca")
     return dataFromPraca
 }
-
 function tabFromPraca() {
   let tabPraca = []
   dbPraca.then(function(value){
@@ -102,12 +66,10 @@ function tabFromPraca() {
 //načítanie údajov z Výkazu výmer - Pridruzene_naklady
 let dbPridruzeneNaklady = dbTablePridruzeneNaklady()
 let tablePridruzeneNaklady = tabFromPridruzeneNaklady()
-
 async function dbTablePridruzeneNaklady() {
     let dataFromPridruzeneNaklady = await grist.docApi.fetchTable("Pridruzene_naklady")
     return dataFromPridruzeneNaklady
 }
-
 function tabFromPridruzeneNaklady() {
   let tabPridruzeneNaklady = []
   dbPridruzeneNaklady.then(function(value){
@@ -125,20 +87,14 @@ function tabFromPridruzeneNaklady() {
 }
 
 // načítanie údajov z Etapa
+let dbEtapa = dbTableEtapa()
+let tableEtapa = tabFromEtapa()
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-const etapa = dbTableEtapa()
-  .then(function(response){
-    return settingEtapa(response)
-  })
-  .then(function(data){
-    tabStack.writer("tabEtapa", data)
-  })
-
-function settingEtapa(value) {
-    let etapa = new Array()
+function tabFromEtapa(value) {
+    let tabEtapa = []
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
         let item = {
@@ -146,12 +102,7 @@ function settingEtapa(value) {
             etapa:value.etapa[i],
             popis:value.popis[i]
         }
-        etapa.push(item)
+        tabEtapa.push(item)
     }
-  return etapa
+  return tabEtapatapa
 }
-setTimeout(function(){
-          console.log("reader timeout base")
-
-          console.log(tabStack.reader("tabEtapa"))
-        }, 5000)
