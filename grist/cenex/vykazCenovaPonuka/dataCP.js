@@ -107,6 +107,7 @@ let dbEtapa = dbTableEtapa()
                 .then(function(data){
                   console.log("data")
                   console.log(data)
+                  return data
                 })
 
 function itemFromEtapa() {
