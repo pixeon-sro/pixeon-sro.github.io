@@ -105,8 +105,8 @@ async function dbTableEtapa() {
 }
 dbTableEtapa().then(function(response){setEtapa(response)})
 
-function setEtapa(data) {
-    console.log(data)
+function setEtapa(value) {
+    console.log(value)
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
         let item = {
