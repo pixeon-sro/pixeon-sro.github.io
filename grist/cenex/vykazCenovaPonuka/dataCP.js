@@ -102,7 +102,7 @@ async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-dbTableEtapa()
+const etapa = dbTableEtapa()
   .then(function(response){
     return setEtapa(response)
   })
@@ -110,6 +110,7 @@ dbTableEtapa()
     console.log(data)
     return data
   })
+  console.log(etapa)
 
 function setEtapa(value) {
     let tabEtapa = new Array()
