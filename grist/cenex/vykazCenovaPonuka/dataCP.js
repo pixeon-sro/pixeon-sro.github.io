@@ -17,7 +17,7 @@ let tabStack = {
     console.log(name)
     console.log(data)
     if (name == "tabEtapa") {
-      tabEtapa = data
+      this.tabEtapa = data
     }
   },
 //timeout = setTimeout(alertFunc, 3000);
