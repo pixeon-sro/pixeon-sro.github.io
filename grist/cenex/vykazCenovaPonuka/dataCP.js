@@ -128,7 +128,11 @@ function convertor(value) {
     item.id = value.id[i]
     if($etapa) { item.etapa = value.etapa[i] }
     if($popis) { item.popis = value.popis[i] }
-    
+    if($nazov) { item.nazov = value.nazov[i] }
+    if($jednotka) { item.jednotka = value.jednotka[i] }
+    if($jednotkova_cena) { item.jednotkova_cena = value.jednotkova_cena[i] }
+    if($mnozstvo) { item.mnozstvo = value.mnozstvo[i] }
+
     convertData.push(item)
   }
   console.log(convertData)
