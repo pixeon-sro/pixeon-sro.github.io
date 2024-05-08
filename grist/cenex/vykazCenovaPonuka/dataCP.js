@@ -150,5 +150,8 @@ function settingEtapa(value) {
     }
   return etapa
 }
+setTimeout(function(){
+          console.log("reader timeout base")
 
-console.log(tabStack.reader("tabEtapa"))
+          console.log(tabStack.reader("tabEtapa"))
+        }, 5000)
