@@ -94,16 +94,18 @@ async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-function tabFromEtapa(value) {
+function tabFromEtapa() {
     let tabEtapa = []
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
+    dbEtapa.then(function(value){
+      sumObj = value.id.length
+      for (let i = 0; i < sumObj; i++) {
         let item = {
             id:value.id[i],
             etapa:value.etapa[i],
             popis:value.popis[i]
         }
         tabEtapa.push(item)
-    }
+      }
+    })
   return tabEtapatapa
 }
