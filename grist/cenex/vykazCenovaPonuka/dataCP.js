@@ -88,7 +88,7 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(tEtapa)
 
   // vytvorenie referencií z tCP
-  const vVMaterial = tCP[0].References.Vykaz_Vymer_Material
+  const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
   console.log(vVMaterial)
   const vVPraca = tCP[0].References.Vykaz_Vymer_Praca
   console.log(vVPraca)
@@ -98,7 +98,7 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(vCelkovaCena)
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
-  function createVMaterial(){
+  function createVMaterial() {
     let vMaterial = []
     vVMaterial.forEach(function(row) {
       console.log(row)
@@ -116,17 +116,12 @@ Promise.allSettled(allPromises).then(function(data){
         })
         //doplnenie materiálu
         tMaterial.forEach((item) => {
-          console.log("************************")
-          //console.log(item.id)
-          //console.log(row.material.rowId)
           if (item.id == row.material.rowId) {
             element.material = item.nazov
           }
         })
       vMaterial.push(element)
     })
-  console.log("hotovy material:")
-  console.log(vMaterial)
+    return vMaterial
   }
-createVMaterial()
 })
