@@ -88,7 +88,7 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(tEtapa)
 
   // vytvorenie referencií z tCP
-  const vVMaterial = tCP[0].References.Vykaz_Vymer_Praca
+  const vVMaterial = tCP[0].References.Vykaz_Vymer_Material
   console.log(vVMaterial)
   const vVPraca = tCP[0].References.Vykaz_Vymer_Praca
   console.log(vVPraca)
