@@ -90,11 +90,40 @@ Promise.allSettled(allPromises).then(function(data){
   // vytvorenie referencií z tCP
   const vVMaterial = tCP[0].References.Vykaz_Vymer_Praca
   console.log(vVMaterial)
-  const vVPraca = tCP[0].References.Vykaz_Vymer_Práca
+  const vVPraca = tCP[0].References.Vykaz_Vymer_Praca
   console.log(vVPraca)
   const vVNaklady = tCP[0].References.Pridruzene_naklady
   console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
   console.log(vCelkovaCena)
+
+  // vytvorenie tlačovej tabuľky výkazu Materiálov
+  function createVMaterial(){
+    let vMaterial = []
+    vVMaterial.forEach(function(row) {
+      console.log(row)
+      let element = {
+        id:row.id,
+        jednotka:row.jednotka,
+        jednotkova_cena:row.jednotkova_cena,
+        mnozstvo:row.mnozstvo,
+        celkova_cena:row.celkova_cena
+      }
+      //doplnenie etapy
+      for (let item in tEtapa) {
+        console.log(item)
+        if (item.id == row.etapa.rowId) {
+          element.etapa = item.etapa
+        }
+      }
+      /*tableEtapa.forEach((item) => {
+        console.log("**************************************************")
+        console.log(item)
+      })*/
+      vMaterial.push(element)
+    })
+  console.log("hotovy material:")
+  console.log(vMaterial)
+  }
 
 })
