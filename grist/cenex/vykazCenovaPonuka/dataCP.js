@@ -9,23 +9,21 @@
 console.log("*** cp.js - ver: 057")
 
 let tabStack = {
-  tabEtapa: new Array()
-  //const tabMaterial = new Array()
+  tabEtapa: new Array(),
 
   // zapisovač tabuľky
   writer: function(name, data) {
     if (name == "tabEtapa") {
       tabEtapa = data
     }
-  }
-
+  },
+//timeout = setTimeout(alertFunc, 3000);
   // čítač tabuľky
   reader: function(name) {
     if (name == "tabEtapa") {
       return this:tabEtapa
     }
   }
-
 }
 
 
@@ -124,7 +122,7 @@ const etapa = dbTableEtapa()
     return settingEtapa(response)
   })
   .then(function(data){
-    tabStack:writer("tabEtapa", data)
+    tabStack.writer("tabEtapa", data)
   })
 
 function settingEtapa(value) {
@@ -141,4 +139,4 @@ function settingEtapa(value) {
   return etapa
 }
 
-console.log(tabStack:reader("tabEtapa"))
+console.log(tabStack.reader("tabEtapa"))
