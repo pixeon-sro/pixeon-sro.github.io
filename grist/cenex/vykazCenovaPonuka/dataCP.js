@@ -98,9 +98,10 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(vCelkovaCena)
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
-  function createVMaterial() {
+  function createVMaterial(value) {
     let vMaterial = []
-    vVMaterial.forEach(function(row) {
+    //vVMaterial.forEach(function(row) {
+    value.forEach(function(row) {
       console.log(row)
       let element = {}
         element.id=row.id
