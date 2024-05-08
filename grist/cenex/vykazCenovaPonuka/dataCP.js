@@ -105,11 +105,9 @@ let dbEtapa = dbTableEtapa()
                   return response
                 })
                 .then(function(data){
-                  console.log("data")
-                  console.log(data)
-                  return data
+                  return data[0]:etapa
                 })
-
+/*
 function itemFromEtapa() {
     let tabEtapa = []
     dbEtapa.then( function(value) {
@@ -129,6 +127,6 @@ function itemFromEtapa() {
     console.log(tabEtapa)
     return tabEtapa
 }
-let pokus=itemFromEtapa()
+let pokus=itemFromEtapa()*/
 console.log("pokus")
-console.log(pokus)
+console.log(dbEtapa)
