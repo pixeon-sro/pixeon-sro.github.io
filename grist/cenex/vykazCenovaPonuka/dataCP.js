@@ -123,6 +123,7 @@ const etapa = dbTableEtapa()
   })
   .then(function(data){
     tabStack.writer("tabEtapa", data)
+    console.log(tabStack.reader("tabEtapa"))
   })
 
 function settingEtapa(value) {
