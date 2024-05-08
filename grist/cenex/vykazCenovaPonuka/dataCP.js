@@ -98,16 +98,15 @@ function setter(variable) {
 }
 
 // načítanie údajov z Etapa
+let tabEtapa
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-let dbEtapa = dbTableEtapa()
-                .then(function(response){setter(response)})
-/*
-function itemFromEtapa() {
-    let tabEtapa = []
-    dbEtapa.then( function(value) {
+dbTableEtapa().then(function(response){setEtapa(response)})
+
+function setEtapa(data) {
+    data.then( function(value) {
         sumObj = value.id.length
         for (let i = 0; i < sumObj; i++) {
             let item = {
@@ -117,11 +116,6 @@ function itemFromEtapa() {
             }
             tabEtapa.push(item)
         }
-        console.log("vnutro then:")
-        console.log(tabEtapa)
     })
-    console.log("mimo then")
-    console.log(tabEtapa)
-    return tabEtapa
+  console.log(tabEtapa)
 }
-let pokus=itemFromEtapa()*/
