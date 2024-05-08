@@ -116,8 +116,8 @@ function convertor(value) {
   let convertData = []
   let sumObj = value.id.length
 
-  if(value.etapa.length > 0) { const $etapa = true }
-  if(value.popis.length > 0) { const $popis = true }
+  if(value.etapa.length > 0) { const $etapa = true } else { const $etapa = false }
+  if(value.popis.length > 0) { const $popis = true } else { const $popis = false }
   console.log($etapa)
   for (let i = 0; i < sumObj; i++) {
     let item = {
@@ -157,7 +157,7 @@ Promise.allSettled(allPromises).then(function(data){
   const tNaklady = data[3].value
   console.log(tNaklady)
   const tEtapa = convertor(data[4].value)
-  console.log(tEtapa)
+  //console.log(tEtapa)
 
   // vytvorenie referencií z tCP
   const vVMaterial = ""
