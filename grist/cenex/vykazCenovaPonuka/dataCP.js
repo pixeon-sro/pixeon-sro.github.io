@@ -93,14 +93,17 @@ function tabFromPridruzeneNaklady() {
   return tabPridruzeneNaklady
 }
 
+function setter(var) {
+  console.log(var)
+}
+
 // načítanie údajov z Etapa
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-                .then(function(response){return response})
-                .then(function(data){return data})
+                .then(function(response){setter(response)})
 /*
 function itemFromEtapa() {
     let tabEtapa = []
@@ -122,5 +125,3 @@ function itemFromEtapa() {
     return tabEtapa
 }
 let pokus=itemFromEtapa()*/
-console.log("pokus")
-console.log(dbEtapa)
