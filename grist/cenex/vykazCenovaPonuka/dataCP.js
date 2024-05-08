@@ -135,7 +135,7 @@ Promise.allSettled(allPromises).then(function(data){
   }
 
   let tableMaterial = document.getElementById("material");
-  vVmaterial.forEach(function(item) {
+  vVMaterial.forEach(function(item) {
     let tRow = tableMaterial.insertRow(-1)
     let cellEtapa = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
