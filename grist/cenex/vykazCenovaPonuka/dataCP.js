@@ -113,9 +113,24 @@ function tabFromEtapa() {
 function convertor(value) {
   console.log("convertor")
   console.log(value)
-  //let convertData = []
-  return "pracujem"
+  let convertData = []
+  let sumObj = value.id.length
+  for (let i = 0; i < sumObj; i++) {
+    let item = {
+      if(value.id != "undefined") { id:value.id[i]}
+      //if (value.id) { id:value.id}
+        //id:value.id[i],
+        //etapa:value.etapa[i],
+       // popis:value.popis[i]
+    }
+    convertData.push(item)
+  }
+  console.log(convertData)
+  return convertData
 }
+//// for (const [key, value] of Object.entries(object1)) {
+//// console.log(`${key}: ${value}`);
+
 
 // spracovanie údajov pre tlač
 
