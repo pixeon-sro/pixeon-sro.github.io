@@ -12,7 +12,7 @@ console.log("*** cp.js - ver: 058")
 grist.ready({ requiredAccess: 'full' })
 
 // načítanie údajov z CP
-let tableCP = dbTableCP()
+let dbCP = dbTableCP()
 async function dbTableCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex

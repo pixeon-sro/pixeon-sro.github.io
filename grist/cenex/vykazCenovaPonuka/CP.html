@@ -46,11 +46,11 @@
 
     //  dokončenie všetkých Promisov
     allPromises = [
-      tableCP,
-      tableMaterial,
-      tablePraca,
-      tablePridruzeneNaklady,
-      tableEtapa
+      dbCP,
+      dbMaterial,
+      dbPraca,
+      dbPridruzeneNaklady,
+      dbEtapa
     ]
 
     Promise.allSettled(allPromises).then(function(data){
