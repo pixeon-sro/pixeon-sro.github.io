@@ -118,11 +118,11 @@ function convertor(value) {
 
   if(value.etapa.length > 0) { const $etapa = true }
   if(value.popis.length > 0) { const $popis = true }
-
+  console.log($etapa)
   for (let i = 0; i < sumObj; i++) {
     let item = {
       id:value.id[i],
-      if($etap) {etapa:value.etapa[i]},
+      if($etapa) {etapa:value.etapa[i]},
       if($popis) {popis:value.popis[i]}
     }
     convertData.push(item)
