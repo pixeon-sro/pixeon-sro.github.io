@@ -105,7 +105,7 @@ let dbEtapa = dbTableEtapa()
                   return response
                 })
                 .then(function(data){
-                  console.log(TUUUUUUU)
+                  console.log("TUUUUUUU")
                   //return data[0]:etapa
                 })
 /*
