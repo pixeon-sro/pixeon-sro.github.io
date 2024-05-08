@@ -20,130 +20,50 @@ async function dbTableCP() {
 
 //načítanie údajov z Výkazu výmer - Materiál
 let dbMaterial = dbTableMaterial()
-let tableMaterial = tabFromMaterial()
 async function dbTableMaterial() {
     let dataFromMaterial = await grist.docApi.fetchTable("Material")
     return dataFromMaterial
 }
-function tabFromMaterial() {
-  let tabMaterial = []
-  dbMaterial.then(function(value){
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
-      let item = {}
-      item.id = value.id[i]
-      item.nazov = value.nazov[i]
-      item.jednotka = value.jednotka[i]
-      item.jednotkova_cena = value.jednotkova_cena[i]
-      tabMaterial.push(item)
-    }
-  })
-  return tabMaterial
-}
 
 //načítanie údajov z Výkazu výmer - Práca
 let dbPraca = dbTablePraca()
-let tablePraca = tabFromPraca()
 async function dbTablePraca() {
     let dataFromPraca = await grist.docApi.fetchTable("Praca")
     return dataFromPraca
 }
-function tabFromPraca() {
-  let tabPraca = []
-  dbPraca.then(function(value){
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
-      let item = {}
-      item.id = value.id[i]
-      item.nazov = value.nazov[i]
-      item.jednotka = value.jednotka[i]
-      item.jednotkova_cena = value.jednotkova_cena[i]
-      tabPraca.push(item)
-    }
-  })
-  return tabPraca
-}
 
 //načítanie údajov z Výkazu výmer - Pridruzene_naklady
 let dbPridruzeneNaklady = dbTablePridruzeneNaklady()
-let tablePridruzeneNaklady = tabFromPridruzeneNaklady()
 async function dbTablePridruzeneNaklady() {
     let dataFromPridruzeneNaklady = await grist.docApi.fetchTable("Pridruzene_naklady")
     return dataFromPridruzeneNaklady
 }
-function tabFromPridruzeneNaklady() {
-  let tabPridruzeneNaklady = []
-  dbPridruzeneNaklady.then(function(value){
-    sumObj = value.id.length
-    for (let i = 0; i < sumObj; i++) {
-      let item = {}
-      item.id = value.id[i]
-      item.nazov = value.nazov[i]
-      item.jednotka = value.jednotka[i]
-      item.jednotkova_cena = value.jednotkova_cena[i]
-      tabPridruzeneNaklady.push(item)
-    }
-  })
-  return tabPridruzeneNaklady
-}
 
 // načítanie údajov z Etapa
 let dbEtapa = dbTableEtapa()
-let tableEtapa = tabFromEtapa()
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
 }
-function tabFromEtapa() {
-    let tabEtapa = []
-    dbEtapa.then(function(value){
-      sumObj = value.id.length
-      for (let i = 0; i < sumObj; i++) {
-        let item = {
-            id:value.id[i],
-            etapa:value.etapa[i],
-            popis:value.popis[i]
-        }
-        tabEtapa.push(item)
-      }
-    })
-  return tabEtapa
-}
 
 function convertor(value) {
-  console.log("convertor")
-  console.log(value)
   let convertData = []
   let sumObj = value.id.length
-
-  if(value.etapa.length > 0) { const $etapa = true }
-  //if(value.popis) { const $popis = true }
-  //if(value.nazov) { const $nazov = true }
-  //if(value.jednotka.length > 0) { const $jednotka = true }
-  //if(value.jednotkova_cena.length > 0) { const $jednotkova_cena = true }
-  //if(value.mnozstvo.length > 0) { const $mnozstvo = true }
-
   for (let i = 0; i < sumObj; i++) {
     let item = {}
     item.id = value.id[i]
     if(typeof value.etapa !== 'undefined') { item.etapa = value.etapa[i] }
     if(typeof value.popis !== 'undefined') { item.popis = value.popis[i] }
-    //if($nazov) { item.nazov = value.nazov[i] }
-    //if($jednotka) { item.jednotka = value.jednotka[i] }
-    //if($jednotkova_cena) { item.jednotkova_cena = value.jednotkova_cena[i] }
-    //if($mnozstvo) { item.mnozstvo = value.mnozstvo[i] }
-
+    if(typeof value.nazov !== 'undefined') { item.nazov = value.nazov[i] }
+    if(typeof value.jednotka !== 'undefined') { item.jednotka = value.jednotka[i] }
+    if(typeof value.jednotkova_cena !== 'undefined') { item.jednotkova_cena = value.jednotkova_cena[i] }
+    if(typeof value.mnozstvo !== 'undefined') { item.mnozstvo = value.mnozstvo[i] }
     convertData.push(item)
   }
-  console.log(convertData)
   return convertData
 }
-//// for (const [key, value] of Object.entries(object1)) {
-//// console.log(`${key}: ${value}`);
-
 
 // spracovanie údajov pre tlač
-
 //  dokončenie všetkých Promisov
 allPromises = [
   dbCP,
@@ -158,14 +78,14 @@ Promise.allSettled(allPromises).then(function(data){
 
   const tCP = data[0].value
   console.log(tCP)
-  const tMaterial = data[1].value
+  const tMaterial = convertor(data[1].value)
   console.log(tMaterial)
-  const tPraca = data[2].value
+  const tPraca = convertor(data[2].value)
   console.log(tPraca)
-  const tNaklady = data[3].value
+  const tNaklady = convertor(data[3].value)
   console.log(tNaklady)
   const tEtapa = convertor(data[4].value)
-  //console.log(tEtapa)
+  console.log(tEtapa)
 
   // vytvorenie referencií z tCP
   const vVMaterial = ""
