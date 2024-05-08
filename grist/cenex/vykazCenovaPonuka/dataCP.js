@@ -124,4 +124,4 @@ function itemFromEtapa() {
 }
 let pokus=itemFromEtapa()*/
 console.log("pokus")
-console.log(dbEtapa)
+console.log(dbEtapa.resolve())
