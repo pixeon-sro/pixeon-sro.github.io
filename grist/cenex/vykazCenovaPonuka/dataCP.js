@@ -99,8 +99,13 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-                .then(function(response){return response})
-                .then(function(data){return data})
+                .then(function(response){
+                  return response
+                  console.log(response)
+                })
+                .then(function(data){
+                  console.log(data)
+                })
 /*
 function itemFromEtapa() {
     let tabEtapa = []
