@@ -13,18 +13,28 @@ let tabStack = {
 
   // zapisovač tabuľky
   writer: function(name, data) {
-    console.log("writer")
-    console.log(name)
-    console.log(data)
     if (name == "tabEtapa") {
       this.tabEtapa = data
+      console.log("writer")
+      console.log(this.tabEtapa)
     }
   },
 //timeout = setTimeout(alertFunc, 3000);
   // čítač tabuľky
   reader: function(name) {
     if (name == "tabEtapa") {
-      return this.tabEtapa
+      if (this.tabEtapa.length > 0) {
+        return this.tabEtapa
+      }
+      else {
+        setTimeout(
+          if(this.tabEtapa.length > 0) {
+            return this.tabEtapa
+          }
+          else {
+            console.log("nepodarilo sa nacitat tabulku")
+          }, 3000);
+      }
     }
   }
 }
