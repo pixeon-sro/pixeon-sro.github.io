@@ -100,8 +100,8 @@ async function dbTableEtapa() {
 }
 let dbEtapa = dbTableEtapa()
                 .then(function(response){
-                  return response
                   console.log(response)
+                  return response
                 })
                 .then(function(data){
                   console.log(data)
