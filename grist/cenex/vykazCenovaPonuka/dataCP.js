@@ -125,5 +125,5 @@ Promise.allSettled(allPromises).then(function(data){
   console.log("hotovy material:")
   console.log(vMaterial)
   }
-
+createVMaterial()
 })
