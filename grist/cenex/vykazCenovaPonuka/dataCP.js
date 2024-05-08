@@ -3,7 +3,7 @@
 / Načítanie údajov z tabuliek CENEXU
 /
 / autor: Roman Holinec
-/ verzia: 056
+/ verzia: 058
 /
 */
 console.log("*** cp.js - ver: 058")
@@ -12,17 +12,12 @@ console.log("*** cp.js - ver: 058")
 grist.ready({ requiredAccess: 'full' })
 
 // načítanie údajov z CP
-let dbCP = dbTableCP()
-let tableCP = tabFromCP()
+let tableCP = dbTableCP()
 async function dbTableCP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
-let dataCP = tabFromCP()
-    dataCP.then(
-      function(value) { return (value) },
-      function(error) { console.log(error) }
-    )
+
 //načítanie údajov z Výkazu výmer - Materiál
 let dbMaterial = dbTableMaterial()
 let tableMaterial = tabFromMaterial()
