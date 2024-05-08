@@ -97,6 +97,9 @@ Promise.allSettled(allPromises).then(function(data){
   const vCelkovaCena = tCP[0].References.Konecna_Cena
   console.log(vCelkovaCena)
 
+  //tlač hlavičky CP
+  document.getElementById("dielo").innerText = data[0].Dielo;
+
   // vytvorenie tlačovej tabuľky výkazu Materiálov
   function createVMaterial(value) {
     let vMaterial = []
@@ -125,4 +128,5 @@ Promise.allSettled(allPromises).then(function(data){
     })
     return vMaterial
   }
-})
+
+}) //ukončenie Promise.allSettled

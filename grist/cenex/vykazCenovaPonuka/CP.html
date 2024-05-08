@@ -39,57 +39,6 @@
     <!-- vynutene zalomenie strany pri tlaci  -->
     <div style="break-after:page"></div>
 
-    <script>
-    //verzia scriptu do konzoly
-    console.log("*** vykazCenovaPonuka.html - ver: 028")
-
-
-
-
-
-/*
-
-      // funkcia doplňujúca údajov z tabuľky materiálov
-      function createVMaterial(){
-        let vMaterial = []
-        refVMaterial.forEach(function(row) {
-          console.log(row)
-          let element = {
-            id:row.id,
-            jednotka:row.jednotka,
-            jednotkova_cena:row.jednotkova_cena,
-            mnozstvo:row.mnozstvo,
-            celkova_cena:row.celkova_cena
-          }
-          //doplnenie etapy
-          console.log(tableEtapa)
-          for (let item in tableEtapa) {
-            console.log(item)
-            if (item.id == row.etapa.rowId) {
-              element.etapa = item.etapa
-            }
-          }
-          tableEtapa.forEach((item) => {
-            console.log("**************************************************")
-            console.log(item)
-          })
-          vMaterial.push(element)
-        })
-      console.log("hotovy material:")
-      console.log(vMaterial)
-      }
-
-      // vytvorenie tabuliek pre tlac
-      let vykazVymerMaterial = createVMaterial()
-
-
-      function vykazVymerPraca(){return praca}
-      function vykazPridruzeneNaklady(){return naklady}
-      function vykazKonecnaCena(){return cena}
-      function vykazEtapa(){return etapa}
-    }*/
-    </script>
-
     <button onclick="window.print()">Tlačiť</button>
   </body>
 </html>
