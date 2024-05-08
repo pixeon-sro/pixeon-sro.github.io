@@ -88,7 +88,7 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(tEtapa)
 
   // vytvorenie referencií z tCP
-  const vVMaterial = "tCP[0].References"
+  const vVMaterial = tCP[0].References
   console.log(vVMaterial)
   // zápis hlavičky CP
 
