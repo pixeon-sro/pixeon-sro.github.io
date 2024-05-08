@@ -93,8 +93,8 @@ function tabFromPridruzeneNaklady() {
   return tabPridruzeneNaklady
 }
 
-function setter(var) {
-  console.log(var)
+function setter(variable) {
+  console.log(variable)
 }
 
 // načítanie údajov z Etapa
