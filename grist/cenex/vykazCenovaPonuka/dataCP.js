@@ -117,10 +117,10 @@ Promise.allSettled(allPromises).then(function(data){
         //doplnenie materiálu
         tMaterial.forEach((item) => {
           console.log("************************")
-          console.log(item)
-          console.log(row.material.rowId)
+          //console.log(item.id)
+          //console.log(row.material.rowId)
           if (item.id == row.material.rowId) {
-            element.material = item.material
+            element.material = item.nazov
           }
         })
       vMaterial.push(element)
