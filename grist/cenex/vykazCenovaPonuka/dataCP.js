@@ -170,7 +170,7 @@ Promise.allSettled(allPromises).then(function(data){
           }
         })
         //doplnenie materiálu
-        tPráca.forEach((item) => {
+        tPraca.forEach((item) => {
           if (item.id == row.praca.rowId) {
             element.praca = item.nazov
           }
