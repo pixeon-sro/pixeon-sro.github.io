@@ -108,21 +108,18 @@ Promise.allSettled(allPromises).then(function(data){
         element.jednotkova_cena=row.jednotkova_cena
         element.mnozstvo=row.mnozstvo
         element.celkova_cena=row.celkova_cena
-      //doplnenie etapy
-      /*for (let item in tEtapa) {
-        console.log(item)
-        console.log(row.etapa.rowId)
-        if (item.id == row.etapa.rowId) {
-          element.etapa = item.etapa
-        }
-      }*/
-      tEtapa.forEach((item) => {
-        console.log("**************************************************")
-        console.log(item)
-        if (item.id == row.etapa.rowId) {
-          element.etapa = item.etapa
-        }
-      })
+        //doplnenie etapy
+        tEtapa.forEach((item) => {
+          if (item.id == row.etapa.rowId) {
+            element.etapa = item.etapa
+          }
+        })
+        //doplnenie materiálu
+        tMaterial.forEach((item) => {
+          if (item.id == row.material.rowId) {
+            element.material = item.material
+          }
+        })
       vMaterial.push(element)
     })
   console.log("hotovy material:")
