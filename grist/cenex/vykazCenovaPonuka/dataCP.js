@@ -117,21 +117,21 @@ function convertor(value) {
   let sumObj = value.id.length
 
   if(value.etapa.length > 0) { const $etapa = true }
-  if(value.popis.length > 0) { const $popis = true }
-  if(value.nazov.length > 0) { const $nazov = true }
-  if(value.jednotka.length > 0) { const $jednotka = true }
-  if(value.jednotkova_cena.length > 0) { const $jednotkova_cena = true }
-  if(value.mnozstvo.length > 0) { const $mnozstvo = true }
+  if(value.popis) { const $popis = true }
+  if(value.nazov) { const $nazov = true }
+  //if(value.jednotka.length > 0) { const $jednotka = true }
+  //if(value.jednotkova_cena.length > 0) { const $jednotkova_cena = true }
+  //if(value.mnozstvo.length > 0) { const $mnozstvo = true }
 
   for (let i = 0; i < sumObj; i++) {
     let item = {}
     item.id = value.id[i]
     if($etapa) { item.etapa = value.etapa[i] }
     if($popis) { item.popis = value.popis[i] }
-    if($nazov) { item.nazov = value.nazov[i] }
-    if($jednotka) { item.jednotka = value.jednotka[i] }
-    if($jednotkova_cena) { item.jednotkova_cena = value.jednotkova_cena[i] }
-    if($mnozstvo) { item.mnozstvo = value.mnozstvo[i] }
+    //if($nazov) { item.nazov = value.nazov[i] }
+    //if($jednotka) { item.jednotka = value.jednotka[i] }
+    //if($jednotkova_cena) { item.jednotkova_cena = value.jednotkova_cena[i] }
+    //if($mnozstvo) { item.mnozstvo = value.mnozstvo[i] }
 
     convertData.push(item)
   }
