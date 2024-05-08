@@ -118,3 +118,5 @@ function setEtapa(value) {
     }
   console.log(tabEtapa)
 }
+
+console.log(tabEtapa)
