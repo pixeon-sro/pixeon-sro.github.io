@@ -24,10 +24,12 @@ let tabStack = {
   reader: function(name) {
     if (name == "tabEtapa") {
       if (this.tabEtapa.length > 0) {
+        console.log("reader1")
+        console.log(this.tabEtapa)
         return this.tabEtapa
       }
       else {
-        setTimeout( function() { return this.tabEtapa }, 3000);
+        setTimeout( console.log(this.tabEtapa), 3000);
       }
     }
   }
