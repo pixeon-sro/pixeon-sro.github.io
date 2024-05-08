@@ -110,7 +110,7 @@ Promise.allSettled(allPromises).then(function(data){
         element.celkova_cena=row.celkova_cena
       //doplnenie etapy
       for (let item in tEtapa) {
-        console.log(item.id)
+        console.log(item)
         console.log(row.etapa.rowId)
         if (item.id == row.etapa.rowId) {
           element.etapa = item.etapa
