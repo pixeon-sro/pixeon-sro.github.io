@@ -6,7 +6,7 @@
 / verzia: 056
 /
 */
-console.log("*** cp.js - ver: 057")
+console.log("*** cp.js - ver: 058")
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
