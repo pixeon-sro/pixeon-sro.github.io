@@ -117,9 +117,9 @@ function convertor(value) {
   let sumObj = value.id.length
   for (let i = 0; i < sumObj; i++) {
     let item = {
-      if(value.id != "undefined") { id:value.id[i]}
+      //if(value.id != "undefined") { id:value.id[i]}
       //if (value.id) { id:value.id}
-        //id:value.id[i],
+        id:value.id[i],
         //etapa:value.etapa[i],
        // popis:value.popis[i]
     }
