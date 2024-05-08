@@ -27,13 +27,7 @@ let tabStack = {
         return this.tabEtapa
       }
       else {
-        setTimeout(
-          if(this.tabEtapa.length > 0) {
-            return this.tabEtapa
-          }
-          else {
-            console.log("nepodarilo sa nacitat tabulku")
-          }, 3000);
+        setTimeout( return this.tabEtapa, 3000);
       }
     }
   }
