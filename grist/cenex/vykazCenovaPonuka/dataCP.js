@@ -21,7 +21,7 @@ let tabStack = {
   // čítač tabuľky
   reader: function(name) {
     if (name == "tabEtapa") {
-      return this:tabEtapa
+      return this.tabEtapa
     }
   }
 }
