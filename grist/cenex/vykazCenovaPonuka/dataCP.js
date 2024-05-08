@@ -134,4 +134,23 @@ Promise.allSettled(allPromises).then(function(data){
     return vMaterial
   }
 
+  let tableMaterial = document.getElementById("material");
+  vVmaterial.forEach(function(row) {
+    let tRow = tableMaterial.insertRow(-1)
+    let cellEtapa = tRow.insertCell(0)
+    let cellMaterial = tRow.insertCell(1)
+    let cellJednotka = tRow.insertCell(2)
+    let cellJadnotkovCena = tRow.insertCell(3)
+    let cellMnozstvo = tRow.insertCell(4)
+    let cellCelkovaCena = tRow.insertCell(5)
+
+    cellEtapa.innerText = "Etapa"
+    cellMaterial.innerText = "Material"
+    cellJednotka.innerText = "Jednotka"
+    cellJadnotkovCena.innerText = "JadnotkovCena"
+    cellMnozstvo.innerText = "Mnozstvo"
+    cellCelkovaCena.innerText = "CelkovaCena"
+
+  })
+
 }) //ukončenie Promise.allSettled
