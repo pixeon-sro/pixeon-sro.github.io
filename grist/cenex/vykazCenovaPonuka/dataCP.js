@@ -133,7 +133,7 @@ Promise.allSettled(allPromises).then(function(data){
     })
     return vMaterial
   }
-
+  // vypísanie Výkazu Výmer Materiál
   let tableMaterial = document.getElementById("material");
   vVMaterial.forEach(function(item) {
     let tRow = tableMaterial.insertRow(-1)
@@ -145,7 +145,7 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(5)
 
     cellEtapa.innerText = item.etapa
-    cellMaterial.innerText = itam.material
+    cellMaterial.innerText = item.material
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
