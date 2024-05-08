@@ -43,17 +43,22 @@
     //verzia scriptu do konzoly
     console.log("*** vykazCenovaPonuka.html - ver: 028")
 
-    /*
-    /  vytvorenie CP
-    /  promise object dataCP je vytvorený
-    /  volaním funkcie dataFromCP z dataCP.js
-    */
-    let dataCP = dataFromCP()
-    dataCP.then(
-      function(value) { cp(value) },
-      function(error) { console.log(error) }
-    )
 
+    //  dokončenie všetkých Promisov
+    allPromises = [
+      tableCP,
+      tableMaterial,
+      tablePraca,
+      tablePridruzeneNaklady,
+      tableEtapa
+    ]
+
+    Promise.allSettled(allPromises).then(function(data){
+      console.log(data)
+    })
+
+
+/*
     //vytvorenie poľa objektov pre tlačové tabuľky
     function cp(value) {
       let ref = value[0]
@@ -62,7 +67,7 @@
       // ten zahŕňa všetky referancie na potrebné tabuľky
       // najskôr sa References rozobere na jedntlive tabuľky
       // a potom sa doplnia údajmi
-      */
+
       console.log(ref)
       let refVMaterial = ref.References.Vykaz_Vymer_Material
       let refVPraca = ref.References.Vykaz_Vymer_Praca
@@ -81,7 +86,7 @@
             jednotkova_cena:row.jednotkova_cena,
             mnozstvo:row.mnozstvo,
             celkova_cena:row.celkova_cena
-          }/*
+          }
           //doplnenie etapy
           console.log(tableEtapa)
           for (let item in tableEtapa) {
@@ -94,7 +99,7 @@
             console.log("**************************************************")
             console.log(item)
           })
-          vMaterial.push(element)*/
+          vMaterial.push(element)
         })
       console.log("hotovy material:")
       console.log(vMaterial)
@@ -108,7 +113,7 @@
       function vykazPridruzeneNaklady(){return naklady}
       function vykazKonecnaCena(){return cena}
       function vykazEtapa(){return etapa}
-    }
+    }*/
     </script>
 
     <button onclick="window.print()">Tlačiť</button>
