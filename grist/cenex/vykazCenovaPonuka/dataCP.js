@@ -22,7 +22,7 @@ let tabStack = {
   // čítač tabuľky
   reader: function(name) {
     if (name == "tabEtapa") {
-      return tabEtapa
+      return this:tabEtapa
     }
   }
 
@@ -141,4 +141,4 @@ function settingEtapa(value) {
   return etapa
 }
 
-tabStack:reader("tabEtapa")
+console.log(tabStack:reader("tabEtapa"))
