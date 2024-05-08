@@ -99,9 +99,8 @@ async function dbTableEtapa() {
     return dataFromEtapa
 }
 let dbEtapa = dbTableEtapa()
-                .then(function(response){
-                  return response
-                })
+                .then(function(response){return response})
+                .then(function(data){return data})
 /*
 function itemFromEtapa() {
     let tabEtapa = []
@@ -124,4 +123,4 @@ function itemFromEtapa() {
 }
 let pokus=itemFromEtapa()*/
 console.log("pokus")
-console.log(dbEtapa.resolve())
+console.log(dbEtapa)
