@@ -64,7 +64,7 @@ function convertor(value) {
 }
 
 // spracovanie údajov pre tlač
-//  dokončenie všetkých Promisov
+//  pole všetkých Promisov
 allPromises = [
   dbCP,
   dbMaterial,
@@ -72,7 +72,7 @@ allPromises = [
   dbPridruzeneNaklady,
   dbEtapa
 ]
-
+// načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
   console.log(data)
 
