@@ -6,7 +6,28 @@
 / verzia: 056
 /
 */
-console.log("*** cp.js - ver: 056")
+console.log("*** cp.js - ver: 057")
+
+function tabStack() {
+  const tabEtapa = new Array()
+  //const tabMaterial = new Array()
+
+  // zapisovač tabuľky
+  function writer(name, data) {
+    if (name == "tabEtapa") {
+      tabEtapa = data
+    }
+  }
+
+  // čítač tabuľky
+  function reader(name) {
+    if (name == "tabEtapa") {
+      return tabEtapa
+    }
+  }
+
+}
+
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -93,10 +114,6 @@ function tabFromPridruzeneNaklady() {
   return tabPridruzeneNaklady
 }
 
-function setter(variable) {
-  console.log(variable)
-}
-
 // načítanie údajov z Etapa
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
@@ -104,16 +121,14 @@ async function dbTableEtapa() {
 }
 const etapa = dbTableEtapa()
   .then(function(response){
-    return setEtapa(response)
+    return settingEtapa(response)
   })
   .then(function(data){
-    console.log(data)
-    return data
+    tabStack.writer("tabEtapa", data)
   })
-  console.log(etapa)
 
-function setEtapa(value) {
-    let tabEtapa = new Array()
+function settingEtapa(value) {
+    let etapa = new Array()
     sumObj = value.id.length
     for (let i = 0; i < sumObj; i++) {
         let item = {
@@ -121,7 +136,9 @@ function setEtapa(value) {
             etapa:value.etapa[i],
             popis:value.popis[i]
         }
-        tabEtapa.push(item)
+        etapa.push(item)
     }
-  return tabEtapa
+  return etapa
 }
+
+tabStack.reader("tabEtapa")
