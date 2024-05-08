@@ -109,3 +109,41 @@ function tabFromEtapa() {
     })
   return tabEtapa
 }
+
+function convertor(value) {
+  console.log("convertor")
+  console.log(value)
+  //let convertData = []
+}
+
+// spracovanie údajov pre tlač
+
+//  dokončenie všetkých Promisov
+allPromises = [
+  dbCP,
+  dbMaterial,
+  dbPraca,
+  dbPridruzeneNaklady,
+  dbEtapa
+]
+
+Promise.allSettled(allPromises).then(function(data){
+  console.log(data)
+
+  const tCP = data[0].value
+  console.log(tCP)
+  const tMaterial = data[1].value
+  console.log(tMaterial)
+  const tPraca = data[2].value
+  console.log(tPraca)
+  const tNaklady = data[3].value
+  console.log(tNaklady)
+  const tEtapa = data[4].value
+  console.log(tEtapa)
+
+  // vytvorenie referencií z tCP
+  const vVMaterial = ""
+
+  // zápis hlavičky CP
+
+})
