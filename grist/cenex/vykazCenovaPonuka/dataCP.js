@@ -90,7 +90,7 @@ Promise.allSettled(allPromises).then(function(data){
   // vytvorenie referencií z tCP
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
   console.log(vVMaterial)
-  const vVPraca = tCP[0].References.Vykaz_Vymer_Praca
+  const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
   console.log(vVPraca)
   const vVNaklady = tCP[0].References.Pridruzene_naklady
   console.log(vVNaklady)
@@ -108,7 +108,6 @@ Promise.allSettled(allPromises).then(function(data){
   // vytvorenie tlačovej tabuľky výkazu Materiálov
   function createVMaterial(value) {
     let vMaterial = []
-    //vVMaterial.forEach(function(row) {
     value.forEach(function(row) {
       console.log(row)
       let element = {}
@@ -146,6 +145,53 @@ Promise.allSettled(allPromises).then(function(data){
 
     cellEtapa.innerText = item.etapa
     cellMaterial.innerText = item.material
+    cellJednotka.innerText = item.jednotka
+    cellJadnotkovCena.innerText = item.jednotkova_cena
+    cellMnozstvo.innerText = item.mnozstvo
+    cellCelkovaCena.innerText = item.celkova_cena
+
+  })
+
+  // vytvorenie tlačovej tabuľky výkazu Práce
+  function createVPraca(value) {
+    let vPraca = []
+    value.forEach(function(row) {
+      console.log(row)
+      let element = {}
+        element.id=row.id
+        element.jednotka=row.jednotka
+        element.jednotkova_cena=row.jednotkova_cena
+        element.mnozstvo=row.mnozstvo
+        element.celkova_cena=row.celkova_cena
+        //doplnenie etapy
+        tEtapa.forEach((item) => {
+          if (item.id == row.etapa.rowId) {
+            element.etapa = item.etapa
+          }
+        })
+        //doplnenie materiálu
+        tPráca.forEach((item) => {
+          if (item.id == row.praca.rowId) {
+            element.praca = item.nazov
+          }
+        })
+      vPraca.push(element)
+    })
+    return vPraca
+  }
+  // vypísanie Výkazu Výmer Práce
+  let tablePraca = document.getElementById("praca");
+  vVPraca.forEach(function(item) {
+    let tRow = tablePraca.insertRow(-1)
+    let cellEtapa = tRow.insertCell(0)
+    let cellPraca = tRow.insertCell(1)
+    let cellJednotka = tRow.insertCell(2)
+    let cellJadnotkovCena = tRow.insertCell(3)
+    let cellMnozstvo = tRow.insertCell(4)
+    let cellCelkovaCena = tRow.insertCell(5)
+
+    cellEtapa.innerText = item.etapa
+    cellPraca.innerText = item.praca
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
