@@ -119,6 +119,9 @@ Promise.allSettled(allPromises).then(function(data){
       tEtapa.forEach((item) => {
         console.log("**************************************************")
         console.log(item)
+        if (item.id == row.etapa.rowId) {
+          element.etapa = item.etapa
+        }
       })
       vMaterial.push(element)
     })
