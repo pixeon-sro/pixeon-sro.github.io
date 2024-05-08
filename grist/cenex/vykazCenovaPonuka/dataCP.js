@@ -13,6 +13,9 @@ let tabStack = {
 
   // zapisovač tabuľky
   writer: function(name, data) {
+    console.log("writer")
+    console.log(name)
+    console.log(data)
     if (name == "tabEtapa") {
       tabEtapa = data
     }
@@ -123,7 +126,6 @@ const etapa = dbTableEtapa()
   })
   .then(function(data){
     tabStack.writer("tabEtapa", data)
-    console.log(tabStack.reader("tabEtapa"))
   })
 
 function settingEtapa(value) {
