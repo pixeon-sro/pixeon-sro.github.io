@@ -98,7 +98,7 @@ function setter(variable) {
 }
 
 // načítanie údajov z Etapa
-let tabEtapa=[]
+let tabEtapa = new Array()
 async function dbTableEtapa() {
     let dataFromEtapa = await grist.docApi.fetchTable("Etapa")
     return dataFromEtapa
