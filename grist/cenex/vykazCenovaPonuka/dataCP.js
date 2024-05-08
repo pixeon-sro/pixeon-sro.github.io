@@ -126,7 +126,7 @@ function convertor(value) {
   for (let i = 0; i < sumObj; i++) {
     let item = {}
     item.id = value.id[i]
-    if($etapa) { item.etapa = value.etapa[i] }
+    if(typeof value.etapa !== 'undefined') { item.etapa = value.etapa[i] }
     if(typeof value.popis !== 'undefined') { item.popis = value.popis[i] }
     //if($nazov) { item.nazov = value.nazov[i] }
     //if($jednotka) { item.jednotka = value.jednotka[i] }
