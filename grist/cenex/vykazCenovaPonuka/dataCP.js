@@ -118,7 +118,7 @@ function convertor(value) {
 
   if(value.etapa.length > 0) { const $etapa = true } else { const $etapa = false }
   if(value.popis.length > 0) { const $popis = true } else { const $popis = false }
-  console.log($etapa)
+  console.log(value.etapa.length)
   for (let i = 0; i < sumObj; i++) {
     let item = {
       id:value.id[i],
