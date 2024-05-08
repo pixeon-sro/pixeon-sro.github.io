@@ -119,5 +119,5 @@ function setEtapa(value) {
         }
         tabEtapa.push(item)
     }
-  console.log(tabEtapa)
+  return tabEtapa
 }
