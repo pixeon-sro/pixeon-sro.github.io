@@ -8,19 +8,19 @@
 */
 console.log("*** cp.js - ver: 057")
 
-let tabStack {
-  const tabEtapa = new Array()
+let tabStack = {
+  tabEtapa: new Array()
   //const tabMaterial = new Array()
 
   // zapisovač tabuľky
-  function writer(name, data) {
+  writer: function(name, data) {
     if (name == "tabEtapa") {
       tabEtapa = data
     }
   }
 
   // čítač tabuľky
-  function reader(name) {
+  reader: function(name) {
     if (name == "tabEtapa") {
       return tabEtapa
     }
