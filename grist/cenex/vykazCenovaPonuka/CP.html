@@ -54,6 +54,7 @@
     ]
 
     Promise.allSettled(allPromises).then(function(data){
+    console.log(data)
 
     const tCP = data[0].value
     console.log(tCP)
@@ -63,7 +64,7 @@
     console.log(tPraca)
     const tNaklady = data[3].value
     console.log(tNaklady)
-    const tEtama = data[4].value
+    const tEtapa = data[4].value
     console.log(tEtapa)
 
     // vytvorenie referencií z tCP
