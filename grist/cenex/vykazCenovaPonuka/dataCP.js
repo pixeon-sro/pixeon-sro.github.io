@@ -114,6 +114,7 @@ function convertor(value) {
   console.log("convertor")
   console.log(value)
   //let convertData = []
+  return "pracujem"
 }
 
 // spracovanie údajov pre tlač
@@ -138,7 +139,7 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(tPraca)
   const tNaklady = data[3].value
   console.log(tNaklady)
-  const tEtapa = data[4].value
+  const tEtapa = convertor(data[4].value)
   console.log(tEtapa)
 
   // vytvorenie referencií z tCP
