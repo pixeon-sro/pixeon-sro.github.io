@@ -100,13 +100,15 @@ async function dbTableEtapa() {
 }
 let dbEtapa = dbTableEtapa()
                 .then(function(response){
+                  console.log("response")
                   console.log(response)
                   return response
                 })
                 .then(function(data){
+                  console.log("data")
                   console.log(data)
                 })
-/*
+
 function itemFromEtapa() {
     let tabEtapa = []
     dbEtapa.then( function(value) {
@@ -119,8 +121,13 @@ function itemFromEtapa() {
             }
             tabEtapa.push(item)
         }
+        console.log("vnutro then:")
+        console.log(tabEtapa)
     })
+    console.log("mimo then")
+    console.log(tabEtapa)
     return tabEtapa
 }
-*/
-console.log(dbEtapa)
+let pokus=itemFromEtapa()
+console.log("pokus")
+console.log(pokus)
