@@ -107,5 +107,5 @@ function tabFromEtapa() {
         tabEtapa.push(item)
       }
     })
-  return tabEtapatapa
+  return tabEtapa
 }
