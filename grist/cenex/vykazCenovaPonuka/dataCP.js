@@ -111,7 +111,7 @@ Promise.allSettled(allPromises).then(function(data){
       //doplnenie etapy
       for (let item in tEtapa) {
         console.log(item)
-        if (item.id == row.etapa.rowId) {
+        if (item.id == row.etapa:Reference.rowId) {
           element.etapa = item.etapa
         }
       }
