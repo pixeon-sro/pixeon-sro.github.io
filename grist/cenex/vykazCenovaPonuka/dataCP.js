@@ -100,6 +100,10 @@ Promise.allSettled(allPromises).then(function(data){
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
   document.getElementById("zakaznik").innerText = tCP[0].Zakaznik;
+  document.getElementById("telefon").innerText = tCP[0].Telefon;;
+  document.getElementById("mail").innerText = tCP[0].Mail;
+  document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
+  document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
   function createVMaterial(value) {
