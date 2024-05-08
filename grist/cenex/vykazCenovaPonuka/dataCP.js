@@ -102,13 +102,12 @@ Promise.allSettled(allPromises).then(function(data){
     let vMaterial = []
     vVMaterial.forEach(function(row) {
       console.log(row)
-      let element = {
-        id:row.id,
-        jednotka:row.jednotka,
-        jednotkova_cena:row.jednotkova_cena,
-        mnozstvo:row.mnozstvo,
-        celkova_cena:row.celkova_cena
-      }
+      let element = {}
+        element.id=row.id
+        element.jednotka=row.jednotka
+        element.jednotkova_cena=row.jednotkova_cena
+        element.mnozstvo=row.mnozstvo
+        element.celkova_cena=row.celkova_cena
       //doplnenie etapy
       for (let item in tEtapa) {
         console.log(item)
