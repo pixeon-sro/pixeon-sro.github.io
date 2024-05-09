@@ -173,7 +173,7 @@ Promise.allSettled(allPromises).then(function(data){
         element.celkova_cena=row.celkova_cena
         //doplnenie etapy
         tEtapa.forEach((item) => {
-        console.log(item)
+        console.log(item.etapa)
           if (item.id == row.etapa.rowId) {
             element.etapa = item.etapa
           }
