@@ -103,7 +103,7 @@ Promise.allSettled(allPromises).then(function(data){
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
-  //console.log(vCelkovaCena)
+  console.log(vCelkovaCena)
 
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
@@ -117,7 +117,6 @@ Promise.allSettled(allPromises).then(function(data){
   function createVMaterial(value) {
     let vMaterial = []
     value.forEach(function(row) {
-      //console.log(row)
       let element = {}
         element.id=row.id
         element.jednotka=row.jednotka
@@ -163,7 +162,6 @@ Promise.allSettled(allPromises).then(function(data){
   function createVPraca(value) {
     let vPraca = []
     value.forEach(function(row) {
-      //console.log(row)
       let element = {}
         element.id=row.id
         element.jednotka=row.jednotka
@@ -172,7 +170,6 @@ Promise.allSettled(allPromises).then(function(data){
         element.celkova_cena=row.celkova_cena
         //doplnenie etapy
         tEtapa.forEach((item) => {
-        //console.log(item.etapa)
           if (item.id == row.etapa.rowId) {
             element.etapa = item.etapa
           }
@@ -210,7 +207,6 @@ Promise.allSettled(allPromises).then(function(data){
   function createVNaklady(value) {
     let vNaklady = []
     value.forEach(function(row) {
-      console.log(row)
       let element = {}
         element.id=row.id
         element.jednotka=row.jednotka
@@ -225,7 +221,6 @@ Promise.allSettled(allPromises).then(function(data){
         })
         //doplnenie pridruzenych nákladov
         tNaklady.forEach((item) => {
-          console.log(item)
           if (item.id == row.naklady.rowId) {
             element.naklady = item.nazov
             element.popis = item.popis
