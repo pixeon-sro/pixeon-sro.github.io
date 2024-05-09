@@ -64,12 +64,9 @@ function convertor(value) {
 }
 
 // zaokruhlovanie čísel
+
 function round(num, decimal=0) {
-    if (num < 0)
-        return -round(-num, decimal);
-    let p = Math.pow(10, decimal);
-    let n = (num * p).toPrecision(15);
-    return Math.round(n) / p;
+  Math.round((num  + "e+" + decimal) * (1 + Number.EPSILON)) /  "e-" + decimal
 }
 
 // spracovanie údajov pre tlač
@@ -262,10 +259,10 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(4)
 
     cellPolozka.innerText = item.polozka
-    cellMaterial.innerText = item.material
-    cellPraca.innerText = item.praca
-    cellNaklady.innerText = item.pridruzene_naklady
-    cellCelkovaCena.innerText = item.celkova_cena
+    cellMaterial.innerText =  round(item.material)
+    cellPraca.innerText =  round(item.praca)
+    cellNaklady.innerText =  round(item.pridruzene_naklady)
+    cellCelkovaCena.innerText =  round(item.celkova_cena)
   })
 
 }) //ukončenie Promise.allSettled
