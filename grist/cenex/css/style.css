@@ -5,6 +5,7 @@ body {
 }
 button {
     background: red;
+    color: blue;
     border: 1px solid white;
     float: right;
 }
@@ -33,7 +34,8 @@ td {
 button {
     background: #009B68;
     color: white;
-    border: none;
+    border: solid 5px white;
     padding: 0.4em 1em;
-    margin: 1em;
+    margin: -0.2em 1em auto auto;
+    float: right;
 }
