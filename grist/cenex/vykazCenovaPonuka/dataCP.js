@@ -251,4 +251,21 @@ Promise.allSettled(allPromises).then(function(data){
     cellCelkovaCena.innerText = round(item.celkova_cena, 2)
   })
 
+  // vypísanie Celkovej ceny
+  let tableCena = document.getElementById("cena");
+  vCelkovaCena.forEach(function(item) {
+    let tRow = tableCena.insertRow(-1)
+    let cellPolozka = tRow.insertCell(0)
+    let cellMaterial = tRow.insertCell(1)
+    let cellPraca = tRow.insertCell(2)
+    let cellNaklady = tRow.insertCell(3)
+    let cellCelkovaCena = tRow.insertCell(4)
+
+    cellPolozka.innerText = item.polozka
+    cellMaterial.innerText = round(item.material, 2)
+    cellPraca.innerText = round(item.praca, 2)
+    cellNaklady.innerText = round(item.pridruzene_naklady, 2)
+    cellCelkovaCena.innerText = round(item.celkova_cena, 2)
+  })
+
 }) //ukončenie Promise.allSettled
