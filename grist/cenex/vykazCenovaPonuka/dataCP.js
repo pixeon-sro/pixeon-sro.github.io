@@ -236,7 +236,7 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(5)
 
     cellEtapa.innerText = item.etapa
-    cellPraca.innerText = item.naklady
+    cellNaklady.innerText = item.naklady
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
