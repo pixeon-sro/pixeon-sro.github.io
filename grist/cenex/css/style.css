@@ -3,6 +3,11 @@ body {
     color: black;
     font-size: 1em;
 }
+button {
+    background: red;
+    border: 1px solid white;
+    float: right;
+}
 h1 {
     background: #009B68;
     color: white;
