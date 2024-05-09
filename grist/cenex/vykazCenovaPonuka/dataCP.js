@@ -235,7 +235,7 @@ Promise.allSettled(allPromises).then(function(data){
     return vPraca
   }
   // vypísanie Výkazu Výmer Pridružených nákladov
-  let tableNaklady = document.getElementById("praca");
+  let tableNaklady = document.getElementById("naklady");
   vVNaklady.forEach(function(item) {
     let tRow = tableNaklady.insertRow(-1)
     let cellEtapa = tRow.insertCell(0)
