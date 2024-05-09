@@ -66,7 +66,7 @@ function convertor(value) {
 // zaokruhlovanie čísel
 
 function round(num, decimal=0) {
-  Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
+  return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
 
 // spracovanie údajov pre tlač
