@@ -66,8 +66,8 @@ function convertor(value) {
 // zaokruhlovanie čísel
 function round(num, decimal=0) {
     if (num < 0)
-        return -round(-num, decimalPlaces);
-    let p = Math.pow(10, decimalPlaces);
+        return -round(-num, decimal);
+    let p = Math.pow(10, decimal);
     let n = (num * p).toPrecision(15);
     return Math.round(n) / p;
 }
