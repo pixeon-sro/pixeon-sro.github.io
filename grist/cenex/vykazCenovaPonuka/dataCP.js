@@ -63,6 +63,15 @@ function convertor(value) {
   return convertData
 }
 
+// zaokruhlovanie čísel
+function round(num, decimal=0) {
+    if (num < 0)
+        return -round(-num, decimalPlaces);
+    let p = Math.pow(10, decimalPlaces);
+    let n = (num * p).toPrecision(15);
+    return Math.round(n) / p;
+}
+
 // spracovanie údajov pre tlač
 //  pole všetkých Promisov
 allPromises = [
@@ -148,7 +157,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena
+    cellCelkovaCena.innerText = round(item.celkova_cena, 2)
   })
 
   // vytvorenie tlačovej tabuľky výkazu Práce
