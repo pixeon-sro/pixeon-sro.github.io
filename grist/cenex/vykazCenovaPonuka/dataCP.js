@@ -70,7 +70,6 @@ function convertor(value) {
 
 // zaokruhlovanie čísel
 function round(num, decimal=0) {
-  console.log(typeof num)
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
 
