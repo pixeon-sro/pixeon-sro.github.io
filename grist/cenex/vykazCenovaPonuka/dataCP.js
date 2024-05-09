@@ -1,12 +1,12 @@
 /*
 /
-/ Načítanie údajov z tabuliek CENEXU
+/ Načítanie a príprava tlačových tabuliek z údajov tabuliek CENEXU
 /
 / autor: Roman Holinec
 / verzia: 058
 /
 */
-console.log("*** cp.js - ver: 058")
+//console.log("*** cp.js - ver: 058")
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -79,13 +79,13 @@ Promise.allSettled(allPromises).then(function(data){
   const tCP = data[0].value
   console.log(tCP)
   const tMaterial = convertor(data[1].value)
-  console.log(tMaterial)
+  //console.log(tMaterial)
   const tPraca = convertor(data[2].value)
-  console.log(tPraca)
+  //console.log(tPraca)
   const tNaklady = convertor(data[3].value)
   console.log(tNaklady)
   const tEtapa = convertor(data[4].value)
-  console.log(tEtapa)
+  //console.log(tEtapa)
 
   // vytvorenie referencií z tCP
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
@@ -149,7 +149,6 @@ Promise.allSettled(allPromises).then(function(data){
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
     cellCelkovaCena.innerText = item.celkova_cena
-
   })
 
   // vytvorenie tlačovej tabuľky výkazu Práce
@@ -196,7 +195,52 @@ Promise.allSettled(allPromises).then(function(data){
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
     cellCelkovaCena.innerText = item.celkova_cena
+  })
 
+  // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
+  function createVNaklady(value) {
+    let vNaklady = []
+    value.forEach(function(row) {
+      console.log(row)
+      let element = {}
+        element.id=row.id
+        element.jednotka=row.jednotka
+        element.jednotkova_cena=row.jednotkova_cena
+        element.naklady=row.naklady
+        element.celkova_cena=row.celkova_cena
+        //doplnenie etapy
+        tEtapa.forEach((item) => {
+          if (item.id == row.etapa.rowId) {
+            element.etapa = item.etapa
+          }
+        })
+        //doplnenie pridruzenych nákladov
+        tNaklady.forEach((item) => {
+          if (item.id == row.naklady.rowId) {
+            element.naklady = item.naklady
+          }
+        })
+      vNaklady.push(element)
+    })
+    return vPraca
+  }
+  // vypísanie Výkazu Výmer Pridružených nákladov
+  let tableNaklady = document.getElementById("praca");
+  vVNaklady.forEach(function(item) {
+    let tRow = tableNaklady.insertRow(-1)
+    let cellEtapa = tRow.insertCell(0)
+    let cellNaklady = tRow.insertCell(1)
+    let cellJednotka = tRow.insertCell(2)
+    let cellJadnotkovCena = tRow.insertCell(3)
+    let cellMnozstvo = tRow.insertCell(4)
+    let cellCelkovaCena = tRow.insertCell(5)
+
+    cellEtapa.innerText = item.etapa
+    cellPraca.innerText = item.naklady
+    cellJednotka.innerText = item.jednotka
+    cellJadnotkovCena.innerText = item.jednotkova_cena
+    cellMnozstvo.innerText = item.mnozstvo
+    cellCelkovaCena.innerText = item.celkova_cena
   })
 
 }) //ukončenie Promise.allSettled
