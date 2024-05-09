@@ -83,7 +83,6 @@ allPromises = [
 ]
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
-  console.log(data)
 
   const tCP = data[0].value
   //console.log(tCP)
