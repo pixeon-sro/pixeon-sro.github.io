@@ -3,10 +3,10 @@
 / Načítanie a príprava tlačových tabuliek z údajov tabuliek CENEXU
 /
 / autor: Roman Holinec
-/ verzia: 058
+/ verzia: 060
 /
 */
-//console.log("*** cp.js - ver: 058")
+//console.log("*** cp.js - ver: 060")
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
@@ -103,7 +103,7 @@ Promise.allSettled(allPromises).then(function(data){
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
-  console.log(vCelkovaCena)
+  //console.log(vCelkovaCena)
 
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
