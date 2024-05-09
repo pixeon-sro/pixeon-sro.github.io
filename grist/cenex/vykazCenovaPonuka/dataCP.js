@@ -262,10 +262,10 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(4)
 
     cellPolozka.innerText = item.polozka
-    cellMaterial.innerText = round(item.material, 2)
-    cellPraca.innerText = round(item.praca, 2)
-    cellNaklady.innerText = round(item.pridruzene_naklady, 2)
-    cellCelkovaCena.innerText = round(item.celkova_cena, 2)
+    cellMaterial.innerText = item.material
+    cellPraca.innerText = item.praca
+    cellNaklady.innerText = item.pridruzene_naklady
+    cellCelkovaCena.innerText = item.celkova_cena
   })
 
 }) //ukončenie Promise.allSettled
