@@ -252,7 +252,6 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Celkovej ceny
   let tableCena = document.getElementById("cena");
   vCelkovaCena.forEach(function(item) {
-    console.log(item)
     let tRow = tableCena.insertRow(-1)
     let cellPolozka = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
@@ -260,11 +259,11 @@ Promise.allSettled(allPromises).then(function(data){
     let cellNaklady = tRow.insertCell(3)
     let cellCelkovaCena = tRow.insertCell(4)
 
-    cellPolozka.innerText = item.["polozka"]
-    cellMaterial.innerText = parseFloat(item.material)//.toFixed(2)
-    cellPraca.innerText = parseFloat(item.praca)//.toFixed(2)
-    cellNaklady.innerText = parseFloat(item.pridruzene_naklady)//.toFixed(2)
-    cellCelkovaCena.innerText = parseFloat(item.celkova_cena)//.toFixed(2)
+    cellPolozka.innerText = item.polozka
+    cellMaterial.innerText = parseFloat(item.material).toFixed(2)
+    cellPraca.innerText = parseFloat(item.praca).toFixed(2)
+    cellNaklady.innerText = parseFloat(item.pridruzene_naklady).toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
   })
 
 }) //ukončenie Promise.allSettled
