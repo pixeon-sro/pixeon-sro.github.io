@@ -215,7 +215,7 @@ Promise.allSettled(allPromises).then(function(data){
         element.id=row.id
         element.jednotka=row.jednotka
         element.jednotkova_cena=row.jednotkova_cena
-        element.naklady=row.naklady
+        element.mnozstvo=row.mnozstvo
         element.celkova_cena=row.celkova_cena
         //doplnenie etapy
         tEtapa.forEach((item) => {
@@ -225,9 +225,9 @@ Promise.allSettled(allPromises).then(function(data){
         })
         //doplnenie pridruzenych nákladov
         tNaklady.forEach((item) => {
-          console.log(row)
-          if (item.id == row.naklady.rowId) {
-            element.naklady = item.naklady
+          console.log(item)
+          if (item.id == row.Pridruzene_naklady.rowId) {
+            element.naklady = item.Pridruzene_naklady
           }
         })
       vNaklady.push(element)
