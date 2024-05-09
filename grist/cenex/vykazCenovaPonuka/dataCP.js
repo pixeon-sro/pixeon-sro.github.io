@@ -227,7 +227,8 @@ Promise.allSettled(allPromises).then(function(data){
         tNaklady.forEach((item) => {
           console.log(item)
           if (item.id == row.naklady.rowId) {
-            element.naklady = item.Pridruzene_naklady
+            element.naklady = item.nazov
+            element.popis = item.popis
           }
         })
       vNaklady.push(element)
@@ -240,13 +241,15 @@ Promise.allSettled(allPromises).then(function(data){
     let tRow = tableNaklady.insertRow(-1)
     let cellEtapa = tRow.insertCell(0)
     let cellNaklady = tRow.insertCell(1)
-    let cellJednotka = tRow.insertCell(2)
-    let cellJadnotkovCena = tRow.insertCell(3)
-    let cellMnozstvo = tRow.insertCell(4)
-    let cellCelkovaCena = tRow.insertCell(5)
+    let cellPopis = tRow.insertCell(2)
+    let cellJednotka = tRow.insertCell(3)
+    let cellJadnotkovCena = tRow.insertCell(4)
+    let cellMnozstvo = tRow.insertCell(5)
+    let cellCelkovaCena = tRow.insertCell(6)
 
     cellEtapa.innerText = item.etapa
     cellNaklady.innerText = item.naklady
+    cellPopis.innerText = item.popis
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
