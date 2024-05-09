@@ -232,7 +232,7 @@ Promise.allSettled(allPromises).then(function(data){
         })
       vNaklady.push(element)
     })
-    return vPraca
+    return vNaklady
   }
   // vypísanie Výkazu Výmer Pridružených nákladov
   let tableNaklady = document.getElementById("naklady");
