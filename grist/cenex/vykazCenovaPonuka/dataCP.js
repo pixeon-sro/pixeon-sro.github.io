@@ -260,7 +260,7 @@ Promise.allSettled(allPromises).then(function(data){
     let cellNaklady = tRow.insertCell(3)
     let cellCelkovaCena = tRow.insertCell(4)
 
-    cellPolozka.innerText = item.polozka
+    cellPolozka.innerText = item.["polozka"]
     cellMaterial.innerText = parseFloat(item.material)//.toFixed(2)
     cellPraca.innerText = parseFloat(item.praca)//.toFixed(2)
     cellNaklady.innerText = parseFloat(item.pridruzene_naklady)//.toFixed(2)
