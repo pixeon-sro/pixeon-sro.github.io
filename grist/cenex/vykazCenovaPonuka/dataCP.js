@@ -203,7 +203,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena
+    cellCelkovaCena.innerText = round(item.celkova_cena, 2)
   })
 
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
@@ -249,7 +249,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena
+    cellCelkovaCena.innerText = round(item.celkova_cena, 2)
   })
 
 }) //ukončenie Promise.allSettled
