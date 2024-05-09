@@ -3,6 +3,7 @@
 / Načítanie a príprava tlačových tabuliek z údajov tabuliek CENEXU
 /
 / autor: Roman Holinec
+/ box@pixeon.sk
 / verzia: 060
 /
 */
@@ -64,7 +65,6 @@ function convertor(value) {
 }
 
 // zaokruhlovanie čísel
-
 function round(num, decimal=0) {
   console.log(typeof num)
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
@@ -101,7 +101,7 @@ Promise.allSettled(allPromises).then(function(data){
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
-  console.log(vCelkovaCena)
+  //console.log(vCelkovaCena)
 
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
@@ -252,7 +252,6 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Celkovej ceny
   let tableCena = document.getElementById("cena");
   vCelkovaCena.forEach(function(item) {
-    console.log(item)
     let tRow = tableCena.insertRow(-1)
     let cellPolozka = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
