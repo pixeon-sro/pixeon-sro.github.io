@@ -100,7 +100,7 @@ Promise.allSettled(allPromises).then(function(data){
   //console.log(vVMaterial)
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
   //console.log(vVPraca)
-  const vVNaklady = tCP[0].References.Pridruzene_naklady
+  const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
   //console.log(vCelkovaCena)
