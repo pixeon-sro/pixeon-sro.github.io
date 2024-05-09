@@ -86,13 +86,13 @@ Promise.allSettled(allPromises).then(function(data){
   console.log(data)
 
   const tCP = data[0].value
-  console.log(tCP)
+  //console.log(tCP)
   const tMaterial = convertor(data[1].value)
   //console.log(tMaterial)
   const tPraca = convertor(data[2].value)
   //console.log(tPraca)
   const tNaklady = convertor(data[3].value)
-  console.log(tNaklady)
+  //console.log(tNaklady)
   const tEtapa = convertor(data[4].value)
   //console.log(tEtapa)
 
@@ -211,7 +211,7 @@ Promise.allSettled(allPromises).then(function(data){
   function createVNaklady(value) {
     let vNaklady = []
     value.forEach(function(row) {
-      console.log(row)
+      //console.log(row)
       let element = {}
         element.id=row.id
         element.jednotka=row.jednotka
