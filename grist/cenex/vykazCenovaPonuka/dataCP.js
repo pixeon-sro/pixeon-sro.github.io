@@ -252,6 +252,7 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Celkovej ceny
   let tableCena = document.getElementById("cena");
   vCelkovaCena.forEach(function(item) {
+    console.log(item.polozka)
     let tRow = tableCena.insertRow(-1)
     let cellPolozka = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
