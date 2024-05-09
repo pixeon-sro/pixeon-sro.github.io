@@ -260,10 +260,10 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(4)
 
     cellPolozka.innerText = item.polozka
-    cellMaterial.innerText = parseFloat(item.material).toFixed(2)
-    cellPraca.innerText = parseFloat(item.praca).toFixed(2)
-    cellNaklady.innerText = parseFloat(item.pridruzene_naklady).toFixed(2)
-    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
+    cellMaterial.innerText = parseFloat(item.material)//.toFixed(2)
+    cellPraca.innerText = parseFloat(item.praca)//.toFixed(2)
+    cellNaklady.innerText = parseFloat(item.pridruzene_naklady)//.toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena)//.toFixed(2)
   })
 
 }) //ukončenie Promise.allSettled
