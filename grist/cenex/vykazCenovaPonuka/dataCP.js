@@ -7,7 +7,11 @@
 / verzia: 060
 /
 */
-//console.log("*** cp.js - ver: 060")
+
+console.log("*** Print teplate for CENEX")
+console.log("*** cp.js - ver: 060")
+console.log("*** autor: Roman Holinec")
+console.log("*** mail: box@pixeon.sk")
 
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
