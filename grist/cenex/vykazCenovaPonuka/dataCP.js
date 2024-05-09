@@ -226,7 +226,7 @@ Promise.allSettled(allPromises).then(function(data){
         //doplnenie pridruzenych nákladov
         tNaklady.forEach((item) => {
           console.log(item)
-          if (item.id == row.Pridruzene_naklady.rowId) {
+          if (item.id == row.naklady.rowId) {
             element.naklady = item.Pridruzene_naklady
           }
         })
