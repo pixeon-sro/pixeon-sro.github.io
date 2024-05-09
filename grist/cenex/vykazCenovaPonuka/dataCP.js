@@ -153,7 +153,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena.toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
   })
 
   // vytvorenie tlačovej tabuľky výkazu Práce
@@ -198,7 +198,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena.toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
   })
 
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
@@ -246,7 +246,7 @@ Promise.allSettled(allPromises).then(function(data){
     cellJednotka.innerText = item.jednotka
     cellJadnotkovCena.innerText = item.jednotkova_cena
     cellMnozstvo.innerText = item.mnozstvo
-    cellCelkovaCena.innerText = item.celkova_cena.toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
   })
 
   // vypísanie Celkovej ceny
@@ -260,10 +260,10 @@ Promise.allSettled(allPromises).then(function(data){
     let cellCelkovaCena = tRow.insertCell(4)
 
     cellPolozka.innerText = item.polozka
-    cellMaterial.innerText = item.material.toFixed(2)
-    cellPraca.innerText = item.praca.toFixed(2)
-    cellNaklady.innerText = item.pridruzene_naklady.toFixed(2)
-    cellCelkovaCena.innerText = item.celkova_cena.toFixed(2)
+    cellMaterial.innerText = parseFloat(item.material).toFixed(2)
+    cellPraca.innerText = parseFloat(item.praca).toFixed(2)
+    cellNaklady.innerText = parseFloat(item.pridruzene_naklady).toFixed(2)
+    cellCelkovaCena.innerText = parseFloat(item.celkova_cena).toFixed(2)
   })
 
 }) //ukončenie Promise.allSettled
