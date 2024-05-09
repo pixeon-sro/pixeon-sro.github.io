@@ -8,10 +8,11 @@
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
   </head>
   <body>
-    <h1>Cenová ponuka</h1>
-    
-    <pre id="myDisplay" style="background:red"></pre>
-    
+    <h1>
+      Výkaz výmer Pridružené náklady
+      <button onclick="window.print()">Tlačiť</button>
+    </h1>
+
     <table id="dataTable">
       <tr>
         <th>Etapa</th>
@@ -22,19 +23,8 @@
         <th>Celková cena</th>
       </tr>
     </table>
-    <!-- vynútene zalomenie strany pri tlači  -->
-    <div style="break-after:page"></div>
-    
-    <script>
-      console.log("*** ver: 001")
 
-      // pomocná funkcia na zobrazenie premenných pri vývoji
-      /*
-      let myDisplay = function(zobraz) {
-        document.getElementById("myDisplay").innerText = zobraz;
-      }
-      */
-      
+    <script>
       function printTable(data) {
         if (data === null) {
           throw new Error("No data")
@@ -42,26 +32,26 @@
         else {
           // urcenie cielovej tabulky
           let table = document.getElementById("dataTable")
-          
+
           data.forEach(function(row) {
-            
+
             let tr = table.insertRow(-1)
-            
+
             let td1 = tr.insertCell(0)
             td1.innerHTML = row.etapa
-            
+
             let td2 = tr.insertCell(1)
             td2.innerHTML = row.naklady
-            
+
             let td3 = tr.insertCell(2)
             td3.innerHTML = row.jednotka
-            
+
             let td4 = tr.insertCell(3)
             td4.innerHTML = row.jednotkova_cena
-            
+
             let td5 = tr.insertCell(4)
             td5.innerHTML = row.mnozstvo
-            
+
             let td6 = tr.insertCell(5)
             td6.innerHTML = row.celkova_cena.toFixed(2)
           })
@@ -70,25 +60,19 @@
 
       // grist požaduje prístu na čítanie tabuľky
       grist.ready({ requiredAccess: 'full' })
-      
+
       // načítanie tabuľky grist
       async function dataFromCenex() {
         let $dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
         return $dataFromCenex
       }
-      
+
       let $dataToPrint = dataFromCenex()
       $dataToPrint.then(
         function(value) { printTable(value) },
         function(error) { console.log(error) }
       )
-      
-      // pomocne zobrazenia
-      /*
-      myDisplay($dataToPrint)
-      */
     </script>
-    
-    <button onclick="window.print()">Tlačiť</button>
+
   </body>
 </html>
