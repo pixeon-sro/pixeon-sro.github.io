@@ -98,6 +98,9 @@ Promise.allSettled(allPromises).then(function(data){
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
   function createVMaterial(value) {
+    if (value == null) {
+      return null
+    }
     let vMaterial = []
     value.forEach(function(row) {
       let element = {}
@@ -157,65 +160,11 @@ Promise.allSettled(allPromises).then(function(data){
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
   console.log(vVPraca)
 
-  const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
-  //console.log(vVNaklady)
-  const vCelkovaCena = tCP[0].References.Konecna_Cena
-  //console.log(vCelkovaCena)
-
-  //tlač hlavičky CP
-  document.getElementById("dielo").innerText = tCP[0].Dielo;
-  document.getElementById("zakaznik").innerText = tCP[0].Zakaznik;
-  document.getElementById("telefon").innerText = tCP[0].Telefon;;
-  document.getElementById("mail").innerText = tCP[0].Mail;
-  document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
-  document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
-
-  // vypísanie Výkazu Výmer Materiál
-  let tableMaterial = document.getElementById("material");
-  vVMaterial.forEach(function(item) {
-    let tRow = tableMaterial.insertRow(-1)
-    let cellEtapa = tRow.insertCell(0)
-    let cellMaterial = tRow.insertCell(1)
-    let cellJednotka = tRow.insertCell(2)
-    let cellJadnotkovCena = tRow.insertCell(3)
-    let cellMnozstvo = tRow.insertCell(4)
-    let cellCelkovaCena = tRow.insertCell(5)
-
-    cellEtapa.innerHTML = item.etapa
-    cellMaterial.innerHTML = item.material
-    cellJednotka.innerHTML = item.jednotka
-    cellJadnotkovCena.innerHTML = item.jednotkova_cena
-    cellMnozstvo.innerHTML = item.mnozstvo
-    cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-  })
-  // vypísanie Výkazu Výmer Práce
-  let head = document.getElementById("hPraca")
-  let tablePraca = document.getElementById("praca");
-    if (vVPraca != null) {
-      vVPraca.forEach(function(item) {
-        let tRow = tablePraca.insertRow(-1)
-        let cellEtapa = tRow.insertCell(0)
-        let cellPraca = tRow.insertCell(1)
-        let cellJednotka = tRow.insertCell(2)
-        let cellJadnotkovCena = tRow.insertCell(3)
-        let cellMnozstvo = tRow.insertCell(4)
-        let cellCelkovaCena = tRow.insertCell(5)
-
-        cellEtapa.innerHTML = item.etapa
-        cellPraca.innerHTML = item.praca
-        cellJednotka.innerHTML = item.jednotka
-        cellJadnotkovCena.innerHTML = item.jednotkova_cena
-        cellMnozstvo.innerHTML = item.mnozstvo
-        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-      })
-    }
-    else {
-      head.style.display="none" 
-      console.log(head.classList)
-    }
-
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
   function createVNaklady(value) {
+    if (value == null) {
+      return null
+    }
     let vNaklady = []
     value.forEach(function(row) {
       let element = {}
@@ -241,26 +190,96 @@ Promise.allSettled(allPromises).then(function(data){
     })
     return vNaklady
   }
+  const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
+  //console.log(vVNaklady)
+  const vCelkovaCena = tCP[0].References.Konecna_Cena
+  //console.log(vCelkovaCena)
+
+  //tlač hlavičky CP
+  document.getElementById("dielo").innerText = tCP[0].Dielo;
+  document.getElementById("zakaznik").innerText = tCP[0].Zakaznik;
+  document.getElementById("telefon").innerText = tCP[0].Telefon;;
+  document.getElementById("mail").innerText = tCP[0].Mail;
+  document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
+  document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
+
+  // vypísanie Výkazu Výmer Materiál
+  let head = document.getElementById("hMaterial")
+  let tableMaterial = document.getElementById("material");
+    if (vVPraca != null) {
+      vVMaterial.forEach(function(item) {
+        let tRow = tableMaterial.insertRow(-1)
+        let cellEtapa = tRow.insertCell(0)
+        let cellMaterial = tRow.insertCell(1)
+        let cellJednotka = tRow.insertCell(2)
+        let cellJadnotkovCena = tRow.insertCell(3)
+        let cellMnozstvo = tRow.insertCell(4)
+        let cellCelkovaCena = tRow.insertCell(5)
+
+        cellEtapa.innerHTML = item.etapa
+        cellMaterial.innerHTML = item.material
+        cellJednotka.innerHTML = item.jednotka
+        cellJadnotkovCena.innerHTML = item.jednotkova_cena
+        cellMnozstvo.innerHTML = item.mnozstvo
+        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      })
+    }
+    else {
+      head.style.display="none"
+      console.log(head.classList)
+    }
+  // vypísanie Výkazu Výmer Práce
+  let head = document.getElementById("hPraca")
+  let tablePraca = document.getElementById("praca");
+    if (vVPraca != null) {
+      vVPraca.forEach(function(item) {
+        let tRow = tablePraca.insertRow(-1)
+        let cellEtapa = tRow.insertCell(0)
+        let cellPraca = tRow.insertCell(1)
+        let cellJednotka = tRow.insertCell(2)
+        let cellJadnotkovCena = tRow.insertCell(3)
+        let cellMnozstvo = tRow.insertCell(4)
+        let cellCelkovaCena = tRow.insertCell(5)
+
+        cellEtapa.innerHTML = item.etapa
+        cellPraca.innerHTML = item.praca
+        cellJednotka.innerHTML = item.jednotka
+        cellJadnotkovCena.innerHTML = item.jednotkova_cena
+        cellMnozstvo.innerHTML = item.mnozstvo
+        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      })
+    }
+    else {
+      head.style.display="none"
+      console.log(head.classList)
+    }
+
   // vypísanie Výkazu Výmer Pridružených nákladov
   let tableNaklady = document.getElementById("naklady");
-  vVNaklady.forEach(function(item) {
-    let tRow = tableNaklady.insertRow(-1)
-    let cellEtapa = tRow.insertCell(0)
-    let cellNaklady = tRow.insertCell(1)
-    let cellPopis = tRow.insertCell(2)
-    let cellJednotka = tRow.insertCell(3)
-    let cellJadnotkovCena = tRow.insertCell(4)
-    let cellMnozstvo = tRow.insertCell(5)
-    let cellCelkovaCena = tRow.insertCell(6)
+    if (vVPraca != null) {
+      vVNaklady.forEach(function(item) {
+        let tRow = tableNaklady.insertRow(-1)
+        let cellEtapa = tRow.insertCell(0)
+        let cellNaklady = tRow.insertCell(1)
+        let cellPopis = tRow.insertCell(2)
+        let cellJednotka = tRow.insertCell(3)
+        let cellJadnotkovCena = tRow.insertCell(4)
+        let cellMnozstvo = tRow.insertCell(5)
+        let cellCelkovaCena = tRow.insertCell(6)
 
-    cellEtapa.innerHTML = item.etapa
-    cellNaklady.innerHTML = item.naklady
-    cellPopis.innerHTML = item.popis
-    cellJednotka.innerHTML = item.jednotka
-    cellJadnotkovCena.innerHTML = item.jednotkova_cena
-    cellMnozstvo.innerHTML = item.mnozstvo
-    cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-  })
+        cellEtapa.innerHTML = item.etapa
+        cellNaklady.innerHTML = item.naklady
+        cellPopis.innerHTML = item.popis
+        cellJednotka.innerHTML = item.jednotka
+        cellJadnotkovCena.innerHTML = item.jednotkova_cena
+        cellMnozstvo.innerHTML = item.mnozstvo
+        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      })
+    }
+    else {
+      head.style.display="none"
+      console.log(head.classList)
+    }
 
   // vypísanie Celkovej ceny
   let tableCena = document.getElementById("cena");
