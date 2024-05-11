@@ -126,7 +126,6 @@ Promise.allSettled(allPromises).then(function(data){
     return vMaterial
   }
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
-  //console.log(vVMaterial)
 
   // vytvorenie tlačovej tabuľky výkazu Práce
   function createVPraca(value) {
@@ -158,7 +157,6 @@ Promise.allSettled(allPromises).then(function(data){
     return vPraca
   }
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
-  console.log(vVPraca)
 
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
   function createVNaklady(value) {
@@ -191,7 +189,7 @@ Promise.allSettled(allPromises).then(function(data){
     return vNaklady
   }
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
-  //console.log(vVNaklady)
+
   const vCelkovaCena = tCP[0].References.Konecna_Cena
   //console.log(vCelkovaCena)
 
