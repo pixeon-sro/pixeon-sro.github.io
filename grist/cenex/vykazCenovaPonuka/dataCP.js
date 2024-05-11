@@ -82,6 +82,8 @@ allPromises = [
   dbPridruzeneNaklady,
   dbEtapa
 ]
+
+console.log(allPromises)
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
 
