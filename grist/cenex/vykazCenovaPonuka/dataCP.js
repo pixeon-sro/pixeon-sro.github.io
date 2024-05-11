@@ -191,6 +191,7 @@ Promise.allSettled(allPromises).then(function(data){
   })
   // vypísanie Výkazu Výmer Práce
   let tablePraca = document.getElementById("praca");
+    console.log(tablePraca)
     if (tablePraca != null) {
       vVPraca.forEach(function(item) {
         let tRow = tablePraca.insertRow(-1)
