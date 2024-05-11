@@ -127,7 +127,6 @@ Promise.allSettled(allPromises).then(function(data){
 
   // vytvorenie tlačovej tabuľky výkazu Práce
   function createVPraca(value) {
-    console.log(value)
     if (value == null) {
       return null
     }
@@ -192,7 +191,7 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Výkazu Výmer Práce
   let tablePraca = document.getElementById("praca");
     console.log(tablePraca)
-    if (tablePraca != null) {
+    if (vVpraca != null) {
       vVPraca.forEach(function(item) {
         let tRow = tablePraca.insertRow(-1)
         let cellEtapa = tRow.insertCell(0)
