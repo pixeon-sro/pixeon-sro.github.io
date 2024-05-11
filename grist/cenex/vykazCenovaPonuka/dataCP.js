@@ -226,7 +226,6 @@ Promise.allSettled(allPromises).then(function(data){
     }
     else {
       hMaterial.style.display="none"
-      console.log(head.classList)
     }
   // vypísanie Výkazu Výmer Práce
   let hPraca = document.getElementById("hPraca")
@@ -251,7 +250,6 @@ Promise.allSettled(allPromises).then(function(data){
     }
     else {
       hPraca.style.display="none"
-      console.log(head.classList)
     }
 
   // vypísanie Výkazu Výmer Pridružených nákladov
@@ -279,7 +277,6 @@ Promise.allSettled(allPromises).then(function(data){
     }
     else {
       hNaklady.style.display="none"
-      console.log(head.classList)
     }
 
   // vypísanie Celkovej ceny
