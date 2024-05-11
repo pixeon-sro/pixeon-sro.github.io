@@ -191,23 +191,28 @@ Promise.allSettled(allPromises).then(function(data){
   })
   // vypísanie Výkazu Výmer Práce
   let tablePraca = document.getElementById("praca");
-  if (tablePraca !== null) {
-    vVPraca.forEach(function(item) {
-      let tRow = tablePraca.insertRow(-1)
-      let cellEtapa = tRow.insertCell(0)
-      let cellPraca = tRow.insertCell(1)
-      let cellJednotka = tRow.insertCell(2)
-      let cellJadnotkovCena = tRow.insertCell(3)
-      let cellMnozstvo = tRow.insertCell(4)
-      let cellCelkovaCena = tRow.insertCell(5)
+    if (tablePraca !== null) {
+      vVPraca.forEach(function(item) {
+        let tRow = tablePraca.insertRow(-1)
+        let cellEtapa = tRow.insertCell(0)
+        let cellPraca = tRow.insertCell(1)
+        let cellJednotka = tRow.insertCell(2)
+        let cellJadnotkovCena = tRow.insertCell(3)
+        let cellMnozstvo = tRow.insertCell(4)
+        let cellCelkovaCena = tRow.insertCell(5)
 
-      cellEtapa.innerHTML = item.etapa
-      cellPraca.innerHTML = item.praca
-      cellJednotka.innerHTML = item.jednotka
-      cellJadnotkovCena.innerHTML = item.jednotkova_cena
-      cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-    })
+        cellEtapa.innerHTML = item.etapa
+        cellPraca.innerHTML = item.praca
+        cellJednotka.innerHTML = item.jednotka
+        cellJadnotkovCena.innerHTML = item.jednotkova_cena
+        cellMnozstvo.innerHTML = item.mnozstvo
+        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      })
+    else {
+      let head = document.getElementById("hPraca")
+      head.classList.add("display:none")
+      console.log(head.classList)
+    }
   }
 
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
