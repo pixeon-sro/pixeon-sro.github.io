@@ -206,7 +206,7 @@ Promise.allSettled(allPromises).then(function(data){
   let htmlTableMaterial = document.getElementById("htmlTableMaterial");
   if (vVMaterial != null) {
     vVMaterial.forEach(function(item) {
-      let tRow = tableMaterial.insertRow(-1)
+      let tRow = htmlTableMaterial.insertRow(-1)
       let cellEtapa = tRow.insertCell(0)
       let cellMaterial = tRow.insertCell(1)
       let cellJednotka = tRow.insertCell(2)
@@ -231,7 +231,7 @@ Promise.allSettled(allPromises).then(function(data){
   let htmlTablePraca = document.getElementById("htmlTablePraca");
   if (vVPraca != null) {
     vVPraca.forEach(function(item) {
-      let tRow = tablePraca.insertRow(-1)
+      let tRow = htmlTablePraca.insertRow(-1)
       let cellEtapa = tRow.insertCell(0)
       let cellPraca = tRow.insertCell(1)
       let cellJednotka = tRow.insertCell(2)
@@ -257,7 +257,7 @@ Promise.allSettled(allPromises).then(function(data){
   let htmlTableNaklady = document.getElementById("htmlTableNaklady");
   if (vVNaklady != null) {
     vVNaklady.forEach(function(item) {
-      let tRow = tableNaklady.insertRow(-1)
+      let tRow = htmlTableNaklady.insertRow(-1)
       let cellEtapa = tRow.insertCell(0)
       let cellNaklady = tRow.insertCell(1)
       let cellPopis = tRow.insertCell(2)
@@ -281,9 +281,9 @@ Promise.allSettled(allPromises).then(function(data){
   }
 
   // vypísanie Celkovej ceny
-  let tableCena = document.getElementById("htmlTableCena");
+  let htmlTableCena = document.getElementById("htmlTableCena");
   vCelkovaCena.forEach(function(item) {
-    let tRow = tableCena.insertRow(-1)
+    let tRow = htmlTableCena.insertRow(-1)
     let cellPolozka = tRow.insertCell(0)
     let cellMaterial = tRow.insertCell(1)
     let cellPraca = tRow.insertCell(2)
