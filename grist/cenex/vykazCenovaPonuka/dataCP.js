@@ -202,8 +202,8 @@ Promise.allSettled(allPromises).then(function(data){
   document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
 
   // vypísanie Výkazu Výmer Materiál
-  let hMaterial = document.getElementById("hMaterial")
-  let tableMaterial = document.getElementById("material");
+  let htmlH1Material = document.getElementById("htmlH1Material")
+  let htmlTableMaterial = document.getElementById("htmlTableMaterial");
     if (vVMaterial != null) {
       vVMaterial.forEach(function(item) {
         let tRow = tableMaterial.insertRow(-1)
@@ -223,11 +223,12 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      hMaterial.style.display="none"
+      htmlH1Material.style.display="none"
+      htmlTableMaterial.style.display="none"
     }
   // vypísanie Výkazu Výmer Práce
-  let hPraca = document.getElementById("hPraca")
-  let tablePraca = document.getElementById("praca");
+  let htmlH1Praca = document.getElementById("htmlH1Praca")
+  let htmlTablePraca = document.getElementById("htmlTablePraca");
     if (vVPraca != null) {
       vVPraca.forEach(function(item) {
         let tRow = tablePraca.insertRow(-1)
@@ -247,12 +248,13 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      hPraca.style.display="none"
+      htmlH1Praca.style.display="none"
+      htmlTablePraca.style.display="none"
     }
 
   // vypísanie Výkazu Výmer Pridružených nákladov
-  let hNaklady = document.getElementById("hNaklady")
-  let tableNaklady = document.getElementById("naklady");
+  let htmlH1Naklady = document.getElementById("htmlH1Naklady")
+  let htmlTableNaklady = document.getElementById("htmlTableNaklady");
     if (vVNaklady != null) {
       vVNaklady.forEach(function(item) {
         let tRow = tableNaklady.insertRow(-1)
@@ -274,7 +276,8 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      hNaklady.style.display="none"
+      htmlH1Naklady.style.display="none"
+      htmlTableNaklady.style.display="none"
     }
 
   // vypísanie Celkovej ceny
