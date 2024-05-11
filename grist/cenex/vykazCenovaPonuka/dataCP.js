@@ -86,7 +86,7 @@ allPromises = [
 Promise.allSettled(allPromises).then(function(data){
 
   const tCP = data[0].value
-  console.log(tCP)
+  //console.log(tCP)
   const tMaterial = convertor(data[1].value)
   //console.log(tMaterial)
   const tPraca = convertor(data[2].value)
