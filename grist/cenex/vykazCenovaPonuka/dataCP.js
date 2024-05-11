@@ -86,7 +86,7 @@ allPromises = [
 Promise.allSettled(allPromises).then(function(data){
 
   const tCP = data[0].value
-  //console.log(tCP)
+  console.log(tCP)
   const tMaterial = convertor(data[1].value)
   //console.log(tMaterial)
   const tPraca = convertor(data[2].value)
@@ -98,13 +98,41 @@ Promise.allSettled(allPromises).then(function(data){
 
   // vytvorenie referencií z tCP
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
-  console.log(vVMaterial)
+  //console.log(vVMaterial)
+
+  // vytvorenie tlačovej tabuľky výkazu Práce
+  function createVPraca(value) {
+    console.log(value)
+    let vPraca = []
+    value.forEach(function(row) {
+      let element = {}
+        element.id=row.id
+        element.jednotka=row.jednotka
+        element.jednotkova_cena=row.jednotkova_cena
+        element.mnozstvo=row.mnozstvo
+        element.celkova_cena=row.celkova_cena
+        //doplnenie etapy
+        tEtapa.forEach((item) => {
+          if (item.id == row.etapa.rowId) {
+            element.etapa = item.etapa
+          }
+        })
+        //doplnenie materiálu
+        tPraca.forEach((item) => {
+          if (item.id == row.praca.rowId) {
+            element.praca = item.nazov
+          }
+        })
+      vPraca.push(element)
+    })
+    return vPraca
+  }
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
-  console.log(vVPraca)
+  //console.log(vVPraca)
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
-  console.log(vVNaklady)
+  //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
-  console.log(vCelkovaCena)
+  //console.log(vCelkovaCena)
 
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
@@ -158,33 +186,6 @@ Promise.allSettled(allPromises).then(function(data){
     cellMnozstvo.innerHTML = item.mnozstvo
     cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
   })
-
-  // vytvorenie tlačovej tabuľky výkazu Práce
-  function createVPraca(value) {
-    let vPraca = []
-    value.forEach(function(row) {
-      let element = {}
-        element.id=row.id
-        element.jednotka=row.jednotka
-        element.jednotkova_cena=row.jednotkova_cena
-        element.mnozstvo=row.mnozstvo
-        element.celkova_cena=row.celkova_cena
-        //doplnenie etapy
-        tEtapa.forEach((item) => {
-          if (item.id == row.etapa.rowId) {
-            element.etapa = item.etapa
-          }
-        })
-        //doplnenie materiálu
-        tPraca.forEach((item) => {
-          if (item.id == row.praca.rowId) {
-            element.praca = item.nazov
-          }
-        })
-      vPraca.push(element)
-    })
-    return vPraca
-  }
   // vypísanie Výkazu Výmer Práce
   let tablePraca = document.getElementById("praca");
   vVPraca.forEach(function(item) {
