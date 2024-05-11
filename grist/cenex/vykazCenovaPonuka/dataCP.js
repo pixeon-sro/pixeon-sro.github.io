@@ -206,7 +206,7 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Výkazu Výmer Materiál
   let head = document.getElementById("hMaterial")
   let tableMaterial = document.getElementById("material");
-    if (vVPraca != null) {
+    if (vVMaterial != null) {
       vVMaterial.forEach(function(item) {
         let tRow = tableMaterial.insertRow(-1)
         let cellEtapa = tRow.insertCell(0)
@@ -256,7 +256,7 @@ Promise.allSettled(allPromises).then(function(data){
 
   // vypísanie Výkazu Výmer Pridružených nákladov
   let tableNaklady = document.getElementById("naklady");
-    if (vVPraca != null) {
+    if (vVNaklady != null) {
       vVNaklady.forEach(function(item) {
         let tRow = tableNaklady.insertRow(-1)
         let cellEtapa = tRow.insertCell(0)
