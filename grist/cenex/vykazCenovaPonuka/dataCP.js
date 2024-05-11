@@ -204,7 +204,7 @@ Promise.allSettled(allPromises).then(function(data){
   document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
 
   // vypísanie Výkazu Výmer Materiál
-  let head = document.getElementById("hMaterial")
+  let hMaterial = document.getElementById("hMaterial")
   let tableMaterial = document.getElementById("material");
     if (vVMaterial != null) {
       vVMaterial.forEach(function(item) {
@@ -229,7 +229,7 @@ Promise.allSettled(allPromises).then(function(data){
       console.log(head.classList)
     }
   // vypísanie Výkazu Výmer Práce
-  let head = document.getElementById("hPraca")
+  let hPraca = document.getElementById("hPraca")
   let tablePraca = document.getElementById("praca");
     if (vVPraca != null) {
       vVPraca.forEach(function(item) {
@@ -255,6 +255,7 @@ Promise.allSettled(allPromises).then(function(data){
     }
 
   // vypísanie Výkazu Výmer Pridružených nákladov
+  let hNaklady = document.getElementById("hNaklady")
   let tableNaklady = document.getElementById("naklady");
     if (vVNaklady != null) {
       vVNaklady.forEach(function(item) {
