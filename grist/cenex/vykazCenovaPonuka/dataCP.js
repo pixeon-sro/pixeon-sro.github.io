@@ -225,7 +225,7 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      head.style.display="none"
+      hMaterial.style.display="none"
       console.log(head.classList)
     }
   // vypísanie Výkazu Výmer Práce
@@ -250,7 +250,7 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      head.style.display="none"
+      hPraca.style.display="none"
       console.log(head.classList)
     }
 
@@ -278,7 +278,7 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      head.style.display="none"
+      hNaklady.style.display="none"
       console.log(head.classList)
     }
 
