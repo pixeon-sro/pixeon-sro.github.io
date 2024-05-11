@@ -204,81 +204,81 @@ Promise.allSettled(allPromises).then(function(data){
   // vypísanie Výkazu Výmer Materiál
   let htmlH1Material = document.getElementById("htmlH1Material")
   let htmlTableMaterial = document.getElementById("htmlTableMaterial");
-    if (vVMaterial != null) {
-      vVMaterial.forEach(function(item) {
-        let tRow = tableMaterial.insertRow(-1)
-        let cellEtapa = tRow.insertCell(0)
-        let cellMaterial = tRow.insertCell(1)
-        let cellJednotka = tRow.insertCell(2)
-        let cellJadnotkovCena = tRow.insertCell(3)
-        let cellMnozstvo = tRow.insertCell(4)
-        let cellCelkovaCena = tRow.insertCell(5)
+  if (vVMaterial != null) {
+    vVMaterial.forEach(function(item) {
+      let tRow = tableMaterial.insertRow(-1)
+      let cellEtapa = tRow.insertCell(0)
+      let cellMaterial = tRow.insertCell(1)
+      let cellJednotka = tRow.insertCell(2)
+      let cellJadnotkovCena = tRow.insertCell(3)
+      let cellMnozstvo = tRow.insertCell(4)
+      let cellCelkovaCena = tRow.insertCell(5)
 
-        cellEtapa.innerHTML = item.etapa
-        cellMaterial.innerHTML = item.material
-        cellJednotka.innerHTML = item.jednotka
-        cellJadnotkovCena.innerHTML = item.jednotkova_cena
-        cellMnozstvo.innerHTML = item.mnozstvo
-        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-      })
-    }
-    else {
-      htmlH1Material.style.display="none"
-      htmlTableMaterial.style.display="none"
-    }
+      cellEtapa.innerHTML = item.etapa
+      cellMaterial.innerHTML = item.material
+      cellJednotka.innerHTML = item.jednotka
+      cellJadnotkovCena.innerHTML = item.jednotkova_cena
+      cellMnozstvo.innerHTML = item.mnozstvo
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+    })
+  }
+  else {
+    htmlH1Material.style.display="none"
+    htmlTableMaterial.style.display="none"
+  }
   // vypísanie Výkazu Výmer Práce
   let htmlH1Praca = document.getElementById("htmlH1Praca")
   let htmlTablePraca = document.getElementById("htmlTablePraca");
-    if (vVPraca != null) {
-      vVPraca.forEach(function(item) {
-        let tRow = tablePraca.insertRow(-1)
-        let cellEtapa = tRow.insertCell(0)
-        let cellPraca = tRow.insertCell(1)
-        let cellJednotka = tRow.insertCell(2)
-        let cellJadnotkovCena = tRow.insertCell(3)
-        let cellMnozstvo = tRow.insertCell(4)
-        let cellCelkovaCena = tRow.insertCell(5)
+  if (vVPraca != null) {
+    vVPraca.forEach(function(item) {
+      let tRow = tablePraca.insertRow(-1)
+      let cellEtapa = tRow.insertCell(0)
+      let cellPraca = tRow.insertCell(1)
+      let cellJednotka = tRow.insertCell(2)
+      let cellJadnotkovCena = tRow.insertCell(3)
+      let cellMnozstvo = tRow.insertCell(4)
+      let cellCelkovaCena = tRow.insertCell(5)
 
-        cellEtapa.innerHTML = item.etapa
-        cellPraca.innerHTML = item.praca
-        cellJednotka.innerHTML = item.jednotka
-        cellJadnotkovCena.innerHTML = item.jednotkova_cena
-        cellMnozstvo.innerHTML = item.mnozstvo
-        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-      })
-    }
-    else {
-      htmlH1Praca.style.display="none"
-      htmlTablePraca.style.display="none"
-    }
+      cellEtapa.innerHTML = item.etapa
+      cellPraca.innerHTML = item.praca
+      cellJednotka.innerHTML = item.jednotka
+      cellJadnotkovCena.innerHTML = item.jednotkova_cena
+      cellMnozstvo.innerHTML = item.mnozstvo
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+    })
+  }
+  else {
+    htmlH1Praca.style.display="none"
+    htmlTablePraca.style.display="none"
+  }
 
   // vypísanie Výkazu Výmer Pridružených nákladov
   let htmlH1Naklady = document.getElementById("htmlH1Naklady")
   let htmlTableNaklady = document.getElementById("htmlTableNaklady");
-    if (vVNaklady != null) {
-      vVNaklady.forEach(function(item) {
-        let tRow = tableNaklady.insertRow(-1)
-        let cellEtapa = tRow.insertCell(0)
-        let cellNaklady = tRow.insertCell(1)
-        let cellPopis = tRow.insertCell(2)
-        let cellJednotka = tRow.insertCell(3)
-        let cellJadnotkovCena = tRow.insertCell(4)
-        let cellMnozstvo = tRow.insertCell(5)
-        let cellCelkovaCena = tRow.insertCell(6)
+  if (vVNaklady != null) {
+    vVNaklady.forEach(function(item) {
+      let tRow = tableNaklady.insertRow(-1)
+      let cellEtapa = tRow.insertCell(0)
+      let cellNaklady = tRow.insertCell(1)
+      let cellPopis = tRow.insertCell(2)
+      let cellJednotka = tRow.insertCell(3)
+      let cellJadnotkovCena = tRow.insertCell(4)
+      let cellMnozstvo = tRow.insertCell(5)
+      let cellCelkovaCena = tRow.insertCell(6)
 
-        cellEtapa.innerHTML = item.etapa
-        cellNaklady.innerHTML = item.naklady
-        cellPopis.innerHTML = item.popis
-        cellJednotka.innerHTML = item.jednotka
-        cellJadnotkovCena.innerHTML = item.jednotkova_cena
-        cellMnozstvo.innerHTML = item.mnozstvo
-        cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
-      })
-    }
-    else {
-      htmlH1Naklady.style.display="none"
-      htmlTableNaklady.style.display="none"
-    }
+      cellEtapa.innerHTML = item.etapa
+      cellNaklady.innerHTML = item.naklady
+      cellPopis.innerHTML = item.popis
+      cellJednotka.innerHTML = item.jednotka
+      cellJadnotkovCena.innerHTML = item.jednotkova_cena
+      cellMnozstvo.innerHTML = item.mnozstvo
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+    })
+  }
+  else {
+    htmlH1Naklady.style.display="none"
+    htmlTableNaklady.style.display="none"
+  }
 
   // vypísanie Celkovej ceny
   let tableCena = document.getElementById("htmlTableCena");
