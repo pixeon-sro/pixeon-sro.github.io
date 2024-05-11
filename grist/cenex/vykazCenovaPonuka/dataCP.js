@@ -82,8 +82,6 @@ allPromises = [
   dbPridruzeneNaklady,
   dbEtapa
 ]
-
-console.log(allPromises)
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
 
@@ -100,13 +98,13 @@ Promise.allSettled(allPromises).then(function(data){
 
   // vytvorenie referencií z tCP
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
-  //console.log(vVMaterial)
+  console.log(vVMaterial)
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
-  //console.log(vVPraca)
+  console.log(vVPraca)
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
-  //console.log(vVNaklady)
+  console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
-  //console.log(vCelkovaCena)
+  console.log(vCelkovaCena)
 
   //tlač hlavičky CP
   document.getElementById("dielo").innerText = tCP[0].Dielo;
