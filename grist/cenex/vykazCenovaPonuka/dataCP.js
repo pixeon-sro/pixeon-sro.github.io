@@ -189,8 +189,8 @@ Promise.allSettled(allPromises).then(function(data){
     cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
   })
   // vypísanie Výkazu Výmer Práce
+  let head = document.getElementById("hPraca")
   let tablePraca = document.getElementById("praca");
-    console.log(tablePraca)
     if (vVPraca != null) {
       vVPraca.forEach(function(item) {
         let tRow = tablePraca.insertRow(-1)
@@ -210,7 +210,6 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      let head = document.getElementById("hPraca")
       head.classList.add("display:none")
       console.log(head.classList)
     }
