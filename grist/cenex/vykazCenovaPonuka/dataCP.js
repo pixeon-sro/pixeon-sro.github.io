@@ -209,6 +209,7 @@ Promise.allSettled(allPromises).then(function(data){
         cellMnozstvo.innerHTML = item.mnozstvo
         cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
       })
+    }
     else {
       let head = document.getElementById("hPraca")
       head.classList.add("display:none")
