@@ -128,7 +128,7 @@ Promise.allSettled(allPromises).then(function(data){
   // vytvorenie tlačovej tabuľky výkazu Práce
   function createVPraca(value) {
     console.log(value)
-    if (value === null) {
+    if (value == null) {
       return null
     }
     let vPraca = []
@@ -156,7 +156,7 @@ Promise.allSettled(allPromises).then(function(data){
     return vPraca
   }
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
-  //console.log(vVPraca)
+  console.log(vVPraca)
 
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
