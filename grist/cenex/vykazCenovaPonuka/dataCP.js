@@ -210,7 +210,7 @@ Promise.allSettled(allPromises).then(function(data){
       })
     }
     else {
-      head.classList.add("display:none")
+      head.style.display="none" 
       console.log(head.classList)
     }
 
