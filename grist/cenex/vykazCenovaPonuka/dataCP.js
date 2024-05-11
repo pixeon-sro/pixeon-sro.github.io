@@ -215,7 +215,6 @@ Promise.allSettled(allPromises).then(function(data){
       head.classList.add("display:none")
       console.log(head.classList)
     }
-  }
 
   // vytvorenie tlačovej tabuľky výkazu Pridružených nákladov
   function createVNaklady(value) {
