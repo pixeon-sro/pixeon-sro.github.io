@@ -15,6 +15,9 @@ h1 {
     padding: 0.7em;
     font-size: 1.5em;
 }
+#hPraca {
+    display: block;
+}
 
 table {
     border: solid black 2px;
