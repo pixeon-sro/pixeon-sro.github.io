@@ -96,7 +96,32 @@ Promise.allSettled(allPromises).then(function(data){
   const tEtapa = convertor(data[4].value)
   //console.log(tEtapa)
 
-  // vytvorenie referencií z tCP
+  // vytvorenie tlačovej tabuľky výkazu Materiálov
+  function createVMaterial(value) {
+    let vMaterial = []
+    value.forEach(function(row) {
+      let element = {}
+        element.id=row.id
+        element.jednotka=row.jednotka
+        element.jednotkova_cena=row.jednotkova_cena
+        element.mnozstvo=row.mnozstvo
+        element.celkova_cena=row.celkova_cena
+        //doplnenie etapy
+        tEtapa.forEach((item) => {
+          if (item.id == row.etapa.rowId) {
+            element.etapa = item.etapa
+          }
+        })
+        //doplnenie materiálu
+        tMaterial.forEach((item) => {
+          if (item.id == row.material.rowId) {
+            element.material = item.nazov
+          }
+        })
+      vMaterial.push(element)
+    })
+    return vMaterial
+  }
   const vVMaterial = createVMaterial(tCP[0].References.Vykaz_Vymer_Material)
   //console.log(vVMaterial)
 
@@ -129,6 +154,7 @@ Promise.allSettled(allPromises).then(function(data){
   }
   const vVPraca = createVPraca(tCP[0].References.Vykaz_Vymer_Praca)
   //console.log(vVPraca)
+
   const vVNaklady = createVNaklady(tCP[0].References.Pridruzene_naklady)
   //console.log(vVNaklady)
   const vCelkovaCena = tCP[0].References.Konecna_Cena
@@ -142,32 +168,6 @@ Promise.allSettled(allPromises).then(function(data){
   document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
   document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
 
-  // vytvorenie tlačovej tabuľky výkazu Materiálov
-  function createVMaterial(value) {
-    let vMaterial = []
-    value.forEach(function(row) {
-      let element = {}
-        element.id=row.id
-        element.jednotka=row.jednotka
-        element.jednotkova_cena=row.jednotkova_cena
-        element.mnozstvo=row.mnozstvo
-        element.celkova_cena=row.celkova_cena
-        //doplnenie etapy
-        tEtapa.forEach((item) => {
-          if (item.id == row.etapa.rowId) {
-            element.etapa = item.etapa
-          }
-        })
-        //doplnenie materiálu
-        tMaterial.forEach((item) => {
-          if (item.id == row.material.rowId) {
-            element.material = item.nazov
-          }
-        })
-      vMaterial.push(element)
-    })
-    return vMaterial
-  }
   // vypísanie Výkazu Výmer Materiál
   let tableMaterial = document.getElementById("material");
   vVMaterial.forEach(function(item) {
