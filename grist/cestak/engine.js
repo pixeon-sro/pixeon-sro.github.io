@@ -65,7 +65,7 @@ function round(num, decimal=0) {
 
 //zitovanie prazdneho poľa
 function isEmpty(value) {
-  if (value.typeof === array) {
+  if (value.typeof == object) {
     if (value.legth === 0) {
       return true
     }
@@ -93,7 +93,7 @@ Promise.allSettled(allPromises).then(function(data){
   const tCestak = data[0]
   console.log(tCestak)
 
-  if (isEmpty(data[0])) {
+  if ( isEmpty(data[0]) ) {
     console.log("Cesťák je prázdny")
   }
   else {
