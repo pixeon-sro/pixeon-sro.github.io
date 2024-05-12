@@ -85,7 +85,10 @@ function isEmpty(value) {
       return false
     }
   }
-  else { console.log("this is not Array or Object") }
+  else {
+  console.log("this is not Array or Object")
+  console.log(value)
+  }
 }
 
 //  pole všetkých Promisov
@@ -98,9 +101,9 @@ allPromises = [
   //dbSumar
 ]
 
-Promise.allSettled(allPromises).then(function(data){
+Promise.allSettled(allPromises).then(function(data) {
 
-  const tCestak = data[0].[0]
+  const tCestak = data[0]
   console.log(tCestak)
 
   if ( isEmpty(tCestak) ) {
