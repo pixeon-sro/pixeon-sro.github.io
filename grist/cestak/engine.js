@@ -78,7 +78,7 @@ Promise.allSettled(allPromises).then(function(data){
   const tCestak = data[0]
   console.log(tCestak)
 
-  if (tCestak[0].length !> 0) {
+  if (tCestak[0].length == 0) {
     console.log("Cesťák je prázdny")
   }
   else {
