@@ -65,7 +65,7 @@ function round(num, decimal=0) {
 
 //zitovanie prazdneho poľa
 function isEmpty(value) {
-  if (value.typeof == object) {
+  if (value.typeof == "object") {
     if (value.legth === 0) {
       return true
     }
