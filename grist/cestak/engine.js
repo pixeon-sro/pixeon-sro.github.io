@@ -111,13 +111,6 @@ Promise.allSettled(allPromises).then(function(data) {
   }
   const tCestak = data[0]
   console.log(tCestak)
-
-  if ( isEmpty(tCestak) ) {
-    console.log("Cesťák je prázdny")
-  }
-  else {
-    console.log(Object.keys(tCestak))
-    tcestak
-  }
+  console.log(Object.keys(tCestak))
 
 }) //ukončenie Promise.allSettled
