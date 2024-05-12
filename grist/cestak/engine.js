@@ -66,11 +66,11 @@ function round(num, decimal=0) {
 //  pole všetkých Promisov
 allPromises = [
   dbCestak,
-  dbTrasa,
-  dbVozidlo,
-  dbNahrada,
-  dbPHM,
-  dbSumar
+  //dbTrasa,
+  //dbVozidlo,
+  //dbNahrada,
+  //dbPHM,
+  //dbSumar
 ]
 
 Promise.allSettled(allPromises).then(function(data){
