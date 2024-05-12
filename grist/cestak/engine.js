@@ -67,8 +67,8 @@ function round(num, decimal=0) {
 // ak je pole prazdne, vráti TRUE
 // ak pole obsahuje prvky, vráti FALSE
 function isEmpty(value) {
-  console.log(value instanceof Array)
   if (value instanceof Array) {
+    console.log("this is Array")
     if (value.legth === 0) {
       return true
     }
@@ -76,10 +76,16 @@ function isEmpty(value) {
       return false
     }
   }
-  else {
-    return true
-    console.log("this is not array")
+  else if (value instanceof Object) {
+    console.log("this is Object")
+    if (value.legth === 0) {
+      return true
+    }
+    else {
+      return false
+    }
   }
+  else { console.log("this is not Array or Object") }
 }
 
 //  pole všetkých Promisov
