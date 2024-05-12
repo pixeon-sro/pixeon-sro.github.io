@@ -17,43 +17,43 @@ console.log("*** mail: box@pixeon.sk")
 grist.ready({ requiredAccess: 'full' })
 
 // načítanie údajov z Cestaku
-const dbCestak = dbCestak()
-async function dbCestak() {
+const dbCestak = dbTableCestak()
+async function dbTableCestak() {
     const dataFromCestak = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCestak
 }
 
 //načítanie údajov o Trasách
-const dbTrasa = dbTrasa()
-async function dbTrasa() {
+const dbTrasa = dbTableTrasa()
+async function dbTableTrasa() {
     const dataFromTrasa = await grist.docApi.fetchTable("Trasa")
     return dataFromTrasa
 }
 
 //načítanie údajov o Vozidlách
-const dbVozidlo = dbVozidlo()
-async function dbVozidlo() {
+const dbVozidlo = dbTableVozidlo()
+async function dbTableVozidlo() {
     const dataFromVozidlo = await grist.docApi.fetchTable("Vozidlo")
     return dataFromVozidlo
 }
 
 //načítanie údajov o Náhradách
-const dbNahrada = dbNahrada()
-async function dbNahrada() {
+const dbNahrada = dbTableNahrada()
+async function dbTableNahrada() {
     const dataFromNahrada = await grist.docApi.fetchTable("Nahrada")
     return dataFromNahrada
 }
 
 //načítanie údajov o PHM
-const dbPHM = dbPHM()
-async function dbPHM() {
+const dbPHM = dbTablePHM()
+async function dbTablePHM() {
     const dataFromPHM = await grist.docApi.fetchTable("PHM")
     return dataFromPHM
 }
 
 //načítanie údajov o Sumár
-const dbSumar = dbSumar()
-async function dbSumar() {
+const dbSumar = dbTableSumar()
+async function dbTableSumar() {
     const dataFromSumar = await grist.docApi.fetchTable("Sumar")
     return dataFromSumar
 }
