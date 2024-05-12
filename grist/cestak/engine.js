@@ -63,6 +63,21 @@ function round(num, decimal=0) {
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
 
+//zitovanie prazdneho poľa
+function isEmpty(value) {
+  if (value.typeof === array) {
+    if (value.legth === 0) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
+  else {
+    console.log("this is not array")
+  }
+}
+
 //  pole všetkých Promisov
 allPromises = [
   dbCestak,
@@ -78,7 +93,7 @@ Promise.allSettled(allPromises).then(function(data){
   const tCestak = data[0]
   console.log(tCestak)
 
-  if (tCestak[0].length == 0) {
+  if (isEmpty(data[0])) {
     console.log("Cesťák je prázdny")
   }
   else {
