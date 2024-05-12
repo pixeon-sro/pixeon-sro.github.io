@@ -110,8 +110,7 @@ Promise.allSettled(allPromises).then(function(data) {
     console.log("Cesťák je prázdny")
   }
   else {
-    console.log(tCestak[0])
-    console.log("Idem na to!")
+    console.log(Object.keys(tCestak))
   }
 
 }) //ukončenie Promise.allSettled
