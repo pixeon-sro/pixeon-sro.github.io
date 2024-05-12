@@ -94,7 +94,7 @@ allPromises = [
 
 Promise.allSettled(allPromises).then(function(data){
 
-  const tCestak = data[0]
+  const tCestak = data[0].[0]
   console.log(tCestak)
 
   if ( isEmpty(tCestak) ) {
