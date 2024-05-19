@@ -91,6 +91,12 @@ function isEmpty(value) {
   }
 }
 
+// zostavenie tlačovej tabuľky
+function printTable(vehicle, data) {
+  let place=document.getElementById("placeTable")
+
+}
+
 //  pole všetkých Promisov
 allPromises = [
   dbCestak,
@@ -112,13 +118,17 @@ Promise.allSettled(allPromises).then(function(data) {
   const tCestak = data[0].value
   console.log(tCestak)
 
-  //vytvorenie poľa vozidiel
-  let vehicle = []
-  tCestak[0].references.ref_vozidlo.forEach(function(item) {
-    if (!vehicle.includes(item.spz)) {
-      vehicle.push(item.spz)
+  //vytvorenie poľa špz
+  let vehicles = []
+  tCestak.spz.forEach(function(item) {
+    if (!vehicles.includes(item.spz)) {
+      vehicles.push(item.spz)
     }
   })
-  console.log(vehicle)
+
+  //vytvorenie tabulky cestovného výkazu pre vozidlo
+  tCestak.forEach(function(item) {
+
+  })
 
 }) //ukončenie Promise.allSettled
