@@ -111,6 +111,14 @@ Promise.allSettled(allPromises).then(function(data) {
   }
   const tCestak = data[0].value
   console.log(tCestak)
-  //console.log(Object.keys(tCestak))
+
+  //vytvorenie poľa vozidiel
+  let vehicle = []
+  tCestak.foreach(item) {
+    if !(vehicle.includes(item.prostriedok)) {
+      vehicle.push(item.prostriedok)
+    }
+  }
+  console.log(vehicle)
 
 }) //ukončenie Promise.allSettled
