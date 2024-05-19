@@ -135,10 +135,10 @@ Promise.allSettled(allPromises).then(function(data) {
       let cellSpzH=tRow.insertCell(2)
       let cellSpzV=tRow.insertCell(3)
 
-      cellVehicleH="vozidlo:"
-      cellVehicleV=item.vozidlo
-      cellSpzH="ŠPZ:"
-      cellSpzV=item.spz
+      cellVehicleH.innerHTML="vozidlo:"
+      cellVehicleV.innerHTML=item.vozidlo
+      cellSpzH.innerHTML="ŠPZ:"
+      cellSpzV.innerHTML=item.spz
     }
     else {
       console.log("exist")
