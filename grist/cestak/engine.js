@@ -91,9 +91,12 @@ function isEmpty(value) {
   }
 }
 
-// zostavenie tlačovej tabuľky
-function printTable(vehicle, data) {
+// zostavenie tlačovej tabuľky vozidla
+function createPrintTable(vehicleID) {
   let place=document.getElementById("placeTable")
+  let tab=document.createElement("table")
+  tab.setAttribute("id", vehicleID)
+  place.appendChild(tab)
 
 }
 
@@ -120,14 +123,20 @@ Promise.allSettled(allPromises).then(function(data) {
 
   //vytvorenie poľa špz
   let vehiclesID = []
+
   tCestak.forEach(function(item) {
     if (!vehiclesID.includes(item.spz)) {
       vehiclesID.push(item.spz)
+      createPrintTable(item.spz)
+      let table=document.getElementById(item.spz)
+    }
+    else {
+
     }
   })
 
   //vytvorenie tabulky cestovného výkazu pre vozidlo
-  //tCestak.forEach(function(item) {
+  tCestak.forEach(function(item) {
 
   //})
 
