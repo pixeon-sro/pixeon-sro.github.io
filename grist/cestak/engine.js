@@ -119,7 +119,7 @@ Promise.allSettled(allPromises).then(function(data) {
   console.log(tCestak)
 
   //vytvorenie poľa špz
-  let vehiglesID = []
+  let vehiclesID = []
   tCestak.forEach(function(item) {
     if (!vehiclesID.includes(item.spz)) {
       vehiclesID.push(item.spz)
