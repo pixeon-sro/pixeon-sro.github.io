@@ -114,7 +114,7 @@ Promise.allSettled(allPromises).then(function(data) {
 
   //vytvorenie poľa vozidiel
   let vehicle = []
-  tCestak[0].item.references.ref_vozidlo.forEach(function(item) {
+  tCestak[0].references.ref_vozidlo.forEach(function(item) {
     if (!vehicle.includes(item.spz)) {
       vehicle.push(item.spz)
     }
