@@ -129,6 +129,16 @@ Promise.allSettled(allPromises).then(function(data) {
       vehiclesID.push(item.spz)
       createPrintTable(item.spz)
       let table=document.getElementById(item.spz)
+      let tRow=table.insertRow(-1)
+      let cellVehicleH=tRow.insertCell(0)
+      let cellVehicleV=tRow.insertCell(1)
+      let cellSpzH=tRow.insertCell(2)
+      let cellSpzV=tRow.insertCell(3)
+
+      cellVehicleH="vozidlo:"
+      cellVehicleV=item.vozidlo
+      cellSpzH="ŠPZ:"
+      cellSpzV=item.spz
     }
     else {
 
