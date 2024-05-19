@@ -141,7 +141,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellSpzV=item.spz
     }
     else {
-
+      console.log("exist")
     }
   })
 
