@@ -129,16 +129,32 @@ Promise.allSettled(allPromises).then(function(data) {
       vehiclesID.push(item.spz)
       createPrintTable(item.spz)
       let table=document.getElementById(item.spz)
-      let tRow=table.insertRow(-1)
-      let cellVehicleH=tRow.insertCell(0)
-      let cellVehicleV=tRow.insertCell(1)
-      let cellSpzH=tRow.insertCell(2)
-      let cellSpzV=tRow.insertCell(3)
+
+      let tRowA=table.insertRow(-1)
+      let cellVehicleH=tRowA.insertCell(0)
+      let cellVehicleV=tRowA.insertCell(1)
+      let cellSpzH=tRowA.insertCell(2)
+      let cellSpzV=tRowA.insertCell(3)
 
       cellVehicleH.innerHTML="vozidlo:"
-      cellVehicleV.innerHTML=item.vozidlo
+      cellVehicleV.innerHTML=item.prostriedok
       cellSpzH.innerHTML="ŠPZ:"
       cellSpzV.innerHTML=item.spz
+
+      let tRowB=table.insertRow(-1)
+      let cellSpotrH=tRowB.insertCell(0)
+      let cellSpotrV=tRowB.insertCell(1)
+      let cellPalivoH=tRowB.insertCell(2)
+      let cellPalivoV=tRowB.insertCell(3)
+      let cellNahradaH=tRowB.insertCell(4)
+      let cellNahradaV=tRowB.insertCell(5)
+
+      cellSpotrH.innerHTML="Priemerna spotreba:"
+      cellSpotrV.innerHTML="dopln"
+      cellPalivoH.innerHTML="Cena paliva:"
+      cellPalivoV.innerHTML="dopln"
+      cellNahradaH.innerHTML="Cestovné náhrada:"
+      cellNahradaV.innerHTML="dopln"
     }
     else {
       console.log("exist")
