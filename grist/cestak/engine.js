@@ -145,9 +145,4 @@ Promise.allSettled(allPromises).then(function(data) {
     }
   })
 
-  //vytvorenie tabulky cestovného výkazu pre vozidlo
-  tCestak.forEach(function(item) {
-
-  //})
-
 }) //ukončenie Promise.allSettled
