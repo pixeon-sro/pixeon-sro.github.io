@@ -119,16 +119,16 @@ Promise.allSettled(allPromises).then(function(data) {
   console.log(tCestak)
 
   //vytvorenie poľa špz
-  let vehicles = []
-  tCestak.spz.forEach(function(item) {
-    if (!vehicles.includes(item.spz)) {
-      vehicles.push(item.spz)
+  let vehiglesID = []
+  tCestak.forEach(function(item) {
+    if (!vehiclesID.includes(item.spz)) {
+      vehiclesID.push(item.spz)
     }
   })
 
   //vytvorenie tabulky cestovného výkazu pre vozidlo
-  tCestak.forEach(function(item) {
+  //tCestak.forEach(function(item) {
 
-  })
+  //})
 
 }) //ukončenie Promise.allSettled
