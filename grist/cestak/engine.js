@@ -115,7 +115,7 @@ Promise.allSettled(allPromises).then(function(data) {
   //vytvorenie poľa vozidiel
   let vehicle = []
   tCestak.foreach(function(item) {
-    if !(vehicle.includes(item.prostriedok)) {
+    if !vehicle.includes(item.prostriedok) {
       vehicle.push(item.prostriedok)
     }
   })
