@@ -109,8 +109,8 @@ Promise.allSettled(allPromises).then(function(data) {
   else {
 
   }
-  const tCestak = data[0]
-  console.log(tCestak.value)
-  console.log(Object.keys(tCestak))
+  const tCestak = data[0].value
+  console.log(tCestak)
+  //console.log(Object.keys(tCestak))
 
 }) //ukončenie Promise.allSettled
