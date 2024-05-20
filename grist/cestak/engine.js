@@ -154,7 +154,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellPalivoH.innerHTML="Cena paliva:"
       cellPalivoV.innerHTML="dopln"
       cellNahradaH.innerHTML="Cestovné náhrada:"
-      cellNahradaV.innerHTML="dopln"
+      cellNahradaV.innerHTML=item.cestovne_nahrady
     }
     else {
       console.log("exist")
