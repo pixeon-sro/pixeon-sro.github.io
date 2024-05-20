@@ -155,7 +155,7 @@ Promise.allSettled(allPromises).then(function(data) {
   tCestak.forEach(function(item) {
     if (!vehiclesID.includes(item.spz)) {
       vehiclesID.push(item.spz)
-      createPrintTable(item)
+      vehiclePrintTable(item)
     }
     else {
       console.log("exist")
