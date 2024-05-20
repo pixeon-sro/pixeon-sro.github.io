@@ -107,6 +107,14 @@ Promise.allSettled(allPromises).then(function(data) {
 
   // vytvorenie tlačovej tabuľky vozidla
   function vehiclePrintTable(item) {
+    //referencia na vozidlo
+    let rVozidlo
+    item.references.ref_vozidlo.forEach(function(ref) {
+      if (item.spz == ref.spz) {
+        rVozidlo=ref
+      }
+    })
+    //referencia na phm
     let place=document.getElementById("placeTable")
     let tab=document.createElement("table")
     tab.setAttribute("id", item.spz)
