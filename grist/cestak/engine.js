@@ -123,7 +123,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellSpzH.innerHTML="ŠPZ:"
     cellSpzV.innerHTML=item.spz
 
-    let tRowB=table.insertRow(-1)
+    let tRowB=tab.insertRow(-1)
     let cellSpotrH=tRowB.insertCell(0)
     let cellSpotrV=tRowB.insertCell(1)
     let cellPalivoH=tRowB.insertCell(2)
@@ -139,27 +139,23 @@ Promise.allSettled(allPromises).then(function(data) {
     cellNahradaV.innerHTML=item.cestovne_nahrady
   }
 
-  //naplnenie tlačových tabuliek vozidiel
   if ( isEmpty(data) ) {
     console.log("Cesťák je prázdny")
   }
   else {
+    const tCestak = data[0].value
+    console.log(tCestak)
 
+    //naplnenie tlačových tabuliek vozidiel
+    let vehiclesID = [] //vytvorenie poľa špz
+    tCestak.forEach(function(item) {
+      if (!vehiclesID.includes(item.spz)) {
+        vehiclesID.push(item.spz)
+        vehiclePrintTable(item)
+      }
+      else {
+        console.log("exist")
+      }
+    })
   }
-  const tCestak = data[0].value
-  console.log(tCestak)
-
-  //vytvorenie poľa špz
-  let vehiclesID = []
-
-  tCestak.forEach(function(item) {
-    if (!vehiclesID.includes(item.spz)) {
-      vehiclesID.push(item.spz)
-      vehiclePrintTable(item)
-    }
-    else {
-      console.log("exist")
-    }
-  })
-
 }) //ukončenie Promise.allSettled
