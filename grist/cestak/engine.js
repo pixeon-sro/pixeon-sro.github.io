@@ -92,11 +92,37 @@ function isEmpty(value) {
 }
 
 // zostavenie tlačovej tabuľky vozidla
-function createPrintTable(vehicleID) {
+function createPrintTable(vehicle) {
   let place=document.getElementById("placeTable")
   let tab=document.createElement("table")
-  tab.setAttribute("id", vehicleID)
+  tab.setAttribute("id", vehicle.spz)
   place.appendChild(tab)
+
+  let tRowA=tab.insertRow(-1)
+  let cellVehicleH=tRowA.insertCell(0)
+  let cellVehicleV=tRowA.insertCell(1)
+  let cellSpzH=tRowA.insertCell(2)
+  let cellSpzV=tRowA.insertCell(3)
+
+  cellVehicleH.innerHTML="vozidlo:"
+  cellVehicleV.innerHTML=item.prostriedok
+  cellSpzH.innerHTML="ŠPZ:"
+  cellSpzV.innerHTML=item.spz
+
+  let tRowB=table.insertRow(-1)
+  let cellSpotrH=tRowB.insertCell(0)
+  let cellSpotrV=tRowB.insertCell(1)
+  let cellPalivoH=tRowB.insertCell(2)
+  let cellPalivoV=tRowB.insertCell(3)
+  let cellNahradaH=tRowB.insertCell(4)
+  let cellNahradaV=tRowB.insertCell(5)
+
+  cellSpotrH.innerHTML="Priemerna spotreba:"
+  cellSpotrV.innerHTML="dopln"
+  cellPalivoH.innerHTML="Cena paliva:"
+  cellPalivoV.innerHTML="dopln"
+  cellNahradaH.innerHTML="Cestovné náhrady:"
+  cellNahradaV.innerHTML=item.cestovne_nahrady
 
 }
 
@@ -127,34 +153,8 @@ Promise.allSettled(allPromises).then(function(data) {
   tCestak.forEach(function(item) {
     if (!vehiclesID.includes(item.spz)) {
       vehiclesID.push(item.spz)
-      createPrintTable(item.spz)
-      let table=document.getElementById(item.spz)
+      createPrintTable(item)
 
-      let tRowA=table.insertRow(-1)
-      let cellVehicleH=tRowA.insertCell(0)
-      let cellVehicleV=tRowA.insertCell(1)
-      let cellSpzH=tRowA.insertCell(2)
-      let cellSpzV=tRowA.insertCell(3)
-
-      cellVehicleH.innerHTML="vozidlo:"
-      cellVehicleV.innerHTML=item.prostriedok
-      cellSpzH.innerHTML="ŠPZ:"
-      cellSpzV.innerHTML=item.spz
-
-      let tRowB=table.insertRow(-1)
-      let cellSpotrH=tRowB.insertCell(0)
-      let cellSpotrV=tRowB.insertCell(1)
-      let cellPalivoH=tRowB.insertCell(2)
-      let cellPalivoV=tRowB.insertCell(3)
-      let cellNahradaH=tRowB.insertCell(4)
-      let cellNahradaV=tRowB.insertCell(5)
-
-      cellSpotrH.innerHTML="Priemerna spotreba:"
-      cellSpotrV.innerHTML="dopln"
-      cellPalivoH.innerHTML="Cena paliva:"
-      cellPalivoV.innerHTML="dopln"
-      cellNahradaH.innerHTML="Cestovné náhrada:"
-      cellNahradaV.innerHTML=item.cestovne_nahrady
     }
     else {
       console.log("exist")
