@@ -112,6 +112,7 @@ Promise.allSettled(allPromises).then(function(data) {
     item.references.ref_vozidlo.forEach(function(ref) {
       if (item.spz == ref.spz) {
         rVozidlo=ref
+        console.log(rVozidlo)
       }
     })
     //referencia na phm
