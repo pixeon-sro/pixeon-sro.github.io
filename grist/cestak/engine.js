@@ -106,10 +106,10 @@ allPromises = [
 Promise.allSettled(allPromises).then(function(data) {
 
   // vytvorenie tlačovej tabuľky vozidla
-  function createPrintTable(vehicle) {
+  function vehiclePrintTable(item) {
     let place=document.getElementById("placeTable")
     let tab=document.createElement("table")
-    tab.setAttribute("id", vehicle.spz)
+    tab.setAttribute("id", item.spz)
     place.appendChild(tab)
 
     let tRowA=tab.insertRow(-1)
@@ -137,11 +137,9 @@ Promise.allSettled(allPromises).then(function(data) {
     cellPalivoV.innerHTML="dopln"
     cellNahradaH.innerHTML="Cestovné náhrady:"
     cellNahradaV.innerHTML=item.cestovne_nahrady
-
   }
 
-
-
+  //naplnenie tlačových tabuliek vozidiel
   if ( isEmpty(data) ) {
     console.log("Cesťák je prázdny")
   }
@@ -158,7 +156,6 @@ Promise.allSettled(allPromises).then(function(data) {
     if (!vehiclesID.includes(item.spz)) {
       vehiclesID.push(item.spz)
       createPrintTable(item)
-
     }
     else {
       console.log("exist")
