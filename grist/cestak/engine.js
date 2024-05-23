@@ -268,6 +268,8 @@ console.log(vehicles)
     let cellHeader=tRowA.insertCell(0)
     cellHeader.colSpan=4
     cellHeader.innerHTML="Celkové náhrady"
+    let cellSignH=tRowA.insertCell(1)
+    cellSignH="Podpis"
 
     let tRowB=tab.insertRow(-1)
     tRowB.setAttribute("class", "header")
@@ -279,6 +281,9 @@ console.log(vehicles)
     let cellPreddavokV=tRowB.insertCell(3)
     cellPreddavokH.innerHTML="Preddavok:"
     cellPreddavokV.setAttribute("class", "white")
+    let cellSignV=tRowB.insertCell(4)
+    cellSignV.setAtribute("id", "sign")
+    celSign.rowSpan=2
 
     let tRowC=tab.insertRow(-1)
     tRowC.setAttribute("class", "header")

@@ -29,6 +29,10 @@ table#sumar td.white {
     background: white;
     width: 10em;
 }
+table#sumar td.sign {
+    background: white;
+    width: 15em;
+}
 
 button {
     background: #006080;
