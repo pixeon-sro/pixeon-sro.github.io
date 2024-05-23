@@ -255,11 +255,27 @@ console.log(vehicles)
       item.routes.forEach(function(route) {
         createRowForRoute(route, item.spz)
         sumaNahradaPHM = sumaNahradaPHM + round(route.cenaKM, 2)
-        sumaNahradaStrava = sumaNahradaStrava + round(route.strava, 2)
+        sumaNahradaStrava = sumaNahradaStrava + round(route.stravne, 2)
       })
     })
-console.log ("phm:" + sumaNahradaPHM)
-console.log ("strava:" + sumaNahradaStrava)
+    let place=document.getElementById("placeTable")
+    let tab=document.createElement("table")
+    tab.setAttribute("id", "sumar")
+    place.appendChild(tab)
+
+    let tRowA=tab.insertRow(-1)
+    tRowA.setAttribute("class", "header")
+    let cellHeader=tRowA.insertCell(0)
+    cellHeader.colSpan=2
+    cellHeader.innerHTML="Celkové náhrady"
+
+    let tRowB=tab.insertRow(-1)
+    tRowB.setAttribute("class", "header")
+    let cellPhmH=tRowB.insertCell(0)
+    let cellPhmV=tRowB.insertCell(1)
+    cellPhmH.innerHTML="Celkové náhrady za PHM"
+    cellPhmV.innerHTML=sumaNahradaPHM
+
   }
   else {
     console.log("Cesťák je prázdny")
