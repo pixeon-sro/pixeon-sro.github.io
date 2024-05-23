@@ -114,12 +114,13 @@ Promise.allSettled(allPromises).then(function(data) {
     const vehiclesID = []
     const vehicle = {}
     const list=data[0].value
-    console.log(list)
+console.log(list)
 
     list.forEach(function(item) {
 console.log(item.spz)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
+console.log(vehiclesID)
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
         item.references.ref_vozidlo.forEach(function(voz){
