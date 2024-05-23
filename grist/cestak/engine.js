@@ -225,9 +225,11 @@ Promise.allSettled(allPromises).then(function(data) {
     let tRowA=tab.insertRow(-1)
     tRowA.setAttribute("class", "header")
     let cellHeader=tRowA.insertCell(0)
-    cellHeader.colSpan=4
+    cellHeader.colSpan=3
     cellHeader.innerHTML="Celkové náhrady"
-    let cellSignH=tRowA.insertCell(1)
+    let cellSumar=tRowA.insertCell(1)
+    cellSumar.innerHTML=sumaNaradaPHM + sumaNaradaStrava
+    let cellSignH=tRowA.insertCell(2)
     cellSignH.innerHTML="Podpis"
 
     let tRowB=tab.insertRow(-1)
