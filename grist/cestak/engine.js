@@ -144,12 +144,13 @@ Promise.allSettled(allPromises).then(function(data) {
    * prvá časť - zostavenie objektov vozidiel aj s referenciami
    * druhá časť - vytvorenie tlačovej zostavy
   */
+
+  const vehicles = []
+
   if ( !isEmpty(data) ) {
 
     // zostavenie vozidiel
-    const vehicles = []
     const vehiclesID = []
-
     const list=data[0].value
 
     list.forEach(function(item) {
@@ -177,6 +178,7 @@ Promise.allSettled(allPromises).then(function(data) {
         vehicles.push(vehicle)
       }
     })
+console.log(vehicles)
 
     // vytvorenie tlačovej zostavy
     const tabForVehicle = []
@@ -192,6 +194,5 @@ Promise.allSettled(allPromises).then(function(data) {
   else {
     console.log("Cesťák je prázdny")
   }
-console.log(vehicles)
 
 }) //ukončenie Promise.allSettled
