@@ -143,6 +143,13 @@ Promise.allSettled(allPromises).then(function(data) {
     cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
+  function createRowForVehicle(item) {
+console.log(item)
+    tab=document.getElementById(item.spz)
+    const tRow=tab.insertRow(-1)
+    //const
+  }
+
 
   /*
    * prvá časť - zostavenie objektov vozidiel aj s referenciami
@@ -158,7 +165,7 @@ Promise.allSettled(allPromises).then(function(data) {
     const list=data[0].value
 
     list.forEach(function(item) {
-console.log(item)
+//console.log(item)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         const vehicle = {}
@@ -209,9 +216,11 @@ console.log(vehicles)
       if (!tabForVehicle.includes(item.spz)) {
         tabForVehicle.push(item.spz)
         createTabForVehicle(item)
-        //createTabRow(list)
+        createRowForVehicle(item)
       }
-
+      else {
+        createRowForVehicle(item)
+      }
     })
 
   }
