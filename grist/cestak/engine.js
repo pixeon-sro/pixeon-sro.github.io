@@ -149,9 +149,9 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellRoute=tRowC.insertCell(1)
     let cellStart=tRowC.insertCell(2)
     let cellEnd=tRowC.insertCell(3)
-    let cellLong=tRowB.insertCell(4)
-    let cellCenaKM=tRowB.insertCell(5)
-    let cellCenaFoot=tRow.insertCell(6)
+    let cellLong=tRowC.insertCell(4)
+    let cellCenaKM=tRowC.insertCell(5)
+    let cellCenaFoot=tRowC.insertCell(6)
 
     cellDate=innerHTML="Dátum"
     cellRoute=innerHTML="Trasa"
