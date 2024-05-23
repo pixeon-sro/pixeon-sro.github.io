@@ -143,9 +143,9 @@ Promise.allSettled(allPromises).then(function(data) {
     cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
-  function createRowForRoute(item) {
+  function createRowForRoute(item, spz) {
 console.log(item)
-    tab=document.getElementById(item.spz)
+    tab=document.getElementById(spz)
     const tRow=tab.insertRow(-1)
     const cellDate=tRow.insertCell(0)
 
@@ -220,7 +220,7 @@ console.log(vehicles)
         createTabForVehicle(item)
       //}
       item.routes.forEach(function(route){
-        createRowForRoute(route)
+        createRowForRoute(route, item.spz)
       })
 
     })
