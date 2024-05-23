@@ -118,7 +118,7 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellSpzH=tRowA.insertCell(2)
     let cellSpzV=tRowA.insertCell(3)
     let cellNahradaH=tRowA.insertCell(4)
-    cellNahradaH.setAttribute("colspan", 2)
+    cellNahradaH.colSpan=2
     let cellNahradaV=tRowA.insertCell(5)
 
     cellVehicleH.innerHTML="vozidlo:"
@@ -134,7 +134,7 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellSpotrH=tRowB.insertCell(2)
     let cellSpotrV=tRowB.insertCell(3)
     let cellCenaPalivaH=tRowB.insertCell(4)
-    cellCenaPalivaH.setAttribute("colspan", 2)
+    cellCenaPalivaH.colSpan=2
     let cellCenaPalivaV=tRowB.insertCell(5)
 
     cellPalivoH.innerHTML="Palivo:"
