@@ -228,7 +228,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellHeader.colSpan=4
     cellHeader.innerHTML="Celkové náhrady"
     let cellSignH=tRowA.insertCell(1)
-    cellSignH="Podpis"
+    cellSignH,innerHTML="Podpis"
 
     let tRowB=tab.insertRow(-1)
     tRowB.setAttribute("class", "header")

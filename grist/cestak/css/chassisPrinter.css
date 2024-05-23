@@ -31,7 +31,7 @@
         background: white;
         width: 10em;
     }
-    table#sumar td.sign {
+    table#sumar td#sign {
         background: white;
         width: 15em;
     }
