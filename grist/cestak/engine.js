@@ -112,7 +112,6 @@ Promise.allSettled(allPromises).then(function(data) {
   //zostavenie objektov vozidiel aj s referenciami
   if ( !isEmpty(data) ) {
     const vehiclesID = []
-    const vehicle = {}
     const list=data[0].value
 console.log(list)
 
@@ -121,6 +120,7 @@ console.log(item.spz)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
 console.log(vehiclesID)
+        const vehicle = {}
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
         item.references.ref_vozidlo.forEach(function(voz){
@@ -131,13 +131,13 @@ console.log(vehiclesID)
           }
         })
         vehicles.push(vehicle)
-console.log(vehicles)
       }
     })
   }
   else {
     console.log("Cesťák je prázdny")
   }
+console.log(vehicles)
 
   // vytvorenie tlačovej tabuľky vozidla
   function vehiclePrintTable(item) {
