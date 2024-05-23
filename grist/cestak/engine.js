@@ -242,7 +242,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellPreddavokV.setAttribute("class", "white")
     let cellSignV=tRowB.insertCell(4)
     cellSignV.setAttribute("id", "sign")
-    cellSign.rowSpan=2
+    cellSignV.rowSpan=2
 
     let tRowC=tab.insertRow(-1)
     tRowC.setAttribute("class", "header")
