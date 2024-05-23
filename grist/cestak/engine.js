@@ -157,7 +157,7 @@ Promise.allSettled(allPromises).then(function(data) {
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         const vehicle = {}
-        vehicle.id = item.spz
+        vehicle.spz = item.spz
         vehicle.vozidlo = item.prostriedok
 
         //priradenie referencií na vozidlo
