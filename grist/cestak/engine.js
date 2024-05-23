@@ -86,8 +86,9 @@ function isEmpty(value) {
     }
   }
   else {
-  console.log("this is not Array or Object")
-  console.log(value)
+    console.log("this is not Array or Object")
+    console.log(value)
+    return true
   }
 }
 
@@ -104,6 +105,24 @@ allPromises = [
 ]
 
 Promise.allSettled(allPromises).then(function(data) {
+  const vehiclesID = [] //vytvorenie poľa špz
+  const vehicles = [] //vytvorenie poľa vozidiel
+
+  //zostavenie objektov vozidiel aj s referenciami
+  if ( !isEmpty(data) ) {
+    const vehicle = {}
+    const list=data[0].value
+    console.log(list)
+    list.forEach(function(item) {
+      if (!vehiclesID.includes(item.spz)) {
+        vehiclesID.push(item.spz)
+        vehicle.id = item.spz
+      }
+    })
+  }
+  else {
+    console.log("Cesťák je prázdny")
+  }
 
   // vytvorenie tlačovej tabuľky vozidla
   function vehiclePrintTable(item) {
@@ -146,25 +165,5 @@ Promise.allSettled(allPromises).then(function(data) {
     cellPalivoV.innerHTML="dopln"
     cellNahradaH.innerHTML="Cestovné náhrady:"
     cellNahradaV.innerHTML=item.cestovne_nahrady
-  }
-
-  if ( isEmpty(data) ) {
-    console.log("Cesťák je prázdny")
-  }
-  else {
-    const tCestak = data[0].value
-    console.log(tCestak)
-
-    //naplnenie tlačových tabuliek vozidiel
-    let vehiclesID = [] //vytvorenie poľa špz
-    tCestak.forEach(function(item) {
-      if (!vehiclesID.includes(item.spz)) {
-        vehiclesID.push(item.spz)
-        vehiclePrintTable(item)
-      }
-      else {
-        console.log("exist")
-      }
-    })
   }
 }) //ukončenie Promise.allSettled
