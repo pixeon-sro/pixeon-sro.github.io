@@ -113,6 +113,7 @@ Promise.allSettled(allPromises).then(function(data) {
     place.appendChild(tab)
 
     let tRowA=tab.insertRow(-1)
+    tRowA.setAttribute("class", "header")
     let cellVehicleH=tRowA.insertCell(0)
     let cellVehicleV=tRowA.insertCell(1)
     let cellSpzH=tRowA.insertCell(2)
@@ -129,6 +130,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellNahradaV.innerHTML=item.cenaKM
 
     let tRowB=tab.insertRow(-1)
+    tRowB.setAttribute("class", "header")
     let cellPalivoH=tRowB.insertCell(0)
     let cellPalivoV=tRowB.insertCell(1)
     let cellSpotrH=tRowB.insertCell(2)

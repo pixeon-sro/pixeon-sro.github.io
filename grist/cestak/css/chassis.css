@@ -19,7 +19,7 @@ table {
     border: solid black 2px;
     margin: 1em;
 }
-th {
+tr.header td {
     border: solid black 1px;
     background: #4A4A5D;
     color: white;
