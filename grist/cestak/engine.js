@@ -121,12 +121,21 @@ console.log(list)
         const vehicle = {}
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
+
+        //priradenie referencií na vozidlo
         item.references.ref_vozidlo.forEach(function(car) {
 console.log(car)
-          //priradenie referencií na vozidlo
           if (car.spz == item.spz) {
             vehicle.cenaKM = car.nahrada_za_kilometer
             vehicle.spotreba = car.spotreba
+
+            // pridanie referencií na palivo
+            item.references.ref_phm.forEach(function(phm){
+              if (car.palivo.rowId == phm.id) {
+                vehicle.palivo = phm.palivo
+                vehicle.cenaPHM = phm.cena
+              }
+            })
           }
         })
         vehicles.push(vehicle)
