@@ -183,8 +183,8 @@ console.log(item)
         })
         vehicles.push(vehicle)
       }
-      
-      vehicles.forEach(vehicle) {
+
+      vehicles.forEach(function(vehicle) {
         if (vehicle.spz == item.spz) {
           // zostavenie záznamu o ceste
           const route = {}
@@ -196,7 +196,7 @@ console.log(item)
           // vlozenie zaznamu o ceste do vozidla
           vehicle.routes.push(route)
         }
-      }
+      })
 
     })
 console.log(vehicles)
