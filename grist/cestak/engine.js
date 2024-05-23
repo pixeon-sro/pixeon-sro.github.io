@@ -153,13 +153,13 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellCenaKM=tRowC.insertCell(5)
     let cellCenaFoot=tRowC.insertCell(6)
 
-    cellDate=innerHTML="Dátum"
-    cellRoute=innerHTML="Trasa"
-    cellStart=innerHTML="Začiatok"
-    cellEnd=innerHTML="Koniec"
-    cellLong=innerHTML="Vzdialenosť (km)"
-    cellCenaKM=innerHTML="Náhrada PHM"
-    cellCenaFoot=innerHTML="Stravné"
+    cellDate.innerHTML="Dátum"
+    cellRoute.innerHTML="Trasa"
+    cellStart.innerHTML="Začiatok"
+    cellEnd.innerHTML="Koniec"
+    cellLong.innerHTML="Vzdialenosť (km)"
+    cellCenaKM.innerHTML="Náhrada PHM"
+    cellCenaFoot.innerHTML="Stravné"
   }
 
   function createRowForRoute(item, spz) {
