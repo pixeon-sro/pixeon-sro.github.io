@@ -25,6 +25,11 @@ td {
     padding: 0.5em;
 }
 
+table#sumar td.white {
+    background: white;
+    width: 10em;
+}
+
 button {
     background: #006080;
     color: white;

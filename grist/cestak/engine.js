@@ -278,7 +278,7 @@ console.log(vehicles)
     let cellPreddavokH=tRowB.insertCell(2)
     let cellPreddavokV=tRowB.insertCell(3)
     cellPreddavokH.innerHTML="Preddavok:"
-    cellPreddavokV.setAttribute("id", "preddavok")
+    cellPreddavokV.setAttribute("class", "white")
 
     let tRowC=tab.insertRow(-1)
     tRowC.setAttribute("class", "header")
@@ -289,7 +289,7 @@ console.log(vehicles)
     let cellDoplatokH=tRowC.insertCell(2)
     let cellDoplatokV=tRowC.insertCell(3)
     cellDoplatokH.innerHTML="Doplatok:"
-    cellDoplatokV.setAttribute("id", "doplatok")
+    cellDoplatokV.setAttribute("class", "white")
 
   }
   else {
