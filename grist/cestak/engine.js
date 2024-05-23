@@ -143,6 +143,10 @@ Promise.allSettled(allPromises).then(function(data) {
     cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
+  function createTabRow(item) {
+    conole.log(item)
+  }
+
 
   /*
    * prvá časť - zostavenie objektov vozidiel aj s referenciami
@@ -190,6 +194,7 @@ console.log(vehicles)
       if (!tabForVehicle.includes(item.spz)) {
         tabForVehicle.push(item.spz)
         createTabForVehicle(item)
+        createTabRow(list)
       }
 
     })

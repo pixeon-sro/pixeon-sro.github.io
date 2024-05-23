@@ -16,8 +16,8 @@ h1 {
 }
 
 table {
-    border: solid red 2px;
-    margin: auto 1em;
+    border: solid black 2px;
+    margin: 1em;
 }
 th {
     border: solid black 1px;
