@@ -143,6 +143,23 @@ Promise.allSettled(allPromises).then(function(data) {
     cellSpotrV.innerHTML=item.spotreba
     cellCenaPalivaH.innerHTML="Cena paliva:"
     cellCenaPalivaV.innerHTML=item.cenaPHM
+
+    let tRowC=tab.insertRow(-1)
+    let cellDate=tRowC.insertCell(0)
+    let cellRoute=tRowC.insertCell(1)
+    let cellStart=tRowC.insertCell(2)
+    let cellEnd=tRowC.insertCell(3)
+    let cellLong=tRowB.insertCell(4)
+    let cellCenaKM=tRowB.insertCell(5)
+    let cellCenaFoot=tRow.insertCell(6)
+
+    cellDate=innerHTML="Dátum"
+    cellRoute=innerHTML="Trasa"
+    cellStart=innerHTML="Začiatok"
+    cellEnd=innerHTML="Koniec"
+    cellLong=innerHTML="Vzdialenosť (km)"
+    cellCenaKM=innerHTML="Náhrada PHM"
+    cellCenaFoot=innerHTML="Stravné"
   }
 
   function createRowForRoute(item, spz) {
