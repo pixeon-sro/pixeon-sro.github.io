@@ -191,6 +191,9 @@ Promise.allSettled(allPromises).then(function(data) {
       route.dlzka = item.kilometre
       route.start = item.zaciatok
       route.end = item.koniec
+
+      // uloženie trasy do vozidla
+      vehicle.routes.push(route)
     })
 console.log(vehicles)
 
