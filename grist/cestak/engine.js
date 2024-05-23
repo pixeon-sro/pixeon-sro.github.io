@@ -247,18 +247,19 @@ console.log(item)
 console.log(vehicles)
 
     // vytvorenie tlačovej zostavy
+    let sumaNahradaPHM=0
+    let sumaNahradaStrava=0
     const tabForVehicle = []
     vehicles.forEach(function(item) {
-      //if (!tabForVehicle.includes(item.spz)) {
-        //tabForVehicle.push(item.spz)
-        createTabForVehicle(item)
-      //}
-      item.routes.forEach(function(route){
+      createTabForVehicle(item)
+      item.routes.forEach(function(route) {
         createRowForRoute(route, item.spz)
+        sumaNahradaPHM = sumaNahradaPHM + round(route.cenaKM, 2)
+        sumaNahradaStrava = sumaNahradaStrava + round(route.strava, 2)
       })
-
     })
-
+console.log ("phm:" + sumaNahradaPHM)
+console.log ("strava:" + sumaNahradaStrava)
   }
   else {
     console.log("Cesťák je prázdny")
