@@ -117,8 +117,10 @@ Promise.allSettled(allPromises).then(function(data) {
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         vehicle.id = item.spz
+        vehicle.vozidlo = item.prostriedok
       }
     })
+    console.log(vehicle)
   }
   else {
     console.log("Cesťák je prázdny")
