@@ -117,6 +117,7 @@ Promise.allSettled(allPromises).then(function(data) {
     console.log(list)
 
     list.forEach(function(item) {
+console.log(item.spz)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         vehicle.id = item.spz
