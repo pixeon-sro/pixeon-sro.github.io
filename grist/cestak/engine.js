@@ -158,6 +158,7 @@ Promise.allSettled(allPromises).then(function(data) {
     const list=data[0].value
 
     list.forEach(function(item) {
+console.log(item)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         const vehicle = {}
@@ -180,20 +181,18 @@ Promise.allSettled(allPromises).then(function(data) {
             })
           }
         })
+        // zostavenie záznamu o ceste
+        const route = {}
+        route.date = item.datum
+        route.cenaKM = item.cestovne_nahrady
+        route.dlzka = item.kilometre
+        route.start = item.zaciatok
+        route.end = item.koniec
+        vehicle.routes.push(route)
+
         vehicles.push(vehicle)
       }
 
-      // zostavenie záznamov o cestách
-      console.log(item)
-      const route = {}
-      route.date = item.datum
-      route.cenaKM = item.cestovne_nahrady
-      route.dlzka = item.kilometre
-      route.start = item.zaciatok
-      route.end = item.koniec
-
-      // uloženie trasy do vozidla
-      vehicle.routes.push(route)
     })
 console.log(vehicles)
 
