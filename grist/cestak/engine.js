@@ -138,7 +138,6 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellCenaPalivaV=tRowB.insertCell(5)
 
     cellPalivoH.innerHTML="Palivo:"
-    cellPalivoV.innerHTML=item.palivo
     cellSpotrH.innerHTML="Priemerna spotreba:"
     cellSpotrV.innerHTML=item.spotreba
     cellCenaPalivaH.innerHTML="Cena paliva:"
@@ -179,8 +178,8 @@ console.log(item)
     cellStart.innerHTML=item.start
     cellEnd.innerHTML=item.end
     cellLong.innerHTML=item.dlzka
-    cellCenaKM.innerHTML=item.cenaKM
-    cellCenaFoot.innerHTML=item.stravne
+    cellCenaKM.innerHTML=round(item.cenaKM, 2)
+    cellCenaFoot.innerHTML=round(item.stravne, 2)
 
   }
 
