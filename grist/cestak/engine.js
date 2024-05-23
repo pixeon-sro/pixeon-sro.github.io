@@ -181,16 +181,21 @@ console.log(item)
             })
           }
         })
-        // zostavenie záznamu o ceste
-        const route = {}
-        route.date = item.datum
-        route.cenaKM = item.cestovne_nahrady
-        route.dlzka = item.kilometre
-        route.start = item.zaciatok
-        route.end = item.koniec
-        vehicle.routes.push(route)
-
         vehicles.push(vehicle)
+      }
+      
+      vehicles.forEach(vehicle) {
+        if (vehicle.spz == item.spz) {
+          // zostavenie záznamu o ceste
+          const route = {}
+          route.date = item.datum
+          route.cenaKM = item.cestovne_nahrady
+          route.dlzka = item.kilometre
+          route.start = item.zaciatok
+          route.end = item.koniec
+          // vlozenie zaznamu o ceste do vozidla
+          vehicle.routes.push(route)
+        }
       }
 
     })
