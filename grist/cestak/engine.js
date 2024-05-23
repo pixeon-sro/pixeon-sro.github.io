@@ -121,7 +121,7 @@ Promise.allSettled(allPromises).then(function(data) {
         vehiclesID.push(item.spz)
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
-        item.ref_vozidlo.forEach(function(voz){
+        item.references.ref_vozidlo.forEach(function(voz){
           //priradenie referencií na vozidlo
           if (voz.spz == item.spz) {
             vehicle.cenaKM = item.nahrada_za_kilometer
