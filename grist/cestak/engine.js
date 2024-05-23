@@ -143,10 +143,6 @@ Promise.allSettled(allPromises).then(function(data) {
     cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
-  function createTabRow(item) {
-    console.log(item)
-  }
-
 
   /*
    * prvá časť - zostavenie objektov vozidiel aj s referenciami
@@ -167,6 +163,7 @@ Promise.allSettled(allPromises).then(function(data) {
         const vehicle = {}
         vehicle.spz = item.spz
         vehicle.vozidlo = item.prostriedok
+        vehicle.roads = []
 
         //priradenie referencií na vozidlo
         item.references.ref_vozidlo.forEach(function(car) {
@@ -185,6 +182,9 @@ Promise.allSettled(allPromises).then(function(data) {
         })
         vehicles.push(vehicle)
       }
+
+      // zostavenie záznamov o cestách
+      console.log(item)
     })
 console.log(vehicles)
 
@@ -194,7 +194,7 @@ console.log(vehicles)
       if (!tabForVehicle.includes(item.spz)) {
         tabForVehicle.push(item.spz)
         createTabForVehicle(item)
-        createTabRow(list)
+        //createTabRow(list)
       }
 
     })
