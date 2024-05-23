@@ -68,7 +68,6 @@ function round(num, decimal=0) {
 // ak pole obsahuje prvky, vráti FALSE
 function isEmpty(value) {
   if (value instanceof Array) {
-    console.log("this is Array")
     if (value.legth === 0) {
       return true
     }
@@ -77,7 +76,6 @@ function isEmpty(value) {
     }
   }
   else if (value instanceof Object) {
-    console.log("this is Object")
     if (value.legth === 0) {
       return true
     }
@@ -106,12 +104,52 @@ allPromises = [
 
 Promise.allSettled(allPromises).then(function(data) {
 
-  //vytvorenie poľa vozidiel
-  const vehicles = []
+// vytvorenie tlačovej tabuľky vozidla
+  function createTabForVehicle(item) {
 
-  //zostavenie objektov vozidiel aj s referenciami
+    let place=document.getElementById("placeTable")
+    let tab=document.createElement("table")
+    tab.setAttribute("id", item.spz)
+    place.appendChild(tab)
+
+    let tRowA=tab.insertRow(-1)
+    let cellVehicleH=tRowA.insertCell(0)
+    let cellVehicleV=tRowA.insertCell(1)
+    let cellSpzH=tRowA.insertCell(2)
+    let cellSpzV=tRowA.insertCell(3)
+
+    cellVehicleH.innerHTML="vozidlo:"
+    cellVehicleV.innerHTML=item.vozidlo
+    cellSpzH.innerHTML="ŠPZ:"
+    cellSpzV.innerHTML=item.spz
+
+    let tRowB=tab.insertRow(-1)
+    let cellSpotrH=tRowB.insertCell(0)
+    let cellSpotrV=tRowB.insertCell(1)
+    let cellPalivoH=tRowB.insertCell(2)
+    let cellPalivoV=tRowB.insertCell(3)
+    let cellNahradaH=tRowB.insertCell(4)
+    let cellNahradaV=tRowB.insertCell(5)
+
+    cellSpotrH.innerHTML="Priemerna spotreba:"
+    cellSpotrV.innerHTML=item.spotreba
+    cellPalivoH.innerHTML="Cena paliva:"
+    cellPalivoV.innerHTML=item.cenaPHM
+    cellNahradaH.innerHTML="Cestovné náhrady:"
+    cellNahradaV.innerHTML=item.cenaKM
+  }
+
+
+  /*
+   * prvá časť - zostavenie objektov vozidiel aj s referenciami
+   * druhá časť - vytvorenie tlačovej zostavy
+  */
   if ( !isEmpty(data) ) {
+
+    // zostavenie vozidiel
+    const vehicles = []
     const vehiclesID = []
+
     const list=data[0].value
 
     list.forEach(function(item) {
@@ -139,54 +177,21 @@ Promise.allSettled(allPromises).then(function(data) {
         vehicles.push(vehicle)
       }
     })
+
+    // vytvorenie tlačovej zostavy
+    const tabForVehicle = []
+    vehicles.forEach(function(item) {
+      if (!tabForVehicle.includes(item.spz)) {
+        tabForVehicle.push(item.spz)
+        createTabForVehicle(item)
+      }
+
+    })
+
   }
   else {
     console.log("Cesťák je prázdny")
   }
 console.log(vehicles)
-
-  // vytvorenie tlačovej tabuľky vozidla
-  function vehiclePrintTable(item) {
-    //referencia na vozidlo
-    let rVozidlo
-    item.references.ref_vozidlo.forEach(function(ref) {
-      if (item.spz == ref.spz) {
-        rVozidlo=ref
-        console.log(rVozidlo)
-      }
-    })
-    //referencia na phm
-    let place=document.getElementById("placeTable")
-    let tab=document.createElement("table")
-    tab.setAttribute("id", item.spz)
-    place.appendChild(tab)
-
-    let tRowA=tab.insertRow(-1)
-    let cellVehicleH=tRowA.insertCell(0)
-    let cellVehicleV=tRowA.insertCell(1)
-    let cellSpzH=tRowA.insertCell(2)
-    let cellSpzV=tRowA.insertCell(3)
-
-    cellVehicleH.innerHTML="vozidlo:"
-    cellVehicleV.innerHTML=item.prostriedok
-    cellSpzH.innerHTML="ŠPZ:"
-    cellSpzV.innerHTML=item.spz
-
-    let tRowB=tab.insertRow(-1)
-    let cellSpotrH=tRowB.insertCell(0)
-    let cellSpotrV=tRowB.insertCell(1)
-    let cellPalivoH=tRowB.insertCell(2)
-    let cellPalivoV=tRowB.insertCell(3)
-    let cellNahradaH=tRowB.insertCell(4)
-    let cellNahradaV=tRowB.insertCell(5)
-
-    cellSpotrH.innerHTML="Priemerna spotreba:"
-    cellSpotrV.innerHTML="dopln"
-    cellPalivoH.innerHTML="Cena paliva:"
-    cellPalivoV.innerHTML="dopln"
-    cellNahradaH.innerHTML="Cestovné náhrady:"
-    cellNahradaV.innerHTML=item.cestovne_nahrady
-  }
-
 
 }) //ukončenie Promise.allSettled
