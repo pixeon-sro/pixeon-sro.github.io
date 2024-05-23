@@ -105,22 +105,33 @@ allPromises = [
 ]
 
 Promise.allSettled(allPromises).then(function(data) {
-  const vehiclesID = [] //vytvorenie poľa špz
-  const vehicles = [] //vytvorenie poľa vozidiel
+
+  //vytvorenie poľa vozidiel
+  const vehicles = []
 
   //zostavenie objektov vozidiel aj s referenciami
   if ( !isEmpty(data) ) {
+    const vehiclesID = []
     const vehicle = {}
     const list=data[0].value
     console.log(list)
+
     list.forEach(function(item) {
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
+        item.ref_vozidlo.forEach(function(voz){
+          //priradenie referencií na vozidlo
+          if (voz.spz == item.spz) {
+            vehicle.cenaKM = item.nahrada_za_kilometer
+            vehicle.spotreba = item.spotreba
+          }
+        })
       }
+      vehicles.push(vehicle)
+      console.log(vehicles)
     })
-    console.log(vehicle)
   }
   else {
     console.log("Cesťák je prázdny")
