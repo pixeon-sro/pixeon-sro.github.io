@@ -117,26 +117,30 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellVehicleV=tRowA.insertCell(1)
     let cellSpzH=tRowA.insertCell(2)
     let cellSpzV=tRowA.insertCell(3)
+    let cellNahradaH=tRowA.insertCell(4)
+    let cellNahradaV=tRowA.insertCell(5)
 
     cellVehicleH.innerHTML="vozidlo:"
     cellVehicleV.innerHTML=item.vozidlo
     cellSpzH.innerHTML="ŠPZ:"
     cellSpzV.innerHTML=item.spz
+    cellNahradaH.innerHTML="Cestovné náhrady:"
+    cellNahradaV.innerHTML=item.cenaKM
 
     let tRowB=tab.insertRow(-1)
-    let cellSpotrH=tRowB.insertCell(0)
-    let cellSpotrV=tRowB.insertCell(1)
-    let cellPalivoH=tRowB.insertCell(2)
-    let cellPalivoV=tRowB.insertCell(3)
-    let cellNahradaH=tRowB.insertCell(4)
-    let cellNahradaV=tRowB.insertCell(5)
+    let cellPalivoH=tRowB.insertCell(0)
+    let cellPalivoV=tRowB.insertCell(1)
+    let cellSpotrH=tRowB.insertCell(2)
+    let cellSpotrV=tRowB.insertCell(3)
+    let cellPalivoH=tRowB.insertCell(4)
+    let cellPalivoV=tRowB.insertCell(5)
 
+    cellPalivoH.innerHTML="Palivo:"
+    cellPalivoV.innerHTML=item.palivo
     cellSpotrH.innerHTML="Priemerna spotreba:"
     cellSpotrV.innerHTML=item.spotreba
     cellPalivoH.innerHTML="Cena paliva:"
     cellPalivoV.innerHTML=item.cenaPHM
-    cellNahradaH.innerHTML="Cestovné náhrady:"
-    cellNahradaV.innerHTML=item.cenaKM
   }
 
 
