@@ -138,6 +138,7 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellCenaPalivaV=tRowB.insertCell(5)
 
     cellPalivoH.innerHTML="Palivo:"
+    cellPalivoV.innerHTML=item.palivo
     cellSpotrH.innerHTML="Priemerna spotreba:"
     cellSpotrV.innerHTML=item.spotreba
     cellCenaPalivaH.innerHTML="Cena paliva:"
