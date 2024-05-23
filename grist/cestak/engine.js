@@ -132,15 +132,15 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellPalivoV=tRowB.insertCell(1)
     let cellSpotrH=tRowB.insertCell(2)
     let cellSpotrV=tRowB.insertCell(3)
-    let cellPalivoH=tRowB.insertCell(4)
-    let cellPalivoV=tRowB.insertCell(5)
+    let cellCenaPalivaH=tRowB.insertCell(4)
+    let cellCenaPalivaV=tRowB.insertCell(5)
 
     cellPalivoH.innerHTML="Palivo:"
     cellPalivoV.innerHTML=item.palivo
     cellSpotrH.innerHTML="Priemerna spotreba:"
     cellSpotrV.innerHTML=item.spotreba
-    cellPalivoH.innerHTML="Cena paliva:"
-    cellPalivoV.innerHTML=item.cenaPHM
+    cellCenaPalivaH.innerHTML="Cena paliva:"
+    cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
 
