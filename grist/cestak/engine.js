@@ -113,7 +113,6 @@ Promise.allSettled(allPromises).then(function(data) {
   if ( !isEmpty(data) ) {
     const vehiclesID = []
     const list=data[0].value
-console.log(list)
 
     list.forEach(function(item) {
       if (!vehiclesID.includes(item.spz)) {
@@ -124,7 +123,6 @@ console.log(list)
 
         //priradenie referencií na vozidlo
         item.references.ref_vozidlo.forEach(function(car) {
-console.log(car)
           if (car.spz == item.spz) {
             vehicle.cenaKM = car.nahrada_za_kilometer
             vehicle.spotreba = car.spotreba
@@ -189,4 +187,6 @@ console.log(vehicles)
     cellNahradaH.innerHTML="Cestovné náhrady:"
     cellNahradaV.innerHTML=item.cestovne_nahrady
   }
+
+
 }) //ukončenie Promise.allSettled
