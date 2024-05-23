@@ -163,7 +163,7 @@ Promise.allSettled(allPromises).then(function(data) {
         const vehicle = {}
         vehicle.spz = item.spz
         vehicle.vozidlo = item.prostriedok
-        vehicle.roads = []
+        vehicle.routes = []
 
         //priradenie referencií na vozidlo
         item.references.ref_vozidlo.forEach(function(car) {
@@ -185,6 +185,12 @@ Promise.allSettled(allPromises).then(function(data) {
 
       // zostavenie záznamov o cestách
       console.log(item)
+      const route = {}
+      route.date = item.datum
+      route.cenaKM = item.cestovne_nahrady
+      route.dlzka = item.kilometre
+      route.start = item.zaciatok
+      route.end = item.koniec
     })
 console.log(vehicles)
 
