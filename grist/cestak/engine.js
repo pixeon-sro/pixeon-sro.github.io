@@ -276,6 +276,13 @@ console.log(vehicles)
     cellPhmH.innerHTML="Celkové náhrady za PHM"
     cellPhmV.innerHTML=sumaNahradaPHM
 
+    let tRowC=tab.insertRow(-1)
+    tRowC.setAttribute("class", "header")
+    let cellStravaH=tRowC.insertCell(0)
+    let cellStravaV=tRowC.insertCell(1)
+    cellStravaH.innerHTML="Celkové náhrady za stravu"
+    cellStravaV.innerHTML=sumaNahradaStrava
+
   }
   else {
     console.log("Cesťák je prázdny")
