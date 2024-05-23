@@ -228,7 +228,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellHeader.colSpan=3
     cellHeader.innerHTML="Celkové náhrady"
     let cellSumar=tRowA.insertCell(1)
-    cellSumar.innerHTML=sumaNaradaPHM + sumaNaradaStrava
+    cellSumar.innerHTML=sumaNahradaPHM + sumaNahradaStrava
     let cellSignH=tRowA.insertCell(2)
     cellSignH.innerHTML="Podpis"
 
