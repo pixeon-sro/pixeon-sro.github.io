@@ -143,13 +143,13 @@ Promise.allSettled(allPromises).then(function(data) {
     cellCenaPalivaV.innerHTML=item.cenaPHM
   }
 
-  function createRowForVehicle(item) {
+  function createRowForRoute(item) {
 console.log(item)
     tab=document.getElementById(item.spz)
     const tRow=tab.insertRow(-1)
     const cellDate=tRow.insertCell(0)
 
-    cellDate.innerHTML=item
+    cellDate.innerHTML=item.date
   }
 
 
