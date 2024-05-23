@@ -189,10 +189,12 @@ console.log(item)
           // zostavenie záznamu o ceste
           const route = {}
           route.date = item.datum
+          route.route = item.trasa
           route.cenaKM = item.cestovne_nahrady
           route.dlzka = item.kilometre
           route.start = item.zaciatok
           route.end = item.koniec
+          route.stravne = item.stravne_nahrady
           // vlozenie zaznamu o ceste do vozidla
           vehicle.routes.push(route)
         }
