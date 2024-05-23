@@ -286,8 +286,8 @@ console.log(vehicles)
     let cellStravaV=tRowC.insertCell(1)
     cellStravaH.innerHTML="Celkové náhrady za stravu"
     cellStravaV.innerHTML=sumaNahradaStrava
-    let cellPreddavokH=tRowC.insertCell(2)
-    let cellPreddavokV=tRowC.insertCell(3)
+    let cellDoplatokH=tRowC.insertCell(2)
+    let cellDoplatokV=tRowC.insertCell(3)
     cellDoplatokH.innerHTML="Doplatok:"
     cellDoplatokV.setAttribute("id", "doplatok")
 
