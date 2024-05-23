@@ -23,41 +23,6 @@ async function dbTableCestak() {
     return dataFromCestak
 }
 
-//načítanie údajov o Trasách
-const dbTrasa = dbTableTrasa()
-async function dbTableTrasa() {
-    const dataFromTrasa = await grist.docApi.fetchTable("Trasa")
-    return dataFromTrasa
-}
-
-//načítanie údajov o Vozidlách
-const dbVozidlo = dbTableVozidlo()
-async function dbTableVozidlo() {
-    const dataFromVozidlo = await grist.docApi.fetchTable("Vozidlo")
-    return dataFromVozidlo
-}
-
-//načítanie údajov o Náhradách
-const dbNahrada = dbTableNahrada()
-async function dbTableNahrada() {
-    const dataFromNahrada = await grist.docApi.fetchTable("Nahrada")
-    return dataFromNahrada
-}
-
-//načítanie údajov o PHM
-const dbPHM = dbTablePHM()
-async function dbTablePHM() {
-    const dataFromPHM = await grist.docApi.fetchTable("PHM")
-    return dataFromPHM
-}
-
-//načítanie údajov o Sumár
-const dbSumar = dbTableSumar()
-async function dbTableSumar() {
-    const dataFromSumar = await grist.docApi.fetchTable("Sumar")
-    return dataFromSumar
-}
-
 // zaokruhlovanie čísel
 function round(num, decimal=0) {
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
@@ -94,12 +59,7 @@ function isEmpty(value) {
 
 //  pole všetkých Promisov
 allPromises = [
-  dbCestak,
-  //dbTrasa,
-  //dbVozidlo,
-  //dbNahrada,
-  //dbPHM,
-  //dbSumar
+  dbCestak
 ]
 
 Promise.allSettled(allPromises).then(function(data) {
@@ -165,7 +125,7 @@ Promise.allSettled(allPromises).then(function(data) {
   }
 
   function createRowForRoute(item, spz) {
-console.log(item)
+
     tab=document.getElementById(spz)
     const tRow=tab.insertRow(-1)
     const cellDate=tRow.insertCell(0)
@@ -201,7 +161,7 @@ console.log(item)
     const list=data[0].value
 
     list.forEach(function(item) {
-//console.log(item)
+
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
         const vehicle = {}
@@ -244,7 +204,6 @@ console.log(item)
       })
 
     })
-console.log(vehicles)
 
     // vytvorenie tlačovej zostavy
     let sumaNahradaPHM=0
@@ -282,7 +241,7 @@ console.log(vehicles)
     cellPreddavokH.innerHTML="Preddavok:"
     cellPreddavokV.setAttribute("class", "white")
     let cellSignV=tRowB.insertCell(4)
-    cellSignV.setAtribute("id", "sign")
+    cellSignV.setAttribute("id", "sign")
     celSign.rowSpan=2
 
     let tRowC=tab.insertRow(-1)
