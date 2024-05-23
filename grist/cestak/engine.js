@@ -148,8 +148,21 @@ console.log(item)
     tab=document.getElementById(spz)
     const tRow=tab.insertRow(-1)
     const cellDate=tRow.insertCell(0)
+    const cellRoute=tRow.insertCell(1)
+    const cellStart=tRow.insertCell(2)
+    const cellEnd=tRow.insertCell(3)
+    const cellLong=tRow.insertCell(4)
+    const cellCenaKM=tRow.insertCell(5)
+    const cellCenaFoot=tRow.insertCell(6)
 
     cellDate.innerHTML=item.date
+    cellRoute.innerHTML=item.route
+    cellStart.innerHTML=item.start
+    cellEnd.innerHTML=item.end
+    cellLong.innerHTML=item.dlzka
+    cellCenaKM.innerHTML=item.cenaKM
+    cellCenaFoot.innerHTML=item.stravne
+
   }
 
 
