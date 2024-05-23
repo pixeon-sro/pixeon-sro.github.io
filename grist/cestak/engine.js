@@ -130,9 +130,9 @@ console.log(vehiclesID)
             vehicle.spotreba = item.spotreba
           }
         })
+        vehicles.push(vehicle)
+console.log(vehicles)
       }
-      vehicles.push(vehicle)
-      console.log(vehicles)
     })
   }
   else {
