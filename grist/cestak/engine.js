@@ -116,14 +116,13 @@ Promise.allSettled(allPromises).then(function(data) {
 console.log(list)
 
     list.forEach(function(item) {
-console.log(item.spz)
       if (!vehiclesID.includes(item.spz)) {
         vehiclesID.push(item.spz)
-console.log(vehiclesID)
         const vehicle = {}
         vehicle.id = item.spz
         vehicle.vozidlo = item.prostriedok
-        item.references.ref_vozidlo.forEach(function(voz){
+        item.references.ref_vozidlo.forEach(function(voz) {
+console.log(voz)
           //priradenie referencií na vozidlo
           if (voz.spz == item.spz) {
             vehicle.cenaKM = item.nahrada_za_kilometer
