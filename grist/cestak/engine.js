@@ -266,7 +266,7 @@ console.log(vehicles)
     let tRowA=tab.insertRow(-1)
     tRowA.setAttribute("class", "header")
     let cellHeader=tRowA.insertCell(0)
-    cellHeader.colSpan=2
+    cellHeader.colSpan=4
     cellHeader.innerHTML="Celkové náhrady"
 
     let tRowB=tab.insertRow(-1)
@@ -275,6 +275,10 @@ console.log(vehicles)
     let cellPhmV=tRowB.insertCell(1)
     cellPhmH.innerHTML="Celkové náhrady za PHM"
     cellPhmV.innerHTML=sumaNahradaPHM
+    let cellPreddavokH=tRowB.insertCell(2)
+    let cellPreddavokV=tRowB.insertCell(3)
+    cellPreddavokH.innerHTML="Preddavok:"
+    cellPreddavokV.setAttribute("id", "preddavok")
 
     let tRowC=tab.insertRow(-1)
     tRowC.setAttribute("class", "header")
@@ -282,6 +286,10 @@ console.log(vehicles)
     let cellStravaV=tRowC.insertCell(1)
     cellStravaH.innerHTML="Celkové náhrady za stravu"
     cellStravaV.innerHTML=sumaNahradaStrava
+    let cellPreddavokH=tRowC.insertCell(2)
+    let cellPreddavokV=tRowC.insertCell(3)
+    cellDoplatokH.innerHTML="Doplatok:"
+    cellDoplatokV.setAttribute("id", "doplatok")
 
   }
   else {
