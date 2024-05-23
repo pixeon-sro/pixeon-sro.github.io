@@ -147,7 +147,9 @@ Promise.allSettled(allPromises).then(function(data) {
 console.log(item)
     tab=document.getElementById(item.spz)
     const tRow=tab.insertRow(-1)
-    //const
+    const cellDate=tRow.insertCell(0)
+
+    cellDate.innerHTML=item
   }
 
 
@@ -213,14 +215,14 @@ console.log(vehicles)
     // vytvorenie tlačovej zostavy
     const tabForVehicle = []
     vehicles.forEach(function(item) {
-      if (!tabForVehicle.includes(item.spz)) {
-        tabForVehicle.push(item.spz)
+      //if (!tabForVehicle.includes(item.spz)) {
+        //tabForVehicle.push(item.spz)
         createTabForVehicle(item)
-        createRowForVehicle(item)
-      }
-      else {
-        createRowForVehicle(item)
-      }
+      //}
+      item.routes.forEach(function(route){
+        createRowForRoute(route)
+      })
+
     })
 
   }
