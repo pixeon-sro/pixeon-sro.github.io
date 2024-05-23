@@ -144,7 +144,7 @@ Promise.allSettled(allPromises).then(function(data) {
   }
 
   function createTabRow(item) {
-    conole.log(item)
+    console.log(item)
   }
 
 
