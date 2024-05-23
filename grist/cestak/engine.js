@@ -175,7 +175,7 @@ console.log(item)
     const cellCenaFoot=tRow.insertCell(6)
 
     cellDate.innerHTML=item.date
-    cellRoute.innerHTML=item.route
+    cellRoute.innerHTML=item.route.replace("\n", "<br />")
     cellStart.innerHTML=item.start
     cellEnd.innerHTML=item.end
     cellLong.innerHTML=item.dlzka
