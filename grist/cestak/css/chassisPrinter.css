@@ -14,7 +14,7 @@
 
     table {
         border: solid black 2px;
-        margin: auto 1em;
+        margin: 1em;
     }
     tr.header td {
         border: solid black 1px;
