@@ -32,11 +32,11 @@
 
     table#sumar td.white {
         background: white;
-        width: 10em;
+        width: 15em;
     }
     table#sumar td#sign {
         background: white;
-        width: 15em;
+        width: 25em;
     }
 
     button {
