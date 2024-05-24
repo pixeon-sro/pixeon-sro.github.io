@@ -228,6 +228,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellHeader.colSpan=3
     cellHeader.innerHTML="Celkové náhrady"
     let cellSumar=tRowA.insertCell(1)
+    cellSumar.setAttribute("class", "center")
     cellSumar.innerHTML=round(sumaNahradaPHM + sumaNahradaStrava, 2) + " €"
     let cellSignH=tRowA.insertCell(2)
     cellSignH.innerHTML="Podpis"

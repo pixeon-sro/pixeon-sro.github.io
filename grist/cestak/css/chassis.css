@@ -20,6 +20,9 @@ tr.header td {
     color: white;
     padding: 0.5em;
 }
+tr.header td.center {
+    text-align: center;
+}
 td {
     border: solid black 1px;
     padding: 0.5em;
