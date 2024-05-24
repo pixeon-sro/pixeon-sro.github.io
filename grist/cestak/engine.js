@@ -229,7 +229,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellHeader.innerHTML="Celkové náhrady"
     let cellSumar=tRowA.insertCell(1)
     cellSumar.setAttribute("class", "center")
-    cellSumar.innerHTML=round(sumaNahradaPHM + sumaNahradaStrava, 2) + " €"
+    cellSumar.innerHTML=round(sumaNahradaPHM + sumaNahradaStrava, 2) + "€"
     let cellSignH=tRowA.insertCell(2)
     cellSignH.innerHTML="Podpis"
 
@@ -238,7 +238,7 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellPhmH=tRowB.insertCell(0)
     let cellPhmV=tRowB.insertCell(1)
     cellPhmH.innerHTML="Celkové náhrady za PHM"
-    cellPhmV.innerHTML=sumaNahradaPHM
+    cellPhmV.innerHTML=sumaNahradaPHM + "€"
     let cellPreddavokH=tRowB.insertCell(2)
     let cellPreddavokV=tRowB.insertCell(3)
     cellPreddavokH.innerHTML="Preddavok:"
@@ -252,7 +252,7 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellStravaH=tRowC.insertCell(0)
     let cellStravaV=tRowC.insertCell(1)
     cellStravaH.innerHTML="Celkové náhrady za stravu"
-    cellStravaV.innerHTML=sumaNahradaStrava
+    cellStravaV.innerHTML=sumaNahradaStrava + "€"
     let cellDoplatokH=tRowC.insertCell(2)
     let cellDoplatokV=tRowC.insertCell(3)
     cellDoplatokH.innerHTML="Doplatok:"
