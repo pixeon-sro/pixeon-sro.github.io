@@ -62,7 +62,7 @@ allPromises = [
 ]
 
 // načítanie všetkych Promisov a príprava polí objektov
-Promise.allSettled(allPromises).then(function(data){
+Promise.allSettled(allPromises).then(function(data) {
 
   // funkcia na vytvorenie a umiestnenie tabuľky
   function createPrintTable(printData, printPlace) {
@@ -82,13 +82,13 @@ Promise.allSettled(allPromises).then(function(data){
     const cellMnozstvo=tRow.insertCell(5)
     const cellObjem=tRow.insertCell(6)
 
-    cellDrevina="Drevina"
-    cellRezivo="Rezivo"
-    cellVyska="Výška (mm)"
-    cellSirka="Šírka (mm)"
-    cellDlzka="Dĺžka (mm)"
-    cellMnozstvo="Množstvo (ks)"
-    cellObjem="Objem (m3)"
+    cellDrevina.innerHTML="Drevina"
+    cellRezivo.innerHTML="Rezivo"
+    cellVyska.innerHTML="Výška (mm)"
+    cellSirka.innerHTML="Šírka (mm)"
+    cellDlzka.innerHTML="Dĺžka (mm)"
+    cellMnozstvo.innerHTML="Množstvo (ks)"
+    cellObjem.innerHTML="Objem (m3)"
 
     printData.forEach(function(item) {
       const itemRow=tab.insertRow(-1)
@@ -100,13 +100,13 @@ Promise.allSettled(allPromises).then(function(data){
       const cellMnozstvo=itemRow.insertCell(5)
       const cellObjem=itemRow.insertCell(6)
 
-      cellDrevina=item.drevina
-      cellRezivo=item.rezivo
-      cellVyska=item.vyska
-      cellSirka=item.sirka
-      cellDlzka=item.dlzka
-      cellMnozstvo=item.mnozstvo
-      cellObjem=item.objem
+      cellDrevina.innerHTML=item.drevina
+      cellRezivo.innerHTML=item.rezivo
+      cellVyska.innerHTML=item.vyska
+      cellSirka.innerHTML=item.sirka
+      cellDlzka.innerHTML=item.dlzka
+      cellMnozstvo.innerHTML=item.mnozstvo
+      cellObjem.innerHTML=item.objem
     })
   }
 
@@ -119,4 +119,5 @@ Promise.allSettled(allPromises).then(function(data){
     console.log(tNP)
     createPrintTable(tNP, "placeNP")
   }
-})
+
+}) //end of promises
