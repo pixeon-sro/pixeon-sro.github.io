@@ -22,3 +22,15 @@ async function dbTableNP() {
     let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
     return dataFromCenex
 }
+
+// spracovanie údajov pre tlač
+//  pole všetkých Promisov
+allPromises = [
+  dbNP
+]
+
+// načítanie všetkych Promisov a príprava polí objektov
+Promise.allSettled(allPromises).then(function(data){
+
+  const tNP = data[0].value
+  console.log(tNP)
