@@ -67,7 +67,7 @@ Promise.allSettled(allPromises).then(function(data){
   // funkcia na vytvorenie a umiestnenie tabuľky
   function createPrintTable(printData, printPlace) {
 
-    const place=document.getElementById("printPlace")
+    const place=document.getElementById(printPlace)
     const tab=document.createElement("table")
     tab.setAttribute("id", printPlace"_table")
     place.appendChild(tab)
