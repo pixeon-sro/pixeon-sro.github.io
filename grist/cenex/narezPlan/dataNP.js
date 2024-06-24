@@ -111,10 +111,11 @@ Promise.allSettled(allPromises).then(function(data){
 
   /*
   /  ak existuje tabuľka Nárezový plán a
-  /  obsahuje data, vytvoria sa údaje pre tlač
+  /  obsahuje údaje, vytvorí sa tlačová tabuľka
   */
   if (!isEmpty(data)) {
     const tNP = data[0].value
     console.log(tNP)
     createPrintTable(tNP, "placeNP")
+  }
 })
