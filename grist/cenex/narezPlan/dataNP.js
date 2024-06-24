@@ -34,3 +34,5 @@ Promise.allSettled(allPromises).then(function(data){
 
   const tNP = data[0].value
   console.log(tNP)
+
+}
