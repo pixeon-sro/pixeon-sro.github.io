@@ -73,4 +73,4 @@ Promise.allSettled(allPromises).then(function(data){
   }
 
 
-}
+})
