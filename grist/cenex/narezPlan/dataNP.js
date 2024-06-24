@@ -102,11 +102,11 @@ Promise.allSettled(allPromises).then(function(data) {
 
       cellDrevina.innerHTML=item.drevina
       cellRezivo.innerHTML=item.rezivo
-      cellVyska.innerHTML=item.vyska
-      cellSirka.innerHTML=item.sirka
-      cellDlzka.innerHTML=item.dlzka
-      cellMnozstvo.innerHTML=item.mnozstvo
-      cellObjem.innerHTML=item.objem
+      cellVyska.innerHTML=item.vyska_mm_
+      cellSirka.innerHTML=item.sirka_mm_
+      cellDlzka.innerHTML=item.dlzka_mm_
+      cellMnozstvo.innerHTML=item.mnozstvo_ks_
+      cellObjem.innerHTML=item.objem_m3_
     })
   }
 
