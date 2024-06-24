@@ -69,7 +69,7 @@ Promise.allSettled(allPromises).then(function(data){
 
     const place=document.getElementById("printPlace")
     const tab=document.createElement("table")
-    tab.setAttribute("id", printPlace + "_table")
+    tab.setAttribute("id", printPlace"_table")
     place.appendChild(tab)
 
     const tRow=tab.insertRow(-1)
