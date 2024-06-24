@@ -106,7 +106,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellSirka.innerHTML=item.sirka_mm_
       cellDlzka.innerHTML=item.dlzka_mm_
       cellMnozstvo.innerHTML=item.mnozstvo_ks_
-      cellObjem.innerHTML=item.objem_m3_
+      cellObjem.innerHTML=round(item.objem_m3_, 2)
     })
   }
 
