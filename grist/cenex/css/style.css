@@ -6,6 +6,7 @@ body {
 #green {
     background: #009B68;
 }
+
 h1 {
     background: #009B68;
     color: white;
@@ -13,6 +14,15 @@ h1 {
     font-size: 1.5em;
     float: left;
 }
+
+button {
+    background: #009B68;
+    color: white;
+    border: solid 5px white;
+    padding: 0.4em 1em;
+    margin: -0.2em 1em auto auto;
+}
+
 #Material, #hPraca, #hNaklady {
     display: block;
 }
@@ -30,14 +40,6 @@ th {
 td {
     border: solid black 1px;
     padding: 0.5em;
-}
-
-button {
-    background: #009B68;
-    color: white;
-    border: solid 5px white;
-    padding: 0.4em 1em;
-    margin: -0.2em 1em auto auto;
 }
 
 #profil {
