@@ -6,10 +6,11 @@ body {
 
 #green {
     background: #009B68;
+    padding: 1em
 }
 #green h1 {
     float: left;
-
+    padding: 0em 0em 0em 2em;
 }
 
 h1 {
@@ -22,10 +23,14 @@ h1 {
 button {
     background: #009B68;
     color: white;
-    border: solid 10px white;
+    border: solid 5px white;
     padding: 0.4em 1em;
     margin: 0em 0em 1em auto;
     display:block;
+}
+
+#investor {
+    padding: 1em;
 }
 
 #Material, #hPraca, #hNaklady {

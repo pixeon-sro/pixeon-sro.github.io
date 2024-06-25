@@ -11,7 +11,7 @@
     }
     #green h1 {
         float: left;
-
+        padding: 0em 0em 0em 2em;
     }
 
     h1 {
@@ -19,6 +19,10 @@
         color: white;
         padding: 0.7em;
         font-size: 1.5em;
+    }
+
+    #investor {
+        padding: 1em;
     }
 
     #Material, #hPraca, #hNaklady {
