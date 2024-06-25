@@ -16,6 +16,13 @@ console.log("*** mail: box@pixeon.sk")
 // grist požaduje plný prístup
 grist.ready({ requiredAccess: 'full' })
 
+// načítanie údajov z Profilu
+let dbProfile = dbTableProfile()
+async function dbTableProfile() {
+    let dataFromCenex = await grist.docApi.fetchTable("Profil")
+    return dataFromCenex
+}
+
 // načítanie údajov z CP
 let dbCP = dbTableCP()
 async function dbTableCP() {
@@ -76,6 +83,7 @@ function round(num, decimal=0) {
 // spracovanie údajov pre tlač
 //  pole všetkých Promisov
 allPromises = [
+  dbProfile,
   dbCP,
   dbMaterial,
   dbPraca,
@@ -84,7 +92,10 @@ allPromises = [
 ]
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
+  console.log(data)
 
+  const tProfile = convertor(data[0].value)
+  //console.log(tProfile)
   const tCP = data[0].value
   //console.log(tCP)
   const tMaterial = convertor(data[1].value)
