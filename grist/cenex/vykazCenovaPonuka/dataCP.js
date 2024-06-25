@@ -212,6 +212,23 @@ Promise.allSettled(allPromises).then(function(data){
   document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
   document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
 
+  // profil spločnosti
+  const placeProfile=document.getElementById("profil")
+  const tabProfile=document.createElement("table")
+  tabProfile.setAttribute("id", "profile_table")
+  placeProfile.appendChild(tabProfile)
+
+  const tProfileRow=tabProfile.insertRow(-1)
+  tRow.setAttribute("class", "header")
+  const cellNameKey=tRow.insertCell(0)
+  const cellNameValue=tRow.insertCell(1)
+  const cellIcoKey=tRow.insertCell(2)
+  const cellIcoValue=tRow.insertCell(3)
+  cellNameKey.innerHTML="Názov:"
+  cellNameValue.innerHTML=tProfile.nazov_spolocnosti[0]
+  cellIcoKey.innerHTML="IČO:"
+  cellIcoValue.innerHTML=tProfile.ico[0]
+
   // vypísanie Výkazu Výmer Materiál
   let htmlH1Material = document.getElementById("htmlH1Material")
   let htmlTableMaterial = document.getElementById("htmlTableMaterial");
