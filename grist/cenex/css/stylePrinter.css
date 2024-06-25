@@ -7,7 +7,6 @@
     }
     #green {
         background: #009B68;
-        padding: 1em;
     }
     h1 {
         background: #009B68;
@@ -41,7 +40,7 @@
     button {
         display: none;
     }
-    
+
     #profil {
         text-align: right;
     }
@@ -51,6 +50,7 @@
         font-size: 0.4em;
         border: solid 1px #acb;
         color: white;
+        margin: 0.5em;
     }
     #profile_table td {
         vertical-align: top;

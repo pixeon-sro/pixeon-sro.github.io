@@ -5,7 +5,6 @@ body {
 }
 #green {
     background: #009B68;
-    padding: 1em;
 }
 button {
     background: red;
@@ -56,6 +55,7 @@ button {
     font-size: 0.4em;
     border: solid 1px #acb;
     color: white;
+    margin: 0.5em;
 }
 #profile_table td {
     vertical-align: top;
