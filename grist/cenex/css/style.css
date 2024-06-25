@@ -44,9 +44,11 @@ button {
 }
 
 #profil {
-    float: right;
+    text-align: right;
 }
 #profile_table {
+    display: inline-block;
+    text-align: left;
     font-size: 0.4em;
     border: solid 1px #acb;
     color: #555;
