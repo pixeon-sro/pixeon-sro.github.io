@@ -92,7 +92,7 @@ allPromises = [
 ]
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
-  //console.log(data)
+  console.log(data)
 
   const tProfile = convertor(data[0].value)
   console.log(tProfile)
