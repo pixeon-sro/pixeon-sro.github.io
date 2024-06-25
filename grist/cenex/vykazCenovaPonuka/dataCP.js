@@ -91,11 +91,10 @@ allPromises = [
   dbEtapa
 ]
 // načítanie všetkych Promisov a príprava polí objektov
-Promise.allSettled(allPromises).then(function(data){
-  console.log(data)
+Promise.allSettled(allPromises).then(function(data) {
 
   const tProfile = data[0].value
-  console.log(tProfile)
+  //console.log(tProfile)
   const tCP = data[1].value
   //console.log(tCP)
   const tMaterial = convertor(data[2].value)
