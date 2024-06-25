@@ -228,6 +228,30 @@ Promise.allSettled(allPromises).then(function(data){
   cellIcoKey.innerHTML="IČO:"
   cellIcoValue.innerHTML=tProfile.ico[0]
 
+  const tProfRowB=tabProfile.insertRow(-1)
+  const cellAdressKey=tProfRowB.insertCell(0)
+  cellAddressKey.rowSpan=3
+  const cellAdressValue=tProfRowB.insertCell(1)
+  cellAddressValue.rowSpan=3
+  const cellDicKey=tProfRowB.insertCell(2)
+  const cellDicValue=tProfRowB.insertCell(3)
+  cellNameKey.innerHTML="Adresa:"
+  cellNameValue.innerHTML=tProfile.sidlo_spolocnosti[0]
+  cellIcoKey.innerHTML="Dič:"
+  cellIcoValue.innerHTML=tProfile.dic[0]
+
+  const tProfRowC=tabProfile.insertRow(-1)
+  const cellDphKey=tProfRowC.insertCell(2)
+  const cellDphValue=tProfRowC.insertCell(3)
+  cellDphKey.innerHTML="Dič DPH:"
+  cellDphValue.innerHTML=tProfile.dic_dph[0]
+
+  const tProfRowD=tabProfile.insertRow(-1)
+  const cellIbanKey=tProfRowD.insertCell(2)
+  const cellIbanValue=tProfRowD.insertCell(3)
+  cellIbanKey.innerHTML="iBAN:"
+  cellIbanValue.innerHTML=tProfile.iba[0]
+
   // vypísanie Výkazu Výmer Materiál
   let htmlH1Material = document.getElementById("htmlH1Material")
   let htmlTableMaterial = document.getElementById("htmlTableMaterial");
