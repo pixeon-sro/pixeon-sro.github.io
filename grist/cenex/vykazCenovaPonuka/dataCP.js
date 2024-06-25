@@ -241,14 +241,14 @@ Promise.allSettled(allPromises).then(function(data){
   cellIcoValue.innerHTML=tProfile.dic[0]
 
   const tProfRowC=tabProfile.insertRow(-1)
-  const cellDphKey=tProfRowC.insertCell(2)
-  const cellDphValue=tProfRowC.insertCell(3)
+  const cellDphKey=tProfRowC.insertCell(0)
+  const cellDphValue=tProfRowC.insertCell(1)
   cellDphKey.innerHTML="Dič DPH:"
   cellDphValue.innerHTML=tProfile.dic_dph[0]
 
   const tProfRowD=tabProfile.insertRow(-1)
-  const cellIbanKey=tProfRowD.insertCell(2)
-  const cellIbanValue=tProfRowD.insertCell(3)
+  const cellIbanKey=tProfRowD.insertCell(0)
+  const cellIbanValue=tProfRowD.insertCell(1)
   cellIbanKey.innerHTML="iBAN:"
   cellIbanValue.innerHTML=tProfile.iba[0]
 
