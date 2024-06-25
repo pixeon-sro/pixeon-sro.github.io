@@ -13,6 +13,7 @@
         color: white;
         padding: 0.7em;
         font-size: 10pt;
+        float: left;
     }
 
     table {
@@ -28,13 +29,6 @@
     td {
         border: solid black 1px;
         padding: 0.4em;
-    }
-
-    button {
-        background: #009B68;
-        color: white;
-        padding: 0.3em;
-        margin: 1em;
     }
 
     button {

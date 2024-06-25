@@ -10,13 +10,14 @@ button {
     background: red;
     color: blue;
     border: 1px solid white;
-    float: right;
+    margin: 1.5em;
 }
 h1 {
     background: #009B68;
     color: white;
     padding: 0.7em;
     font-size: 1.5em;
+    float: left;
 }
 #Material, #hPraca, #hNaklady {
     display: block;
