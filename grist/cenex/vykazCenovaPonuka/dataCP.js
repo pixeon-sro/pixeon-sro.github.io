@@ -218,12 +218,11 @@ Promise.allSettled(allPromises).then(function(data){
   tabProfile.setAttribute("id", "profile_table")
   placeProfile.appendChild(tabProfile)
 
-  const tProfileRow=tabProfile.insertRow(-1)
-  tRow.setAttribute("class", "header")
-  const cellNameKey=tRow.insertCell(0)
-  const cellNameValue=tRow.insertCell(1)
-  const cellIcoKey=tRow.insertCell(2)
-  const cellIcoValue=tRow.insertCell(3)
+  const tProfRowA=tabProfile.insertRow(-1)
+  const cellNameKey=tProfRowA.insertCell(0)
+  const cellNameValue=tProfRowA.insertCell(1)
+  const cellIcoKey=tProfRowA.insertCell(2)
+  const cellIcoValue=tProfRowA.insertCell(3)
   cellNameKey.innerHTML="Názov:"
   cellNameValue.innerHTML=tProfile.nazov_spolocnosti[0]
   cellIcoKey.innerHTML="IČO:"
