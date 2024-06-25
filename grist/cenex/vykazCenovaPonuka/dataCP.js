@@ -235,10 +235,10 @@ Promise.allSettled(allPromises).then(function(data){
   cellAddressValue.rowSpan=3
   const cellDicKey=tProfRowB.insertCell(2)
   const cellDicValue=tProfRowB.insertCell(3)
-  cellNameKey.innerHTML="Adresa:"
-  cellNameValue.innerHTML=tProfile.sidlo_spolocnosti[0]
-  cellIcoKey.innerHTML="Dič:"
-  cellIcoValue.innerHTML=tProfile.dic[0]
+  cellAddressKey.innerHTML="Adresa:"
+  cellAddressValue.innerHTML=tProfile.sidlo_spolocnosti[0]
+  cellDicKey.innerHTML="Dič:"
+  cellDicValue.innerHTML=tProfile.dic[0]
 
   const tProfRowC=tabProfile.insertRow(-1)
   const cellDphKey=tProfRowC.insertCell(0)
