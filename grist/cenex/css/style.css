@@ -44,11 +44,14 @@ button {
 }
 
 #profil {
-    background: red
     float: right;
 }
-
 #profile_table {
-    align: right;
-    fontsize: 0.4em;
+    font-size: 0.4em;
+    border: solid 1px #acb;
+    color: #555;
+}
+#profile_table td {
+    vertical-align: top;
+    border: solid 1px #acb;
 }

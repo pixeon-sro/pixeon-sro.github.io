@@ -37,4 +37,17 @@
     button {
         display: none;
     }
+
+    #profil {
+        float: right;
+    }
+    #profile_table {
+        font-size: 0.4em;
+        border: solid 1px #acb;
+        color: #555;
+    }
+    #profile_table td {
+        vertical-align: top;
+        border: solid 1px #acb;
+    }
 }
