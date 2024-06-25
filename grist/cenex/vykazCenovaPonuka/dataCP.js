@@ -94,7 +94,7 @@ allPromises = [
 Promise.allSettled(allPromises).then(function(data){
   console.log(data)
 
-  const tProfile = convertor(data[0].value)
+  const tProfile = data[0].value
   console.log(tProfile)
   const tCP = data[1].value
   //console.log(tCP)
