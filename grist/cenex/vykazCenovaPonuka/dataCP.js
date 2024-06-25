@@ -256,7 +256,7 @@ Promise.allSettled(allPromises).then(function(data){
   const cellMailKey=tProfRowE.insertCell(0)
   const cellMailValue=tProfRowE.insertCell(1)
   const cellTelKey=tProfRowE.insertCell(2)
-  const cellTelValue=tProfRowA.insertCell(3)
+  const cellTelValue=tProfRowE.insertCell(3)
   cellMailKey.innerHTML="E-mail:"
   cellMailValue.innerHTML=tProfile.mail[0]
   cellTelKey.innerHTML="Telefón:"

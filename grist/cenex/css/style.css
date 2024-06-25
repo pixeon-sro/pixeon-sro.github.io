@@ -42,3 +42,12 @@ button {
     margin: -0.2em 1em auto auto;
     float: right;
 }
+
+#profile {
+    float: right;
+}
+
+#profil table {
+    align: right;
+    fontsize: 0.8em;
+}
