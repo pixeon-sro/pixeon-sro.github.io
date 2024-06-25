@@ -229,9 +229,9 @@ Promise.allSettled(allPromises).then(function(data){
   cellIcoValue.innerHTML=tProfile.ico[0]
 
   const tProfRowB=tabProfile.insertRow(-1)
-  const cellAdressKey=tProfRowB.insertCell(0)
+  const cellAddressKey=tProfRowB.insertCell(0)
   cellAddressKey.rowSpan=3
-  const cellAdressValue=tProfRowB.insertCell(1)
+  const cellAddressValue=tProfRowB.insertCell(1)
   cellAddressValue.rowSpan=3
   const cellDicKey=tProfRowB.insertCell(2)
   const cellDicValue=tProfRowB.insertCell(3)
