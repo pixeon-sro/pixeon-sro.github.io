@@ -3,8 +3,13 @@ body {
     color: black;
     font-size: 1em;
 }
+
 #green {
     background: #009B68;
+}
+#green h1 {
+    float: left;
+
 }
 
 h1 {
@@ -12,15 +17,15 @@ h1 {
     color: white;
     padding: 0.7em;
     font-size: 1.5em;
-    float: left;
 }
 
 button {
     background: #009B68;
     color: white;
-    border: solid 5px white;
+    border: solid 10px white;
     padding: 0.4em 1em;
-    margin: -0.2em 1em auto auto;
+    margin: 0em 0em 1em auto;
+    display:block;
 }
 
 #Material, #hPraca, #hNaklady {
