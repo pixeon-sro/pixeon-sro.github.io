@@ -43,12 +43,12 @@ button {
     float: right;
 }
 
-#profile {
+#profil {
     background: red
     float: right;
 }
 
-#profil table {
+#profile_table {
     align: right;
     fontsize: 0.4em;
 }
