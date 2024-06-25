@@ -236,7 +236,7 @@ Promise.allSettled(allPromises).then(function(data){
   const cellDicKey=tProfRowB.insertCell(2)
   const cellDicValue=tProfRowB.insertCell(3)
   cellAddressKey.innerHTML="Adresa:"
-  cellAddressValue.innerHTML=tProfile.sidlo_spolocnosti[0]
+  cellAddressValue.innerHTML=tProfile.ulica[0]+"<br/>"+tProfile.mesto[0]+"<br/>"+tProfile.psc[0]
   cellDicKey.innerHTML="Dič:"
   cellDicValue.innerHTML=tProfile.dic[0]
 
@@ -250,7 +250,7 @@ Promise.allSettled(allPromises).then(function(data){
   const cellIbanKey=tProfRowD.insertCell(0)
   const cellIbanValue=tProfRowD.insertCell(1)
   cellIbanKey.innerHTML="iBAN:"
-  cellIbanValue.innerHTML=tProfile.iba[0]
+  cellIbanValue.innerHTML=tProfile.iban[0]
 
   // vypísanie Výkazu Výmer Materiál
   let htmlH1Material = document.getElementById("htmlH1Material")
