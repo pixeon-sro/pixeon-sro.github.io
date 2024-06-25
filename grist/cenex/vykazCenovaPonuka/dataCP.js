@@ -92,19 +92,19 @@ allPromises = [
 ]
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data){
-  console.log(data)
+  //console.log(data)
 
   const tProfile = convertor(data[0].value)
-  //console.log(tProfile)
-  const tCP = data[0].value
+  console.log(tProfile)
+  const tCP = data[1].value
   //console.log(tCP)
-  const tMaterial = convertor(data[1].value)
+  const tMaterial = convertor(data[2].value)
   //console.log(tMaterial)
-  const tPraca = convertor(data[2].value)
+  const tPraca = convertor(data[3].value)
   //console.log(tPraca)
-  const tNaklady = convertor(data[3].value)
+  const tNaklady = convertor(data[4].value)
   //console.log(tNaklady)
-  const tEtapa = convertor(data[4].value)
+  const tEtapa = convertor(data[5].value)
   //console.log(tEtapa)
 
   // vytvorenie tlačovej tabuľky výkazu Materiálov
