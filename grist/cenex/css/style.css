@@ -44,10 +44,11 @@ button {
 }
 
 #profile {
+    background: red
     float: right;
 }
 
 #profil table {
     align: right;
-    fontsize: 0.8em;
+    fontsize: 0.4em;
 }
