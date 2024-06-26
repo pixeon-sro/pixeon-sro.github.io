@@ -61,7 +61,7 @@
         border: solid 1px #acb;
     }
 
-    button {
+    #print {
         display: none;
     }
 }
