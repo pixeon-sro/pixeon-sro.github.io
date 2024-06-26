@@ -30,7 +30,7 @@ button {
     display:block;
 }
 
-#investor {
+#investor, #placeNP {
     padding: 1em;
 }
 
