@@ -75,6 +75,56 @@ Promise.allSettled(allPromises).then(function(data) {
   // funkcia na vytvorenie a umiestnenie tabuľky
   function createPrintTable(printData, printPlace) {
 
+    // Tlač nárezového plánu
+    const place=document.getElementById(printPlace)
+    const tab=document.createElement("table")
+    tab.setAttribute("id", printPlace + "_table")
+    place.appendChild(tab)
+
+    const tRow=tab.insertRow(-1)
+    tRow.setAttribute("class", "header")
+    const cellDrevina=tRow.insertCell(0)
+    const cellRezivo=tRow.insertCell(1)
+    const cellVyska=tRow.insertCell(2)
+    const cellSirka=tRow.insertCell(3)
+    const cellDlzka=tRow.insertCell(4)
+    const cellMnozstvo=tRow.insertCell(5)
+    const cellObjem=tRow.insertCell(6)
+
+    cellDrevina.innerHTML="Drevina"
+    cellRezivo.innerHTML="Rezivo"
+    cellVyska.innerHTML="Výška (mm)"
+    cellSirka.innerHTML="Šírka (mm)"
+    cellDlzka.innerHTML="Dĺžka (mm)"
+    cellMnozstvo.innerHTML="Množstvo (ks)"
+    cellObjem.innerHTML="Objem (m3)"
+
+    printData.forEach(function(item) {
+      const itemRow=tab.insertRow(-1)
+      const cellDrevina=itemRow.insertCell(0)
+      const cellRezivo=itemRow.insertCell(1)
+      const cellVyska=itemRow.insertCell(2)
+      const cellSirka=itemRow.insertCell(3)
+      const cellDlzka=itemRow.insertCell(4)
+      const cellMnozstvo=itemRow.insertCell(5)
+      const cellObjem=itemRow.insertCell(6)
+
+      cellDrevina.innerHTML=item.drevina
+      cellRezivo.innerHTML=item.rezivo
+      cellVyska.innerHTML=item.vyska_mm_
+      cellSirka.innerHTML=item.sirka_mm_
+      cellDlzka.innerHTML=item.dlzka_mm_
+      cellMnozstvo.innerHTML=item.mnozstvo_ks_
+      cellObjem.innerHTML=round(item.objem_m3_, 2)
+    })
+  }
+
+  /*
+  /  ak existuje tabuľka Nárezový plán a
+  /  obsahuje údaje, vytvorí sa tlačová tabuľka
+  */
+  if (!isEmpty(data)) {
+
     // profil spločnosti v hlavičke dokumentu
     const tProfile = data[0].value
     //console.log(tProfile)
@@ -127,56 +177,7 @@ Promise.allSettled(allPromises).then(function(data) {
     cellTelKey.innerHTML="Telefón:"
     cellTelValue.innerHTML=tProfile.telefon[0]
 
-    // Tlač nárezového plánu
-    const place=document.getElementById(printPlace)
-    const tab=document.createElement("table")
-    tab.setAttribute("id", printPlace + "_table")
-    place.appendChild(tab)
-
-    const tRow=tab.insertRow(-1)
-    tRow.setAttribute("class", "header")
-    const cellDrevina=tRow.insertCell(0)
-    const cellRezivo=tRow.insertCell(1)
-    const cellVyska=tRow.insertCell(2)
-    const cellSirka=tRow.insertCell(3)
-    const cellDlzka=tRow.insertCell(4)
-    const cellMnozstvo=tRow.insertCell(5)
-    const cellObjem=tRow.insertCell(6)
-
-    cellDrevina.innerHTML="Drevina"
-    cellRezivo.innerHTML="Rezivo"
-    cellVyska.innerHTML="Výška (mm)"
-    cellSirka.innerHTML="Šírka (mm)"
-    cellDlzka.innerHTML="Dĺžka (mm)"
-    cellMnozstvo.innerHTML="Množstvo (ks)"
-    cellObjem.innerHTML="Objem (m3)"
-
-    printData.forEach(function(item) {
-      const itemRow=tab.insertRow(-1)
-      const cellDrevina=itemRow.insertCell(0)
-      const cellRezivo=itemRow.insertCell(1)
-      const cellVyska=itemRow.insertCell(2)
-      const cellSirka=itemRow.insertCell(3)
-      const cellDlzka=itemRow.insertCell(4)
-      const cellMnozstvo=itemRow.insertCell(5)
-      const cellObjem=itemRow.insertCell(6)
-
-      cellDrevina.innerHTML=item.drevina
-      cellRezivo.innerHTML=item.rezivo
-      cellVyska.innerHTML=item.vyska_mm_
-      cellSirka.innerHTML=item.sirka_mm_
-      cellDlzka.innerHTML=item.dlzka_mm_
-      cellMnozstvo.innerHTML=item.mnozstvo_ks_
-      cellObjem.innerHTML=round(item.objem_m3_, 2)
-    })
-  }
-
-  /*
-  /  ak existuje tabuľka Nárezový plán a
-  /  obsahuje údaje, vytvorí sa tlačová tabuľka
-  */
-  if (!isEmpty(data)) {
-    const tNP = data[0].value
+    const tNP = data[1].value
     console.log(tNP)
     createPrintTable(tNP, "placeNP")
   }
