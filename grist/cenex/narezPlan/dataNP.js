@@ -178,11 +178,11 @@ Promise.allSettled(allPromises).then(function(data) {
     // profil spločnosti v hlavičke dokumentu
     const tProfile = data[0].value
     //console.log(tProfile)
-    createPrintTable(tProfile, "profil")
+    createPrintProfile(tProfile, "profil")
 
     const tNP = data[1].value
     //console.log(tNP)
-    createPrintTable(tNP, "placeNP")
+    createPrintNP(tNP, "placeNP")
   }
 
 }) //end of promises
