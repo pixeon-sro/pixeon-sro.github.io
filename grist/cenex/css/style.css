@@ -51,7 +51,7 @@ table {
     border: solid black 2px;
     margin: auto 1em;
 }
-th {
+table.header, th {
     border: solid black 1px;
     background: #4A4A5D;
     color: white;
