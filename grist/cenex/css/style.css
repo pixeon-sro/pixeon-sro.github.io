@@ -4,6 +4,20 @@ body {
     font-size: 1em;
 }
 
+#print {
+    display: block;
+    margin: 0px 0px 10px 0px;
+    background: black;
+}
+#print button {
+    background: #555555;
+    color: black;
+    border: solid 5px white;
+    padding: 0.4em 1em;
+    margin: 0em 0em 1em auto;
+    display:block;
+}
+
 #green {
     background: #009B68;
     padding: 1em
@@ -19,15 +33,6 @@ h1 {
     color: white;
     padding: 0.7em;
     font-size: 1.5em;
-}
-
-button {
-    background: #009B68;
-    color: white;
-    border: solid 5px white;
-    padding: 0.4em 1em;
-    margin: 0em 0em 1em auto;
-    display:block;
 }
 
 #investor, #placeNP {
