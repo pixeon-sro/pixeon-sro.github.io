@@ -34,7 +34,7 @@
         border: solid black 2px;
         margin: auto 1em;
     }
-    table tr td.header,th {
+    td.header,th {
         border: solid black 1px;
         background: #4A4A5D;
         color: white;
