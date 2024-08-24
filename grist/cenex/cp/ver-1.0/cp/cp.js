@@ -203,63 +203,23 @@ Promise.allSettled(allPromises).then(function(data) {
   const vCelkovaCena = tCP[0].References.Konecna_Cena
   //console.log(vCelkovaCena)
 
-  //tlač hlavičky CP
-  document.getElementById("dielo").innerText = tCP[0].Dielo;
-  document.getElementById("zakaznik").innerText = tCP[0].Zakaznik;
-  document.getElementById("telefon").innerText = tCP[0].Telefon;;
-  document.getElementById("mail").innerText = tCP[0].Mail;
-  document.getElementById("datumVytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky;
-  document.getElementById("datumPlatnosti").innerText = tCP[0].Datum_platnosti_ponuky;
+  // investor
+  document.getElementById("dielo").innerText = tCP[0].Dielo
+  document.getElementById("zakaznik").innerText = tCP[0].Zakaznik
+  document.getElementById("telefon").innerText = tCP[0].Telefon
+  document.getElementById("mail").innerText = tCP[0].Mail
+  document.getElementById("datum-vytvorenia").innerText = tCP[0].Datum_vytvorenia_ponuky
+  document.getElementById("datum-platnosti").innerText = tCP[0].Datum_platnosti_ponuky
 
   // profil spločnosti
-  const placeProfile=document.getElementById("profil")
-  const tabProfile=document.createElement("table")
-  tabProfile.setAttribute("id", "profile_table")
-  placeProfile.appendChild(tabProfile)
-
-  const tProfRowA=tabProfile.insertRow(-1)
-  const cellNameKey=tProfRowA.insertCell(0)
-  const cellNameValue=tProfRowA.insertCell(1)
-  const cellIcoKey=tProfRowA.insertCell(2)
-  const cellIcoValue=tProfRowA.insertCell(3)
-  cellNameKey.innerHTML="Názov:"
-  cellNameValue.innerHTML=tProfile.nazov_spolocnosti[0]
-  cellIcoKey.innerHTML="IČO:"
-  cellIcoValue.innerHTML=tProfile.ico[0]
-
-  const tProfRowB=tabProfile.insertRow(-1)
-  const cellAddressKey=tProfRowB.insertCell(0)
-  cellAddressKey.rowSpan=3
-  const cellAddressValue=tProfRowB.insertCell(1)
-  cellAddressValue.rowSpan=3
-  const cellDicKey=tProfRowB.insertCell(2)
-  const cellDicValue=tProfRowB.insertCell(3)
-  cellAddressKey.innerHTML="Adresa:"
-  cellAddressValue.innerHTML=tProfile.ulica[0]+"<br/>"+tProfile.mesto[0]+"<br/>"+tProfile.psc[0]
-  cellDicKey.innerHTML="Dič:"
-  cellDicValue.innerHTML=tProfile.dic[0]
-
-  const tProfRowC=tabProfile.insertRow(-1)
-  const cellDphKey=tProfRowC.insertCell(0)
-  const cellDphValue=tProfRowC.insertCell(1)
-  cellDphKey.innerHTML="Dič DPH:"
-  cellDphValue.innerHTML=tProfile.dic_dph[0]
-
-  const tProfRowD=tabProfile.insertRow(-1)
-  const cellIbanKey=tProfRowD.insertCell(0)
-  const cellIbanValue=tProfRowD.insertCell(1)
-  cellIbanKey.innerHTML="iBAN:"
-  cellIbanValue.innerHTML=tProfile.iban[0]
-
-  const tProfRowE=tabProfile.insertRow(-1)
-  const cellMailKey=tProfRowE.insertCell(0)
-  const cellMailValue=tProfRowE.insertCell(1)
-  const cellTelKey=tProfRowE.insertCell(2)
-  const cellTelValue=tProfRowE.insertCell(3)
-  cellMailKey.innerHTML="E-mail:"
-  cellMailValue.innerHTML=tProfile.mail[0]
-  cellTelKey.innerHTML="Telefón:"
-  cellTelValue.innerHTML=tProfile.telefon[0]
+  document.getElementById("firma-meno").innerText = tProfile.nazov_spolocnosti[0]
+  document.getElementById("firma-adresa").innerHTML = tProfile.ulica[0]+"<br/>"+tProfile.mesto[0]+"<br/>"+tProfile.psc[0]
+  document.getElementById("firma-telefon").innerText = tProfile.telefon[0]
+  document.getElementById("firma-mail").innerText = tProfile.mail[0]
+  document.getElementById("firma-ico").innerText = tProfile.ico[0]
+  document.getElementById("firma-dic").innerText = tProfile.dic[0]
+  document.getElementById("firma-dic-dph").innerText = tProfile.dic_dph[0]
+  document.getElementById("firma-iban").innerText = tProfile.iban[0]
 
   // vypísanie Výkazu Výmer Materiál
   let htmlH1Material = document.getElementById("htmlH1Material")
@@ -279,7 +239,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellJednotka.innerHTML = item.jednotka
       cellJadnotkovCena.innerHTML = item.jednotkova_cena
       cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
     })
   }
   else {
@@ -304,7 +264,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellJednotka.innerHTML = item.jednotka
       cellJadnotkovCena.innerHTML = item.jednotkova_cena
       cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
     })
   }
   else {
@@ -332,7 +292,7 @@ Promise.allSettled(allPromises).then(function(data) {
       cellJednotka.innerHTML = item.jednotka
       cellJadnotkovCena.innerHTML = item.jednotkova_cena
       cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
     })
   }
   else {
@@ -351,10 +311,10 @@ Promise.allSettled(allPromises).then(function(data) {
     let cellCelkovaCena = tRow.insertCell(4)
 
     cellPolozka.innerHTML = item.polozka
-    cellMaterial.innerHTML = round(item.material, 2)
-    cellPraca.innerHTML = round(item.praca, 2)
-    cellNaklady.innerHTML = round(item.pridruzene_naklady, 2)
-    cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)
+    cellMaterial.innerHTML = round(item.material, 2)+" €"
+    cellPraca.innerHTML = round(item.praca, 2)+" €"
+    cellNaklady.innerHTML = round(item.pridruzene_naklady, 2)+" €"
+    cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
   })
 
 }) //ukončenie Promise.allSettled
