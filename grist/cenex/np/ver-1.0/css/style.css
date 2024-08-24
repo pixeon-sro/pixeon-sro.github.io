@@ -1,0 +1,49 @@
+body {
+    background: white;
+    color: black;
+    font-size: 1em;
+}
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.3em;
+}
+h3 {
+    font-size: 1.2em;
+}
+
+.box-dark {
+    background: #152732;
+}
+.box-border {
+    border: solid 2px #152732;
+}
+.margin-top: {
+    margin-top: 1em;
+}
+.padding-2x {
+    padding: 1em;
+}
+
+.box-dark h1 {
+    color: white;
+}
+
+#Material, #hPraca, #hNaklady {
+    display: block;
+}
+
+table {
+    border: solid black 2px;
+}
+tr.header, th {
+    border: solid black 1px;
+    background: #4A4A5D;
+    color: white;
+    padding: 0.5em;
+}
+table tr:nth-of-type(2n) td, td {
+    border: solid black 1px;
+    padding: 0.5em;
+}
