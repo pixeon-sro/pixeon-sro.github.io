@@ -40,7 +40,6 @@ h3 {
 
 table {
     border: solid black 2px;
-    break-inside: avoid-page;
 }
 tr.header, th {
     border: solid black 1px;
