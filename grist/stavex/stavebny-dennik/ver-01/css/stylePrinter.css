@@ -1,0 +1,19 @@
+@media print {
+    body {
+        background: white;
+        color: black;
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 17px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+    #print {
+        display: none;
+    }
+}
