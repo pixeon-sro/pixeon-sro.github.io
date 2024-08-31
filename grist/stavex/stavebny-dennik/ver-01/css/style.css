@@ -1,7 +1,10 @@
 body {
-    background: white;
-    color: black;
+    background: #404150;
+    color: white;
     font-size: 14px;
+}
+h1, h2, h3 {
+    color: white;
 }
 h1 {
     font-size: 28px;
@@ -12,19 +15,19 @@ h2 {
 h3 {
     font-size: 18px;
 }
-
+.button.submit-btn,
+a.button.submit-btn,
+a.button.submit-btn:link,
+a.button.submit-btn:active,
+a.button.submit-btn:visited {
+    background: #157A54;
+}
 .box-dark {
-    background: #152732;
-}
-.box-border {
-    border: solid 2px #152732;
-}
-.box-border-bottom {
-    border-bottom: solid 2px #152732;
+    background: #262633;
 }
 .box-border-date {
-    border-bottom: solid 2px #152732;
-    border-left: solid 10px #152732;
+    border-bottom: solid 2px white;
+    border-left: solid 10px white;
 }
 .margin-top {
     margin-top: 0.5em;
@@ -46,30 +49,4 @@ h3 {
 }
 .padding-left {
     padding-left: 0.5em;
-}
-
-.box-dark h1 {
-    color: white;
-}
-
-#placeNP {
-    padding: 1em;
-}
-
-#Material, #hPraca, #hNaklady {
-    display: block;
-}
-
-table {
-    border: solid black 2px;
-}
-tr.header, th {
-    border: solid black 1px;
-    background: #4A4A5D;
-    color: white;
-    padding: 0.5em;
-}
-table tr:nth-of-type(2n) td, td {
-    border: solid black 1px;
-    padding: 0.5em;
 }
