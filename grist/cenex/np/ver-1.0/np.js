@@ -81,7 +81,7 @@ async function dbTableNP() {
 
 // spracovanie údajov pre tlač
 //  pole všetkých Promisov
-allPromises = [
+const allPromises = [
   dbProfile,
   dbNP
 ]

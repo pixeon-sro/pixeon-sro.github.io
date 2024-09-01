@@ -5,6 +5,9 @@
 * @mail: box@pixeon.sk
 * @version: 01
 *
+* @example: pri vitvorení widgetu v griste je potrebne použiť URL:
+*           https://pixeon-sro.github.io/grist/stavex/stavebny-dennik/ver-01/stden.html
+*
 **/
 
 console.log("*** Print teplate for Stavebný denník")
@@ -12,30 +15,25 @@ console.log("*** stden.js - ver: 01")
 console.log("*** autor: Roman Holinec")
 console.log("*** mail: box@pixeon.sk")
 
-// grist požaduje plný prístup
-grist.ready({ requiredAccess: 'full' })
-
-// načítanie údajov Investora
-const dbInvestor = getInvestor()
-async function getInvestor() {
-    let dataFromCenex = await grist.docApi.fetchTable("INVESTOR")
-    return dataFromCenex
+/**
+* Zaokruhlovanie čísel
+* funkcia vracia zaokrúhlené číslo
+*
+* @param {number} num - Zaokrúhlované číslo
+* @param {number} decimal - počet desatinných miest po zaokrúhlení
+*
+**/
+function _round(num, decimal=0) {
+  return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
 
-// načítanie údajov Zhotoviteľa
-const dbZhotovitel = getZhotovitel()
-async function getZhotovitel() {
-    let dataFromCenex = await grist.docApi.fetchTable("ZHOTOVITEL")
-    return dataFromCenex
-}
-
-// načítanie údajov Stavebného Denníka
-const dbStavDennik = getStavDennik()
-async function getStavDennik() {
-    let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
-    return dataFromCenex
-}
-
+/**
+* Zitovanie prazdnej hodnoty
+* funkcia vracia boolen
+*
+* @param {any} value - ak je hodnota pázdna/nezadaná vracia true, inak false
+*
+**/
 function _isEmpty(value) {
   if (typeof(value) === "array") {
     if (value.legth === 0) {
@@ -67,14 +65,33 @@ function _isEmpty(value) {
   }
 }
 
-// zaokruhlovanie čísel
-function round(num, decimal=0) {
-  return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
+// grist požaduje plný prístup
+grist.ready({ requiredAccess: 'full' })
+
+// načítanie údajov Investora
+const dbInvestor = getInvestor()
+async function getInvestor() {
+    let dataFromCenex = await grist.docApi.fetchTable("INVESTOR")
+    return dataFromCenex
+}
+
+// načítanie údajov Zhotoviteľa
+const dbZhotovitel = getZhotovitel()
+async function getZhotovitel() {
+    let dataFromCenex = await grist.docApi.fetchTable("ZHOTOVITEL")
+    return dataFromCenex
+}
+
+// načítanie údajov Stavebného Denníka
+const dbStavDennik = getStavDennik()
+async function getStavDennik() {
+    let dataFromCenex = await grist.docApi.fetchSelectedTable(options = {format:"rows"})
+    return dataFromCenex
 }
 
 // spracovanie údajov pre tlač
 //  pole všetkých Promisov
-allPromises = [
+const allPromises = [
   dbInvestor,
   dbZhotovitel,
   dbStavDennik
@@ -199,107 +216,11 @@ Promise.allSettled(allPromises).then(function(data) {
       parrentDiv.appendChild(divPoznamka)
   }
 
-  Object.entries(stavDennik).forEach(([key,value]) => {
+  Object.entries(stavDennik).forEach(([,value]) => {
     if (value == null) {
       return null
     }
     printElementSD(value)
   })
-/*
-  // vypísanie Výkazu Výmer Materiál
-  let htmlH1Material = document.getElementById("htmlH1Material")
-  let htmlTableMaterial = document.getElementById("htmlTableMaterial");
-  if (vVMaterial != null) {
-    vVMaterial.forEach(function(item) {
-      let tRow = htmlTableMaterial.insertRow(-1)
-      let cellEtapa = tRow.insertCell(0)
-      let cellMaterial = tRow.insertCell(1)
-      let cellJednotka = tRow.insertCell(2)
-      let cellJadnotkovCena = tRow.insertCell(3)
-      let cellMnozstvo = tRow.insertCell(4)
-      let cellCelkovaCena = tRow.insertCell(5)
 
-      cellEtapa.innerHTML = item.etapa
-      cellMaterial.innerHTML = item.material
-      cellJednotka.innerHTML = item.jednotka
-      cellJadnotkovCena.innerHTML = item.jednotkova_cena
-      cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
-    })
-  }
-  else {
-    htmlH1Material.style.display="none"
-    htmlTableMaterial.style.display="none"
-  }
-  // vypísanie Výkazu Výmer Práce
-  let htmlH1Praca = document.getElementById("htmlH1Praca")
-  let htmlTablePraca = document.getElementById("htmlTablePraca");
-  if (vVPraca != null) {
-    vVPraca.forEach(function(item) {
-      let tRow = htmlTablePraca.insertRow(-1)
-      let cellEtapa = tRow.insertCell(0)
-      let cellPraca = tRow.insertCell(1)
-      let cellJednotka = tRow.insertCell(2)
-      let cellJadnotkovCena = tRow.insertCell(3)
-      let cellMnozstvo = tRow.insertCell(4)
-      let cellCelkovaCena = tRow.insertCell(5)
-
-      cellEtapa.innerHTML = item.etapa
-      cellPraca.innerHTML = item.praca
-      cellJednotka.innerHTML = item.jednotka
-      cellJadnotkovCena.innerHTML = item.jednotkova_cena
-      cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
-    })
-  }
-  else {
-    htmlH1Praca.style.display="none"
-    htmlTablePraca.style.display="none"
-  }
-
-  // vypísanie Výkazu Výmer Pridružených nákladov
-  let htmlH1Naklady = document.getElementById("htmlH1Naklady")
-  let htmlTableNaklady = document.getElementById("htmlTableNaklady");
-  if (vVNaklady != null) {
-    vVNaklady.forEach(function(item) {
-      let tRow = htmlTableNaklady.insertRow(-1)
-      let cellEtapa = tRow.insertCell(0)
-      let cellNaklady = tRow.insertCell(1)
-      let cellPopis = tRow.insertCell(2)
-      let cellJednotka = tRow.insertCell(3)
-      let cellJadnotkovCena = tRow.insertCell(4)
-      let cellMnozstvo = tRow.insertCell(5)
-      let cellCelkovaCena = tRow.insertCell(6)
-
-      cellEtapa.innerHTML = item.etapa
-      cellNaklady.innerHTML = item.naklady
-      cellPopis.innerHTML = item.popis
-      cellJednotka.innerHTML = item.jednotka
-      cellJadnotkovCena.innerHTML = item.jednotkova_cena
-      cellMnozstvo.innerHTML = item.mnozstvo
-      cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
-    })
-  }
-  else {
-    htmlH1Naklady.style.display="none"
-    htmlTableNaklady.style.display="none"
-  }
-
-  // vypísanie Celkovej ceny
-  let htmlTableCena = document.getElementById("htmlTableCena");
-  vCelkovaCena.forEach(function(item) {
-    let tRow = htmlTableCena.insertRow(-1)
-    let cellPolozka = tRow.insertCell(0)
-    let cellMaterial = tRow.insertCell(1)
-    let cellPraca = tRow.insertCell(2)
-    let cellNaklady = tRow.insertCell(3)
-    let cellCelkovaCena = tRow.insertCell(4)
-
-    cellPolozka.innerHTML = item.polozka
-    cellMaterial.innerHTML = round(item.material, 2)+" €"
-    cellPraca.innerHTML = round(item.praca, 2)+" €"
-    cellNaklady.innerHTML = round(item.pridruzene_naklady, 2)+" €"
-    cellCelkovaCena.innerHTML = round(item.celkova_cena, 2)+" €"
-  })*/
-
-}) //ukončenie Promise.allSettled
+})
