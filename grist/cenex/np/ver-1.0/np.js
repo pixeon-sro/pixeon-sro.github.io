@@ -1,27 +1,33 @@
-/*
-/
-/ Načítanie a príprava tlačových údajov pre Nárezový Plán
-/
-/ autor: Roman Holinec
-/ box@pixeon.sk
-/ verzia: 001
-/
-*/
+/**
+* Tlačová šablóna údajov pre Nárezový Plán
+*
+* @autor: Roman Holinec
+* @mail: box@pixeon.sk
+* @version: 01
+**/
 
 console.log("*** Print teplate for Nárezový Plán")
-console.log("*** dataNP.js - ver: 001")
+console.log("*** np.js - ver: 01")
 console.log("*** autor: Roman Holinec")
 console.log("*** mail: box@pixeon.sk")
 
-// zaokruhlovanie čísel
+/**
+* Zaokruhlovanie čísel
+* funkcia vracia zaokrúhlené číslo
+*
+* @param {number} num - Zaokrúhlované číslo
+* @param {number} decimal - počet desatinných miest po zaokrúhlení
+*
+**/
 function round(num, decimal=0) {
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
+
 // zitovanie prazdneho poľa
 // ak je pole prazdne, vráti TRUE
 // ak pole obsahuje prvky, vráti FALSE
-function isEmpty(value) {
-  if (value instanceof Array) {
+function _isEmpty(value) {
+  if (typeof(value) === "array") {
     if (value.legth === 0) {
       return true
     }
@@ -29,8 +35,16 @@ function isEmpty(value) {
       return false
     }
   }
-  else if (value instanceof Object) {
+  else if (typeof(value) === "object") {
     if (value.legth === 0) {
+      return true
+    }
+    else {
+      return false
+    }
+  }
+  else if (typeof(value) === "string") {
+    if (value == "") {
       return true
     }
     else {
@@ -38,8 +52,7 @@ function isEmpty(value) {
     }
   }
   else {
-    console.log("this is not Array or Object")
-    console.log(value)
+    console.log("_isEmpty() - neriešená hodnota:" + typeof(value))
     return true
   }
 }
@@ -85,7 +98,7 @@ Promise.allSettled(allPromises).then(function(data) {
     document.getElementById("firma-dic").innerText = tProfile.dic[0]
     document.getElementById("firma-dic-dph").innerText = tProfile.dic_dph[0]
     document.getElementById("firma-iban").innerText = tProfile.iban[0]
-    
+
     // Tlač nárezového plánu
     const place=document.getElementById(printPlace)
     const tab=document.createElement("table")
@@ -134,7 +147,7 @@ Promise.allSettled(allPromises).then(function(data) {
   /  ak existuje tabuľka Nárezový plán a
   /  obsahuje údaje, vytvorí sa tlačová tabuľka
   */
-  if (!isEmpty(data)) {
+  if (!_isEmpty(data)) {
     const tNP = data[1].value
     //console.log(tNP)
     createPrintNP(tNP, "placeNP")
