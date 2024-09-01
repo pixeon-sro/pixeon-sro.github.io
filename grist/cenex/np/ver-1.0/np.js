@@ -4,6 +4,10 @@
 * @autor: Roman Holinec
 * @mail: box@pixeon.sk
 * @version: 01
+*
+* @example: pri vitvorení widgetu v griste je potrebne použiť URL:
+*           https://pixeon-sro.github.io/grist/cenex/np/ver-01/np.html
+*
 **/
 
 console.log("*** Print teplate for Nárezový Plán")
