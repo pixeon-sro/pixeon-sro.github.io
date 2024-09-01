@@ -26,54 +26,68 @@
        <a onclick="window.print()" class="button rounded-btn submit-btn"><i class="icon-sli-printer"></i></a>
     </div>
     <div class="no-print distance"></div>
-    
+
     <div class="grid">
       <div class="s-12 m-12 l-12 padding">
         <h1><strong>Stavebný denník</strong></h1>
+        <h3><strong>Dielo: </strong><span id="stavba-dielo"></span></h3>
+        <h3><strong>Adresa: </strong><span id="stavba-adresa"></span></h3>
         <hr/>
       </div>
     </div>
     <div class="grid">
-      <div class="s-12 m-12 l-12 padding-left margin-bottom-4x">
+      <div class="s-12 m-6 l-6 padding-left margin-bottom-4x">
         <h2><strong>Investor: <span id="inv-meno"></span></strong></h2>
         <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>telefón:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="inv-telefon"></span></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>telefón:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-telefon"></span></span></div>
         </div>
         <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>e-mail:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="inv-mail"></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>e-mail:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-mail"></span></div>
         </div>
         <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>adresa:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="inv-adresa"></span></div>
-        </div>
-      </div>
-      <div class="s-12 m-12 l-12 padding-left margin-bottom-4x">
-        <h2><strong>Zhotoviteľ: <span id="zh-meno"></span></strong></h2>
-        <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>telefón:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-telefon"></span></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>adresa:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-adresa"></span></div>
         </div>
         <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>e-mail:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-mail"></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>IČO:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-ico"></span></div>
         </div>
         <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>adresa:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-adresa"></span></div>
-        </div>
-        <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>IČO:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-ico"></span></div>
-        </div>
-        <div class="grid margin-bottom-05">
-          <div class="s-2 m-2 l-2 padding-right"><strong>DIČ:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-dic"></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>DIČ:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-dic"></span></div>
         </div>
         <div class="grid margin-bottom-2x">
-          <div class="s-2 m-2 l-2 padding-right"><strong>DIČ DPH:</strong></div>
-          <div class="s-10 m-10 l-10"><span id="zh-dic-dph"></span></div>
+          <div class="s-3 m-3 l-3 padding-right"><strong>DIČ DPH:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="inv-dic-dph"></span></div>
+        </div>
+      </div>
+      <div class="s-12 m-6 l-6 padding-left margin-bottom-4x">
+        <h2><strong>Zhotoviteľ: <span id="zh-meno"></span></strong></h2>
+        <div class="grid margin-bottom-05">
+          <div class="s-3 m-3 l-3 padding-right"><strong>telefón:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-telefon"></span></span></div>
+        </div>
+        <div class="grid margin-bottom-05">
+          <div class="s-3 m-3 l-3 padding-right"><strong>e-mail:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-mail"></span></div>
+        </div>
+        <div class="grid margin-bottom-05">
+          <div class="s-3 m-3 l-3 padding-right"><strong>adresa:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-adresa"></span></div>
+        </div>
+        <div class="grid margin-bottom-05">
+          <div class="s-3 m-3 l-3 padding-right"><strong>IČO:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-ico"></span></div>
+        </div>
+        <div class="grid margin-bottom-05">
+          <div class="s-3 m-3 l-3 padding-right"><strong>DIČ:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-dic"></span></div>
+        </div>
+        <div class="grid margin-bottom-2x">
+          <div class="s-3 m-3 l-3 padding-right"><strong>DIČ DPH:</strong></div>
+          <div class="s-9 m-9 l-9"><span id="zh-dic-dph"></span></div>
         </div>
         </p>
       </div>

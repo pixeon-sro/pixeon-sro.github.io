@@ -1,20 +1,20 @@
 body {
     background: #404150;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
 }
 h1, h2, h3 {
     color: white;
     margin: 0.2em 0.5em;
 }
 h1 {
-    font-size: 28px;
+    font-size: 23px;
 }
 h2 {
-    font-size: 22px;
+    font-size: 19px;
 }
 h3 {
-    font-size: 18px;
+    font-size: 15px;
 }
 .fix {
     position: fixed;
@@ -68,4 +68,7 @@ a.button.submit-btn:visited {
 }
 .padding-left {
     padding-left: 0.5em;
+}
+.no-brak-page {
+    break-inside: avoid-page;
 }

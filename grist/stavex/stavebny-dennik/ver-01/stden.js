@@ -69,16 +69,9 @@ function _isEmpty(value) {
 grist.ready({ requiredAccess: 'full' })
 
 // načítanie údajov Investora
-const dbInvestor = getInvestor()
-async function getInvestor() {
-    let dataFromCenex = await grist.docApi.fetchTable("INVESTOR")
-    return dataFromCenex
-}
-
-// načítanie údajov Zhotoviteľa
-const dbZhotovitel = getZhotovitel()
-async function getZhotovitel() {
-    let dataFromCenex = await grist.docApi.fetchTable("ZHOTOVITEL")
+const dbStavba = getStavba()
+async function getStavba() {
+    let dataFromCenex = await grist.docApi.fetchTable("STAVBA")
     return dataFromCenex
 }
 
@@ -92,8 +85,7 @@ async function getStavDennik() {
 // spracovanie údajov pre tlač
 //  pole všetkých Promisov
 const allPromises = [
-  dbInvestor,
-  dbZhotovitel,
+  dbStavba,
   dbStavDennik
 ]
 
@@ -101,34 +93,37 @@ const allPromises = [
 Promise.allSettled(allPromises).then(function(data) {
   console.log(data)
 
-  const investor = data[0].value
-  //console.log(investor)
-  const zhotovitel = data[1].value
-  //console.log(zhotovitel)
-  const stavDennik = data[2].value
+  const stavba = data[0].value
+  //console.log(stavba)
+  const stavDennik = data[1].value
   //console.log(stavDennik)
 
-  // investor
-  document.getElementById("inv-meno").innerText = investor.meno
-  document.getElementById("inv-telefon").innerText = investor.telefon
-  document.getElementById("inv-mail").innerText = investor.mail
-  document.getElementById("inv-adresa").innerHTML = investor.ulica+"<br/>"+investor.psc+" "+investor.mesto
+  document.getElementById("stavba-dielo").innerText = stavba.dielo
+  document.getElementById("stavba-adresa").innerText = stavba.ulica+", "+stavba.psc+" "+stavba.mesto
+  //investor
+  document.getElementById("inv-meno").innerText = stavba.investor_meno
+  document.getElementById("inv-telefon").innerText = stavba.investor_telefon
+  document.getElementById("inv-mail").innerText = stavba.investor_mail
+  document.getElementById("inv-adresa").innerText = stavba.investor_adresa
+  document.getElementById("inv-ico").innerText = stavba.investor_ico
+  document.getElementById("inv-dic").innerText = stavba.investor_dic
+  document.getElementById("inv-dic-dph").innerText = stavba.investor_dic_dph
 
   // profil spločnosti
-  document.getElementById("zh-meno").innerText = zhotovitel.meno
-  document.getElementById("zh-adresa").innerHTML = zhotovitel.ulica+"<br/>"+zhotovitel.psc+" "+zhotovitel.mesto
-  document.getElementById("zh-telefon").innerText = zhotovitel.telefon[0]
-  document.getElementById("zh-mail").innerText = zhotovitel.mail[0]
-  document.getElementById("zh-ico").innerText = zhotovitel.ico[0]
-  document.getElementById("zh-dic").innerText = zhotovitel.dic[0]
-  document.getElementById("zh-dic-dph").innerText =zhotovitel.dic_dph[0]
+  document.getElementById("zh-meno").innerText = stavba.zhotovitel_meno
+  document.getElementById("zh-adresa").innerText = stavba.zhotovitel_adresa
+  document.getElementById("zh-telefon").innerText = stavba.zhotovitel_telefon
+  document.getElementById("zh-mail").innerText = stavba.zhotovitel_mail
+  document.getElementById("zh-ico").innerText = stavba.zhotovitel_ico
+  document.getElementById("zh-dic").innerText = stavba.zhotovitel_dic
+  document.getElementById("zh-dic-dph").innerText = stavba.zhotovitel_dic_dph
 
   // funkcia vytvára jednotlivé záznami v stavebnom denníku
   function printElementSD(value) {
     const parrentDiv = document.getElementById("stavDennik")
 
     const divDate = document.createElement("div")
-      divDate.classList.add("grid","box-border-date","margin-bottom")
+      divDate.classList.add("grid","box-border-date","margin-bottom", "no-break-page")
     const dateStart = document.createElement("div")
       dateStart.classList.add("s-6","m-6","l-6","padding-left")
       dateStart.innerHTML = "<strong>Začiatok</strong>: " + value.zaciatok.toLocaleDateString() + " - " + value.zaciatok.toLocaleTimeString()
