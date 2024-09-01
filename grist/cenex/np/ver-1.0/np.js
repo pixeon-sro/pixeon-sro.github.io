@@ -23,9 +23,13 @@ function round(num, decimal=0) {
   return Math.round((num  * 10 ** decimal) * (1 + Number.EPSILON)) /  10 ** decimal
 }
 
-// zitovanie prazdneho poľa
-// ak je pole prazdne, vráti TRUE
-// ak pole obsahuje prvky, vráti FALSE
+/**
+* Zitovanie prazdnej hodnoty
+* funkcia vracia boolen
+*
+* @param {any} value - ak je hodnota pázdna/nezadaná vracia true, inak false
+*
+**/
 function _isEmpty(value) {
   if (typeof(value) === "array") {
     if (value.legth === 0) {
