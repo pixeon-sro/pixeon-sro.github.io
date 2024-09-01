@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>Výkaz cenová ponuka</title>
-    
+
     <link rel="stylesheet" href="responsee/css/components.css">
     <link rel="stylesheet" href="responsee/css/icons.css">
     <link rel="stylesheet" href="responsee/css/responsee.css">
     <link rel="stylesheet" href="responsee/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="responsee/owl-carousel/owl.theme.css"> 
+    <link rel="stylesheet" href="responsee/owl-carousel/owl.theme.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="responsee/js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="responsee/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="responsee/js/modernizr.js"></script>
 
-    
+
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/stylePrinter.css" rel="stylesheet" media="print" />
     <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
     <script src="stden.js"></script>
   </head>
-  
+
   <body class="padding">
-    <div id="print" class="grid margin-bottom">
-      <div class="box-dark s-12 m-12 l-12 padding">
-       <a onclick="window.print()" class="button rounded-btn submit-btn s-12"><i class="icon-sli-printer"></i></a>
-      </div>
+    <div class="no-print fix margin-bottom box-dark shadow">
+       <a onclick="window.print()" class="button rounded-btn submit-btn"><i class="icon-sli-printer"></i></a>
     </div>
+    <div class="no-print distance"></div>
+    
     <div class="grid">
       <div class="s-12 m-12 l-12 padding">
         <h1><strong>Stavebný denník</strong></h1>
@@ -81,7 +81,7 @@
     <div style="break-after:page"></div>
 
     <div id="stavDennik"></div>
-    
+
     <script type="text/javascript" src="responsee/js/responsee.js"></script>
   </body>
 </html>

@@ -5,6 +5,7 @@ body {
 }
 h1, h2, h3 {
     color: white;
+    margin: 0.2em 0.5em;
 }
 h1 {
     font-size: 28px;
@@ -15,6 +16,23 @@ h2 {
 h3 {
     font-size: 18px;
 }
+.fix {
+    position: fixed;
+    width: 100%;
+    margin: -1em 0px 0px -1em;
+}
+.fix .button {
+    margin: 10px;
+    width: 70px;
+}
+.distance {
+    display: block;
+    padding-top: 80px;
+}
+.shadow {
+    box-shadow: 0px 3px 4px #222;
+    border-bottom: solid 1px #404150;
+}
 .button.submit-btn,
 a.button.submit-btn,
 a.button.submit-btn:link,
@@ -24,6 +42,7 @@ a.button.submit-btn:visited {
 }
 .box-dark {
     background: #262633;
+    box-sizing: border-box;
 }
 .box-border-date {
     border-bottom: solid 2px white;
@@ -49,6 +68,4 @@ a.button.submit-btn:visited {
 }
 .padding-left {
     padding-left: 0.5em;
-}
-.pokus {
 }

@@ -1,15 +1,14 @@
-/*
-/
-/ Načítanie a príprava tlačových tabuliek z údajov tabuliek CENEXU
-/
-/ autor: Roman Holinec
-/ box@pixeon.sk
-/ verzia: 060
-/
-*/
+/**
+* Tlačová šablóna údajov pre Stavebný Denník
+*
+* @autor: Roman Holinec
+* @mail: box@pixeon.sk
+* @version: 01
+*
+**/
 
 console.log("*** Print teplate for Stavebný denník")
-console.log("*** stden.js - ver: 001")
+console.log("*** stden.js - ver: 01")
 console.log("*** autor: Roman Holinec")
 console.log("*** mail: box@pixeon.sk")
 
@@ -84,7 +83,7 @@ allPromises = [
 // načítanie všetkych Promisov a príprava polí objektov
 Promise.allSettled(allPromises).then(function(data) {
   console.log(data)
-  
+
   const investor = data[0].value
   //console.log(investor)
   const zhotovitel = data[1].value
@@ -110,7 +109,7 @@ Promise.allSettled(allPromises).then(function(data) {
   // funkcia vytvára jednotlivé záznami v stavebnom denníku
   function printElementSD(value) {
     const parrentDiv = document.getElementById("stavDennik")
-    
+
     const divDate = document.createElement("div")
       divDate.classList.add("grid","box-border-date","margin-bottom")
     const dateStart = document.createElement("div")

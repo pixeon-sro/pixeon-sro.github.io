@@ -5,7 +5,7 @@
         font-size: 10px;
     }
     h1, h2, h3 {
-        color: #262633;
+        color: black;
     }
     h1 {
         font-size: 22px;
@@ -16,11 +16,14 @@
     h3 {
         font-size: 14px;
     }
+    .box-dark h1 {
+        color: white;
+    }
     .box-border-date {
         border-bottom: solid 2px #262633;
         border-left: solid 10px #262633;
     }
-    #print {
+    .no-print {
         display: none;
     }
 }
