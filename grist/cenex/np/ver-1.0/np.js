@@ -72,7 +72,7 @@ grist.ready({ requiredAccess: 'full' })
 // načítanie údajov z Profilu
 let dbProfile = dbTableProfile()
 async function dbTableProfile() {
-    let dataFromCenex = await grist.docApi.fetchTable("Profil")
+    let dataFromCenex = await grist.docApi.fetchTable("FIREMNE_UDAJE")
     return dataFromCenex
 }
 
@@ -98,14 +98,15 @@ Promise.allSettled(allPromises).then(function(data) {
 
     // profil spločnosti
     const tProfile = data[0].value
-    document.getElementById("firma-meno").innerText = tProfile.nazov_spolocnosti[0]
-    document.getElementById("firma-adresa").innerHTML = tProfile.ulica[0]+"<br/>"+tProfile.mesto[0]+"<br/>"+tProfile.psc[0]
-    document.getElementById("firma-telefon").innerText = tProfile.telefon[0]
-    document.getElementById("firma-mail").innerText = tProfile.mail[0]
-    document.getElementById("firma-ico").innerText = tProfile.ico[0]
-    document.getElementById("firma-dic").innerText = tProfile.dic[0]
-    document.getElementById("firma-dic-dph").innerText = tProfile.dic_dph[0]
-    document.getElementById("firma-iban").innerText = tProfile.iban[0]
+    console.log(tProfile)
+    document.getElementById("firma-meno").innerText = tProfile.Nazov
+    document.getElementById("firma-adresa").innerHTML = tProfile.Ulica+"<br/>"+tProfile.Mesto+"<br/>"+tProfile.Psc
+    document.getElementById("firma-telefon").innerText = tProfile.Telefon
+    document.getElementById("firma-mail").innerText = tProfile.Email
+    document.getElementById("firma-ico").innerText = tProfile.Ico
+    document.getElementById("firma-dic").innerText = tProfile.Dic
+    document.getElementById("firma-dic-dph").innerText = tProfile.Dic_DPH
+    document.getElementById("firma-iban").innerText = tProfile.Iban
 
     // Tlač nárezového plánu
     const place=document.getElementById(printPlace)
