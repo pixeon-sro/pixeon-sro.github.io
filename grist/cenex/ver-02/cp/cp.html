@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <title>Výkaz cenová ponuka</title>
+    
+    <link rel="stylesheet" href="responsee/css/components.css">
+    <link rel="stylesheet" href="responsee/css/icons.css">
+    <link rel="stylesheet" href="responsee/css/responsee.css">
+    <link rel="stylesheet" href="responsee/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="responsee/owl-carousel/owl.theme.css"> 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="responsee/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="responsee/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="responsee/js/modernizr.js"></script>
+
+    
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/stylePrinter.css" rel="stylesheet" media="print" />
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="cp.js"></script>
+  </head>
+  
+  <body class="padding">
+    <div class="no-print fix margin-bottom box-dark shadow">
+        <a onclick="window.print()" class="button rounded-btn submit-btn"><i class="icon-sli-printer"></i></a>
+    </div>
+    <div class="no-print distance"></div>
+    
+    <div class="grid box-border margin-bottom">
+      <div class="box-dark s-12 m-12 l-12 padding">
+        <h1>Cenová ponuka</h1>
+      </div>
+      <div class="s-12 m-12 l-12 padding-2x">
+        <h2>Dielo: <strong><span id="dielo"></span></strong></h2>
+      </div>
+    </div>
+    <div class="grid margin padding">
+        <div class="box-border s-12 m-6 l-6 padding-2x">
+            <div class="grid">
+                <div class="s-3 m-3 l-3 padding"><strong>Investor: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-meno"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Adresa: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-adresa"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Telefón: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-telefon"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>E-mail: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-email"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Ičo: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-ico"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Dič: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-dic"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Dič DPH: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="inv-dic-dph"></span></div>
+            </div>
+        </div>
+        <div class="box-border s-12 m-6 l-6 padding-2x">
+            <div class="grid">
+                <div class="s-3 m-3 l-3 padding"><strong>Zhotoviteľ: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-meno"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Adresa: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-adresa"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Telefón: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-telefon"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>E-mail: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-email"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Ičo: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-ico"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Dič: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-dic"></span></div>
+                <div class="s-3 m-3 l-3 padding"><strong>Dič DPH: </strong></div>
+                <div class="s-9 m-9 l-9 padding"><span id="zhot-dic-dph"></span></div>
+            </div>
+        </div>
+      </div><div class="grid margin padding">
+          <div class="box-border s-12 m-6 l-6 padding-2x margin-bottom">
+              <div class="grid">
+                  <div class="s-3 m-3 l-3 padding"><strong>Dátum vystavenia: </strong></div>
+                  <div class="s-9 m-9 l-9 padding"><span id="datum-cp"></span></div>
+              </div>
+          </div>
+          <div class="box-border s-12 m-6 l-6 padding-2x margin-bottom">
+              <div class="grid">
+                  <div class="s-3 m-3 l-3 padding"><strong>Dátum platnosti: </strong></div>
+                  <div class="s-9 m-9 l-9 padding"><span id="platnost-cp"></span></div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div style="break-after:page"></div>
+    
+    <div class=".no-break-page">
+        <div class="grid">
+            <div class="box-dark s-12 m-12 l-12 padding">
+                <h1>Výkaz Materiálu</h1>
+            </div>
+        </div>
+        <div class="grid margin-bottom">
+            <div id="material" class="s-12 m-12 l-12"></div>
+        </div>
+    </div>
+    <!-- vynutene zalomenie strany pri tlaci  -->
+    <!--<div style="break-after:page"></div>-->
+    
+    <div class=".no-break-page">
+        <div class="grid .no-break-page">
+            <div class="box-dark s-12 m-12 l-12 padding">
+                <h1>Výkaz Práce</h1>
+            </div>
+        </div>
+        <div class="grid margin-bottom">
+            <div id="praca" class="s-12 m-12 l-12"></div>
+        </div>
+    </div>
+    <!-- vynutene zalomenie strany pri tlaci  -->
+    <!--<div style="break-after:page"></div>-->
+    
+    <div class=".no-break-page">
+        <div class="grid .no-break-page">
+            <div class="box-dark s-12 m-12 l-12 padding">
+                <h1>Výkaz Pridružených nákladov</h1>
+            </div>
+        </div>
+        <div class="grid margin-bottom">
+            <div id="naklady" class="s-12 m-12 l-12"></div>
+        </div>
+    </div>
+    <!-- vynutene zalomenie strany pri tlaci  -->
+    <!--<div style="break-after:page"></div>-->
+    
+    <div class=".no-break-page">
+        <div class="grid .no-break-page">
+            <div class="box-dark s-12 m-12 l-12 padding">
+                <h1>Konečná Cena</h1>
+            </div>
+        </div>
+        <div class="grid margin-bottom">
+            <div id="cena" class="s-12 m-12 l-12"></div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="responsee/js/responsee.js"></script>
+  </body>
+</html>

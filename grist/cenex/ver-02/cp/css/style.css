@@ -1,0 +1,86 @@
+body {
+    background: #404150;
+    color: white;
+    font-size: 14px;
+}
+
+h1, h2, h3 {
+    color: white;
+    margin: 0.2em 0.5em;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 18px;
+}
+
+.fix {
+    position: fixed;
+    width: 100%;
+    margin: -1em 0px 0px -1em;
+}
+.fix .button {
+    margin: 10px;
+    width: 70px;
+}
+.distance {
+    display: block;
+    padding-top: 80px;
+}
+.shadow {
+    box-shadow: 0px 3px 4px #222;
+    border-bottom: solid 1px #404150;
+}
+.button.submit-btn,
+a.button.submit-btn,
+a.button.submit-btn:link,
+a.button.submit-btn:active,
+a.button.submit-btn:visited {
+    background: #157A54;
+}
+
+.box-dark {
+    background: #262633;
+    box-sizing: border-box;
+}
+.box-border {
+    border: solid 1px #A4A4B1;
+}
+.margin-top: {
+    margin-top: 1em;
+}
+.padding-address {
+    padding: 0.3em 0.5em 0.3em 2em;
+}
+.padding-bottom {
+    padding-bottom: 1em;
+}
+.padding-2x {
+    padding: 1em;
+}
+
+table {
+    border: solid 1px white;
+}
+tr.header td, th {
+    border: solid 1px white;
+    background: #262633;
+    color: white;
+    padding: 0.5em;
+}
+table tr:nth-of-type(2n) td, td {
+    background: #32323F;
+    border: solid 1px white;
+    padding: 0.5em;
+}
+table tr:nth-of-type(2n) td {
+    background: #383846;
+}
+
+.no-break-page {
+    break-inside: avoid;
+}

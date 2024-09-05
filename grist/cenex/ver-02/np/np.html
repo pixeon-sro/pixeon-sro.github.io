@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8">
+    <title>Tlačový výstup</title>
+
+    <link rel="stylesheet" href="responsee/css/components.css">
+    <link rel="stylesheet" href="responsee/css/icons.css">
+    <link rel="stylesheet" href="responsee/css/responsee.css">
+    <link rel="stylesheet" href="responsee/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="responsee/owl-carousel/owl.theme.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="responsee/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="responsee/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="responsee/js/modernizr.js"></script>
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/stylePrinter.css" rel="stylesheet" media="print" />
+    <script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+    <script src="np.js"></script>
+  </head>
+
+  <body class="padding">
+    <div class="no-print fix margin-bottom box-dark shadow">
+       <a onclick="window.print()" class="button rounded-btn submit-btn"><i class="icon-sli-printer"></i></a>
+    </div>
+    <div class="no-print distance"></div>
+
+    <div class="grid box-border margin-bottom">
+      <div class="box-dark s-12 m-12 l-12">
+        <h1>Nárezový plán</h1>
+      </div>
+      <div class="s-12 m-12 l-12 padding-2x">
+        <h2><strong><span id="firma-meno"></span></strong></h2>
+      </div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>adresa: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-adresa"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>telefón: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-telefon"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>e-mail: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-mail"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>IČO: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-ico"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>DIČ: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-dic"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>DIČ DPH: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address"><span id="firma-dic-dph"></span></div>
+      <div class="s-2 m-2 l-2 padding-address"><strong>IBAN: </strong></div>
+      <div class="s-10 m-10 l-10 padding-address padding-bottom"><span id="firma-iban"></span></div>
+    </div>
+
+    <div class="grid margin-bottom">
+      <div class="s-12 m-12 l-12">
+        <div id="placeNP"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="responsee/js/responsee.js"></script>
+  </body>
+</html>
