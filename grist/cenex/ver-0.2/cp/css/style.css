@@ -1,11 +1,11 @@
 body {
     background: #404150;
-    color: white;
+    color: #cccccc;
     font-size: 14px;
 }
 
 h1, h2, h3 {
-    color: white;
+    color: #cccccc;
     margin: 0.2em 0.5em;
 }
 h1 {
@@ -48,7 +48,7 @@ a.button.submit-btn:visited {
     box-sizing: border-box;
 }
 .box-border {
-    border: solid 1px #A4A4B1;
+    border: solid 1px #888888;
 }
 .margin-top: {
     margin-top: 1em;
@@ -64,17 +64,16 @@ a.button.submit-btn:visited {
 }
 
 table {
-    border: solid 1px white;
+    border: solid 1px #888888;
 }
 tr.header td, th {
-    border: solid 1px white;
+    border: solid 1px #888888;
     background: #262633;
-    color: white;
     padding: 0.5em;
 }
 table tr:nth-of-type(2n) td, td {
     background: #32323F;
-    border: solid 1px white;
+    border: solid 1px #888888;
     padding: 0.5em;
 }
 table tr:nth-of-type(2n) td {
