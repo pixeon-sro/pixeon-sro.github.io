@@ -33,6 +33,9 @@
     table tr:nth-of-type(2n) td {
         background: #EFF9FC;
     }
+    .no-break-page {
+        break-inside: avoid-page;
+    }
     .no-print {
         display: none;
     }

@@ -17,6 +17,7 @@ h2 {
 h3 {
     font-size: 18px;
 }
+
 .fix {
     position: fixed;
     width: 100%;
@@ -78,4 +79,8 @@ table tr:nth-of-type(2n) td, td {
 }
 table tr:nth-of-type(2n) td {
     background: #383846;
+}
+
+.no-break-page {
+    break-inside: avoid;
 }
