@@ -14,24 +14,28 @@
         font-size: 17px;
     }
     .box-dark h1 {
-        color: white;
+        color: black;
     }
     .box-border {
         border: solid 1px #222;
+    }
+    .box-dark {
+        background: #999;
     }
     table {
         border: solid 1px black;
     }
     tr.header td, th {
         border: solid 1px black;
+        background: #bbb;
     }
     table tr:nth-of-type(2n) td, td {
-        background: #D9E7ED;
+        background: #deffea;
         border: solid 1px black;
         padding: 0.5em;
     }
     table tr:nth-of-type(2n) td {
-        background: #EFF9FC;
+        background: #eaffea;
     }
     .no-break-page {
         break-inside: avoid-page;
