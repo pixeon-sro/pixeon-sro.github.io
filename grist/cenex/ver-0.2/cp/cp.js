@@ -70,13 +70,13 @@ function round(num, decimal = 0) {
  **/
 function _isEmpty(value) {
   if (typeof value === "array") {
-    if (value.legth === 0) {
+    if (value.length === 0) {
       return true;
     } else {
       return false;
     }
   } else if (typeof value === "object") {
-    if (value.legth === 0) {
+    if (value.id.length === 0) {
       return true;
     } else {
       return false;
@@ -140,7 +140,7 @@ allPromises = [
 ];
 
 Promise.allSettled(allPromises).then(function (data) {
-  console.log(data)
+  //console.log(data)
   
   // tlač hlavičky CP
   const cp = data[0].value[0];
@@ -178,11 +178,17 @@ Promise.allSettled(allPromises).then(function (data) {
       entry.push(material.Referencie[idObj][1].Etapa[1].Etapa)
       entry.push(material.Referencie[idObj][1].Material[1].Nazov)
       entry.push(material.Referencie[idObj][1].Jednotka)
-      entry.push(round(material.Referencie[idObj][1].Jednotkova_cena,2)+" €")
+      entry.push(round(material.Referencie[idObj][1].Jednotkova_cena, 2) + " €")
       entry.push(material.Referencie[idObj][1].Mnozstvo)
-      entry.push(round(material.Referencie[idObj][1].Celkova_cena,2)+" €")
+      entry.push(round(material.Referencie[idObj][1].Celkova_cena, 2) + " €")
       createEntry("material_table", entry)
     }
+  }
+  else {
+    const place = document.getElementById("material")
+    const text = document.createElement("h3")
+    place.appendChild(text)
+    text.innerText = "Ponuka vypracovaná bez položiek MATERIÁLU"
   }
 
   // tlač Práca
@@ -205,6 +211,12 @@ Promise.allSettled(allPromises).then(function (data) {
       createEntry("praca_table", entry)
     }
   }
+  else {
+    const place = document.getElementById("praca")
+    const text = document.createElement("h3")
+    place.appendChild(text)
+    text.innerText = "Ponuka vypracovaná bez položiek PRÁCE"
+  }
   
   // tlač Pridružené náklady
   const naklady = data[3].value;
@@ -226,10 +238,16 @@ Promise.allSettled(allPromises).then(function (data) {
       createEntry("naklady_table", entry)
     }
   }
+  else {
+    const place = document.getElementById("naklady")
+    const text = document.createElement("h3")
+    place.appendChild(text)
+    text.innerText = "Ponuka vypracovaná bez položiek PRIDRUŽENÝCH NÁKLADOV"
+  }
   
-  // tlač Pridružené náklady
+  // tlač Celková ceny
   const cena = data[4].value;
-  console.log(cena)
+  //console.log(cena)
   if (!_isEmpty(cena)) {
     const column = ["položka", "materiál", "práca", "pridružené\nnáklady", "celková\ncena"]
     createTable("cena", column)
