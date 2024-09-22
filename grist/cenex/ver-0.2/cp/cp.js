@@ -178,7 +178,7 @@ Promise.allSettled(allPromises).then(function (data) {
       entry.push(material.Referencie[idObj][1].Etapa[1].Etapa)
       entry.push(material.Referencie[idObj][1].Material[1].Nazov)
       entry.push(material.Referencie[idObj][1].Jednotka)
-      entry.push(round(material.Referencie[idObj][1].Jednotkova_cena, 2) + " €")
+      entry.push(round(material.Referencie[idObj][1].Cena, 2) + " €")
       entry.push(material.Referencie[idObj][1].Mnozstvo)
       entry.push(round(material.Referencie[idObj][1].Celkova_cena, 2) + " €")
       createEntry("material_table", entry)
