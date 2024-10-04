@@ -84,6 +84,6 @@ table tr:nth-of-type(2n) td {
     background: #383846;
 }
 
-.no-break-page {
+.no-break-pageX {
     break-inside: avoid;
 }
