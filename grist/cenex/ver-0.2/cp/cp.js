@@ -123,7 +123,7 @@ function createTable(id, caption, column) {
 * @param {array} column - pole s hodnotamy stĺpcov záznamu
 **/
 function createEntry(id, column) {
-  const table = document.getElementById(id)
+  const table = document.getElementById(id).getElementsByTagName('tbody')[0]
   row = table.insertRow(-1)
   column.forEach(function td(value) {
     tdCell = row.insertCell(-1)
