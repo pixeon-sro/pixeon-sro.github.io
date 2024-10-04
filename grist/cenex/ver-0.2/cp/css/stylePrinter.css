@@ -37,7 +37,7 @@
     table tr:nth-of-type(2n) td {
         background: #eaffea;
     }
-    .no-break-pageX {
+    .no-break-page {
         break-inside: avoid;
     }
     .no-print {

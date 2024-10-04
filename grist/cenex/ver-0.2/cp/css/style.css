@@ -43,9 +43,13 @@ a.button.submit-btn:visited {
     background: #157A54;
 }
 
-.box-dark {
+.box-dark, .caption-dark {
     background: #262633;
     box-sizing: border-box;
+}
+.caption-dark {
+    padding: 0.5em 1em;
+    text-align: left;
 }
 .box-border {
     border: solid 1px #888888;
