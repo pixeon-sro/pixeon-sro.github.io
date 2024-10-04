@@ -99,10 +99,11 @@ function _isEmpty(value) {
 * @param {string} id - oznacuje id objektu, do ktorého sa tabuľka vloží
 * @param {array} column - pole s označením stĺpcov v tabuľke
 **/
-function createTable(id, column) { 
+function createTable(id, captio, column) { 
   const place = document.getElementById(id)
   const table = document.createElement("table")
   table.setAttribute("id", id + "_table")
+  table.createCaption(caption)
   place.appendChild(table)
   const header = table.createTHead()
   const row = header.insertRow()
@@ -169,7 +170,9 @@ Promise.allSettled(allPromises).then(function (data) {
   //console.log(material)
   if (!_isEmpty(material)) {
     const column = ["etapa", "materiál", "jednotka", "jednotková\ncena", "množstvo", "celková\ncena"]
-    createTable("material", column)
+    const caption = "Výkaz Materiálu"
+    createTable("material", caption, column)
+    
     
     const sumObj = material.id.length
     for (let i = 0; i < sumObj; i++) {
@@ -181,7 +184,7 @@ Promise.allSettled(allPromises).then(function (data) {
       entry.push(round(material.Referencie[idObj][1].Cena, 2) + " €")
       entry.push(material.Referencie[idObj][1].Mnozstvo)
       entry.push(round(material.Referencie[idObj][1].Celkova_cena, 2) + " €")
-      createEntry("material_table", entry)
+      createEntry("material_table", entry)      
     }
   }
   else {
