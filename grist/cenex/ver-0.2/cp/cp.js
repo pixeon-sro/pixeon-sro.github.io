@@ -99,12 +99,13 @@ function _isEmpty(value) {
 * @param {string} id - oznacuje id objektu, do ktorého sa tabuľka vloží
 * @param {array} column - pole s označením stĺpcov v tabuľke
 **/
-function createTable(id, captio, column) { 
+function createTable(id, caption, column) { 
   const place = document.getElementById(id)
   const table = document.createElement("table")
   table.setAttribute("id", id + "_table")
-  table.createCaption(caption)
   place.appendChild(table)
+  const tabCaption = table.createCaption()
+  tabCaption.innerHTML = "<div class=\"caption-dark\"><H1>" + caption + "</h1></div>";
   const header = table.createTHead()
   const row = header.insertRow()
   column.forEach(function th(value) {
@@ -170,9 +171,8 @@ Promise.allSettled(allPromises).then(function (data) {
   //console.log(material)
   if (!_isEmpty(material)) {
     const column = ["etapa", "materiál", "jednotka", "jednotková\ncena", "množstvo", "celková\ncena"]
-    const caption = "Výkaz Materiálu"
+    const caption = "Výkaz Materiál"
     createTable("material", caption, column)
-    
     
     const sumObj = material.id.length
     for (let i = 0; i < sumObj; i++) {
@@ -184,7 +184,7 @@ Promise.allSettled(allPromises).then(function (data) {
       entry.push(round(material.Referencie[idObj][1].Cena, 2) + " €")
       entry.push(material.Referencie[idObj][1].Mnozstvo)
       entry.push(round(material.Referencie[idObj][1].Celkova_cena, 2) + " €")
-      createEntry("material_table", entry)      
+      createEntry("material_table", entry)
     }
   }
   else {
@@ -199,7 +199,8 @@ Promise.allSettled(allPromises).then(function (data) {
   //console.log(praca)
   if (!_isEmpty(praca)) {
     const column = ["etapa", "práca", "jednotka", "jednotková\ncena", "množstvo", "celková\ncena"]
-    createTable("praca", column)
+    const caption = "Výkaz Práce"
+    createTable("praca", caption, column)
     
     const sumObj = praca.id.length
     for (let i = 0; i < sumObj; i++) {
@@ -226,7 +227,8 @@ Promise.allSettled(allPromises).then(function (data) {
   //console.log(naklady)
   if (!_isEmpty(naklady)) {
     const column = ["etapa", "pridružené\nnáklady", "jednotka", "jednotková\ncena", "množstvo", "celková\ncena"]
-    createTable("naklady", column)
+    const caption = "Výkaz Pridružených nákladov"
+    createTable("naklady", caption, column)
     
     const sumObj = naklady.id.length
     for (let i = 0; i < sumObj; i++) {
@@ -253,7 +255,8 @@ Promise.allSettled(allPromises).then(function (data) {
   //console.log(cena)
   if (!_isEmpty(cena)) {
     const column = ["položka", "materiál", "práca", "pridružené\nnáklady", "celková\ncena"]
-    createTable("cena", column)
+    const caption = "Celková Cena"
+    createTable("cena", caption, column)
     
     const sumObj = cena.id.length
     for (let i = 0; i < sumObj; i++) {
