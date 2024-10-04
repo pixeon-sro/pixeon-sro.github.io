@@ -69,6 +69,7 @@ a.button.submit-btn:visited {
 
 table {
     border: solid 1px #888888;
+    break-inside: avoid;
 }
 tr.header td, th {
     border: solid 1px #888888;
@@ -82,8 +83,4 @@ table tr:nth-of-type(2n) td, td {
 }
 table tr:nth-of-type(2n) td {
     background: #383846;
-}
-
-.no-break-pageX {
-    break-inside: avoid;
 }

@@ -113,6 +113,7 @@ function createTable(id, caption, column) {
     thCell.innerText = value
     row.appendChild(thCell)
   })
+  table.createTBody()
 }
 
 /**

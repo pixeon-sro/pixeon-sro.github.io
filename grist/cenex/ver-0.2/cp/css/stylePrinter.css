@@ -25,6 +25,9 @@
     table {
         border: solid 1px black;
     }
+    table caption {
+        display: table-header-group;
+    }
     tr.header td, th {
         border: solid 1px black;
         background: #bbb;
@@ -36,9 +39,6 @@
     }
     table tr:nth-of-type(2n) td {
         background: #eaffea;
-    }
-    .no-break-pageX {
-        break-inside: avoid;
     }
     .no-print {
         display: none;
