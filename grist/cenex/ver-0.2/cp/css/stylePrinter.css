@@ -25,9 +25,7 @@
     table {
         border: solid 1px black;
     }
-    table caption {
-        display: table-header-group;
-    }
+    
     tr.header td, th {
         border: solid 1px black;
         background: #bbb;
