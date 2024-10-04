@@ -105,7 +105,7 @@ function createTable(id, caption, column) {
   table.setAttribute("id", id + "_table")
   place.appendChild(table)
   const tabCaption = table.createCaption()
-  tabCaption.innerHTML = "<div class=\"caption-dark\"><H1>" + caption + "</h1></div>";
+  tabCaption.innerHTML = "<H1>" + caption + "</h1>";
   const header = table.createTHead()
   const row = header.insertRow()
   column.forEach(function th(value) {

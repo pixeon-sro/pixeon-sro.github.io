@@ -13,10 +13,10 @@
     h2 {
         font-size: 17px;
     }
-    .box-dark, .caption-dark {
+    .box-dark, caption {
         background: #999;
     }
-    .box-dark h1, .caption-dark h1 {
+    .box-dark h1, caption h1 {
         color: black;
     }
     .box-border {
