@@ -1,0 +1,88 @@
+/**
+* zalozenie react.js projektu vo vite
+*
+* pripravne kroky:
+*   - node.js
+*   - react developer tools (extension do chromu)
+*   - npm install -g vite      # -g znamena globalna instalacia
+*/
+
+/**
+* TERMINAL: vytvorenie projektu ucebnica-01
+*/
+npm create vite@latest ucebnica-01 -- --template react
+
+/**
+* TERMINAL: prejst do adresaru s projektom
+*/
+cd ucebnica-01
+
+/**
+* TERMINAL: spustenie projektu ucebnica-1
+*/
+vite serve
+
+/**
+* hlavne subory aplikacie
+*   - index.html    # hlavny subor nacitany prehlidacom
+*   - main.jsx      # mostik aplikacie, ktory je nacitany cez index.html
+*                   # a ktory spusta App.jsx, ako aj dalsie komponenty
+*   - App.jsx       # hlavny subor aplikacie
+*
+* dolezite pravidla pre vytvaranie komponent reactu
+*   - komponenta Reactu je funkcia
+*   - komponenta ma rovnaky nazov ako subor
+*   - komponenta musi obsahovat return()
+*   - return musi nieco obsahpvat
+*   - return vracia iba jeden jsx tag
+*   - na konci suboru musi bit export
+*/
+
+/**
+* NEPOVINNE: instalacia TailWindCSS so zavislostami
+*/
+npm install tailwindcss @tailwindcss/vite
+
+/**
+* EDITOR: pridat tailwind do vite.config.js
+*/
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});
+
+/**
+* EDITOR: do index.css pridat import tailwind
+*/
+@import "tailwindcss";
+
+/**
+* NEPOVINNE: inastalacia ikoniek do reaktu
+*   - icony su na: https://react-icons.github.io
+*/
+qs --save
+
+/**
+* NEPOVINNE: inastalacia React-router
+*   - routovacia kniznica pre react
+*/
+npm install react-router
+
+/**
+* main.jsx upravit do podoby
+*/
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router";
+import App from "./App";
+
+const root = document.getElementById("root");
+
+ReactDOM.createRoot(root).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+);
