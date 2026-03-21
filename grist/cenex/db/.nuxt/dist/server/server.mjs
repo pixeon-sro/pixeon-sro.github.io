@@ -1,0 +1,1 @@
+export { default } from "file:///home/holinec/Projects/github/pixeon-sro.github.io/grist/cenex/db/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
