@@ -97,6 +97,9 @@
       ],
       "#unhead/composables": [
         "../node_modules/nuxt/dist/head/runtime/composables"
+      ],
+      "#tailwind-config": [
+        "./tailwind/expose"
       ]
     },
     "lib": [
@@ -117,6 +120,7 @@
   ],
   "exclude": [
     "../node_modules",
+    "../../../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/tailwindcss/node_modules",
     "../node_modules/@nuxt/devtools/node_modules",

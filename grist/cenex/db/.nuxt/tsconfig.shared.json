@@ -100,8 +100,11 @@
       "#imports": [
         "./imports"
       ],
+      "#tailwind-config": [
+        "./tailwind/expose"
+      ],
       "#app-manifest": [
-        "./manifest/meta/00fecade-7675-4851-bf04-2b1d3a36ab62"
+        "./manifest/meta/dev.json"
       ],
       "#build": [
         "."
